@@ -1,0 +1,28 @@
+{
+  "id": "com.nibe.myuplink",
+  "version": "1.0.0",
+  "compatibility": ">=12.2.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Nibe MyUplink"
+  },
+  "description": {
+    "en": "Adds support for Nibe Heatpumps"
+  },
+  "category": [
+    "appliances"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Andreas Borgh",
+    "email": "andreas.borgh@icloud.com"
+  }
+}

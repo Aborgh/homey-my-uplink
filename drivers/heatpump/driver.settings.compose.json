@@ -1,0 +1,91 @@
+[
+  {
+    "id": "firmware",
+    "type": "label",
+    "label": {
+      "en": "Firmware",
+      "sv": "Programvara"
+    },
+    "value": ""
+  },
+  {
+    "id": "serialNumber",
+    "type": "label",
+    "label": {
+      "en": "Serial number",
+      "sv": "Serienummer"
+    },
+    "value": ""
+  },
+  {
+    "id": "powerFactor",
+    "type": "number",
+    "label": {
+      "en": "Power factor",
+      "sv": "Effektfaktor"
+    },
+    "value": 0.95,
+    "min": 0,
+    "max": 1,
+    "highlight": true
+  },
+  {
+    "id": "voltage",
+    "type": "number",
+    "label": "Volt",
+    "value": 400,
+    "min": 230,
+    "max": 400,
+    "highlight": true
+  },
+  {
+    "id": "fetchIntervall",
+    "type": "number",
+    "label": {
+      "en": "Interval in minutes to fetch data",
+      "sv": "Intervall i minuter för hämtning av data"
+    },
+    "min": 5,
+    "value": 5
+  },
+  {
+    "id": "operational_mode",
+    "type": "dropdown",
+    "value": "auto",
+    "label": {
+      "en": "Operational mode",
+      "sv": "Driftläge"
+    },
+    "values": [
+      {
+        "id": "0",
+        "label": {
+          "en": "Automatic",
+          "sv": "Automatiskt"
+        }
+      },
+      {
+        "id": "1",
+        "label": {
+          "en": "Electric addition & compressor",
+          "sv": "El-tillsats & kompressor"
+        }
+      },
+      {
+        "id": "2",
+        "label": {
+          "en": "Heat & compressor",
+          "sv": "Värme & kompressor"
+        }
+      },
+      {
+        "id": "3",
+        "label": {
+          "en": "Heat only",
+          "sv": "Endast värme"
+        }
+      }
+
+    ]
+  }
+]

@@ -1,0 +1,333 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.nibe.myuplink",
+  "version": "1.0.0",
+  "compatibility": ">=12.2.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "name": {
+    "en": "Nibe MyUplink"
+  },
+  "description": {
+    "en": "Adds support for Nibe Heatpumps"
+  },
+  "category": [
+    "appliances"
+  ],
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "Andreas Borgh",
+    "email": "andreas.borgh@icloud.com"
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Nibe heatpump",
+        "sv": "Nibe värmepump"
+      },
+      "class": "heatpump",
+      "capabilities": [
+        "target_temperature.room",
+        "measure_temperature.room",
+        "measure_temperature.heating_supply",
+        "measure_temperature.return_line",
+        "measure_temperature.outdoor",
+        "measure_temperature.hot_water_charging",
+        "measure_temperature.hot_water_top",
+        "measure_temperature.condenser",
+        "measure_temperature.exhaust_air",
+        "measure_temperature.extract_air",
+        "measure_temperature.suction_gas",
+        "measure_fan_speed.exhaust_air",
+        "measure_frequency.compressor",
+        "measure_degree_minutes",
+        "measure_current.one",
+        "measure_current.two",
+        "measure_current.three",
+        "state_button.temp_lux",
+        "state_button.ventilation_boost",
+        "measure_power"
+      ],
+      "capabilitiesOptions": {
+        "state_button.temp_lux": {
+          "title": {
+            "en": "Temporary luxury",
+            "sv": "Tillfällig lyx"
+          }
+        },
+        "state_button.ventilation_boost": {
+          "title": {
+            "en": "Ventilation boost",
+            "sv": "Ventilationsökning"
+          }
+        },
+        "measure_temperature.suction_gas": {
+          "title": {
+            "en": "Suction gas",
+            "sv": "Sug-gas"
+          }
+        },
+        "measure_temperature.return_line": {
+          "title": {
+            "en": "Return line",
+            "sv": "Returledning"
+          }
+        },
+        "measure_temperature.hot_water_top": {
+          "title": {
+            "en": "Hot water top",
+            "sv": "Varmvatten top"
+          }
+        },
+        "measure_temperature.hot_water_charging": {
+          "title": {
+            "en": "Hot water charge",
+            "sv": "Varmvatten laddning"
+          }
+        },
+        "measure_temperature.heating_supply": {
+          "title": {
+            "en": "Heating medium supply",
+            "sv": "Värmemediumtillförsel"
+          }
+        },
+        "measure_temperature.exhaust_air": {
+          "title": {
+            "en": "Exhaust air",
+            "sv": "Frånluft"
+          }
+        },
+        "measure_temperature.extract_air": {
+          "title": {
+            "en": "Extract air",
+            "sv": "Avluft"
+          }
+        },
+        "measure_frequency.compressor": {
+          "title": {
+            "en": "Compressor frequency",
+            "sv": "Kompressorfrekvens"
+          }
+        },
+        "measure_temperature.outdoor": {
+          "title": {
+            "en": "Outside",
+            "sv": "Utomhus"
+          }
+        },
+        "target_temperature.room": {
+          "title": {
+            "en": "Target temperature",
+            "sv": "Måltemperatur"
+          }
+        },
+        "measure_temperature.room": {
+          "title": {
+            "en": "Room temperature",
+            "sv": "Rumstemperatur"
+          }
+        },
+        "measure_temperature.condenser": {
+          "title": {
+            "en": "Condenser",
+            "sv": "Kondensortemperatur"
+          }
+        },
+        "measure_current.one": {
+          "title": {
+            "en": "Current Phase 1",
+            "sv": "Ström Fas 1"
+          }
+        },
+        "measure_current.two": {
+          "title": {
+            "en": "Current Phase 2",
+            "sv": "Ström Fas 2"
+          }
+        },
+        "measure_current.three": {
+          "title": {
+            "en": "Current Phase 3",
+            "sv": "Ström Fas 3"
+          }
+        },
+        "measure_power": {
+          "approximated": true
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "pair": [
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        }
+      ],
+      "images": {
+        "small": "/drivers/heatpump/assets/images/small.png",
+        "large": "/drivers/heatpump/assets/images/large.png",
+        "xlarge": "/drivers/heatpump/assets/images/xlarge.png"
+      },
+      "id": "heatpump",
+      "settings": [
+        {
+          "id": "firmware",
+          "type": "label",
+          "label": {
+            "en": "Firmware",
+            "sv": "Programvara"
+          },
+          "value": ""
+        },
+        {
+          "id": "serialNumber",
+          "type": "label",
+          "label": {
+            "en": "Serial number",
+            "sv": "Serienummer"
+          },
+          "value": ""
+        },
+        {
+          "id": "powerFactor",
+          "type": "number",
+          "label": {
+            "en": "Power factor",
+            "sv": "Effektfaktor"
+          },
+          "value": 0.95,
+          "min": 0,
+          "max": 1,
+          "highlight": true
+        },
+        {
+          "id": "voltage",
+          "type": "number",
+          "label": "Volt",
+          "value": 400,
+          "min": 230,
+          "max": 400,
+          "highlight": true
+        },
+        {
+          "id": "fetchIntervall",
+          "type": "number",
+          "label": {
+            "en": "Interval in minutes to fetch data",
+            "sv": "Intervall i minuter för hämtning av data"
+          },
+          "min": 5,
+          "value": 5
+        },
+        {
+          "id": "operational_mode",
+          "type": "dropdown",
+          "value": "auto",
+          "label": {
+            "en": "Operational mode",
+            "sv": "Driftläge"
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Automatic",
+                "sv": "Automatiskt"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Electric addition & compressor",
+                "sv": "El-tillsats & kompressor"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Heat & compressor",
+                "sv": "Värme & kompressor"
+              }
+            },
+            {
+              "id": "3",
+              "label": {
+                "en": "Heat only",
+                "sv": "Endast värme"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "measure_degree_minutes": {
+      "type": "number",
+      "title": {
+        "en": "Degree minutes",
+        "sv": "Gradminuter"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "units": "DM",
+      "icon": "/assets/degree_minutes.svg",
+      "desc": {
+        "en": "Latest value of degree minutes",
+        "sv": "Senaste avlästa värdet av gradminuter"
+      },
+      "insights": true
+    },
+    "measure_fan_speed": {
+      "type": "number",
+      "title": {
+        "en": "Fan speed",
+        "sv": "Fläkthastiget"
+      },
+      "uiComponent": "sensor",
+      "getable": true,
+      "desc": {
+        "en": "Current fan speed",
+        "sv": "Nuvarande fläkthastiget"
+      },
+      "units": "%",
+      "icon": "/assets/fan_speed.svg"
+    },
+    "state_button": {
+      "type": "boolean",
+      "title": "State button",
+      "getable": true,
+      "setable": true,
+      "uiComponent": "toggle",
+      "uiQuickAction": false
+    }
+  }
+}

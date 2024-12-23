@@ -1,0 +1,15 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Fan speed",
+    "sv": "Fläkthastiget"
+  },
+  "uiComponent": "sensor",
+  "getable": true,
+  "desc": {
+    "en": "Current fan speed",
+    "sv": "Nuvarande fläkthastiget"
+  },
+  "units": "%",
+  "icon": "/assets/fan_speed.svg"
+}

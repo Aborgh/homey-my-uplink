@@ -1,0 +1,16 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Degree minutes",
+    "sv": "Gradminuter"
+  },
+  "uiComponent": "sensor",
+  "getable": true,
+  "units": "DM",
+  "icon": "/assets/degree_minutes.svg",
+  "desc": {
+    "en": "Latest value of degree minutes",
+    "sv": "Senaste avlästa värdet av gradminuter"
+  },
+  "insights": true
+}
