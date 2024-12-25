@@ -1,3 +1,6 @@
 /env.json
 /node_modules/
 /.homeybuild/
+.idea
+.vscode
+vscode

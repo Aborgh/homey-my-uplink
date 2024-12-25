@@ -42,7 +42,7 @@
     "measure_temperature.suction_gas": {
       "title": {
         "en": "Suction gas",
-        "sv": "Sug-gas"
+        "sv": "Suggas"
       }
     },
     "measure_temperature.return_line": {
@@ -108,7 +108,7 @@
     "measure_temperature.condenser": {
       "title": {
         "en": "Condenser",
-        "sv": "Kondensortemperatur"
+        "sv": "Kondensor"
       }
     },
     "measure_current.one": {

@@ -10,7 +10,8 @@
     "en": "Nibe MyUplink"
   },
   "description": {
-    "en": "Adds support for Nibe Heatpumps"
+    "en": "Control your heatpump with Homey",
+    "sv": "Styr din värmepump med Homey"
   },
   "category": [
     "appliances"
@@ -23,6 +24,7 @@
   },
   "author": {
     "name": "Andreas Borgh",
-    "email": "andreas.borgh@icloud.com"
-  }
+    "email": "borgh.andreas@gmail.com"
+  },
+  "brandColor": "#A81525"
 }
