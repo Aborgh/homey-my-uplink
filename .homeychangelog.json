@@ -1,5 +1,8 @@
 {
   "1.0.0": {
     "en": "Init"
+  },
+  "1.0.1": {
+    "en": "Added danish and norweigen translation"
   }
 }
