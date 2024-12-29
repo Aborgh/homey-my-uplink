@@ -1,7 +1,9 @@
 {
   "name": {
     "en": "Nibe heatpump",
-    "sv": "Nibe värmepump"
+    "sv": "Nibe värmepump",
+    "da": "Nibe varmepumpe",
+    "no": "Nibe varmepumpe"
   },
   "class": "heatpump",
   "capabilities": [
@@ -30,103 +32,137 @@
     "state_button.temp_lux": {
       "title": {
         "en": "Temporary luxury",
-        "sv": "Tillfällig lyx"
+        "sv": "Tillfällig lyx",
+        "da": "Midlertidig luksus",
+        "no": "Midlertidig luksus"
       }
     },
     "state_button.ventilation_boost": {
       "title": {
         "en": "Ventilation boost",
-        "sv": "Ventilationsökning"
+        "sv": "Ventilationsökning",
+        "da": "Ventilationsforøgelse",
+        "no": "Ventilasjonsøkning"
       }
     },
     "measure_temperature.suction_gas": {
       "title": {
         "en": "Suction gas",
-        "sv": "Suggas"
+        "sv": "Suggas",
+        "da": "Sugergas",
+        "no": "Sugegass"
       }
     },
     "measure_temperature.return_line": {
       "title": {
         "en": "Return line",
-        "sv": "Returledning"
+        "sv": "Returledning",
+        "da": "Returledning",
+        "no": "Returledning"
       }
     },
     "measure_temperature.hot_water_top": {
       "title": {
         "en": "Hot water top",
-        "sv": "Varmvatten top"
+        "sv": "Varmvatten top",
+        "da": "Varmtvand top",
+        "no": "Varmtvann topp"
       }
     },
     "measure_temperature.hot_water_charging": {
       "title": {
         "en": "Hot water charge",
-        "sv": "Varmvatten laddning"
+        "sv": "Varmvatten laddning",
+        "da": "Varmtvandsopladning",
+        "no": "Varmtvannslading"
       }
     },
     "measure_temperature.heating_supply": {
       "title": {
         "en": "Heating medium supply",
-        "sv": "Värmemediumtillförsel"
+        "sv": "Värmemediumtillförsel",
+        "da": "Varmeforsyning",
+        "no": "Varmeforsyning"
       }
     },
     "measure_temperature.exhaust_air": {
       "title": {
         "en": "Exhaust air",
-        "sv": "Frånluft"
+        "sv": "Frånluft",
+        "da": "Fraluft",
+        "no": "Fraluft"
       }
     },
     "measure_temperature.extract_air": {
       "title": {
         "en": "Extract air",
-        "sv": "Avluft"
+        "sv": "Avluft",
+        "da": "Udsugningsluft",
+        "no": "Utsugingsluft"
       }
     },
     "measure_frequency.compressor": {
       "title": {
         "en": "Compressor frequency",
-        "sv": "Kompressorfrekvens"
+        "sv": "Kompressorfrekvens",
+        "da": "Kompressorfrekvens",
+        "no": "Kompressorfrekvens"
       }
     },
     "measure_temperature.outdoor": {
       "title": {
         "en": "Outside",
-        "sv": "Utomhus"
+        "sv": "Utomhus",
+        "da": "Udendørs",
+        "no": "Utendørs"
       }
     },
     "target_temperature.room": {
       "title": {
         "en": "Target temperature",
-        "sv": "Måltemperatur"
+        "sv": "Måltemperatur",
+        "da": "Måltemperatur",
+        "no": "Måltemperatur"
       }
     },
     "measure_temperature.room": {
       "title": {
         "en": "Room temperature",
-        "sv": "Rumstemperatur"
+        "sv": "Rumstemperatur",
+        "da": "Rumtemperatur",
+        "no": "Romtemperatur"
       }
     },
     "measure_temperature.condenser": {
       "title": {
         "en": "Condenser",
-        "sv": "Kondensor"
+        "sv": "Kondensor",
+        "da": "Kondensator",
+        "no": "Kondensator"
       }
     },
     "measure_current.one": {
       "title": {
         "en": "Current Phase 1",
-        "sv": "Ström Fas 1"
+        "sv": "Ström Fas 1",
+        "da": "Strøm Fase 1",
+        "no": "Strøm Fase 1"
       }
     },
     "measure_current.two": {
       "title": {
         "en": "Current Phase 2",
-        "sv": "Ström Fas 2"
+        "sv": "Ström Fas 2",
+        "da": "Strøm Fase 2",
+        "no": "Strøm Fase 2"
       }
     },
     "measure_current.three": {
       "title": {
         "en": "Current Phase 3",
-        "sv": "Ström Fas 3"
+        "sv": "Ström Fas 3",
+        "da": "Strøm Fase 3",
+        "no": "Strøm Fase 3"
       }
     },
     "measure_power": {

@@ -5,16 +5,19 @@
   "compatibility": ">=12.2.0",
   "sdk": 3,
   "platforms": [
-    "local",
-    "cloud"
+    "local"
   ],
   "name": {
     "en": "Nibe heatpumps",
-    "sv": "Nibe värmepumpar"
+    "sv": "Nibe värmepumpar",
+    "da": "Nibe varmepumper",
+    "no": "Nibe varmepumper"
   },
   "description": {
     "en": "Control your heatpump with Homey",
-    "sv": "Styr din värmepump med Homey"
+    "sv": "Styr din värmepump med Homey",
+    "da": "Styr din varmepumpe med Homey",
+    "no": "Styr varmepumpen din med Homey"
   },
   "category": [
     "appliances"
@@ -34,7 +37,9 @@
     {
       "name": {
         "en": "Nibe heatpump",
-        "sv": "Nibe värmepump"
+        "sv": "Nibe värmepump",
+        "da": "Nibe varmepumpe",
+        "no": "Nibe varmepumpe"
       },
       "class": "heatpump",
       "capabilities": [
@@ -63,103 +68,137 @@
         "state_button.temp_lux": {
           "title": {
             "en": "Temporary luxury",
-            "sv": "Tillfällig lyx"
+            "sv": "Tillfällig lyx",
+            "da": "Midlertidig luksus",
+            "no": "Midlertidig luksus"
           }
         },
         "state_button.ventilation_boost": {
           "title": {
             "en": "Ventilation boost",
-            "sv": "Ventilationsökning"
+            "sv": "Ventilationsökning",
+            "da": "Ventilationsforøgelse",
+            "no": "Ventilasjonsøkning"
           }
         },
         "measure_temperature.suction_gas": {
           "title": {
             "en": "Suction gas",
-            "sv": "Suggas"
+            "sv": "Suggas",
+            "da": "Sugergas",
+            "no": "Sugegass"
           }
         },
         "measure_temperature.return_line": {
           "title": {
             "en": "Return line",
-            "sv": "Returledning"
+            "sv": "Returledning",
+            "da": "Returledning",
+            "no": "Returledning"
           }
         },
         "measure_temperature.hot_water_top": {
           "title": {
             "en": "Hot water top",
-            "sv": "Varmvatten top"
+            "sv": "Varmvatten top",
+            "da": "Varmtvand top",
+            "no": "Varmtvann topp"
           }
         },
         "measure_temperature.hot_water_charging": {
           "title": {
             "en": "Hot water charge",
-            "sv": "Varmvatten laddning"
+            "sv": "Varmvatten laddning",
+            "da": "Varmtvandsopladning",
+            "no": "Varmtvannslading"
           }
         },
         "measure_temperature.heating_supply": {
           "title": {
             "en": "Heating medium supply",
-            "sv": "Värmemediumtillförsel"
+            "sv": "Värmemediumtillförsel",
+            "da": "Varmeforsyning",
+            "no": "Varmeforsyning"
           }
         },
         "measure_temperature.exhaust_air": {
           "title": {
             "en": "Exhaust air",
-            "sv": "Frånluft"
+            "sv": "Frånluft",
+            "da": "Fraluft",
+            "no": "Fraluft"
           }
         },
         "measure_temperature.extract_air": {
           "title": {
             "en": "Extract air",
-            "sv": "Avluft"
+            "sv": "Avluft",
+            "da": "Udsugningsluft",
+            "no": "Utsugingsluft"
           }
         },
         "measure_frequency.compressor": {
           "title": {
             "en": "Compressor frequency",
-            "sv": "Kompressorfrekvens"
+            "sv": "Kompressorfrekvens",
+            "da": "Kompressorfrekvens",
+            "no": "Kompressorfrekvens"
           }
         },
         "measure_temperature.outdoor": {
           "title": {
             "en": "Outside",
-            "sv": "Utomhus"
+            "sv": "Utomhus",
+            "da": "Udendørs",
+            "no": "Utendørs"
           }
         },
         "target_temperature.room": {
           "title": {
             "en": "Target temperature",
-            "sv": "Måltemperatur"
+            "sv": "Måltemperatur",
+            "da": "Måltemperatur",
+            "no": "Måltemperatur"
           }
         },
         "measure_temperature.room": {
           "title": {
             "en": "Room temperature",
-            "sv": "Rumstemperatur"
+            "sv": "Rumstemperatur",
+            "da": "Rumtemperatur",
+            "no": "Romtemperatur"
           }
         },
         "measure_temperature.condenser": {
           "title": {
             "en": "Condenser",
-            "sv": "Kondensor"
+            "sv": "Kondensor",
+            "da": "Kondensator",
+            "no": "Kondensator"
           }
         },
         "measure_current.one": {
           "title": {
             "en": "Current Phase 1",
-            "sv": "Ström Fas 1"
+            "sv": "Ström Fas 1",
+            "da": "Strøm Fase 1",
+            "no": "Strøm Fase 1"
           }
         },
         "measure_current.two": {
           "title": {
             "en": "Current Phase 2",
-            "sv": "Ström Fas 2"
+            "sv": "Ström Fas 2",
+            "da": "Strøm Fase 2",
+            "no": "Strøm Fase 2"
           }
         },
         "measure_current.three": {
           "title": {
             "en": "Current Phase 3",
-            "sv": "Ström Fas 3"
+            "sv": "Ström Fas 3",
+            "da": "Strøm Fase 3",
+            "no": "Strøm Fase 3"
           }
         },
         "measure_power": {
@@ -207,7 +246,9 @@
           "type": "label",
           "label": {
             "en": "Firmware",
-            "sv": "Programvara"
+            "sv": "Programvara",
+            "da": "Firmware",
+            "no": "Firmware"
           },
           "value": ""
         },
@@ -216,7 +257,9 @@
           "type": "label",
           "label": {
             "en": "Serial number",
-            "sv": "Serienummer"
+            "sv": "Serienummer",
+            "da": "Serienummer",
+            "no": "Serienummer"
           },
           "value": ""
         },
@@ -225,7 +268,9 @@
           "type": "number",
           "label": {
             "en": "Power factor",
-            "sv": "Effektfaktor"
+            "sv": "Effektfaktor",
+            "da": "Effektfaktor",
+            "no": "Effektfaktor"
           },
           "value": 0.95,
           "min": 0,
@@ -235,7 +280,12 @@
         {
           "id": "voltage",
           "type": "number",
-          "label": "Volt",
+          "label": {
+            "en": "Volt",
+            "sv": "Volt",
+            "da": "Volt",
+            "no": "Volt"
+          },
           "value": 400,
           "min": 230,
           "max": 400,
@@ -246,7 +296,9 @@
           "type": "number",
           "label": {
             "en": "Interval in minutes to fetch data",
-            "sv": "Intervall i minuter för hämtning av data"
+            "sv": "Intervall i minuter för hämtning av data",
+            "da": "Interval i minutter for hentning af data",
+            "no": "Intervall i minutter for henting av data"
           },
           "min": 5,
           "value": 5
@@ -257,35 +309,45 @@
           "value": "auto",
           "label": {
             "en": "Operational mode",
-            "sv": "Driftläge"
+            "sv": "Driftläge",
+            "da": "Driftstilstand",
+            "no": "Driftsmodus"
           },
           "values": [
             {
               "id": "0",
               "label": {
                 "en": "Automatic",
-                "sv": "Automatiskt"
+                "sv": "Automatiskt",
+                "da": "Automatisk",
+                "no": "Automatisk"
               }
             },
             {
               "id": "1",
               "label": {
                 "en": "Electric addition & compressor",
-                "sv": "El-tillsats & kompressor"
+                "sv": "El-tillsats & kompressor",
+                "da": "El-tilsætning & kompressor",
+                "no": "Elektrisk tillegg & kompressor"
               }
             },
             {
               "id": "2",
               "label": {
                 "en": "Heat & compressor",
-                "sv": "Värme & kompressor"
+                "sv": "Värme & kompressor",
+                "da": "Varme & kompressor",
+                "no": "Varme & kompressor"
               }
             },
             {
               "id": "3",
               "label": {
                 "en": "Heat only",
-                "sv": "Endast värme"
+                "sv": "Endast värme",
+                "da": "Kun varme",
+                "no": "Kun varme"
               }
             }
           ]
@@ -298,7 +360,9 @@
       "type": "number",
       "title": {
         "en": "Degree minutes",
-        "sv": "Gradminuter"
+        "sv": "Gradminuter",
+        "da": "Gradminutter",
+        "no": "Gradminutter"
       },
       "uiComponent": "sensor",
       "getable": true,
@@ -306,7 +370,9 @@
       "icon": "/assets/degree_minutes.svg",
       "desc": {
         "en": "Latest value of degree minutes",
-        "sv": "Senaste avlästa värdet av gradminuter"
+        "sv": "Senaste avlästa värdet av gradminuter",
+        "da": "Seneste aflæste værdi af gradminutter",
+        "no": "Siste avleste verdi av gradminutter"
       },
       "insights": true
     },
@@ -314,20 +380,29 @@
       "type": "number",
       "title": {
         "en": "Fan speed",
-        "sv": "Fläkthastiget"
+        "sv": "Fläkthastiget",
+        "da": "Blæserhastighed",
+        "no": "Viftehastighet"
       },
       "uiComponent": "sensor",
       "getable": true,
       "desc": {
         "en": "Current fan speed",
-        "sv": "Nuvarande fläkthastiget"
+        "sv": "Nuvarande fläkthastiget",
+        "da": "Nuværende blæserhastighed",
+        "no": "Nåværende viftehastighet"
       },
       "units": "%",
       "icon": "/assets/fan_speed.svg"
     },
     "state_button": {
       "type": "boolean",
-      "title": "State button",
+      "title": {
+        "en": "State button",
+        "sv": "Statusknapp",
+        "da": "Statusknap",
+        "no": "Statusknapp"
+      },
       "getable": true,
       "setable": true,
       "uiComponent": "toggle",

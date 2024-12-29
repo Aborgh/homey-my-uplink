@@ -1,6 +1,11 @@
 {
   "type": "boolean",
-  "title": "State button",
+  "title": {
+    "en": "State button",
+    "sv": "Statusknapp",
+    "da": "Statusknap",
+    "no": "Statusknapp"
+  },
   "getable": true,
   "setable": true,
   "uiComponent": "toggle",

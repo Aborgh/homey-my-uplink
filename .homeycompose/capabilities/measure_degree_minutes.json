@@ -2,7 +2,9 @@
   "type": "number",
   "title": {
     "en": "Degree minutes",
-    "sv": "Gradminuter"
+    "sv": "Gradminuter",
+    "da": "Gradminutter",
+    "no": "Gradminutter"
   },
   "uiComponent": "sensor",
   "getable": true,
@@ -10,7 +12,9 @@
   "icon": "/assets/degree_minutes.svg",
   "desc": {
     "en": "Latest value of degree minutes",
-    "sv": "Senaste avlästa värdet av gradminuter"
+    "sv": "Senaste avlästa värdet av gradminuter",
+    "da": "Seneste aflæste værdi af gradminutter",
+    "no": "Siste avleste verdi av gradminutter"
   },
   "insights": true
 }
