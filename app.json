@@ -14,10 +14,7 @@
     "no": "Nibe varmepumper"
   },
   "description": {
-    "en": "Control your heatpump with Homey",
-    "sv": "Styr din värmepump med Homey",
-    "da": "Styr din varmepumpe med Homey",
-    "no": "Styr varmepumpen din med Homey"
+    "en": "Heat in your own way"
   },
   "category": [
     "appliances"

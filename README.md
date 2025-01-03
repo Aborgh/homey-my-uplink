@@ -1,6 +1,7 @@
 # Nibe MyUplink Homey App ✨
-This Homey app allows you to seamlessly integrate and control your MyUplink-connected heat pump or HVAC system. 
 
-You can view data like:
-temperatures, power consumption, and more, directly within Homey. 
-The app also offers handy capabilities for adjusting operational modes, boosting ventilation, and updating device parameters—ensuring your system is always in sync.
+Take control of your MyUplink-connected heat pump or HVAC system with ease through this Homey app.
+
+Features:
+* Monitor your system: Access data, including temperatures, power consumption, and more.
+* Adjust settings: Seamlessly change operational modes, boost ventilation, or update parameters to optimize performance.
