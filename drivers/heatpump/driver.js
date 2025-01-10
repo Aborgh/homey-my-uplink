@@ -2,7 +2,7 @@
 
 const { OAuth2Driver } = require("homey-oauth2app");
 
-module.exports = class MyDriver extends OAuth2Driver {
+module.exports = class HeatPumpDriver extends OAuth2Driver {
   /**
    * Called when the driver is initialized with OAuth2.
    */

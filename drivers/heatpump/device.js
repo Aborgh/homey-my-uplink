@@ -23,12 +23,14 @@ const {
     HOT_WATER_CHARGING,
     SUCTION_GAS_TEMP,
     HEATING_ADDITION,
-    ELECTRICITY_ADDITION
+    ELECTRICITY_ADDITION,
+    HEATING_CURVE,
+    OFFSET_CLIMATE_SYSTEM_1
 } = require("../../lib/parmeter.enum");
 const nibeParameterMap = require("../../lib/nibeParameter");
 const {buildParameterPayload, interpretOperationalMode} = require("../../lib/operationalModeHelper");
 
-module.exports = class MyDevice extends OAuth2Device {
+module.exports = class HeatPumpDevice extends OAuth2Device {
     id;
     fetchInterval;
     deviceParams = [
@@ -65,14 +67,18 @@ module.exports = class MyDevice extends OAuth2Device {
     async onOAuth2Init() {
         try {
             this.id = this.getData().id;
+            this.log(`Device ${this.id} initialized`);
             this.intervalMin = await this.getSetting("fetchIntervall");
+            this.log(`Fetch interval set to ${this.intervalMin} minutes`);
             await this.fetchAndSetDataPoints(this.deviceParams);
             await this.setSystemSettings();
             await this.updateOperationalModeSetting();
             this.fetchInterval = this.homey.setInterval(async () => {
+                this.log(`Fetching data for device ${this.id}`);
                 await this.fetchAndSetDataPoints(this.deviceParams);
                 await this.calculateAndSetPower();
                 await this.updateOperationalModeSetting();
+                await this.updateSettingsFromHeatPump();
             }, 1000 * 60 * this.intervalMin);
 
             for (const [capability, parameterId] of Object.entries(this.CAPABILITY_PARAMETER_MAP)) {
@@ -105,6 +111,7 @@ module.exports = class MyDevice extends OAuth2Device {
      */
     async fetchAndSetDataPoints(params) {
         try {
+            this.log(`Fetching data points for parameters: ${params.join(', ')}`);
             const dataPoints = await this.getDataPoints(this.id, params);
 
             for (const point of dataPoints) {
@@ -150,7 +157,7 @@ module.exports = class MyDevice extends OAuth2Device {
                 voltage,
                 powerFactor
             );
-
+            this.log(`Calculated power: ${watt} W`);
             await this.setCapabilityValue("measure_power", watt);
         } catch (error) {
             this.error('Error in calculateAndSetPower:', error);
@@ -191,6 +198,7 @@ module.exports = class MyDevice extends OAuth2Device {
 
     async onSettings({oldSettings, newSettings, changedKeys}) {
         try {
+            this.log(`Settings changed: ${changedKeys.join(', ')}`);
             for (const changedKey of changedKeys) {
                 if (changedKey === "power_factor" || changedKey === "voltage") {
                     await this.refreshCurrentMeasurements();
@@ -199,6 +207,15 @@ module.exports = class MyDevice extends OAuth2Device {
                     const modeNumber = Number(newSettings.operational_mode);
                     const payload = buildParameterPayload(modeNumber);
                     await this.oAuth2Client.setParameterValue(this.id, payload);
+                }
+                if (changedKey === "heating_curve") {
+                    const heatingCurve = Number(newSettings.heating_curve);
+                    await this.oAuth2Client.setParameterValue(this.id, { [HEATING_CURVE]: heatingCurve });
+                }
+
+                if (changedKey === "heating_offset_climate_system_1") {
+                    const offset = Number(newSettings.heating_offset_climate_system_1);
+                    await this.oAuth2Client.setParameterValue(this.id, { [OFFSET_CLIMATE_SYSTEM_1]: offset });
                 }
             }
         } catch (error) {
@@ -220,13 +237,42 @@ module.exports = class MyDevice extends OAuth2Device {
                 paramValues[HEATING_ADDITION],
                 paramValues[ELECTRICITY_ADDITION],
             );
-
+            this.log(`Updated operational mode to ${newMode}`);
             const currentSettings = await this.getSettings();
             if (Number(currentSettings.operational_mode) !== newMode) {
                 await this.setSettings({ operational_mode: String(newMode) });
             }
         } catch (error) {
             this.error('Failed to update operational_mode setting:', error);
+        }
+    }
+
+    async updateSettingsFromHeatPump() {
+        try {
+            this.debug("Fetching settings from heatpump");
+            const parameters = await this.oAuth2Client.getDataPoints(this.id, [
+                HEATING_CURVE,
+                OFFSET_CLIMATE_SYSTEM_1,
+            ]);
+
+            const heatingCurveParam = parameters.find(param => param.parameterId === HEATING_CURVE || param.parameterName.toLowerCase() === 'heating curve');
+            const heatingOffsetParam = parameters.find(param => param.parameterId === OFFSET_CLIMATE_SYSTEM_1 || param.parameterName.toLowerCase().includes('heating offset climate system'));
+
+            if (!heatingCurveParam || !heatingOffsetParam) {
+                throw new Error('Could not find required parameters in the response');
+            }
+
+            const heatingCurve = heatingCurveParam.value;
+            const heatingOffset = heatingOffsetParam.value;
+
+            this.log(`Updated settings: Heating curve = ${heatingCurve}, Heating offset = ${heatingOffset}`);
+
+            await this.setSettings({
+                heating_curve: heatingCurve,
+                heating_offset_climate_system_1: heatingOffset,
+            });
+        } catch (error) {
+            this.error('Failed to update settings from heat pump:', error);
         }
     }
 
