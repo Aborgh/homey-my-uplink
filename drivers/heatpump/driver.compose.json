@@ -10,6 +10,7 @@
     "target_temperature.room",
     "measure_temperature.room",
     "measure_temperature.heating_supply",
+    "measure_temperature.calculated_supply_line",
     "measure_temperature.return_line",
     "measure_temperature.outdoor",
     "measure_temperature.hot_water_charging",
@@ -27,7 +28,7 @@
     "measure_current.three",
     "state_button.temp_lux",
     "state_button.ventilation_boost",
-    "meter_power",
+    "measure_power",
     "time.heat_addition"
   ],
   "capabilitiesOptions": {
@@ -191,7 +192,7 @@
         "no": "Strøm Fase 3"
       }
     },
-    "meter_power": {
+    "measure_power": {
       "approximated": true
     }
   },

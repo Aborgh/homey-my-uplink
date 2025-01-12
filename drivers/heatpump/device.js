@@ -25,7 +25,10 @@ const {
     HEATING_ADDITION,
     ELECTRICITY_ADDITION,
     HEATING_CURVE,
-    OFFSET_CLIMATE_SYSTEM_1
+    OFFSET_CLIMATE_SYSTEM_1,
+    SUPPLY_LINE,
+    CALCULATED_SUPPLY_LINE,
+    TIME_HEAT_ADDITION
 } = require("../../lib/parmeter.enum");
 const nibeParameterMap = require("../../lib/nibeParameter");
 const {buildParameterPayload, interpretOperationalMode} = require("../../lib/operationalModeHelper");
@@ -53,6 +56,9 @@ module.exports = class HeatPumpDevice extends OAuth2Device {
         HOT_WATER_TOP,
         HOT_WATER_CHARGING,
         SUCTION_GAS_TEMP,
+        SUPPLY_LINE,
+        CALCULATED_SUPPLY_LINE,
+        TIME_HEAT_ADDITION
     ];
 
     CAPABILITY_PARAMETER_MAP = {
@@ -73,6 +79,7 @@ module.exports = class HeatPumpDevice extends OAuth2Device {
             await this.fetchAndSetDataPoints(this.deviceParams);
             await this.setSystemSettings();
             await this.updateOperationalModeSetting();
+            await this.calculateAndSetPower();
             this.fetchInterval = this.homey.setInterval(async () => {
                 this.log(`Fetching data for device ${this.id}`);
                 await this.fetchAndSetDataPoints(this.deviceParams);
@@ -158,7 +165,7 @@ module.exports = class HeatPumpDevice extends OAuth2Device {
                 powerFactor
             );
             this.log(`Calculated power: ${watt} W`);
-            await this.setCapabilityValue("meter_power", watt);
+            await this.setCapabilityValue("measure_power", watt);
         } catch (error) {
             this.error('Error in calculateAndSetPower:', error);
         }
@@ -249,7 +256,7 @@ module.exports = class HeatPumpDevice extends OAuth2Device {
 
     async updateSettingsFromHeatPump() {
         try {
-            this.debug("Fetching settings from heatpump");
+            this.log("Fetching settings from heatpump");
             const parameters = await this.oAuth2Client.getDataPoints(this.id, [
                 HEATING_CURVE,
                 OFFSET_CLIMATE_SYSTEM_1,
