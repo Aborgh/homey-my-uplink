@@ -1,0 +1,13 @@
+{
+  "title": {
+    "en": "Time factor of heat addition",
+    "sv": "Tidfaktor tillsats",
+    "no": "Tidsfaktor for varmetilsetning",
+    "da": "Tidsfaktor for varmetilsætning"
+  },
+  "uiComponent": "sensor",
+  "setable": false,
+  "icon": "/assets/clock.svg",
+  "units": "sec",
+  "type": "number"
+}

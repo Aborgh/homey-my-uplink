@@ -158,7 +158,7 @@ module.exports = class HeatPumpDevice extends OAuth2Device {
                 powerFactor
             );
             this.log(`Calculated power: ${watt} W`);
-            await this.setCapabilityValue("measure_power", watt);
+            await this.setCapabilityValue("meter_power", watt);
         } catch (error) {
             this.error('Error in calculateAndSetPower:', error);
         }

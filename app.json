@@ -54,6 +54,7 @@
         "measure_temperature.exhaust_air",
         "measure_temperature.extract_air",
         "measure_temperature.suction_gas",
+        "measure_temperature.supply_line",
         "measure_fan_speed.exhaust_air",
         "measure_frequency.compressor",
         "measure_degree_minutes",
@@ -62,9 +63,28 @@
         "measure_current.three",
         "state_button.temp_lux",
         "state_button.ventilation_boost",
-        "measure_power"
+        "meter_power",
+        "time.heat_addition"
       ],
       "capabilitiesOptions": {
+        "time.heat_addition": {
+          "title": {
+            "en": "Time factor of heat addition",
+            "sv": "Tidfaktor tillsats"
+          }
+        },
+        "measure_temperature.supply_line": {
+          "title": {
+            "en": "Supply line",
+            "sv": "Framledning"
+          }
+        },
+        "measure_temperature.calculated_supply_line": {
+          "title": {
+            "en": "Calculated supply line",
+            "sv": "Beräknad framledning"
+          }
+        },
         "state_button.temp_lux": {
           "title": {
             "en": "Temporary luxury",
@@ -201,7 +221,7 @@
             "no": "Strøm Fase 3"
           }
         },
-        "measure_power": {
+        "meter_power": {
           "approximated": true
         }
       },
@@ -435,6 +455,17 @@
       "setable": true,
       "uiComponent": "toggle",
       "uiQuickAction": false
+    },
+    "time": {
+      "title": {
+        "en": "Time factor of heat addition",
+        "sv": "Tidfaktor tillsats"
+      },
+      "uiComponent": "sensor",
+      "setable": false,
+      "icon": "/assets/clock.svg",
+      "units": "sec",
+      "type": "number"
     }
   }
 }
