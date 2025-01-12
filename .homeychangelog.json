@@ -10,5 +10,8 @@
   },
   "1.1.0": {
     "en": "Added heating curve offset to advanced settings and heating offset to advanced settings"
+  },
+  "1.2.0": {
+    "en": "heat addition, calculated supply line and supply line temp"
   }
 }
