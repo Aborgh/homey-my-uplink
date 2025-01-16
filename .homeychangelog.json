@@ -16,5 +16,8 @@
   },
   "1.2.1": {
     "en": "Bug fix for newly added features"
+  },
+  "1.3.0": {
+    "en": "Added icons"
   }
 }
