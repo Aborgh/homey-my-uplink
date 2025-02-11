@@ -353,28 +353,19 @@
             {
               "id": "1",
               "label": {
-                "en": "Electric addition & compressor",
-                "sv": "El-tillsats & kompressor",
-                "da": "El-tilsætning & kompressor",
-                "no": "Elektrisk tillegg & kompressor"
+                "en": "Manual",
+                "sv": "Manuell",
+                "da": "Manuel",
+                "no": "Manuel"
               }
             },
             {
               "id": "2",
               "label": {
-                "en": "Heat & compressor",
-                "sv": "Värme & kompressor",
-                "da": "Varme & kompressor",
-                "no": "Varme & kompressor"
-              }
-            },
-            {
-              "id": "3",
-              "label": {
                 "en": "Heat only",
                 "sv": "Endast värme",
-                "da": "Kun varme",
-                "no": "Kun varme"
+                "da": "Kun opvarmning",
+                "no": "Kun oppvarming"
               }
             }
           ]
