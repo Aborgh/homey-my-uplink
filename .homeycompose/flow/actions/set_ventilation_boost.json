@@ -1,0 +1,26 @@
+{
+  "id": "set_state_button.ventilation_boost",
+  "title": {
+    "en": "Set ventilation boost",
+    "sv": "Ställ in ventilationsökning",
+    "da": "Indstil ventilationsforøgelse",
+    "no": "Still inn ventilasjonsøkning"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=heatpump"
+    },
+    {
+      "name": "state",
+      "type": "boolean",
+      "title": {
+        "en": "State",
+        "sv": "Läge",
+        "da": "Tilstand",
+        "no": "Tilstand"
+      }
+    }
+  ]
+}

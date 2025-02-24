@@ -1,0 +1,16 @@
+{
+  "id": "state_button.ventilation_boost_active",
+  "title": {
+    "en": "Ventilation boost !{{is|isn't}} active",
+    "sv": "Ventilationsökning !{{är|är inte}} aktiv",
+    "da": "Ventilationsforøgelse !{{er|er ikke}} aktiv",
+    "no": "Ventilasjonsøkning !{{er|er ikke}} aktiv"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=heatpump"
+    }
+  ]
+}

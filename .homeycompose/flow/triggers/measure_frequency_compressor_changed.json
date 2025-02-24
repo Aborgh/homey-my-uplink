@@ -1,0 +1,28 @@
+{
+  "id": "measure_frequency.compressor_changed",
+  "title": {
+    "en": "Compressor frequency changed",
+    "sv": "Kompressorfrekvens ändrades",
+    "da": "Kompressorfrekvens ændret",
+    "no": "Kompressorfrekvens endret"
+  },
+  "tokens": [
+    {
+      "name": "measure_frequency.compressor",
+      "type": "number",
+      "title": {
+        "en": "Frequency",
+        "sv": "Frekvens",
+        "da": "Frekvens",
+        "no": "Frekvens"
+      }
+    }
+  ],
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=heatpump"
+    }
+  ]
+}

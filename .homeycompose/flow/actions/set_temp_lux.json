@@ -1,0 +1,26 @@
+{
+  "id": "set_state_button.temp_lux",
+  "title": {
+    "en": "Set temporary luxury",
+    "sv": "Ställ in tillfällig lyx",
+    "da": "Indstil midlertidig luksus",
+    "no": "Still inn midlertidig luksus"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=heatpump"
+    },
+    {
+      "name": "state",
+      "type": "boolean",
+      "title": {
+        "en": "State",
+        "sv": "Läge",
+        "da": "Tilstand",
+        "no": "Tilstand"
+      }
+    }
+  ]
+}
