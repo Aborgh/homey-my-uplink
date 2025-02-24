@@ -5,7 +5,8 @@
   "compatibility": ">=12.2.0",
   "sdk": 3,
   "platforms": [
-    "local"
+    "local",
+    "cloud"
   ],
   "name": {
     "en": "Nibe heatpumps",
@@ -33,6 +34,211 @@
     "email": "borgh.andreas@gmail.com"
   },
   "brandColor": "#A81525",
+  "flow": {
+    "triggers": [
+      {
+        "id": "measure_degree_minutes_changed",
+        "title": {
+          "en": "Degree minutes changed",
+          "sv": "Gradminuter ändrades",
+          "da": "Gradminutter ændret",
+          "no": "Gradminutter endret"
+        },
+        "tokens": [
+          {
+            "name": "measure_degree_minutes",
+            "type": "number",
+            "title": {
+              "en": "Degree Minutes",
+              "sv": "Gradminuter",
+              "da": "Gradminutter",
+              "no": "Gradminutter"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump"
+          }
+        ]
+      },
+      {
+        "id": "measure_frequency.compressor_changed",
+        "title": {
+          "en": "Compressor frequency changed",
+          "sv": "Kompressorfrekvens ändrades",
+          "da": "Kompressorfrekvens ændret",
+          "no": "Kompressorfrekvens endret"
+        },
+        "tokens": [
+          {
+            "name": "measure_frequency.compressor",
+            "type": "number",
+            "title": {
+              "en": "Frequency",
+              "sv": "Frekvens",
+              "da": "Frekvens",
+              "no": "Frekvens"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump"
+          }
+        ]
+      },
+      {
+        "id": "measure_temperature.room_changed",
+        "title": {
+          "en": "Room temperature changed",
+          "sv": "Rumstemperatur ändrades",
+          "da": "Rumtemperatur ændret",
+          "no": "Romtemperatur endret"
+        },
+        "tokens": [
+          {
+            "name": "measure_temperature.room",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "da": "Temperatur",
+              "no": "Temperatur"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump"
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "state_button.temp_lux_active",
+        "title": {
+          "en": "Temporary luxury !{{is|isn't}} active",
+          "sv": "Tillfällig lyx !{{är|är inte}} aktiv",
+          "da": "Midlertidig luksus !{{er|er ikke}} aktiv",
+          "no": "Midlertidig luksus !{{er|er ikke}} aktiv"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump"
+          }
+        ]
+      },
+      {
+        "id": "state_button.ventilation_boost_active",
+        "title": {
+          "en": "Ventilation boost !{{is|isn't}} active",
+          "sv": "Ventilationsökning !{{är|är inte}} aktiv",
+          "da": "Ventilationsforøgelse !{{er|er ikke}} aktiv",
+          "no": "Ventilasjonsøkning !{{er|er ikke}} aktiv"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump"
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "set_target_temperature",
+        "title": {
+          "en": "Set target temperature",
+          "sv": "Ställ in måltemperatur",
+          "da": "Indstil måltemperatur",
+          "no": "Still inn måltemperatur"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump"
+          },
+          {
+            "name": "temperature",
+            "type": "number",
+            "min": 5,
+            "max": 30,
+            "step": 0.5,
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "da": "Temperatur",
+              "no": "Temperatur"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_state_button.temp_lux",
+        "title": {
+          "en": "Set temporary luxury",
+          "sv": "Ställ in tillfällig lyx",
+          "da": "Indstil midlertidig luksus",
+          "no": "Still inn midlertidig luksus"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump"
+          },
+          {
+            "name": "state",
+            "type": "boolean",
+            "title": {
+              "en": "State",
+              "sv": "Läge",
+              "da": "Tilstand",
+              "no": "Tilstand"
+            }
+          }
+        ]
+      },
+      {
+        "id": "set_state_button.ventilation_boost",
+        "title": {
+          "en": "Set ventilation boost",
+          "sv": "Ställ in ventilationsökning",
+          "da": "Indstil ventilationsforøgelse",
+          "no": "Still inn ventilasjonsøkning"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump"
+          },
+          {
+            "name": "state",
+            "type": "boolean",
+            "title": {
+              "en": "State",
+              "sv": "Läge",
+              "da": "Tilstand",
+              "no": "Tilstand"
+            }
+          }
+        ]
+      }
+    ]
+  },
   "drivers": [
     {
       "name": {

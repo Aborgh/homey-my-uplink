@@ -31,7 +31,6 @@ const {
     TIME_HEAT_ADDITION
 } = require("../../lib/parmeter.enum");
 const nibeParameterMap = require("../../lib/nibeParameter");
-const {interpretOperationalMode} = require("../../lib/operationalModeHelper");
 
 module.exports = class HeatPumpDevice extends OAuth2Device {
     id;
@@ -78,13 +77,11 @@ module.exports = class HeatPumpDevice extends OAuth2Device {
             this.log(`Fetch interval set to ${this.intervalMin} minutes`);
             await this.fetchAndSetDataPoints(this.deviceParams);
             await this.setSystemSettings();
-            // await this.updateOperationalModeSetting();
             await this.calculateAndSetPower();
             this.fetchInterval = this.homey.setInterval(async () => {
                 this.log(`Fetching data for device ${this.id}`);
                 await this.fetchAndSetDataPoints(this.deviceParams);
                 await this.calculateAndSetPower();
-                // await this.updateOperationalModeSetting();
                 await this.updateSettingsFromHeatPump();
             }, 1000 * 60 * this.intervalMin);
 
@@ -229,31 +226,7 @@ module.exports = class HeatPumpDevice extends OAuth2Device {
             this.error(error);
         }
     }
-
-    async updateOperationalModeSetting() {
-        try {
-            const relevantParams = [OPERATION_MODE, HEATING_ADDITION, ELECTRICITY_ADDITION];
-            const dataPoints = await this.getDataPoints(this.id, relevantParams);
-            const paramValues = {};
-            for (const dataPoint of dataPoints) {
-                paramValues[dataPoint.parameterId] = Number(dataPoint.value);
-            }
-
-            const newMode = interpretOperationalMode(
-                paramValues[OPERATION_MODE],
-                paramValues[HEATING_ADDITION],
-                paramValues[ELECTRICITY_ADDITION],
-            );
-            this.log(`Updated operational mode to ${newMode}`);
-            const currentSettings = await this.getSettings();
-            if (Number(currentSettings.operational_mode) !== newMode) {
-                await this.setSettings({operational_mode: String(newMode)});
-            }
-        } catch (error) {
-            this.error('Failed to update operational_mode setting:', error);
-        }
-    }
-
+    
     async updateSettingsFromHeatPump() {
         try {
             this.log("Fetching settings from heatpump");
