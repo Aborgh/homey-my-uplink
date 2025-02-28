@@ -22,8 +22,6 @@ const {
     HOT_WATER_TOP,
     HOT_WATER_CHARGING,
     SUCTION_GAS_TEMP,
-    HEATING_ADDITION,
-    ELECTRICITY_ADDITION,
     HEATING_CURVE,
     OFFSET_CLIMATE_SYSTEM_1,
     SUPPLY_LINE,
@@ -68,7 +66,7 @@ module.exports = class HeatPumpDevice extends OAuth2Device {
     };
 
     intervalMin = 5;
-
+    opMode = false;
     async onOAuth2Init() {
         try {
             this.id = this.getData().id;
@@ -102,11 +100,39 @@ module.exports = class HeatPumpDevice extends OAuth2Device {
     }
 
     async setSystemSettings() {
-        const deviceInformation = await this.oAuth2Client.getDeviceInformation(this.id);
-        await this.setSettings({
-            serialNumber: deviceInformation.product.serialNumber,
-            firmware: deviceInformation.firmware.currentFwVersion,
-        });
+        try {
+            const deviceInformation = await this.oAuth2Client.getDeviceInformation(this.id);
+
+            await this.setSettings({
+                serialNumber: deviceInformation.product.serialNumber,
+                firmware: deviceInformation.firmware.currentFwVersion,
+            });
+
+            try {
+                const opModeData = await this.oAuth2Client.getDataPoints(this.id, [OPERATION_MODE]);
+                if (opModeData && opModeData.length > 0) {
+                    const opMode = opModeData[0].value;
+                    await this.setSettings({
+                        operational_mode: String(opMode)
+                    });
+                    this.opMode = true;
+                    this.log('Successfully set operational_mode to', opMode);
+                }
+            } catch (opModeError) {
+                // Check if it's a 404 error
+                if (opModeError.statusCode === 404) {
+                    this.log('Operation mode parameter not found (404), setting default value');
+                    await this.setSettings({
+                        operational_mode: "0"
+                    });
+                    this.opMode = false;
+                } else {
+                    this.error('Error fetching operational mode:', opModeError);
+                }
+            }
+        } catch (error) {
+            this.error('Failed to set system settings:', error);
+        }
     }
 
     /**
@@ -207,7 +233,7 @@ module.exports = class HeatPumpDevice extends OAuth2Device {
                 if (changedKey === "power_factor" || changedKey === "voltage") {
                     await this.refreshCurrentMeasurements();
                 }
-                if (changedKey === "operational_mode") {
+                if (changedKey === "operational_mode" && this.opMode) {
                     const modeNumber = Number(newSettings.operational_mode);
                     await this.oAuth2Client.setParameterValue(this.id, {[OPERATION_MODE]: modeNumber});
                 }
@@ -235,10 +261,16 @@ module.exports = class HeatPumpDevice extends OAuth2Device {
                 OFFSET_CLIMATE_SYSTEM_1,
                 OPERATION_MODE
             ]);
-
             const heatingCurveParam = parameters.find(param => param.parameterId === HEATING_CURVE || param.parameterName.toLowerCase() === 'heating curve');
             const heatingOffsetParam = parameters.find(param => param.parameterId === OFFSET_CLIMATE_SYSTEM_1 || param.parameterName.toLowerCase().includes('heating offset climate system'));
-            const operationalMode = parameters.find(param => param.parameterId === OPERATION_MODE || param.parameterName.toLowerCase().includes('heater operation mode'));
+            
+            // Handle OpMode separately since not everyone has this.
+            if (this.opMode) {
+                const operationalMode = parameters.find(param => param.parameterId === OPERATION_MODE || param.parameterName.toLowerCase().includes('heater operation mode'));
+                await this.setSettings({
+                    operational_mode: operationalMode.value
+                })
+            }
 
             if (!heatingCurveParam || !heatingOffsetParam) {
                 throw new Error('Could not find required parameters in the response');
@@ -246,14 +278,12 @@ module.exports = class HeatPumpDevice extends OAuth2Device {
 
             const heatingCurve = heatingCurveParam.value;
             const heatingOffset = heatingOffsetParam.value;
-            const opMode = operationalMode.value;
 
             this.log(`Updated settings: Heating curve = ${heatingCurve}, Heating offset = ${heatingOffset}`);
 
             await this.setSettings({
                 heating_curve: heatingCurve,
                 heating_offset_climate_system_1: heatingOffset,
-                operational_mode: opMode
             });
         } catch (error) {
             this.error('Failed to update settings from heat pump:', error);
