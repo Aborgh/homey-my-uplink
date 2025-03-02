@@ -88,6 +88,15 @@ module.exports = class HeatPumpDevice extends OAuth2Device {
                     try {
                         const payload = {[parameterId]: Number(value)};
                         await this.oAuth2Client.setParameterValue(this.id, payload);
+                        this.log(capability, value);
+                        if (capability === "state_button.ventilation_boost") {
+                            const ventilationBoostFlowCard = this.homey.flow.getTriggerCard("ventilation-boost-changed");
+                            await ventilationBoostFlowCard.trigger({ventilationBoostState: value})
+                        }
+                        if (capability === "state_button.temp_lux") {
+                            const tempLuxFlowCard = this.homey.flow.getTriggerCard("temporary-luxury-changed");
+                            await tempLuxFlowCard.trigger({temporaryLuxuryState: value})
+                        } 
                     } catch (error) {
                         this.error(`Error setting ${parameterId} for ${capability}:`, error);
                     }
@@ -120,7 +129,7 @@ module.exports = class HeatPumpDevice extends OAuth2Device {
                 }
             } catch (opModeError) {
                 // Check if it's a 404 error
-                if (opModeError.statusCode === 404) {
+                if (opModeError.statusCode === 404 || opModeError.statusCode === 400) {
                     this.log('Operation mode parameter not found (404), setting default value');
                     await this.setSettings({
                         operational_mode: "0"
@@ -254,26 +263,27 @@ module.exports = class HeatPumpDevice extends OAuth2Device {
     }
     
     async updateSettingsFromHeatPump() {
+        const parameters = [HEATING_CURVE, OFFSET_CLIMATE_SYSTEM_1];
+        if (this.opMode) {
+            parameters.push(OPERATION_MODE);
+        } 
         try {
             this.log("Fetching settings from heatpump");
-            const parameters = await this.oAuth2Client.getDataPoints(this.id, [
-                HEATING_CURVE,
-                OFFSET_CLIMATE_SYSTEM_1,
-                OPERATION_MODE
-            ]);
-            const heatingCurveParam = parameters.find(param => param.parameterId === HEATING_CURVE || param.parameterName.toLowerCase() === 'heating curve');
-            const heatingOffsetParam = parameters.find(param => param.parameterId === OFFSET_CLIMATE_SYSTEM_1 || param.parameterName.toLowerCase().includes('heating offset climate system'));
+            const parameterValues = await this.oAuth2Client.getDataPoints(this.id, parameters);
+            const heatingCurveParam = parameterValues.find(param => param.parameterId === HEATING_CURVE || param.parameterName.toLowerCase() === 'heating curve');
+            const heatingOffsetParam = parameterValues.find(param => param.parameterId === OFFSET_CLIMATE_SYSTEM_1 || param.parameterName.toLowerCase().includes('heating offset climate system'));
             
             // Handle OpMode separately since not everyone has this.
             if (this.opMode) {
-                const operationalMode = parameters.find(param => param.parameterId === OPERATION_MODE || param.parameterName.toLowerCase().includes('heater operation mode'));
+                this.log(parameterValues)
+                const operationalMode = parameterValues.find(param => param.parameterId === OPERATION_MODE || param.parameterName.toLowerCase().includes('heater operation mode'));
                 await this.setSettings({
                     operational_mode: operationalMode.value
                 })
             }
 
             if (!heatingCurveParam || !heatingOffsetParam) {
-                throw new Error('Could not find required parameters in the response');
+                throw new Error('Could not find required parameterValues in the response');
             }
 
             const heatingCurve = heatingCurveParam.value;

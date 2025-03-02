@@ -13,7 +13,7 @@ module.exports = class HeatPumpDriver extends OAuth2Driver {
      */
     async onPairListDevices({oAuth2Client}) {
         const systems = await oAuth2Client.getSystems();
-
+        this.log(systems)
         return systems.systems.flatMap(system =>
             system.devices.map(device => ({
                 name: device.product.name,

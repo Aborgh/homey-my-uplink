@@ -34,6 +34,52 @@
   },
   "brandColor": "#A81525",
   "source": "https://github.com/Aborgh/homey-my-uplink",
+  "flow": {
+    "triggers": [
+      {
+        "title": {
+          "en": "Temporary luxury changed"
+        },
+        "hint": {
+          "en": "When temporary luxury setting changed"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "temporaryLuxuryState",
+            "title": {
+              "en": "temporary luxury state"
+            },
+            "example": {
+              "en": "a boolean value of temporary luxury state"
+            }
+          }
+        ],
+        "id": "temporary-luxury-changed"
+      },
+      {
+        "title": {
+          "en": "Ventilation boost changed"
+        },
+        "hint": {
+          "en": "Triggered when the ventilation boost has changed"
+        },
+        "tokens": [
+          {
+            "type": "boolean",
+            "name": "ventilationBoostState",
+            "title": {
+              "en": "ventilation boost state"
+            },
+            "example": {
+              "en": "The state of the ventilation boost"
+            }
+          }
+        ],
+        "id": "ventilation-boost-changed"
+      }
+    ]
+  },
   "drivers": [
     {
       "name": {

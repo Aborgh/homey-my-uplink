@@ -1,0 +1,20 @@
+{
+  "title": {
+    "en": "Ventilation boost changed"
+  },
+  "hint": {
+    "en": "Triggered when the ventilation boost has changed"
+  },
+  "tokens": [
+    {
+      "type": "boolean",
+      "name": "ventilationBoostState",
+      "title": {
+        "en": "ventilation boost state"
+      },
+      "example": {
+        "en": "The state of the ventilation boost"
+      }
+    }
+  ]
+}

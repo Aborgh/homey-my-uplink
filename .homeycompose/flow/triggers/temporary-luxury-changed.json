@@ -1,0 +1,20 @@
+{
+  "title": {
+    "en": "Temporary luxury changed"
+  },
+  "hint": {
+    "en": "When temporary luxury setting changed"
+  },
+  "tokens": [
+    {
+      "type": "boolean",
+      "name": "temporaryLuxuryState",
+      "title": {
+        "en": "temporary luxury state"
+      },
+      "example": {
+        "en": "a boolean value of temporary luxury state"
+      }
+    }
+  ]
+}
