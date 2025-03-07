@@ -1,7 +1,7 @@
 {
   "name": "com.nibe.myuplink",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "app.mjs",
   "scripts": {
     "lint": "eslint --ext .js,.ts --ignore-path .gitignore ."
   },
