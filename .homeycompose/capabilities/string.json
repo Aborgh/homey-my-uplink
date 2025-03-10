@@ -1,0 +1,14 @@
+{
+  "title": {
+    "en": "String",
+    "sv": "Sträng",
+    "no": "Streng",
+    "da": "Streng"
+  },
+  "uiComponent": "sensor",
+  "setable": false,
+  "getable": true,
+  "icon": "/assets/generic.svg",
+  "units": "char",
+  "type": "string"
+}

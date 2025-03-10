@@ -66,9 +66,19 @@
         "state_button.temp_lux",
         "state_button.ventilation_boost",
         "measure_power",
-        "time.heat_addition"
+        "time.heat_addition",
+        "string.compressor_status"
       ],
       "capabilitiesOptions": {
+        "string.compressor_status": {
+          "title": {
+            "en": "Compressor status",
+            "sv": "Kompressorstatus",
+            "no": "Kompressorstatus",
+            "da": "Kompressor status"
+          },
+          "icon": "/assets/compressor.svg"
+        },
         "time.heat_addition": {
           "title": {
             "en": "Time factor of heat addition",
@@ -454,6 +464,20 @@
       "setable": true,
       "uiComponent": "toggle",
       "uiQuickAction": false
+    },
+    "string": {
+      "title": {
+        "en": "String",
+        "sv": "Sträng",
+        "no": "Streng",
+        "da": "Streng"
+      },
+      "uiComponent": "sensor",
+      "setable": false,
+      "getable": true,
+      "icon": "/assets/generic.svg",
+      "units": "char",
+      "type": "string"
     },
     "time": {
       "title": {

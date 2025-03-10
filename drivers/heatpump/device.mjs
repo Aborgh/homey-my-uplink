@@ -36,7 +36,8 @@ class HeatPumpDevice extends OAuth2Device {
         ParameterIds.SUCTION_GAS_TEMP,
         ParameterIds.SUPPLY_LINE,
         ParameterIds.CALCULATED_SUPPLY_LINE,
-        ParameterIds.TIME_HEAT_ADDITION
+        ParameterIds.TIME_HEAT_ADDITION,
+        ParameterIds.COMPRESSOR_STATUS
     ];
 
     /**
@@ -145,14 +146,21 @@ class HeatPumpDevice extends OAuth2Device {
                         case 'string':
                             value = String(point.value);
                             break;
+                        case 'enum':
+                            value = point.enumValues
+                                .find(item => Number(item.value) === Math.round(point.value))?.text || point.value
+                            break;
                         default:
                             value = point.value;
                     }
 
                     if (this.hasCapability(param.capabilityName)) {
+                        
                         await this.setCapabilityValue(param.capabilityName, value);
                         this.log(`Updated ${param.capabilityName} to ${value}`);
                     } else {
+                        // Add capability if it doesn't exist
+                        await this.addCapability(param.capabilityName);
                         this.log(`Device missing capability: ${param.capabilityName}`);
                     }
                 } catch (capError) {
