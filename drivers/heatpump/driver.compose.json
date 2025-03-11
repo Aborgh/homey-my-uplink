@@ -22,6 +22,7 @@
     "measure_temperature.suction_gas",
     "measure_fan_speed.exhaust_air",
     "measure_frequency.compressor",
+    "status_compressor",
     "measure_degree_minutes",
     "measure_current.one",
     "measure_current.two",
@@ -30,18 +31,9 @@
     "state_button.ventilation_boost",
     "measure_power",
     "time.heat_addition",
-    "string.compressor_status"
+    "status_electric_addition"
   ],
   "capabilitiesOptions": {
-    "string.compressor_status": {
-      "title": {
-        "en": "Compressor status",
-        "sv": "Kompressorstatus",
-        "no": "Kompressorstatus",
-        "da": "Kompressor status"
-      },
-      "icon": "/assets/compressor.svg"
-    },
     "time.heat_addition": {
       "title": {
         "en": "Time factor of heat addition",

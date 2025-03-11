@@ -1,8 +1,8 @@
 'use strict';
 
-const {OAuth2Driver} = require("homey-oauth2app");
+import {OAuth2Driver} from "homey-oauth2app";
 
-module.exports = class HeatPumpDriver extends OAuth2Driver {
+class HeatPumpDriver extends OAuth2Driver {
     async onOAuth2Init() {}
 
     /**
@@ -26,4 +26,6 @@ module.exports = class HeatPumpDriver extends OAuth2Driver {
             }))
         );
     }
-};
+}
+
+export default HeatPumpDriver;

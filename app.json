@@ -59,6 +59,7 @@
         "measure_temperature.suction_gas",
         "measure_fan_speed.exhaust_air",
         "measure_frequency.compressor",
+        "status_compressor",
         "measure_degree_minutes",
         "measure_current.one",
         "measure_current.two",
@@ -67,18 +68,9 @@
         "state_button.ventilation_boost",
         "measure_power",
         "time.heat_addition",
-        "string.compressor_status"
+        "status_electric_addition"
       ],
       "capabilitiesOptions": {
-        "string.compressor_status": {
-          "title": {
-            "en": "Compressor status",
-            "sv": "Kompressorstatus",
-            "no": "Kompressorstatus",
-            "da": "Kompressor status"
-          },
-          "icon": "/assets/compressor.svg"
-        },
         "time.heat_addition": {
           "title": {
             "en": "Time factor of heat addition",
@@ -465,18 +457,32 @@
       "uiComponent": "toggle",
       "uiQuickAction": false
     },
-    "string": {
+    "status_compressor": {
       "title": {
-        "en": "String",
-        "sv": "Sträng",
-        "no": "Streng",
-        "da": "Streng"
+        "en": "Compressor status",
+        "sv": "Kompressorstatus",
+        "no": "Kompressorstatus",
+        "da": "Kompressor status"
       },
       "uiComponent": "sensor",
       "setable": false,
       "getable": true,
-      "icon": "/assets/generic.svg",
+      "icon": "/assets/compressor.svg",
       "units": "char",
+      "type": "string"
+    },
+    "status_electric_addition": {
+      "title": {
+        "en": "Electric Addition Status",
+        "sv": "Eltillsatsstatus",
+        "no": "Eltilleggsstatus",
+        "da": "Eltilføjelsesstatus"
+      },
+      "uiComponent": "sensor",
+      "setable": false,
+      "getable": true,
+      "icon": "/assets/electric_meter.svg",
+      "units": "kW",
       "type": "string"
     },
     "time": {

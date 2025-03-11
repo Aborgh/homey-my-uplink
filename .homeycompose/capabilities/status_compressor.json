@@ -1,0 +1,14 @@
+{
+  "title": {
+    "en": "Compressor status",
+    "sv": "Kompressorstatus",
+    "no": "Kompressorstatus",
+    "da": "Kompressor status"
+  },
+  "uiComponent": "sensor",
+  "setable": false,
+  "getable": true,
+  "icon": "/assets/compressor.svg",
+  "units": "char",
+  "type": "string"
+}

@@ -5,6 +5,7 @@ import parameterMap from "../../lib/models/parameter-map.mjs";
 import {SettingsManager} from "../../lib/helpers/settings-manager.mjs";
 import {PowerCalculator} from "../../lib/helpers/power-calculator.mjs";
 import ParameterIds from "../../lib/models/parameter-enum.mjs";
+import * as constants from "node:constants";
 
 /**
  * Represents a Nibe Heat Pump device in Homey
@@ -37,7 +38,8 @@ class HeatPumpDevice extends OAuth2Device {
         ParameterIds.SUPPLY_LINE,
         ParameterIds.CALCULATED_SUPPLY_LINE,
         ParameterIds.TIME_HEAT_ADDITION,
-        ParameterIds.COMPRESSOR_STATUS
+        ParameterIds.COMPRESSOR_STATUS,
+        ParameterIds.ELECTRIC_ADDITION_STATUS
     ];
 
     /**
@@ -106,7 +108,7 @@ class HeatPumpDevice extends OAuth2Device {
             this.registerCapabilityListener(capability, async (value) => {
                 try {
                     this.log(`Setting capability ${capability} to ${value}`);
-                    const payload = { [parameterId]: Number(value) };
+                    const payload = {[parameterId]: Number(value)};
                     await this.oAuth2Client.setParameterValues(this.deviceId, payload);
                 } catch (error) {
                     this.error(`Error setting ${capability}: ${error.message}`);
@@ -147,15 +149,43 @@ class HeatPumpDevice extends OAuth2Device {
                             value = String(point.value);
                             break;
                         case 'enum':
-                            value = point.enumValues
-                                .find(item => Number(item.value) === Math.round(point.value))?.text || point.value
+                            if (param.capabilityName === "status_electric_addition") {
+                                const exactMatch = point.enumValues.find(item => Number(item.value) === Math.round(point.value * 10));
+                                if (exactMatch) {
+                                    // Found exact match
+                                    value = exactMatch.text;
+                                } else {
+                                    // Try finding the closest match
+                                    const closestMatch = this.findClosestEnumValue(Math.round(point.value * 10), point.enumValues);
+                                    if (closestMatch) {
+                                        value = closestMatch;
+                                    } else {
+                                        // Fallback to original value
+                                        value = point.value;
+                                    }
+                                }
+
+                                value = this.homey.__(value);
+                                // Capitalize the first letter
+                                if (typeof value === 'string') {
+                                    value = value.charAt(0).toUpperCase() + value.slice(1);
+                                }
+
+                                // Translate the value
+                                this.log(`Value: ${value}`);
+                            } else {
+                                const enumTextValue = point.enumValues
+                                    .find(item => Number(item.value) === Math.round(point.value))?.text || point.value;
+                                const translatedText = this.homey.__(enumTextValue);
+                                value = translatedText.charAt(0).toUpperCase() + translatedText.slice(1);
+                            }
                             break;
                         default:
                             value = point.value;
                     }
 
                     if (this.hasCapability(param.capabilityName)) {
-                        
+
                         await this.setCapabilityValue(param.capabilityName, value);
                         this.log(`Updated ${param.capabilityName} to ${value}`);
                     } else {
@@ -177,7 +207,7 @@ class HeatPumpDevice extends OAuth2Device {
      * Handle device settings changes
      * @param {object} options - Settings change information
      */
-    async onSettings({ oldSettings, newSettings, changedKeys }) {
+    async onSettings({oldSettings, newSettings, changedKeys}) {
         try {
             // Handle poll interval change separately
             if (changedKeys.includes('fetchIntervall') &&
@@ -217,5 +247,41 @@ class HeatPumpDevice extends OAuth2Device {
             this.homey.clearInterval(this.pollInterval);
         }
     }
+
+    /**
+     * Find the closest enum value for a given numeric value
+     * @param {number} targetValue - The target value to match
+     * @param {Array} enumValues - Array of enum value objects
+     * @returns {string} The text of the closest matching enum
+     */
+    findClosestEnumValue(targetValue, enumValues) {
+        // Convert all enum values to numbers for comparison
+        const numericEnums = enumValues.map(item => ({
+            value: Number(item.value),
+            text: item.text
+        })).filter(item => !isNaN(item.value));
+
+        if (numericEnums.length === 0) return null;
+
+        // Find the closest enum value
+        let closest = numericEnums[0];
+        let closestDiff = Math.abs(targetValue - closest.value);
+
+        for (let i = 1; i < numericEnums.length; i++) {
+            const diff = Math.abs(targetValue - numericEnums[i].value);
+            if (diff < closestDiff) {
+                closest = numericEnums[i];
+                closestDiff = diff;
+            }
+        }
+
+        // Only accept matches that are reasonably close (within 10 units)
+        if (closestDiff <= 10) {
+            return closest.text;
+        }
+
+        return closest.text;
+    }
 }
+
 export default HeatPumpDevice;
