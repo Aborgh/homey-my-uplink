@@ -5,7 +5,6 @@ import parameterMap from "../../lib/models/parameter-map.mjs";
 import {SettingsManager} from "../../lib/helpers/settings-manager.mjs";
 import {PowerCalculator} from "../../lib/helpers/power-calculator.mjs";
 import ParameterIds from "../../lib/models/parameter-enum.mjs";
-import * as constants from "node:constants";
 
 /**
  * Represents a Nibe Heat Pump device in Homey
@@ -59,15 +58,24 @@ class HeatPumpDevice extends OAuth2Device {
     async onOAuth2Init() {
         try {
             this.deviceId = this.getData().id;
+            this.pollInterval = await this.getSetting('fetchIntervall') || 5;
+            
+            const deviceInfoHeader = `${"#".repeat(10)} DEVICE INFO ${"#".repeat(10)}`
+            const infoHeader = `
+${deviceInfoHeader}
+            
+NAME: ${this.getName()}
+POLL INTERVAL: ${this.pollInterval}
+CAPABILITIES: ${this.getCapabilities()}
+                
+${"#".repeat(deviceInfoHeader.length)}
+            `
+            this.log(infoHeader);
             this.log(`Device ${this.deviceId} initialized`);
 
             // Initialize services
             this.settingsManager = new SettingsManager(this, this.oAuth2Client);
             this.powerCalculator = new PowerCalculator();
-
-            // Get poll interval from settings
-            this.pollInterval = await this.getSetting('fetchIntervall') || 5;
-            this.log(`Fetch interval set to ${this.pollInterval} minutes`);
 
             // Initial setup
             await this.fetchAndSetDataPoints(HeatPumpDevice.MONITORED_PARAMETERS);
@@ -88,7 +96,7 @@ class HeatPumpDevice extends OAuth2Device {
      * Sets up polling for data updates
      */
     startPolling() {
-        this.pollInterval = this.homey.setInterval(async () => {
+        this.pollTimer = this.homey.setInterval(async () => {
             this.log(`Fetching data for device ${this.deviceId}`);
             try {
                 await this.fetchAndSetDataPoints(HeatPumpDevice.MONITORED_PARAMETERS);
@@ -149,49 +157,20 @@ class HeatPumpDevice extends OAuth2Device {
                             value = String(point.value);
                             break;
                         case 'enum':
-                            if (param.capabilityName === "status_electric_addition") {
-                                const exactMatch = point.enumValues.find(item => Number(item.value) === Math.round(point.value * 10));
-                                if (exactMatch) {
-                                    // Found exact match
-                                    value = exactMatch.text;
-                                } else {
-                                    // Try finding the closest match
-                                    const closestMatch = this.findClosestEnumValue(Math.round(point.value * 10), point.enumValues);
-                                    if (closestMatch) {
-                                        value = closestMatch;
-                                    } else {
-                                        // Fallback to original value
-                                        value = point.value;
-                                    }
-                                }
-
-                                value = this.homey.__(value);
-                                // Capitalize the first letter
-                                if (typeof value === 'string') {
-                                    value = value.charAt(0).toUpperCase() + value.slice(1);
-                                }
-
-                                // Translate the value
-                                this.log(`Value: ${value}`);
-                            } else {
-                                const enumTextValue = point.enumValues
-                                    .find(item => Number(item.value) === Math.round(point.value))?.text || point.value;
-                                const translatedText = this.homey.__(enumTextValue);
-                                value = translatedText.charAt(0).toUpperCase() + translatedText.slice(1);
-                            }
+                            value = this.processEnumValue(point, param);
                             break;
                         default:
                             value = point.value;
                     }
 
                     if (this.hasCapability(param.capabilityName)) {
-
                         await this.setCapabilityValue(param.capabilityName, value);
                         this.log(`Updated ${param.capabilityName} to ${value}`);
                     } else {
                         // Add capability if it doesn't exist
                         await this.addCapability(param.capabilityName);
-                        this.log(`Device missing capability: ${param.capabilityName}`);
+                        await this.setCapabilityValue(param.capabilityName, value);
+                        this.log(`Added capability: ${param.capabilityName} with value ${value}`);
                     }
                 } catch (capError) {
                     this.error(`Error setting capability ${param.capabilityName}: ${capError.message}`);
@@ -204,48 +183,80 @@ class HeatPumpDevice extends OAuth2Device {
     }
 
     /**
-     * Handle device settings changes
-     * @param {object} options - Settings change information
+     * Process an enum value from the API
+     * @param {Object} point - The data point from the API
+     * @param {Object} param - The parameter mapping info
+     * @returns {string} The processed enum value
      */
-    async onSettings({oldSettings, newSettings, changedKeys}) {
-        try {
-            // Handle poll interval change separately
-            if (changedKeys.includes('fetchIntervall') &&
-                newSettings.fetchIntervall !== oldSettings.fetchIntervall) {
-
-                this.log(`Updating poll interval from ${oldSettings.fetchIntervall} to ${newSettings.fetchIntervall} minutes`);
-                this.pollInterval = newSettings.fetchIntervall;
-
-                // Reset the polling interval
-                if (this.pollInterval) {
-                    this.homey.clearInterval(this.pollInterval);
-                }
-                this.startPolling();
-            }
-
-            // Handle power-related settings changes
-            if (changedKeys.includes('powerFactor') || changedKeys.includes('voltage')) {
-                this.log('Power calculation parameters changed, updating power value');
-                await this.powerCalculator.updateDevicePower(this);
-            }
-
-            // Handle heat pump settings
-            await this.settingsManager.handleSettingsUpdate(oldSettings, newSettings, changedKeys);
-
-        } catch (error) {
-            this.error(`Error handling settings change: ${error.message}`);
-            throw error;
+    processEnumValue(point, param) {
+        // Special handling for electric addition status
+        if (param.capabilityName === "status_electric_addition") {
+            return this.processElectricAdditionStatus(point);
         }
+
+        // Standard enum handling for other parameters
+        return this.processStandardEnum(point);
     }
 
     /**
-     * Clean up when device is deleted
+     * Process electric addition status enum values
+     * @param {Object} point - The data point from the API
+     * @returns {string} The processed value
      */
-    async onDeleted() {
-        this.log(`Device ${this.deviceId} deleted, cleaning up`);
-        if (this.pollInterval) {
-            this.homey.clearInterval(this.pollInterval);
+    processElectricAdditionStatus(point) {
+        const roundedValue = Math.round(point.value * 10);
+
+        // Try to find an exact match first
+        const exactMatch = point.enumValues.find(item =>
+            Number(item.value) === roundedValue
+        );
+
+        let valueText = exactMatch?.text;
+
+        // If no exact match, try to find closest match
+        if (!valueText) {
+            valueText = this.findClosestEnumValue(roundedValue, point.enumValues);
         }
+
+        // If we still don't have a value, use the original
+        if (!valueText) {
+            valueText = String(point.value);
+        }
+
+        // Translate and capitalize
+        return this.formatEnumValue(valueText);
+    }
+
+    /**
+     * Process standard enum values
+     * @param {Object} point - The data point from the API
+     * @returns {string} The processed value
+     */
+    processStandardEnum(point) {
+        const roundedValue = Math.round(point.value);
+
+        // Get the matching enum text or fall back to the numeric value
+        const enumText = point.enumValues.find(item =>
+            Number(item.value) === roundedValue
+        )?.text || String(point.value);
+
+        // Translate and capitalize
+        return this.formatEnumValue(enumText);
+    }
+
+    /**
+     * Format an enum value text (translate and capitalize)
+     * @param {string} text - The text to format
+     * @returns {string} The formatted text
+     */
+    formatEnumValue(text) {
+        // Translate the text
+        const translated = this.homey.__(text);
+
+        // Capitalize the first letter
+        return typeof translated === 'string'
+            ? translated.charAt(0).toUpperCase() + translated.slice(1)
+            : translated;
     }
 
     /**
@@ -281,6 +292,51 @@ class HeatPumpDevice extends OAuth2Device {
         }
 
         return closest.text;
+    }
+
+    /**
+     * Handle device settings changes
+     * @param {object} options - Settings change information
+     */
+    async onSettings({oldSettings, newSettings, changedKeys}) {
+        try {
+            // Handle poll interval change separately
+            if (changedKeys.includes('fetchIntervall') &&
+                newSettings.fetchIntervall !== oldSettings.fetchIntervall) {
+
+                this.log(`Updating poll interval from ${oldSettings.fetchIntervall} to ${newSettings.fetchIntervall} minutes`);
+                this.pollInterval = newSettings.fetchIntervall;
+
+                // Reset the polling interval
+                if (this.pollTimer) {
+                    this.homey.clearInterval(this.pollTimer);
+                }
+                this.startPolling();
+            }
+
+            // Handle power-related settings changes
+            if (changedKeys.includes('powerFactor') || changedKeys.includes('voltage')) {
+                this.log('Power calculation parameters changed, updating power value');
+                await this.powerCalculator.updateDevicePower(this);
+            }
+
+            // Handle heat pump settings
+            await this.settingsManager.handleSettingsUpdate(oldSettings, newSettings, changedKeys);
+
+        } catch (error) {
+            this.error(`Error handling settings change: ${error.message}`);
+            throw error;
+        }
+    }
+
+    /**
+     * Clean up when device is deleted
+     */
+    async onDeleted() {
+        this.log(`Device ${this.deviceId} deleted, cleaning up`);
+        if (this.pollTimer) {
+            this.homey.clearInterval(this.pollTimer);
+        }
     }
 }
 
