@@ -31,6 +31,19 @@
     "name": "Andreas Borgh",
     "email": "borgh.andreas@gmail.com"
   },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "BorghAndreas"
+      }
+    }
+  },
+  "tags": {
+    "en": ["nibe", "heatpump", "heat pump", "climate", "heating", "cooling", "temperature", "energy", "smart home", "thermostat", "ventilation", "hot water", "myuplink", "indoor climate", "hvac"],
+    "sv": ["nibe", "värmepump", "klimat", "uppvärmning", "kylning", "temperatur", "energi", "smart hem", "termostat", "ventilation", "varmvatten", "myuplink", "inomhusklimat", "hvac"],
+    "da": ["nibe", "varmepumpe", "klima", "opvarmning", "køling", "temperatur", "energi", "smart hjem", "termostat", "ventilation", "varmt vand", "myuplink", "indeklima", "hvac"],
+    "no": ["nibe", "varmepumpe", "klima", "oppvarming", "kjøling", "temperatur", "energi", "smart hjem", "termostat", "ventilasjon", "varmtvann", "myuplink", "inneklima", "hvac"]
+  },
   "brandColor": "#A81525",
   "source": "https://github.com/Aborgh/homey-my-uplink"
 }
