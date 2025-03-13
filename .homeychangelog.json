@@ -37,5 +37,8 @@
   },
   "1.4.0": {
     "en": "Compressor and electric addition status capabilities added"
+  },
+  "1.4.1": {
+    "en": "Bugfix and remove status_electric_addition for now,since it didn't work from API-side"
   }
 }
