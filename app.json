@@ -141,8 +141,7 @@
         "state_button.temp_lux",
         "state_button.ventilation_boost",
         "measure_power",
-        "time.heat_addition",
-        "status_electric_addition"
+        "time.heat_addition"
       ],
       "capabilitiesOptions": {
         "time.heat_addition": {

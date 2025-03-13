@@ -38,7 +38,8 @@ class HeatPumpDevice extends OAuth2Device {
         ParameterIds.CALCULATED_SUPPLY_LINE,
         ParameterIds.TIME_HEAT_ADDITION,
         ParameterIds.COMPRESSOR_STATUS,
-        ParameterIds.ELECTRIC_ADDITION_STATUS
+        // Removed for now since it doesn't return the correct value
+        // ParameterIds.ELECTRIC_ADDITION_STATUS
     ];
 
     /**
@@ -58,7 +59,8 @@ class HeatPumpDevice extends OAuth2Device {
     async onOAuth2Init() {
         try {
             this.deviceId = this.getData().id;
-            this.pollInterval = await this.getSetting('fetchIntervall') || 5;
+            // this.pollInterval = await this.getSetting('fetchIntervall') || 5;
+            this.pollInterval = 1;
             
             const deviceInfoHeader = `${"#".repeat(10)} DEVICE INFO ${"#".repeat(10)}`
             const infoHeader = `
@@ -84,7 +86,10 @@ ${"#".repeat(deviceInfoHeader.length)}
 
             // Set up capability listeners
             await this.setupCapabilityListeners();
-
+            // remove "status_electric_addition" for now since it doesn't work on api-level
+            if (this.hasCapability("status_electric_addition")) {
+                await this.removeCapability("status_electric_addition");
+            }
             // Start polling
             this.startPolling();
         } catch (error) {
@@ -191,6 +196,7 @@ ${"#".repeat(deviceInfoHeader.length)}
     processEnumValue(point, param) {
         // Special handling for electric addition status
         if (param.capabilityName === "status_electric_addition") {
+        this.log(param.capabilityName, 'value', point.value);
             return this.processElectricAdditionStatus(point);
         }
 
@@ -205,7 +211,6 @@ ${"#".repeat(deviceInfoHeader.length)}
      */
     processElectricAdditionStatus(point) {
         const roundedValue = Math.round(point.value * 10);
-
         // Try to find an exact match first
         const exactMatch = point.enumValues.find(item =>
             Number(item.value) === roundedValue
@@ -213,7 +218,7 @@ ${"#".repeat(deviceInfoHeader.length)}
 
         let valueText = exactMatch?.text;
 
-        // If no exact match, try to find closest match
+        // If no exact match, try to find the closest match
         if (!valueText) {
             valueText = this.findClosestEnumValue(roundedValue, point.enumValues);
         }
