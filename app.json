@@ -108,6 +108,37 @@
   },
   "brandColor": "#A81525",
   "source": "https://github.com/Aborgh/homey-my-uplink",
+  "flow": {
+    "triggers": [
+      {
+        "title": {
+          "en": "Compressor status changed",
+          "sv": "Kompressorstatus ändrad",
+          "no": "Kompressorstatus endret",
+          "da": "Kompressorstatus ændret"
+        },
+        "tokens": [
+          {
+            "type": "string",
+            "name": "compressor_status",
+            "title": {
+              "en": "status",
+              "sv": "status",
+              "no": "status",
+              "da": "status"
+            },
+            "example": {
+              "en": "The current status of the compressor",
+              "sv": "Kompressorns aktuella status",
+              "no": "Kompressorens nåværende status",
+              "da": "Kompressorens nuværende status"
+            }
+          }
+        ],
+        "id": "compressor-status-changed"
+      }
+    ]
+  },
   "drivers": [
     {
       "name": {

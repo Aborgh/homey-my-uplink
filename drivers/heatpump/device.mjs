@@ -59,9 +59,8 @@ class HeatPumpDevice extends OAuth2Device {
     async onOAuth2Init() {
         try {
             this.deviceId = this.getData().id;
-            // this.pollInterval = await this.getSetting('fetchIntervall') || 5;
-            this.pollInterval = 1;
-            
+            this.pollInterval = await this.getSetting('fetchIntervall') || 5;
+
             const deviceInfoHeader = `${"#".repeat(10)} DEVICE INFO ${"#".repeat(10)}`
             const infoHeader = `
 ${deviceInfoHeader}
@@ -95,6 +94,11 @@ ${"#".repeat(deviceInfoHeader.length)}
         } catch (error) {
             this.error('Error during device initialization:', error.message, error.stack);
         }
+    }
+
+    async triggerFlow(flowId, token) {
+        const flow = this.homey.flow.getTriggerCard(flowId);
+        return flow.trigger({token});
     }
 
     /**
@@ -167,6 +171,7 @@ ${"#".repeat(deviceInfoHeader.length)}
                         default:
                             value = point.value;
                     }
+                    
 
                     if (this.hasCapability(param.capabilityName)) {
                         await this.setCapabilityValue(param.capabilityName, value);
@@ -177,6 +182,7 @@ ${"#".repeat(deviceInfoHeader.length)}
                         await this.setCapabilityValue(param.capabilityName, value);
                         this.log(`Added capability: ${param.capabilityName} with value ${value}`);
                     }
+                    await this.processFlowTriggers(param);
                 } catch (capError) {
                     this.error(`Error setting capability ${param.capabilityName}: ${capError.message}`);
                 }
@@ -184,6 +190,16 @@ ${"#".repeat(deviceInfoHeader.length)}
         } catch (error) {
             this.error(`Error fetching data points: ${error.message}`);
             throw error;
+        }
+    }
+
+    /**
+     *
+     * @param {Object} param
+     */
+    async processFlowTriggers(param) {
+        if (param.parameterName === "status_compressor") {
+            await this.triggerFlow("compressor-status-changed", param.value);
         }
     }
 
@@ -196,7 +212,7 @@ ${"#".repeat(deviceInfoHeader.length)}
     processEnumValue(point, param) {
         // Special handling for electric addition status
         if (param.capabilityName === "status_electric_addition") {
-        this.log(param.capabilityName, 'value', point.value);
+            this.log(param.capabilityName, 'value', point.value);
             return this.processElectricAdditionStatus(point);
         }
 

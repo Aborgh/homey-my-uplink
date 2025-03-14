@@ -1,0 +1,26 @@
+{
+  "title": {
+    "en": "Compressor status changed",
+    "sv": "Kompressorstatus ändrad",
+    "no": "Kompressorstatus endret",
+    "da": "Kompressorstatus ændret"
+  },
+  "tokens": [
+    {
+      "type": "string",
+      "name": "compressor_status",
+      "title": {
+        "en": "status",
+        "sv": "status",
+        "no": "status",
+        "da": "status"
+      },
+      "example": {
+        "en": "Hot water",
+        "sv": "Varmvatten",
+        "no": "Varmt vann",
+        "da": "Varmt vand"
+      }
+    }
+  ]
+}
