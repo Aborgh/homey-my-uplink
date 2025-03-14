@@ -40,5 +40,8 @@
   },
   "1.4.1": {
     "en": "Bugfix and remove status_electric_addition for now,since it didn't work from API-side"
+  },
+  "1.4.2": {
+    "en": "Bugfix"
   }
 }
