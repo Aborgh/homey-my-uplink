@@ -49,5 +49,8 @@
   },
   "1.4.4": {
     "en": "Bugfix"
+  },
+  "1.4.5": {
+    "en": "Added support for s-series heat pumps"
   }
 }
