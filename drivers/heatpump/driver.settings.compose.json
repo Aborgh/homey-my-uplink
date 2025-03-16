@@ -62,46 +62,6 @@
     "value": 5
   },
   {
-    "id": "operational_mode",
-    "type": "dropdown",
-    "value": "auto",
-    "label": {
-      "en": "Operational mode",
-      "sv": "Driftläge",
-      "da": "Driftstilstand",
-      "no": "Driftsmodus"
-    },
-    "values": [
-      {
-        "id": "0",
-        "label": {
-          "en": "Automatic",
-          "sv": "Automatiskt",
-          "da": "Automatisk",
-          "no": "Automatisk"
-        }
-      },
-      {
-        "id": "1",
-        "label": {
-          "en": "Manual",
-          "sv": "Manuell",
-          "da": "Manuel",
-          "no": "Manuel"
-        }
-      },
-      {
-        "id": "2",
-        "label": {
-          "en": "Heat only",
-          "sv": "Endast värme",
-          "da": "Kun opvarmning",
-          "no": "Kun oppvarming"
-        }
-      }
-    ]
-  },
-  {
     "id": "heating_curve",
     "type": "number",
     "label": {
