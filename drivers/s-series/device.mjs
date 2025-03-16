@@ -145,6 +145,7 @@ ${"#".repeat(deviceInfoHeader.length)}
 
             for (const point of dataPoints) {
                 const param = sSeriesParameterMap[Number(point.parameterId)];
+                this.log(`${param.capabilityName}: ${point.value}`)
                 if (!param) {
                     this.log(`Unknown parameter: ${point.parameterId}`);
                     continue;
