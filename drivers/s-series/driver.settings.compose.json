@@ -60,33 +60,5 @@
     },
     "min": 5,
     "value": 5
-  },
-  {
-    "id": "heating_curve",
-    "type": "number",
-    "label": {
-      "en": "Heating Curve",
-      "sv": "Värmekurva",
-      "no": "Varmekurve",
-      "da": "Varme Kurve"
-    },
-    "value": 5.0,
-    "min": 0.0,
-    "max": 15.0,
-    "step": 1.0
-  },
-  {
-    "id": "heating_offset_climate_system_1",
-    "type": "number",
-    "label": {
-      "en": "Heating Offset",
-      "sv": "Värmejustering",
-      "no": "Varmejustering",
-      "da": "Varmejustering"
-    },
-    "value": 0.0,
-    "min": -10.0,
-    "max": 10.0,
-    "step": 1.0
   }
 ]

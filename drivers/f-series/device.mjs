@@ -1,43 +1,43 @@
 'use strict';
 
 import {OAuth2Device} from "homey-oauth2app";
-import parameterMap from "../../lib/models/parameter-map.mjs";
+import fseriesParameterMap from "../../lib/models/fseries-parameter-map.mjs";
 import {SettingsManager} from "../../lib/helpers/settings-manager.mjs";
 import {PowerCalculator} from "../../lib/helpers/power-calculator.mjs";
-import ParameterIds from "../../lib/models/parameter-enum.mjs";
+import FSeriesParameterIds from "../../lib/models/parameter-enum.mjs";
 
 /**
  * Represents a Nibe Heat Pump device in Homey
  */
-class HeatPumpDevice extends OAuth2Device {
+class FSeriesDevice extends OAuth2Device {
     /**
      * List of parameters to monitor
      * @type {number[]}
      */
     static MONITORED_PARAMETERS = [
-        ParameterIds.OUTDOOR_TEMP,
-        ParameterIds.ROOM_TEMP,
-        ParameterIds.CURRENT_COMPRESSOR_FREQ,
-        ParameterIds.CURRENT_3,
-        ParameterIds.CURRENT_1,
-        ParameterIds.CURRENT_2,
-        ParameterIds.EXHAUST_AIR_FAN_SPEED,
-        ParameterIds.EXTRACT_AIR_TEMP,
-        ParameterIds.EXHAUST_AIR_TEMP,
-        ParameterIds.DEGREE_MINUTES,
-        ParameterIds.SET_POINT_TEMP_1,
-        ParameterIds.CONDENSER_TEMP,
-        ParameterIds.TEMPORARY_LUX,
-        ParameterIds.INCREASED_VENTILATION,
-        ParameterIds.HEATING_MEDIUM_SUPPLY,
-        ParameterIds.RETURN_LINE_TEMP,
-        ParameterIds.HOT_WATER_TOP,
-        ParameterIds.HOT_WATER_CHARGING,
-        ParameterIds.SUCTION_GAS_TEMP,
-        ParameterIds.SUPPLY_LINE,
-        ParameterIds.CALCULATED_SUPPLY_LINE,
-        ParameterIds.TIME_HEAT_ADDITION,
-        ParameterIds.COMPRESSOR_STATUS,
+        FSeriesParameterIds.OUTDOOR_TEMP,
+        FSeriesParameterIds.ROOM_TEMP,
+        FSeriesParameterIds.CURRENT_COMPRESSOR_FREQ,
+        FSeriesParameterIds.CURRENT_3,
+        FSeriesParameterIds.CURRENT_1,
+        FSeriesParameterIds.CURRENT_2,
+        FSeriesParameterIds.EXHAUST_AIR_FAN_SPEED,
+        FSeriesParameterIds.EXTRACT_AIR_TEMP,
+        FSeriesParameterIds.EXHAUST_AIR_TEMP,
+        FSeriesParameterIds.DEGREE_MINUTES,
+        FSeriesParameterIds.SET_POINT_TEMP_1,
+        FSeriesParameterIds.CONDENSER_TEMP,
+        FSeriesParameterIds.TEMPORARY_LUX,
+        FSeriesParameterIds.INCREASED_VENTILATION,
+        FSeriesParameterIds.HEATING_MEDIUM_SUPPLY,
+        FSeriesParameterIds.RETURN_LINE_TEMP,
+        FSeriesParameterIds.HOT_WATER_TOP,
+        FSeriesParameterIds.HOT_WATER_CHARGING,
+        FSeriesParameterIds.SUCTION_GAS_TEMP,
+        FSeriesParameterIds.SUPPLY_LINE,
+        FSeriesParameterIds.CALCULATED_SUPPLY_LINE,
+        FSeriesParameterIds.TIME_HEAT_ADDITION,
+        FSeriesParameterIds.COMPRESSOR_STATUS,
         // Removed for now since it doesn't return the correct value
         // ParameterIds.ELECTRIC_ADDITION_STATUS
     ];
@@ -47,9 +47,9 @@ class HeatPumpDevice extends OAuth2Device {
      * @type {Object.<string, number>}
      */
     static CAPABILITY_PARAMETER_MAP = {
-        'state_button.temp_lux': ParameterIds.TEMPORARY_LUX,
-        'state_button.ventilation_boost': ParameterIds.INCREASED_VENTILATION,
-        'target_temperature.room': ParameterIds.SET_POINT_TEMP_1
+        'state_button.temp_lux': FSeriesParameterIds.TEMPORARY_LUX,
+        'state_button.ventilation_boost': FSeriesParameterIds.INCREASED_VENTILATION,
+        'target_temperature.room': FSeriesParameterIds.SET_POINT_TEMP_1
     };
 
     /**
@@ -79,7 +79,7 @@ ${"#".repeat(deviceInfoHeader.length)}
             this.powerCalculator = new PowerCalculator();
 
             // Initial setup
-            await this.fetchAndSetDataPoints(HeatPumpDevice.MONITORED_PARAMETERS);
+            await this.fetchAndSetDataPoints(FSeriesDevice.MONITORED_PARAMETERS);
             await this.settingsManager.initializeSettings();
             await this.powerCalculator.updateDevicePower(this);
 
@@ -108,7 +108,7 @@ ${"#".repeat(deviceInfoHeader.length)}
         this.pollTimer = this.homey.setInterval(async () => {
             this.log(`Fetching data for device ${this.deviceId}`);
             try {
-                await this.fetchAndSetDataPoints(HeatPumpDevice.MONITORED_PARAMETERS);
+                await this.fetchAndSetDataPoints(FSeriesDevice.MONITORED_PARAMETERS);
                 await this.powerCalculator.updateDevicePower(this);
                 await this.settingsManager.updateHeatpumpSettings();
             } catch (error) {
@@ -121,7 +121,7 @@ ${"#".repeat(deviceInfoHeader.length)}
      * Sets up capability listeners for device control
      */
     async setupCapabilityListeners() {
-        for (const [capability, parameterId] of Object.entries(HeatPumpDevice.CAPABILITY_PARAMETER_MAP)) {
+        for (const [capability, parameterId] of Object.entries(FSeriesDevice.CAPABILITY_PARAMETER_MAP)) {
             this.registerCapabilityListener(capability, async (value) => {
                 try {
                     this.log(`Setting capability ${capability} to ${value}`);
@@ -147,7 +147,7 @@ ${"#".repeat(deviceInfoHeader.length)}
             const dataPoints = await this.oAuth2Client.getDataPoints(this.deviceId, params);
 
             for (const point of dataPoints) {
-                const param = parameterMap[Number(point.parameterId)];
+                const param = fseriesParameterMap[Number(point.parameterId)];
                 if (!param) {
                     this.log(`Unknown parameter: ${point.parameterId}`);
                     continue;
@@ -361,4 +361,4 @@ ${"#".repeat(deviceInfoHeader.length)}
     }
 }
 
-export default HeatPumpDevice;
+export default FSeriesDevice;

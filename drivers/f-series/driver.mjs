@@ -2,7 +2,7 @@
 
 import {OAuth2Driver} from "homey-oauth2app";
 
-class HeatPumpDriver extends OAuth2Driver {
+class FSerierDriver extends OAuth2Driver {
     async onOAuth2Init() {}
 
     /**
@@ -28,4 +28,4 @@ class HeatPumpDriver extends OAuth2Driver {
     }
 }
 
-export default HeatPumpDriver;
+export default FSerierDriver;

@@ -1,0 +1,132 @@
+[
+  {
+    "id": "firmware",
+    "type": "label",
+    "label": {
+      "en": "Firmware",
+      "sv": "Programvara",
+      "da": "Firmware",
+      "no": "Firmware"
+    },
+    "value": ""
+  },
+  {
+    "id": "serialNumber",
+    "type": "label",
+    "label": {
+      "en": "Serial number",
+      "sv": "Serienummer",
+      "da": "Serienummer",
+      "no": "Serienummer"
+    },
+    "value": ""
+  },
+  {
+    "id": "powerFactor",
+    "type": "number",
+    "label": {
+      "en": "Power factor",
+      "sv": "Effektfaktor",
+      "da": "Effektfaktor",
+      "no": "Effektfaktor"
+    },
+    "value": 0.95,
+    "min": 0,
+    "max": 1,
+    "highlight": true
+  },
+  {
+    "id": "voltage",
+    "type": "number",
+    "label": {
+      "en": "Volt",
+      "sv": "Volt",
+      "da": "Volt",
+      "no": "Volt"
+    },
+    "value": 400,
+    "min": 230,
+    "max": 400,
+    "highlight": true
+  },
+  {
+    "id": "fetchIntervall",
+    "type": "number",
+    "label": {
+      "en": "Interval in minutes to fetch data",
+      "sv": "Intervall i minuter för hämtning av data",
+      "da": "Interval i minutter for hentning af data",
+      "no": "Intervall i minutter for henting av data"
+    },
+    "min": 5,
+    "value": 5
+  },
+  {
+    "id": "operational_mode",
+    "type": "dropdown",
+    "value": "auto",
+    "label": {
+      "en": "Operational mode",
+      "sv": "Driftläge",
+      "da": "Driftstilstand",
+      "no": "Driftsmodus"
+    },
+    "values": [
+      {
+        "id": "0",
+        "label": {
+          "en": "Automatic",
+          "sv": "Automatiskt",
+          "da": "Automatisk",
+          "no": "Automatisk"
+        }
+      },
+      {
+        "id": "1",
+        "label": {
+          "en": "Manual",
+          "sv": "Manuell",
+          "da": "Manuel",
+          "no": "Manuel"
+        }
+      },
+      {
+        "id": "2",
+        "label": {
+          "en": "Heat only",
+          "sv": "Endast värme",
+          "da": "Kun opvarmning",
+          "no": "Kun oppvarming"
+        }
+      }
+    ]
+  },
+  {
+    "id": "heating_curve",
+    "type": "number",
+    "label": {
+      "en": "Heating Curve",
+      "sv": "Värmekurva",
+      "no": "Varmekurve",
+      "da": "Varme Kurve"
+    },
+    "value": 5.0,
+    "min": 0.0,
+    "max": 15.0,
+    "step": 1.0
+  },
+  {
+    "id": "heating_offset_climate_system_1",
+    "type": "number",
+    "label": {
+      "en": "Heating Offset",
+      "sv": "Värmejustering",
+      "no": "Varmejustering",
+      "da": "Varmejustering"
+    },
+    "value": 0.0,
+    "min": -10.0,
+    "max": 10.0,
+    "step": 1.0
+  }
+]
