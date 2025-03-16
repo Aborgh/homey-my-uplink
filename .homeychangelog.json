@@ -52,5 +52,8 @@
   },
   "1.4.5": {
     "en": "Added support for s-series heat pumps"
+  },
+  "1.4.6": {
+    "en": "Added support for s-series"
   }
 }
