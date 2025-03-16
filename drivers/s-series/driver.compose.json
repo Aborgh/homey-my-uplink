@@ -1,17 +1,160 @@
 {
   "name": {
-    "en": "s-series"
+    "en": "Nibe S-Series Heatpump",
+    "sv": "Nibe S-Series Heatpump",
+    "da": "Nibe S-Series Heatpump",
+    "no": "Nibe S-Series Heatpump"
   },
   "class": "heatpump",
   "capabilities": [
-    "measure_power",
-    "measure_temperature"
+    "target_temperature.room",
+    "measure_temperature.room",
+    "measure_temperature.heating_supply",
+    "measure_temperature.return_line",
+    "measure_temperature.outdoor",
+    "measure_temperature.hot_water_charging",
+    "measure_temperature.hot_water_top",
+    "measure_temperature.calculated_supply_line",
+    "measure_temperature.supply_line",
+    "measure_temperature.suction_gas",
+    "measure_current.one",
+    "measure_current.two",
+    "measure_current.three",
+    "measure_frequency.compressor",
+    "status_compressor",
+    "measure_degree_minutes",
+    "state_button.temp_lux",
+    "measure_power"
   ],
+  "capabilitiesOptions": {
+    "measure_temperature.supply_line": {
+      "title": {
+        "en": "Supply line",
+        "sv": "Framledning",
+        "no": "Tilførselsledning",
+        "da": "Forsyningsledning"
+      }
+    },
+    "measure_temperature.calculated_supply_line": {
+      "title": {
+        "en": "Calculated supply line",
+        "sv": "Beräknad framledning",
+        "no": "Beregnet tilførselsledning",
+        "da": "Beregnet forsyningsledning"
+      }
+    },
+    "state_button.temp_lux": {
+      "title": {
+        "en": "Temporary luxury",
+        "sv": "Tillfällig lyx",
+        "da": "Midlertidig luksus",
+        "no": "Midlertidig luksus"
+      }
+    },
+    "measure_temperature.suction_gas": {
+      "title": {
+        "en": "Suction gas",
+        "sv": "Suggas",
+        "da": "Sugergas",
+        "no": "Sugegass"
+      }
+    },
+    "measure_temperature.return_line": {
+      "title": {
+        "en": "Return line",
+        "sv": "Returledning",
+        "da": "Returledning",
+        "no": "Returledning"
+      }
+    },
+    "measure_temperature.hot_water_top": {
+      "title": {
+        "en": "Hot water top",
+        "sv": "Varmvatten top",
+        "da": "Varmtvand top",
+        "no": "Varmtvann topp"
+      }
+    },
+    "measure_temperature.hot_water_charging": {
+      "title": {
+        "en": "Hot water charge",
+        "sv": "Varmvatten laddning",
+        "da": "Varmtvandsopladning",
+        "no": "Varmtvannslading"
+      }
+    },
+    "measure_temperature.heating_supply": {
+      "title": {
+        "en": "Heating medium supply",
+        "sv": "Värmemediumtillförsel",
+        "da": "Varmeforsyning",
+        "no": "Varmeforsyning"
+      }
+    },
+    "measure_frequency.compressor": {
+      "title": {
+        "en": "Compressor frequency",
+        "sv": "Kompressorfrekvens",
+        "da": "Kompressorfrekvens",
+        "no": "Kompressorfrekvens"
+      }
+    },
+    "measure_temperature.outdoor": {
+      "title": {
+        "en": "Outside",
+        "sv": "Utomhus",
+        "da": "Udendørs",
+        "no": "Utendørs"
+      }
+    },
+    "target_temperature.room": {
+      "title": {
+        "en": "Target temperature",
+        "sv": "Måltemperatur",
+        "da": "Måltemperatur",
+        "no": "Måltemperatur"
+      }
+    },
+    "measure_temperature.room": {
+      "title": {
+        "en": "Room temperature",
+        "sv": "Rumstemperatur",
+        "da": "Rumtemperatur",
+        "no": "Romtemperatur"
+      }
+    },
+    "measure_power": {
+      "approximated": true
+    }
+  },
   "platforms": [
     "local"
   ],
   "connectivity": [
     "cloud"
+  ],
+  "pair": [
+    {
+      "id": "login_oauth2",
+      "template": "login_oauth2"
+    },
+    {
+      "id": "list_devices",
+      "template": "list_devices",
+      "navigation": {
+        "next": "add_devices"
+      }
+    },
+    {
+      "id": "add_devices",
+      "template": "add_devices"
+    }
+  ],
+  "repair": [
+    {
+      "id": "login_oauth2",
+      "template": "login_oauth2"
+    }
   ],
   "images": {
     "small": "{{driverAssetsPath}}/images/small.png",

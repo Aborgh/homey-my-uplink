@@ -1,10 +1,10 @@
 'use strict';
 
 import {OAuth2Device} from "homey-oauth2app";
-import fseriesParameterMap from "../../lib/models/fseries-parameter-map.mjs";
+import fSeriesParameterMap from "../../lib/models/f-series-parameter-map.mjs";
 import {SettingsManager} from "../../lib/helpers/settings-manager.mjs";
 import {PowerCalculator} from "../../lib/helpers/power-calculator.mjs";
-import FSeriesParameterIds from "../../lib/models/parameter-enum.mjs";
+import FSeriesParameterIds from "../../lib/models/f-series-parameter-enum.mjs";
 
 /**
  * Represents a Nibe Heat Pump device in Homey
@@ -147,7 +147,7 @@ ${"#".repeat(deviceInfoHeader.length)}
             const dataPoints = await this.oAuth2Client.getDataPoints(this.deviceId, params);
 
             for (const point of dataPoints) {
-                const param = fseriesParameterMap[Number(point.parameterId)];
+                const param = fSeriesParameterMap[Number(point.parameterId)];
                 if (!param) {
                     this.log(`Unknown parameter: ${point.parameterId}`);
                     continue;

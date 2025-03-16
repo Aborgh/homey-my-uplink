@@ -142,10 +142,10 @@
   "drivers": [
     {
       "name": {
-        "en": "Nibe heatpump",
-        "sv": "Nibe värmepump",
-        "da": "Nibe varmepumpe",
-        "no": "Nibe varmepumpe"
+        "en": "Nibe F-Series Heatpump",
+        "sv": "Nibe F-Series Heatpump",
+        "da": "Nibe F-Series Heatpump",
+        "no": "Nibe F-Series Heatpump"
       },
       "class": "heatpump",
       "capabilities": [
@@ -438,6 +438,46 @@
           "value": 5
         },
         {
+          "id": "operational_mode",
+          "type": "dropdown",
+          "value": "auto",
+          "label": {
+            "en": "Operational mode",
+            "sv": "Driftläge",
+            "da": "Driftstilstand",
+            "no": "Driftsmodus"
+          },
+          "values": [
+            {
+              "id": "0",
+              "label": {
+                "en": "Automatic",
+                "sv": "Automatiskt",
+                "da": "Automatisk",
+                "no": "Automatisk"
+              }
+            },
+            {
+              "id": "1",
+              "label": {
+                "en": "Manual",
+                "sv": "Manuell",
+                "da": "Manuel",
+                "no": "Manuel"
+              }
+            },
+            {
+              "id": "2",
+              "label": {
+                "en": "Heat only",
+                "sv": "Endast värme",
+                "da": "Kun opvarmning",
+                "no": "Kun oppvarming"
+              }
+            }
+          ]
+        },
+        {
           "id": "heating_curve",
           "type": "number",
           "label": {
@@ -464,6 +504,235 @@
           "min": -10,
           "max": 10,
           "step": 1
+        }
+      ]
+    },
+    {
+      "name": {
+        "en": "Nibe S-Series Heatpump",
+        "sv": "Nibe S-Series Heatpump",
+        "da": "Nibe S-Series Heatpump",
+        "no": "Nibe S-Series Heatpump"
+      },
+      "class": "heatpump",
+      "capabilities": [
+        "target_temperature.room",
+        "measure_temperature.room",
+        "measure_temperature.heating_supply",
+        "measure_temperature.return_line",
+        "measure_temperature.outdoor",
+        "measure_temperature.hot_water_charging",
+        "measure_temperature.hot_water_top",
+        "measure_temperature.calculated_supply_line",
+        "measure_temperature.supply_line",
+        "measure_temperature.suction_gas",
+        "measure_current.one",
+        "measure_current.two",
+        "measure_current.three",
+        "measure_frequency.compressor",
+        "status_compressor",
+        "measure_degree_minutes",
+        "state_button.temp_lux",
+        "measure_power"
+      ],
+      "capabilitiesOptions": {
+        "measure_temperature.supply_line": {
+          "title": {
+            "en": "Supply line",
+            "sv": "Framledning",
+            "no": "Tilførselsledning",
+            "da": "Forsyningsledning"
+          }
+        },
+        "measure_temperature.calculated_supply_line": {
+          "title": {
+            "en": "Calculated supply line",
+            "sv": "Beräknad framledning",
+            "no": "Beregnet tilførselsledning",
+            "da": "Beregnet forsyningsledning"
+          }
+        },
+        "state_button.temp_lux": {
+          "title": {
+            "en": "Temporary luxury",
+            "sv": "Tillfällig lyx",
+            "da": "Midlertidig luksus",
+            "no": "Midlertidig luksus"
+          }
+        },
+        "measure_temperature.suction_gas": {
+          "title": {
+            "en": "Suction gas",
+            "sv": "Suggas",
+            "da": "Sugergas",
+            "no": "Sugegass"
+          }
+        },
+        "measure_temperature.return_line": {
+          "title": {
+            "en": "Return line",
+            "sv": "Returledning",
+            "da": "Returledning",
+            "no": "Returledning"
+          }
+        },
+        "measure_temperature.hot_water_top": {
+          "title": {
+            "en": "Hot water top",
+            "sv": "Varmvatten top",
+            "da": "Varmtvand top",
+            "no": "Varmtvann topp"
+          }
+        },
+        "measure_temperature.hot_water_charging": {
+          "title": {
+            "en": "Hot water charge",
+            "sv": "Varmvatten laddning",
+            "da": "Varmtvandsopladning",
+            "no": "Varmtvannslading"
+          }
+        },
+        "measure_temperature.heating_supply": {
+          "title": {
+            "en": "Heating medium supply",
+            "sv": "Värmemediumtillförsel",
+            "da": "Varmeforsyning",
+            "no": "Varmeforsyning"
+          }
+        },
+        "measure_frequency.compressor": {
+          "title": {
+            "en": "Compressor frequency",
+            "sv": "Kompressorfrekvens",
+            "da": "Kompressorfrekvens",
+            "no": "Kompressorfrekvens"
+          }
+        },
+        "measure_temperature.outdoor": {
+          "title": {
+            "en": "Outside",
+            "sv": "Utomhus",
+            "da": "Udendørs",
+            "no": "Utendørs"
+          }
+        },
+        "target_temperature.room": {
+          "title": {
+            "en": "Target temperature",
+            "sv": "Måltemperatur",
+            "da": "Måltemperatur",
+            "no": "Måltemperatur"
+          }
+        },
+        "measure_temperature.room": {
+          "title": {
+            "en": "Room temperature",
+            "sv": "Rumstemperatur",
+            "da": "Rumtemperatur",
+            "no": "Romtemperatur"
+          }
+        },
+        "measure_power": {
+          "approximated": true
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "pair": [
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        }
+      ],
+      "images": {
+        "small": "/drivers/s-series/assets/images/small.png",
+        "large": "/drivers/s-series/assets/images/large.png",
+        "xlarge": "/drivers/s-series/assets/images/xlarge.png"
+      },
+      "id": "s-series",
+      "settings": [
+        {
+          "id": "firmware",
+          "type": "label",
+          "label": {
+            "en": "Firmware",
+            "sv": "Programvara",
+            "da": "Firmware",
+            "no": "Firmware"
+          },
+          "value": ""
+        },
+        {
+          "id": "serialNumber",
+          "type": "label",
+          "label": {
+            "en": "Serial number",
+            "sv": "Serienummer",
+            "da": "Serienummer",
+            "no": "Serienummer"
+          },
+          "value": ""
+        },
+        {
+          "id": "powerFactor",
+          "type": "number",
+          "label": {
+            "en": "Power factor",
+            "sv": "Effektfaktor",
+            "da": "Effektfaktor",
+            "no": "Effektfaktor"
+          },
+          "value": 0.95,
+          "min": 0,
+          "max": 1,
+          "highlight": true
+        },
+        {
+          "id": "voltage",
+          "type": "number",
+          "label": {
+            "en": "Volt",
+            "sv": "Volt",
+            "da": "Volt",
+            "no": "Volt"
+          },
+          "value": 400,
+          "min": 230,
+          "max": 400,
+          "highlight": true
+        },
+        {
+          "id": "fetchIntervall",
+          "type": "number",
+          "label": {
+            "en": "Interval in minutes to fetch data",
+            "sv": "Intervall i minuter för hämtning av data",
+            "da": "Interval i minutter for hentning af data",
+            "no": "Intervall i minutter for henting av data"
+          },
+          "min": 5,
+          "value": 5
         }
       ]
     }

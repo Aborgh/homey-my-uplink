@@ -1,9 +1,9 @@
 {
   "name": {
-    "en": "Nibe heatpump",
-    "sv": "Nibe värmepump",
-    "da": "Nibe varmepumpe",
-    "no": "Nibe varmepumpe"
+    "en": "Nibe F-Series Heatpump",
+    "sv": "Nibe F-Series Heatpump",
+    "da": "Nibe F-Series Heatpump",
+    "no": "Nibe F-Series Heatpump"
   },
   "class": "heatpump",
   "capabilities": [
