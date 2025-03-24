@@ -39,7 +39,6 @@ class SSeriesDevice extends OAuth2Device {
         // SSeriesParameterIds.BRINE_IN,
         // SSeriesParameterIds.BRINE_OUT,
         // SSeriesParameterIds.BRINE_PUMP_SPEED,
-        SSeriesParameterIds.TARGET_ROOM_TEMP
     ];
 
     /**
@@ -48,8 +47,8 @@ class SSeriesDevice extends OAuth2Device {
      */
     static CAPABILITY_PARAMETER_MAP = {
         'state_button.temp_lux': SSeriesParameterIds.TEMP_LUX,
-        'state_button.ventilation_boost': SSeriesParameterIds.VENTILATION_BOOST,
-        'target_temperature.room': SSeriesParameterIds.TARGET_ROOM_TEMP
+        // 'state_button.ventilation_boost': SSeriesParameterIds.VENTILATION_BOOST,
+        // 'target_temperature.room': SSeriesParameterIds.TARGET_ROOM_TEMP
     };
 
     /**
