@@ -3,9 +3,12 @@ Transform your home's climate control with the Nibe MyUplink integration for Hom
 FEATURES:
 
 Real-time monitoring of system temperatures, energy usage, and performance metrics
-Smart temperature control with adjustable heating curves and operational modes
-One-touch comfort boost for ventilation and hot water
+Smart temperature control.
 Energy optimization through detailed performance insights
 Seamless integration with Homey's automation capabilities
 
-Compatible with all MyUplink-connected Nibe heat pump systems.
+Compatible with MyUplink-connected Nibe heat pump systems.
+
+Thanks to discourse users, who kindly helped this project:
+Karl_Lindstrom
+Oppanang

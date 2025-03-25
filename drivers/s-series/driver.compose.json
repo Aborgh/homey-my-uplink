@@ -23,7 +23,6 @@
     "measure_frequency.compressor",
     "status_compressor",
     "measure_degree_minutes",
-    "state_button.temp_lux",
     "measure_power"
   ],
   "capabilitiesOptions": {

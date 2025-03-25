@@ -26,15 +26,13 @@ class SSeriesDevice extends OAuth2Device {
         SSeriesParameterIds.DISCHARGE_TEMP,
         SSeriesParameterIds.LIQUID_LINE,
         SSeriesParameterIds.SUCTION_GAS,
-        SSeriesParameterIds.CALCULATED_SUPPLY_TEMP,
         SSeriesParameterIds.DEGREE_MINUTES,
         SSeriesParameterIds.CURRENT_COMPRESSOR_FREQ,
         SSeriesParameterIds.COMPRESSOR_STATUS,
-        SSeriesParameterIds.HEAT_MEDIUM_PUMP_SPEED,
+        SSeriesParameterIds.HEATING_MEDIUM_PUMP_SPEED,
         SSeriesParameterIds.CURRENT_1,
         SSeriesParameterIds.CURRENT_2,
         SSeriesParameterIds.CURRENT_3,
-        SSeriesParameterIds.POWER_CONSUMPTION,
         // Add brine pumps for ground source models
         // SSeriesParameterIds.BRINE_IN,
         // SSeriesParameterIds.BRINE_OUT,
@@ -46,9 +44,9 @@ class SSeriesDevice extends OAuth2Device {
      * @type {Object.<string, number>}
      */
     static CAPABILITY_PARAMETER_MAP = {
-        'state_button.temp_lux': SSeriesParameterIds.TEMP_LUX,
+        // 'state_button.temp_lux': SSeriesParameterIds.TE,
         // 'state_button.ventilation_boost': SSeriesParameterIds.VENTILATION_BOOST,
-        // 'target_temperature.room': SSeriesParameterIds.TARGET_ROOM_TEMP
+        'target_temperature.room': SSeriesParameterIds.ROOM_TEMP_SETPOINT
     };
 
     /**
