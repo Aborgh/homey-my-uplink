@@ -23,6 +23,7 @@
     "measure_frequency.compressor",
     "status_compressor",
     "measure_degree_minutes",
+    "state_button.hot_water_boost",
     "measure_power"
   ],
   "capabilitiesOptions": {
@@ -42,12 +43,12 @@
         "da": "Beregnet forsyningsledning"
       }
     },
-    "state_button.temp_lux": {
+    "state_button.hot_water_boost": {
       "title": {
-        "en": "Temporary luxury",
-        "sv": "Tillfällig lyx",
-        "da": "Midlertidig luksus",
-        "no": "Midlertidig luksus"
+        "en": "Hot water boost",
+        "sv": "Varmvatten boost",
+        "no": "Varmtvann boost",
+        "da": "Varmt vand boost"
       }
     },
     "measure_temperature.suction_gas": {

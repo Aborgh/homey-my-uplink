@@ -33,10 +33,6 @@ class SSeriesDevice extends OAuth2Device {
         SSeriesParameterIds.CURRENT_1,
         SSeriesParameterIds.CURRENT_2,
         SSeriesParameterIds.CURRENT_3,
-        // Add brine pumps for ground source models
-        // SSeriesParameterIds.BRINE_IN,
-        // SSeriesParameterIds.BRINE_OUT,
-        // SSeriesParameterIds.BRINE_PUMP_SPEED,
     ];
 
     /**
@@ -44,7 +40,7 @@ class SSeriesDevice extends OAuth2Device {
      * @type {Object.<string, number>}
      */
     static CAPABILITY_PARAMETER_MAP = {
-        // 'state_button.temp_lux': SSeriesParameterIds.TE,
+        'state_button.hot_water_boost': SSeriesParameterIds.HOT_WATER_BOOST,
         // 'state_button.ventilation_boost': SSeriesParameterIds.VENTILATION_BOOST,
         'target_temperature.room': SSeriesParameterIds.ROOM_TEMP_SETPOINT
     };
