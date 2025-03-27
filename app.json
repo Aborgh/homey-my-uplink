@@ -518,12 +518,10 @@
       "capabilities": [
         "target_temperature.room",
         "measure_temperature.room",
-        "measure_temperature.heating_supply",
         "measure_temperature.return_line",
         "measure_temperature.outdoor",
         "measure_temperature.hot_water_charging",
         "measure_temperature.hot_water_top",
-        "measure_temperature.calculated_supply_line",
         "measure_temperature.supply_line",
         "measure_temperature.suction_gas",
         "measure_current.one",
@@ -542,14 +540,6 @@
             "sv": "Framledning",
             "no": "Tilførselsledning",
             "da": "Forsyningsledning"
-          }
-        },
-        "measure_temperature.calculated_supply_line": {
-          "title": {
-            "en": "Calculated supply line",
-            "sv": "Beräknad framledning",
-            "no": "Beregnet tilførselsledning",
-            "da": "Beregnet forsyningsledning"
           }
         },
         "state_button.hot_water_boost": {
@@ -590,14 +580,6 @@
             "sv": "Varmvatten laddning",
             "da": "Varmtvandsopladning",
             "no": "Varmtvannslading"
-          }
-        },
-        "measure_temperature.heating_supply": {
-          "title": {
-            "en": "Heating medium supply",
-            "sv": "Värmemediumtillförsel",
-            "da": "Varmeforsyning",
-            "no": "Varmeforsyning"
           }
         },
         "measure_frequency.compressor": {
