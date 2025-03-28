@@ -520,6 +520,7 @@
         "measure_temperature.room",
         "measure_temperature.return_line",
         "measure_temperature.outdoor",
+        "measure_temperature.average_outdoor",
         "measure_temperature.hot_water_charging",
         "measure_temperature.hot_water_top",
         "measure_temperature.supply_line",
@@ -531,9 +532,26 @@
         "status_compressor",
         "measure_degree_minutes",
         "state_button.hot_water_boost",
-        "measure_power"
+        "measure_power",
+        "meter_power.lifetime_energy_consumed"
       ],
       "capabilitiesOptions": {
+        "measure_temperature.average_outdoor": {
+          "title": {
+            "en": "Average outdoor",
+            "sv": "Genomsnittlig utomhus",
+            "no": "Gjennomsnittlig utendørs",
+            "da": "Gennemsnitlig udendørs"
+          }
+        },
+        "meter_power.lifetime_energy_consumed": {
+          "title": {
+            "en": "Total consumed energy",
+            "sv": "Total förbrukad energi",
+            "no": "Total forbrukt energi",
+            "da": "Total forbrugt energi"
+          }
+        },
         "measure_temperature.supply_line": {
           "title": {
             "en": "Supply line",

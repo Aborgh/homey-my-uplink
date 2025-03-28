@@ -32,6 +32,8 @@ class SSeriesDevice extends OAuth2Device {
         SSeriesParameterIds.CURRENT_1,
         SSeriesParameterIds.CURRENT_2,
         SSeriesParameterIds.CURRENT_3,
+        SSeriesParameterIds.LIFETIME_ENERGY_CONSUMED,
+        SSeriesParameterIds.AVERAGE_OUTDOOR_TEMP
     ];
 
     /**
@@ -313,6 +315,19 @@ ${"#".repeat(deviceInfoHeader.length)}
                     await this.setCapabilityValue('measure_temperature.room', controlZone.temperature);
                     this.log(`Updated room temperature to ${controlZone.temperature} from zone: ${controlZone.name}`);
                 }
+                if (controlZone.indoorHumidity !== null || controlZone.indoorHumidity !== 0) {
+                    await this.addCapability(`measure_humidity.${controlZone.name}`);
+                    await this.setCapabilityOptions(`measure_humidity.${controlZone.name}`, {
+                        "title": {
+                            "en": `${controlZone.name} humidity`,
+                            "sv": `${controlZone.name} luftfuktighet`,
+                            "no": `${controlZone.name} luftfuktighet`,
+                            "da": `${controlZone.name} luftfugtighed`,
+                        }
+                    })
+                    await this.setCapabilityValue(`measure_humidity.${controlZone.name}`, controlZone.indoorHumidity)
+                    this.log(`Updated room humidity to ${controlZone.indoorHumidity} from zone: ${controlZone.name}`);
+                } 
             } else {
                 // No controllable zones found, remove room temperature capabilities
                 if (this.hasCapability('target_temperature.room')) {
