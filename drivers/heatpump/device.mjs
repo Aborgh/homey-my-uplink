@@ -38,6 +38,7 @@ class FSeriesDevice extends OAuth2Device {
         FSeriesParameterIds.CALCULATED_SUPPLY_LINE,
         FSeriesParameterIds.TIME_HEAT_ADDITION,
         FSeriesParameterIds.COMPRESSOR_STATUS,
+        FSeriesParameterIds.OPERATION_MODE,
         // Removed for now since it doesn't return the correct value
         // ParameterIds.ELECTRIC_ADDITION_STATUS
     ];
@@ -49,7 +50,9 @@ class FSeriesDevice extends OAuth2Device {
     static CAPABILITY_PARAMETER_MAP = {
         'state_button.temp_lux': FSeriesParameterIds.TEMPORARY_LUX,
         'state_button.ventilation_boost': FSeriesParameterIds.INCREASED_VENTILATION,
-        'target_temperature.room': FSeriesParameterIds.SET_POINT_TEMP_1
+        'target_temperature.room': FSeriesParameterIds.SET_POINT_TEMP_1,
+        'heater_operation_mode': FSeriesParameterIds.OPERATION_MODE
+
     };
 
     /**
@@ -171,16 +174,14 @@ ${"#".repeat(deviceInfoHeader.length)}
                         default:
                             value = point.value;
                     }
-                    
-
-                    if (this.hasCapability(param.capabilityName)) {
-                        await this.setCapabilityValue(param.capabilityName, value);
-                        this.log(`Updated ${param.capabilityName} to ${value}`);
+                    if (this.hasCapability(capabilityName)) {
+                        await this.setCapabilityValue(capabilityName, value);
+                        this.log(`Updated ${capabilityName} to ${value}`);
                     } else {
                         // Add capability if it doesn't exist
-                        await this.addCapability(param.capabilityName);
-                        await this.setCapabilityValue(param.capabilityName, value);
-                        this.log(`Added capability: ${param.capabilityName} with value ${value}`);
+                        await this.addCapability(capabilityName);
+                        await this.setCapabilityValue(capabilityName, value);
+                        this.log(`Added capability: ${capabilityName} with value ${value}`);
                     }
                     await this.processFlowTriggers(param);
                 } catch (capError) {
@@ -210,7 +211,8 @@ ${"#".repeat(deviceInfoHeader.length)}
      * @returns {string} The processed enum value
      */
     processEnumValue(point, param) {
-        // Special handling for electric addition status
+
+        // Special handling for electricity addition status
         if (param.capabilityName === "status_electric_addition") {
             this.log(param.capabilityName, 'value', point.value);
             return this.processElectricAdditionStatus(point);
