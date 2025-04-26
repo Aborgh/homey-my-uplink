@@ -174,14 +174,14 @@ ${"#".repeat(deviceInfoHeader.length)}
                         default:
                             value = point.value;
                     }
-                    if (this.hasCapability(capabilityName)) {
-                        await this.setCapabilityValue(capabilityName, value);
-                        this.log(`Updated ${capabilityName} to ${value}`);
+                    if (this.hasCapability(param.capabilityName)) {
+                        await this.setCapabilityValue(param.capabilityName, value);
+                        this.log(`Updated ${param.capabilityName} to ${value}`);
                     } else {
                         // Add capability if it doesn't exist
-                        await this.addCapability(capabilityName);
-                        await this.setCapabilityValue(capabilityName, value);
-                        this.log(`Added capability: ${capabilityName} with value ${value}`);
+                        await this.addCapability(param.capabilityName);
+                        await this.setCapabilityValue(param.capabilityName, value);
+                        this.log(`Added capability: ${param.capabilityName} with value ${value}`);
                     }
                     await this.processFlowTriggers(param);
                 } catch (capError) {
