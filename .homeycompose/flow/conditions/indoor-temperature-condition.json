@@ -1,0 +1,80 @@
+{
+  "id": "indoor-temperature-condition",
+  "title": {
+    "en": "Indoor temperature !{{is|isn't}}",
+    "sv": "Inomhustemperatur !{{är|är inte}}",
+    "no": "Innendørstemperatur !{{er|er ikke}}",
+    "da": "Indendørstemperatur !{{er|er ikke}}"
+  },
+  "titleFormatted": {
+    "en": "Indoor temperature !{{is|isn't}} [[comparison]] [[temperature]] °C",
+    "sv": "Inomhustemperatur !{{är|är inte}} [[comparison]] [[temperature]] °C",
+    "no": "Innendørstemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C",
+    "da": "Indendørstemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C"
+  },
+  "hint": {
+    "en": "Checks if the current indoor temperature matches the condition",
+    "sv": "Kontrollerar om den aktuella inomhustemperaturen matchar villkoret",
+    "no": "Sjekker om nåværende innendørstemperatur matcher betingelsen",
+    "da": "Kontrollerer om den aktuelle indendørstemperatur matcher betingelsen"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=heatpump|s-series"
+    },
+    {
+      "type": "dropdown",
+      "name": "comparison",
+      "title": {
+        "en": "Comparison",
+        "sv": "Jämförelse",
+        "no": "Sammenligning",
+        "da": "Sammenligning"
+      },
+      "values": [
+        {
+          "id": "greater",
+          "title": {
+            "en": "greater than",
+            "sv": "större än",
+            "no": "større enn",
+            "da": "større end"
+          }
+        },
+        {
+          "id": "equals",
+          "title": {
+            "en": "equal to",
+            "sv": "lika med",
+            "no": "lik",
+            "da": "lig med"
+          }
+        },
+        {
+          "id": "less",
+          "title": {
+            "en": "less than",
+            "sv": "mindre än",
+            "no": "mindre enn",
+            "da": "mindre end"
+          }
+        }
+      ]
+    },
+    {
+      "type": "number",
+      "name": "temperature",
+      "title": {
+        "en": "Temperature",
+        "sv": "Temperatur",
+        "no": "Temperatur",
+        "da": "Temperatur"
+      },
+      "min": 0,
+      "max": 40,
+      "step": 0.5
+    }
+  ]
+}

@@ -111,6 +111,250 @@
   "flow": {
     "triggers": [
       {
+        "id": "calculated-supply-line-becomes-greater-than",
+        "title": {
+          "en": "Calculated supply line becomes greater than",
+          "sv": "Beräknad framledning blir större än",
+          "no": "Beregnet tilførselsledning blir større enn",
+          "da": "Beregnet forsyningsledning bliver større end"
+        },
+        "titleFormatted": {
+          "en": "Calculated supply line becomes greater than [[temperature]] °C",
+          "sv": "Beräknad framledning blir större än [[temperature]] °C",
+          "no": "Beregnet tilførselsledning blir større enn [[temperature]] °C",
+          "da": "Beregnet forsyningsledning bliver større end [[temperature]] °C"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": 0,
+            "max": 80,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "calculated-supply-line-becomes-less-than",
+        "title": {
+          "en": "Calculated supply line becomes less than",
+          "sv": "Beräknad framledning blir mindre än",
+          "no": "Beregnet tilførselsledning blir mindre enn",
+          "da": "Beregnet forsyningsledning bliver mindre end"
+        },
+        "titleFormatted": {
+          "en": "Calculated supply line becomes less than [[temperature]] °C",
+          "sv": "Beräknad framledning blir mindre än [[temperature]] °C",
+          "no": "Beregnet tilførselsledning blir mindre enn [[temperature]] °C",
+          "da": "Beregnet forsyningsledning bliver mindre end [[temperature]] °C"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": 0,
+            "max": 80,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "calculated-supply-line-changed",
+        "title": {
+          "en": "Calculated supply line changed",
+          "sv": "Beräknad framledning ändrades",
+          "no": "Beregnet tilførselsledning endret",
+          "da": "Beregnet forsyningsledning ændret"
+        },
+        "tokens": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          }
+        ]
+      },
+      {
+        "id": "compressor-frequency-becomes-greater-than",
+        "title": {
+          "en": "Compressor frequency becomes greater than",
+          "sv": "Kompressorfrekvens blir större än",
+          "no": "Kompressorfrekvens blir større enn",
+          "da": "Kompressorfrekvens bliver større end"
+        },
+        "titleFormatted": {
+          "en": "Compressor frequency becomes greater than [[value]] Hz",
+          "sv": "Kompressorfrekvens blir större än [[value]] Hz",
+          "no": "Kompressorfrekvens blir større enn [[value]] Hz",
+          "da": "Kompressorfrekvens bliver større end [[value]] Hz"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            },
+            "min": 0,
+            "max": 120,
+            "step": 1
+          }
+        ]
+      },
+      {
+        "id": "compressor-frequency-becomes-less-than",
+        "title": {
+          "en": "Compressor frequency becomes less than",
+          "sv": "Kompressorfrekvens blir mindre än",
+          "no": "Kompressorfrekvens blir mindre enn",
+          "da": "Kompressorfrekvens bliver mindre end"
+        },
+        "titleFormatted": {
+          "en": "Compressor frequency becomes less than [[value]] Hz",
+          "sv": "Kompressorfrekvens blir mindre än [[value]] Hz",
+          "no": "Kompressorfrekvens blir mindre enn [[value]] Hz",
+          "da": "Kompressorfrekvens bliver mindre end [[value]] Hz"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            },
+            "min": 0,
+            "max": 120,
+            "step": 1
+          }
+        ]
+      },
+      {
+        "id": "compressor-frequency-changed",
+        "title": {
+          "en": "Compressor frequency changed",
+          "sv": "Kompressorfrekvens ändrades",
+          "no": "Kompressorfrekvens endret",
+          "da": "Kompressorfrekvens ændret"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          }
+        ]
+      },
+      {
         "title": {
           "en": "Compressor status changed",
           "sv": "Kompressorstatus ändrad",
@@ -136,6 +380,2438 @@
           }
         ],
         "id": "compressor-status-changed"
+      },
+      {
+        "id": "condenser-becomes-greater-than",
+        "title": {
+          "en": "Condenser becomes greater than",
+          "sv": "Kondensor blir större än",
+          "no": "Kondensator blir større enn",
+          "da": "Kondensator bliver større end"
+        },
+        "titleFormatted": {
+          "en": "Condenser becomes greater than [[temperature]] °C",
+          "sv": "Kondensor blir större än [[temperature]] °C",
+          "no": "Kondensator blir større enn [[temperature]] °C",
+          "da": "Kondensator bliver større end [[temperature]] °C"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": 0,
+            "max": 90,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "condenser-becomes-less-than",
+        "title": {
+          "en": "Condenser becomes less than",
+          "sv": "Kondensor blir mindre än",
+          "no": "Kondensator blir mindre enn",
+          "da": "Kondensator bliver mindre end"
+        },
+        "titleFormatted": {
+          "en": "Condenser becomes less than [[temperature]] °C",
+          "sv": "Kondensor blir mindre än [[temperature]] °C",
+          "no": "Kondensator blir mindre enn [[temperature]] °C",
+          "da": "Kondensator bliver mindre end [[temperature]] °C"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": 0,
+            "max": 90,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "condenser-changed",
+        "title": {
+          "en": "Condenser changed",
+          "sv": "Kondensor ändrades",
+          "no": "Kondensator endret",
+          "da": "Kondensator ændret"
+        },
+        "tokens": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          }
+        ]
+      },
+      {
+        "id": "current-phase-1-becomes-greater-than",
+        "title": {
+          "en": "Current phase 1 becomes greater than",
+          "sv": "Ström fas 1 blir större än",
+          "no": "Strøm fase 1 blir større enn",
+          "da": "Strøm fase 1 bliver større end"
+        },
+        "titleFormatted": {
+          "en": "Current phase 1 becomes greater than [[value]] A",
+          "sv": "Ström fas 1 blir större än [[value]] A",
+          "no": "Strøm fase 1 blir større enn [[value]] A",
+          "da": "Strøm fase 1 bliver større end [[value]] A"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            },
+            "min": 0,
+            "max": 25,
+            "step": 1
+          }
+        ]
+      },
+      {
+        "id": "current-phase-1-becomes-less-than",
+        "title": {
+          "en": "Current phase 1 becomes less than",
+          "sv": "Ström fas 1 blir mindre än",
+          "no": "Strøm fase 1 blir mindre enn",
+          "da": "Strøm fase 1 bliver mindre end"
+        },
+        "titleFormatted": {
+          "en": "Current phase 1 becomes less than [[value]] A",
+          "sv": "Ström fas 1 blir mindre än [[value]] A",
+          "no": "Strøm fase 1 blir mindre enn [[value]] A",
+          "da": "Strøm fase 1 bliver mindre end [[value]] A"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            },
+            "min": 0,
+            "max": 25,
+            "step": 1
+          }
+        ]
+      },
+      {
+        "id": "current-phase-1-changed",
+        "title": {
+          "en": "Current phase 1 changed",
+          "sv": "Ström fas 1 ändrades",
+          "no": "Strøm fase 1 endret",
+          "da": "Strøm fase 1 ændret"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          }
+        ]
+      },
+      {
+        "id": "current-phase-2-becomes-greater-than",
+        "title": {
+          "en": "Current phase 2 becomes greater than",
+          "sv": "Ström fas 2 blir större än",
+          "no": "Strøm fase 2 blir større enn",
+          "da": "Strøm fase 2 bliver større end"
+        },
+        "titleFormatted": {
+          "en": "Current phase 2 becomes greater than [[value]] A",
+          "sv": "Ström fas 2 blir större än [[value]] A",
+          "no": "Strøm fase 2 blir større enn [[value]] A",
+          "da": "Strøm fase 2 bliver større end [[value]] A"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            },
+            "min": 0,
+            "max": 25,
+            "step": 1
+          }
+        ]
+      },
+      {
+        "id": "current-phase-2-becomes-less-than",
+        "title": {
+          "en": "Current phase 2 becomes less than",
+          "sv": "Ström fas 2 blir mindre än",
+          "no": "Strøm fase 2 blir mindre enn",
+          "da": "Strøm fase 2 bliver mindre end"
+        },
+        "titleFormatted": {
+          "en": "Current phase 2 becomes less than [[value]] A",
+          "sv": "Ström fas 2 blir mindre än [[value]] A",
+          "no": "Strøm fase 2 blir mindre enn [[value]] A",
+          "da": "Strøm fase 2 bliver mindre end [[value]] A"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            },
+            "min": 0,
+            "max": 25,
+            "step": 1
+          }
+        ]
+      },
+      {
+        "id": "current-phase-2-changed",
+        "title": {
+          "en": "Current phase 2 changed",
+          "sv": "Ström fas 2 ändrades",
+          "no": "Strøm fase 2 endret",
+          "da": "Strøm fase 2 ændret"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          }
+        ]
+      },
+      {
+        "id": "current-phase-3-becomes-greater-than",
+        "title": {
+          "en": "Current phase 3 becomes greater than",
+          "sv": "Ström fas 3 blir större än",
+          "no": "Strøm fase 3 blir større enn",
+          "da": "Strøm fase 3 bliver større end"
+        },
+        "titleFormatted": {
+          "en": "Current phase 3 becomes greater than [[value]] A",
+          "sv": "Ström fas 3 blir större än [[value]] A",
+          "no": "Strøm fase 3 blir større enn [[value]] A",
+          "da": "Strøm fase 3 bliver større end [[value]] A"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            },
+            "min": 0,
+            "max": 25,
+            "step": 1
+          }
+        ]
+      },
+      {
+        "id": "current-phase-3-becomes-less-than",
+        "title": {
+          "en": "Current phase 3 becomes less than",
+          "sv": "Ström fas 3 blir mindre än",
+          "no": "Strøm fase 3 blir mindre enn",
+          "da": "Strøm fase 3 bliver mindre end"
+        },
+        "titleFormatted": {
+          "en": "Current phase 3 becomes less than [[value]] A",
+          "sv": "Ström fas 3 blir mindre än [[value]] A",
+          "no": "Strøm fase 3 blir mindre enn [[value]] A",
+          "da": "Strøm fase 3 bliver mindre end [[value]] A"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            },
+            "min": 0,
+            "max": 25,
+            "step": 1
+          }
+        ]
+      },
+      {
+        "id": "current-phase-3-changed",
+        "title": {
+          "en": "Current phase 3 changed",
+          "sv": "Ström fas 3 ändrades",
+          "no": "Strøm fase 3 endret",
+          "da": "Strøm fase 3 ændret"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          }
+        ]
+      },
+      {
+        "id": "degree-minutes-becomes-greater-than",
+        "title": {
+          "en": "Degree minutes becomes greater than",
+          "sv": "Gradminuter blir större än",
+          "no": "Gradminutter blir større enn",
+          "da": "Gradminutter bliver større end"
+        },
+        "titleFormatted": {
+          "en": "Degree minutes becomes greater than [[value]] DM",
+          "sv": "Gradminuter blir större än [[value]] DM",
+          "no": "Gradminutter blir større enn [[value]] DM",
+          "da": "Gradminutter bliver større end [[value]] DM"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            },
+            "min": -3000,
+            "max": 3000,
+            "step": 1
+          }
+        ]
+      },
+      {
+        "id": "degree-minutes-becomes-less-than",
+        "title": {
+          "en": "Degree minutes becomes less than",
+          "sv": "Gradminuter blir mindre än",
+          "no": "Gradminutter blir mindre enn",
+          "da": "Gradminutter bliver mindre end"
+        },
+        "titleFormatted": {
+          "en": "Degree minutes becomes less than [[value]] DM",
+          "sv": "Gradminuter blir mindre än [[value]] DM",
+          "no": "Gradminutter blir mindre enn [[value]] DM",
+          "da": "Gradminutter bliver mindre end [[value]] DM"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            },
+            "min": -3000,
+            "max": 3000,
+            "step": 1
+          }
+        ]
+      },
+      {
+        "id": "degree-minutes-changed",
+        "title": {
+          "en": "Degree minutes changed",
+          "sv": "Gradminuter ändrades",
+          "no": "Gradminutter endret",
+          "da": "Gradminutter ændret"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          }
+        ]
+      },
+      {
+        "id": "exhaust-air-becomes-greater-than",
+        "title": {
+          "en": "Exhaust air becomes greater than",
+          "sv": "Frånluft blir större än",
+          "no": "Fraluft blir større enn",
+          "da": "Fraluft bliver større end"
+        },
+        "titleFormatted": {
+          "en": "Exhaust air becomes greater than [[temperature]] °C",
+          "sv": "Frånluft blir större än [[temperature]] °C",
+          "no": "Fraluft blir større enn [[temperature]] °C",
+          "da": "Fraluft bliver større end [[temperature]] °C"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": 0,
+            "max": 40,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "exhaust-air-becomes-less-than",
+        "title": {
+          "en": "Exhaust air becomes less than",
+          "sv": "Frånluft blir mindre än",
+          "no": "Fraluft blir mindre enn",
+          "da": "Fraluft bliver mindre end"
+        },
+        "titleFormatted": {
+          "en": "Exhaust air becomes less than [[temperature]] °C",
+          "sv": "Frånluft blir mindre än [[temperature]] °C",
+          "no": "Fraluft blir mindre enn [[temperature]] °C",
+          "da": "Fraluft bliver mindre end [[temperature]] °C"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": 0,
+            "max": 40,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "exhaust-air-changed",
+        "title": {
+          "en": "Exhaust air changed",
+          "sv": "Frånluft ändrades",
+          "no": "Fraluft endret",
+          "da": "Fraluft ændret"
+        },
+        "tokens": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          }
+        ]
+      },
+      {
+        "id": "extract-air-becomes-greater-than",
+        "title": {
+          "en": "Extract air becomes greater than",
+          "sv": "Avluft blir större än",
+          "no": "Utsugingsluft blir større enn",
+          "da": "Udsugningsluft bliver større end"
+        },
+        "titleFormatted": {
+          "en": "Extract air becomes greater than [[temperature]] °C",
+          "sv": "Avluft blir större än [[temperature]] °C",
+          "no": "Utsugingsluft blir større enn [[temperature]] °C",
+          "da": "Udsugningsluft bliver større end [[temperature]] °C"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": -10,
+            "max": 40,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "extract-air-becomes-less-than",
+        "title": {
+          "en": "Extract air becomes less than",
+          "sv": "Avluft blir mindre än",
+          "no": "Utsugingsluft blir mindre enn",
+          "da": "Udsugningsluft bliver mindre end"
+        },
+        "titleFormatted": {
+          "en": "Extract air becomes less than [[temperature]] °C",
+          "sv": "Avluft blir mindre än [[temperature]] °C",
+          "no": "Utsugingsluft blir mindre enn [[temperature]] °C",
+          "da": "Udsugningsluft bliver mindre end [[temperature]] °C"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": -10,
+            "max": 40,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "extract-air-changed",
+        "title": {
+          "en": "Extract air changed",
+          "sv": "Avluft ändrades",
+          "no": "Utsugingsluft endret",
+          "da": "Udsugningsluft ændret"
+        },
+        "tokens": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          }
+        ]
+      },
+      {
+        "id": "fan-speed-becomes-greater-than",
+        "title": {
+          "en": "Fan speed becomes greater than",
+          "sv": "Fläkthastighet blir större än",
+          "no": "Viftehastighet blir større enn",
+          "da": "Blæserhastighed bliver større end"
+        },
+        "titleFormatted": {
+          "en": "Fan speed becomes greater than [[value]] %",
+          "sv": "Fläkthastighet blir större än [[value]] %",
+          "no": "Viftehastighet blir større enn [[value]] %",
+          "da": "Blæserhastighed bliver større end [[value]] %"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            },
+            "min": 0,
+            "max": 100,
+            "step": 1
+          }
+        ]
+      },
+      {
+        "id": "fan-speed-becomes-less-than",
+        "title": {
+          "en": "Fan speed becomes less than",
+          "sv": "Fläkthastighet blir mindre än",
+          "no": "Viftehastighet blir mindre enn",
+          "da": "Blæserhastighed bliver mindre end"
+        },
+        "titleFormatted": {
+          "en": "Fan speed becomes less than [[value]] %",
+          "sv": "Fläkthastighet blir mindre än [[value]] %",
+          "no": "Viftehastighet blir mindre enn [[value]] %",
+          "da": "Blæserhastighed bliver mindre end [[value]] %"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            },
+            "min": 0,
+            "max": 100,
+            "step": 1
+          }
+        ]
+      },
+      {
+        "id": "fan-speed-changed",
+        "title": {
+          "en": "Fan speed changed",
+          "sv": "Fläkthastighet ändrades",
+          "no": "Viftehastighet endret",
+          "da": "Blæserhastighed ændret"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          }
+        ]
+      },
+      {
+        "id": "heating-medium-supply-becomes-greater-than",
+        "title": {
+          "en": "Heating medium supply becomes greater than",
+          "sv": "Värmemediumtillförsel blir större än",
+          "no": "Varmeforsyning blir større enn",
+          "da": "Varmeforsyning bliver større end"
+        },
+        "titleFormatted": {
+          "en": "Heating medium supply becomes greater than [[temperature]] °C",
+          "sv": "Värmemediumtillförsel blir större än [[temperature]] °C",
+          "no": "Varmeforsyning blir større enn [[temperature]] °C",
+          "da": "Varmeforsyning bliver større end [[temperature]] °C"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": 0,
+            "max": 80,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "heating-medium-supply-becomes-less-than",
+        "title": {
+          "en": "Heating medium supply becomes less than",
+          "sv": "Värmemediumtillförsel blir mindre än",
+          "no": "Varmeforsyning blir mindre enn",
+          "da": "Varmeforsyning bliver mindre end"
+        },
+        "titleFormatted": {
+          "en": "Heating medium supply becomes less than [[temperature]] °C",
+          "sv": "Värmemediumtillförsel blir mindre än [[temperature]] °C",
+          "no": "Varmeforsyning blir mindre enn [[temperature]] °C",
+          "da": "Varmeforsyning bliver mindre end [[temperature]] °C"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": 0,
+            "max": 80,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "heating-medium-supply-changed",
+        "title": {
+          "en": "Heating medium supply changed",
+          "sv": "Värmemediumtillförsel ändrades",
+          "no": "Varmeforsyning endret",
+          "da": "Varmeforsyning ændret"
+        },
+        "tokens": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          }
+        ]
+      },
+      {
+        "id": "hot-water-charging-becomes-greater-than",
+        "title": {
+          "en": "Hot water charging becomes greater than",
+          "sv": "Varmvatten laddning blir större än",
+          "no": "Varmtvannslading blir større enn",
+          "da": "Varmtvandsopladning bliver større end"
+        },
+        "titleFormatted": {
+          "en": "Hot water charging becomes greater than [[temperature]] °C",
+          "sv": "Varmvatten laddning blir större än [[temperature]] °C",
+          "no": "Varmtvannslading blir større enn [[temperature]] °C",
+          "da": "Varmtvandsopladning bliver større end [[temperature]] °C"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": 0,
+            "max": 90,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "hot-water-charging-becomes-less-than",
+        "title": {
+          "en": "Hot water charging becomes less than",
+          "sv": "Varmvatten laddning blir mindre än",
+          "no": "Varmtvannslading blir mindre enn",
+          "da": "Varmtvandsopladning bliver mindre end"
+        },
+        "titleFormatted": {
+          "en": "Hot water charging becomes less than [[temperature]] °C",
+          "sv": "Varmvatten laddning blir mindre än [[temperature]] °C",
+          "no": "Varmtvannslading blir mindre enn [[temperature]] °C",
+          "da": "Varmtvandsopladning bliver mindre end [[temperature]] °C"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": 0,
+            "max": 90,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "hot-water-charging-changed",
+        "title": {
+          "en": "Hot water charging changed",
+          "sv": "Varmvatten laddning ändrades",
+          "no": "Varmtvannslading endret",
+          "da": "Varmtvandsopladning ændret"
+        },
+        "tokens": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          }
+        ]
+      },
+      {
+        "id": "hot-water-top-becomes-greater-than",
+        "title": {
+          "en": "Hot water top becomes greater than",
+          "sv": "Varmvatten top blir större än",
+          "no": "Varmtvann topp blir større enn",
+          "da": "Varmtvand top bliver større end"
+        },
+        "titleFormatted": {
+          "en": "Hot water top becomes greater than [[temperature]] °C",
+          "sv": "Varmvatten top blir större än [[temperature]] °C",
+          "no": "Varmtvann topp blir større enn [[temperature]] °C",
+          "da": "Varmtvand top bliver større end [[temperature]] °C"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": 0,
+            "max": 90,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "hot-water-top-becomes-less-than",
+        "title": {
+          "en": "Hot water top becomes less than",
+          "sv": "Varmvatten top blir mindre än",
+          "no": "Varmtvann topp blir mindre enn",
+          "da": "Varmtvand top bliver mindre end"
+        },
+        "titleFormatted": {
+          "en": "Hot water top becomes less than [[temperature]] °C",
+          "sv": "Varmvatten top blir mindre än [[temperature]] °C",
+          "no": "Varmtvann topp blir mindre enn [[temperature]] °C",
+          "da": "Varmtvand top bliver mindre end [[temperature]] °C"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": 0,
+            "max": 90,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "hot-water-top-changed",
+        "title": {
+          "en": "Hot water top changed",
+          "sv": "Varmvatten top ändrades",
+          "no": "Varmtvann topp endret",
+          "da": "Varmtvand top ændret"
+        },
+        "tokens": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          }
+        ]
+      },
+      {
+        "id": "outdoor-temperature-becomes-greater-than",
+        "title": {
+          "en": "Outdoor temperature becomes greater than",
+          "sv": "Utomhus blir större än",
+          "no": "Utendørs blir større enn",
+          "da": "Udendørs bliver større end"
+        },
+        "titleFormatted": {
+          "en": "Outdoor temperature becomes greater than [[temperature]] °C",
+          "sv": "Utomhus blir större än [[temperature]] °C",
+          "no": "Utendørs blir større enn [[temperature]] °C",
+          "da": "Udendørs bliver større end [[temperature]] °C"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": -50,
+            "max": 50,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "outdoor-temperature-becomes-less-than",
+        "title": {
+          "en": "Outdoor temperature becomes less than",
+          "sv": "Utomhus blir mindre än",
+          "no": "Utendørs blir mindre enn",
+          "da": "Udendørs bliver mindre end"
+        },
+        "titleFormatted": {
+          "en": "Outdoor temperature becomes less than [[temperature]] °C",
+          "sv": "Utomhus blir mindre än [[temperature]] °C",
+          "no": "Utendørs blir mindre enn [[temperature]] °C",
+          "da": "Udendørs bliver mindre end [[temperature]] °C"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": -50,
+            "max": 50,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "outdoor-temperature-changed",
+        "title": {
+          "en": "Outdoor temperature changed",
+          "sv": "Utomhus ändrades",
+          "no": "Utendørs endret",
+          "da": "Udendørs ændret"
+        },
+        "tokens": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          }
+        ]
+      },
+      {
+        "id": "power-consumption-becomes-greater-than",
+        "title": {
+          "en": "Power consumption becomes greater than",
+          "sv": "Effekt blir större än",
+          "no": "Effekt blir større enn",
+          "da": "Effekt bliver større end"
+        },
+        "titleFormatted": {
+          "en": "Power consumption becomes greater than [[value]] W",
+          "sv": "Effekt blir större än [[value]] W",
+          "no": "Effekt blir større enn [[value]] W",
+          "da": "Effekt bliver større end [[value]] W"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            },
+            "min": 0,
+            "max": 20000,
+            "step": 50
+          }
+        ]
+      },
+      {
+        "id": "power-consumption-becomes-less-than",
+        "title": {
+          "en": "Power consumption becomes less than",
+          "sv": "Effekt blir mindre än",
+          "no": "Effekt blir mindre enn",
+          "da": "Effekt bliver mindre end"
+        },
+        "titleFormatted": {
+          "en": "Power consumption becomes less than [[value]] W",
+          "sv": "Effekt blir mindre än [[value]] W",
+          "no": "Effekt blir mindre enn [[value]] W",
+          "da": "Effekt bliver mindre end [[value]] W"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "value",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            },
+            "min": 0,
+            "max": 20000,
+            "step": 50
+          }
+        ]
+      },
+      {
+        "id": "power-consumption-changed",
+        "title": {
+          "en": "Power consumption changed",
+          "sv": "Effekt ändrades",
+          "no": "Effekt endret",
+          "da": "Effekt ændret"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          }
+        ]
+      },
+      {
+        "id": "return-line-becomes-greater-than",
+        "title": {
+          "en": "Return line becomes greater than",
+          "sv": "Returledning blir större än",
+          "no": "Returledning blir større enn",
+          "da": "Returledning bliver større end"
+        },
+        "titleFormatted": {
+          "en": "Return line becomes greater than [[temperature]] °C",
+          "sv": "Returledning blir större än [[temperature]] °C",
+          "no": "Returledning blir større enn [[temperature]] °C",
+          "da": "Returledning bliver større end [[temperature]] °C"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": 0,
+            "max": 80,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "return-line-becomes-less-than",
+        "title": {
+          "en": "Return line becomes less than",
+          "sv": "Returledning blir mindre än",
+          "no": "Returledning blir mindre enn",
+          "da": "Returledning bliver mindre end"
+        },
+        "titleFormatted": {
+          "en": "Return line becomes less than [[temperature]] °C",
+          "sv": "Returledning blir mindre än [[temperature]] °C",
+          "no": "Returledning blir mindre enn [[temperature]] °C",
+          "da": "Returledning bliver mindre end [[temperature]] °C"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": 0,
+            "max": 80,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "return-line-changed",
+        "title": {
+          "en": "Return line changed",
+          "sv": "Returledning ändrades",
+          "no": "Returledning endret",
+          "da": "Returledning ændret"
+        },
+        "tokens": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          }
+        ]
+      },
+      {
+        "id": "room-temperature-becomes-greater-than",
+        "title": {
+          "en": "Room temperature becomes greater than",
+          "sv": "Rumstemperatur blir större än",
+          "no": "Romtemperatur blir større enn",
+          "da": "Rumtemperatur bliver større end"
+        },
+        "titleFormatted": {
+          "en": "Room temperature becomes greater than [[temperature]] °C",
+          "sv": "Rumstemperatur blir större än [[temperature]] °C",
+          "no": "Romtemperatur blir større enn [[temperature]] °C",
+          "da": "Rumtemperatur bliver større end [[temperature]] °C"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": 0,
+            "max": 40,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "room-temperature-becomes-less-than",
+        "title": {
+          "en": "Room temperature becomes less than",
+          "sv": "Rumstemperatur blir mindre än",
+          "no": "Romtemperatur blir mindre enn",
+          "da": "Rumtemperatur bliver mindre end"
+        },
+        "titleFormatted": {
+          "en": "Room temperature becomes less than [[temperature]] °C",
+          "sv": "Rumstemperatur blir mindre än [[temperature]] °C",
+          "no": "Romtemperatur blir mindre enn [[temperature]] °C",
+          "da": "Rumtemperatur bliver mindre end [[temperature]] °C"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": 0,
+            "max": 40,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "room-temperature-changed",
+        "title": {
+          "en": "Room temperature changed",
+          "sv": "Rumstemperatur ändrades",
+          "no": "Romtemperatur endret",
+          "da": "Rumtemperatur ændret"
+        },
+        "tokens": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          }
+        ]
+      },
+      {
+        "id": "suction-gas-becomes-greater-than",
+        "title": {
+          "en": "Suction gas becomes greater than",
+          "sv": "Suggas blir större än",
+          "no": "Sugegass blir større enn",
+          "da": "Sugergas bliver større end"
+        },
+        "titleFormatted": {
+          "en": "Suction gas becomes greater than [[temperature]] °C",
+          "sv": "Suggas blir större än [[temperature]] °C",
+          "no": "Sugegass blir større enn [[temperature]] °C",
+          "da": "Sugergas bliver større end [[temperature]] °C"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": -20,
+            "max": 40,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "suction-gas-becomes-less-than",
+        "title": {
+          "en": "Suction gas becomes less than",
+          "sv": "Suggas blir mindre än",
+          "no": "Sugegass blir mindre enn",
+          "da": "Sugergas bliver mindre end"
+        },
+        "titleFormatted": {
+          "en": "Suction gas becomes less than [[temperature]] °C",
+          "sv": "Suggas blir mindre än [[temperature]] °C",
+          "no": "Sugegass blir mindre enn [[temperature]] °C",
+          "da": "Sugergas bliver mindre end [[temperature]] °C"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": -20,
+            "max": 40,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "suction-gas-changed",
+        "title": {
+          "en": "Suction gas changed",
+          "sv": "Suggas ändrades",
+          "no": "Sugegass endret",
+          "da": "Sugergas ændret"
+        },
+        "tokens": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          }
+        ]
+      },
+      {
+        "id": "supply-line-becomes-greater-than",
+        "title": {
+          "en": "Supply line becomes greater than",
+          "sv": "Framledning blir större än",
+          "no": "Tilførselsledning blir større enn",
+          "da": "Forsyningsledning bliver større end"
+        },
+        "titleFormatted": {
+          "en": "Supply line becomes greater than [[temperature]] °C",
+          "sv": "Framledning blir större än [[temperature]] °C",
+          "no": "Tilførselsledning blir større enn [[temperature]] °C",
+          "da": "Forsyningsledning bliver større end [[temperature]] °C"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": 0,
+            "max": 80,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "supply-line-becomes-less-than",
+        "title": {
+          "en": "Supply line becomes less than",
+          "sv": "Framledning blir mindre än",
+          "no": "Tilførselsledning blir mindre enn",
+          "da": "Forsyningsledning bliver mindre end"
+        },
+        "titleFormatted": {
+          "en": "Supply line becomes less than [[temperature]] °C",
+          "sv": "Framledning blir mindre än [[temperature]] °C",
+          "no": "Tilførselsledning blir mindre enn [[temperature]] °C",
+          "da": "Forsyningsledning bliver mindre end [[temperature]] °C"
+        },
+        "tokens": [
+          {
+            "name": "value",
+            "type": "number",
+            "title": {
+              "en": "Value",
+              "sv": "Värde",
+              "no": "Verdi",
+              "da": "Værdi"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": 0,
+            "max": 80,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "supply-line-changed",
+        "title": {
+          "en": "Supply line changed",
+          "sv": "Framledning ändrades",
+          "no": "Tilførselsledning endret",
+          "da": "Forsyningsledning ændret"
+        },
+        "tokens": [
+          {
+            "name": "temperature",
+            "type": "number",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "indoor-temperature-condition",
+        "title": {
+          "en": "Indoor temperature !{{is|isn't}}",
+          "sv": "Inomhustemperatur !{{är|är inte}}",
+          "no": "Innendørstemperatur !{{er|er ikke}}",
+          "da": "Indendørstemperatur !{{er|er ikke}}"
+        },
+        "titleFormatted": {
+          "en": "Indoor temperature !{{is|isn't}} [[comparison]] [[temperature]] °C",
+          "sv": "Inomhustemperatur !{{är|är inte}} [[comparison]] [[temperature]] °C",
+          "no": "Innendørstemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C",
+          "da": "Indendørstemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C"
+        },
+        "hint": {
+          "en": "Checks if the current indoor temperature matches the condition",
+          "sv": "Kontrollerar om den aktuella inomhustemperaturen matchar villkoret",
+          "no": "Sjekker om nåværende innendørstemperatur matcher betingelsen",
+          "da": "Kontrollerer om den aktuelle indendørstemperatur matcher betingelsen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "dropdown",
+            "name": "comparison",
+            "title": {
+              "en": "Comparison",
+              "sv": "Jämförelse",
+              "no": "Sammenligning",
+              "da": "Sammenligning"
+            },
+            "values": [
+              {
+                "id": "greater",
+                "title": {
+                  "en": "greater than",
+                  "sv": "större än",
+                  "no": "større enn",
+                  "da": "større end"
+                }
+              },
+              {
+                "id": "equals",
+                "title": {
+                  "en": "equal to",
+                  "sv": "lika med",
+                  "no": "lik",
+                  "da": "lig med"
+                }
+              },
+              {
+                "id": "less",
+                "title": {
+                  "en": "less than",
+                  "sv": "mindre än",
+                  "no": "mindre enn",
+                  "da": "mindre end"
+                }
+              }
+            ]
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": 0,
+            "max": 40,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "outdoor-temperature-condition",
+        "title": {
+          "en": "Outdoor temperature !{{is|isn't}}",
+          "sv": "Utomhustemperatur !{{är|är inte}}",
+          "no": "Utendørstemperatur !{{er|er ikke}}",
+          "da": "Udendørstemperatur !{{er|er ikke}}"
+        },
+        "titleFormatted": {
+          "en": "Outdoor temperature !{{is|isn't}} [[comparison]] [[temperature]] °C",
+          "sv": "Utomhustemperatur !{{är|är inte}} [[comparison]] [[temperature]] °C",
+          "no": "Utendørstemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C",
+          "da": "Udendørstemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C"
+        },
+        "hint": {
+          "en": "Checks if the current outdoor temperature matches the condition",
+          "sv": "Kontrollerar om den aktuella utomhustemperaturen matchar villkoret",
+          "no": "Sjekker om nåværende utendørstemperatur matcher betingelsen",
+          "da": "Kontrollerer om den aktuelle udendørstemperatur matcher betingelsen"
+        },
+        "args": [
+          {
+            "type": "dropdown",
+            "name": "comparison",
+            "title": {
+              "en": "Comparison",
+              "sv": "Jämförelse",
+              "no": "Sammenligning",
+              "da": "Sammenligning"
+            },
+            "values": [
+              {
+                "id": "greater",
+                "title": {
+                  "en": "greater than",
+                  "sv": "större än",
+                  "no": "større enn",
+                  "da": "større end"
+                }
+              },
+              {
+                "id": "equals",
+                "title": {
+                  "en": "equal to",
+                  "sv": "lika med",
+                  "no": "lik",
+                  "da": "lig med"
+                }
+              },
+              {
+                "id": "less",
+                "title": {
+                  "en": "less than",
+                  "sv": "mindre än",
+                  "no": "mindre enn",
+                  "da": "mindre end"
+                }
+              }
+            ]
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": -50,
+            "max": 50,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "temperature-difference-condition",
+        "title": {
+          "en": "Temperature difference !{{is|isn't}}",
+          "sv": "Temperaturskillnad !{{är|är inte}}",
+          "no": "Temperaturforskjell !{{er|er ikke}}",
+          "da": "Temperaturforskel !{{er|er ikke}}"
+        },
+        "titleFormatted": {
+          "en": "Difference between indoor and outdoor temperature !{{is|isn't}} [[comparison]] [[temperature]] °C",
+          "sv": "Skillnad mellan inomhus- och utomhustemperatur !{{är|är inte}} [[comparison]] [[temperature]] °C",
+          "no": "Forskjell mellom innendørs- og utendørstemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C",
+          "da": "Forskel mellem indendørs- og udendørstemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C"
+        },
+        "hint": {
+          "en": "Checks if the difference between indoor and outdoor temperature matches the condition",
+          "sv": "Kontrollerar om skillnaden mellan inomhus- och utomhustemperatur matchar villkoret",
+          "no": "Sjekker om forskjellen mellom innendørs- og utendørstemperatur matcher betingelsen",
+          "da": "Kontrollerer om forskellen mellem indendørs- og udendørstemperatur matcher betingelsen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "dropdown",
+            "name": "comparison",
+            "title": {
+              "en": "Comparison",
+              "sv": "Jämförelse",
+              "no": "Sammenligning",
+              "da": "Sammenligning"
+            },
+            "values": [
+              {
+                "id": "greater",
+                "title": {
+                  "en": "greater than",
+                  "sv": "större än",
+                  "no": "større enn",
+                  "da": "større end"
+                }
+              },
+              {
+                "id": "equals",
+                "title": {
+                  "en": "equal to",
+                  "sv": "lika med",
+                  "no": "lik",
+                  "da": "lig med"
+                }
+              },
+              {
+                "id": "less",
+                "title": {
+                  "en": "less than",
+                  "sv": "mindre än",
+                  "no": "mindre enn",
+                  "da": "mindre end"
+                }
+              }
+            ]
+          },
+          {
+            "type": "number",
+            "name": "temperature",
+            "title": {
+              "en": "Temperature difference",
+              "sv": "Temperaturskillnad",
+              "no": "Temperaturforskjell",
+              "da": "Temperaturforskel"
+            },
+            "min": 0,
+            "max": 50,
+            "step": 0.5
+          }
+        ]
+      },
+      {
+        "id": "temperature-in-range-condition",
+        "title": {
+          "en": "Temperature !{{is|isn't}} in range",
+          "sv": "Temperatur !{{är|är inte}} inom intervall",
+          "no": "Temperatur !{{er|er ikke}} innenfor område",
+          "da": "Temperatur !{{er|er ikke}} inden for interval"
+        },
+        "titleFormatted": {
+          "en": "[[type]] temperature !{{is|isn't}} between [[min]] and [[max]] °C",
+          "sv": "[[type]] temperatur !{{är|är inte}} mellan [[min]] och [[max]] °C",
+          "no": "[[type]] temperatur !{{er|er ikke}} mellom [[min]] og [[max]] °C",
+          "da": "[[type]] temperatur !{{er|er ikke}} mellem [[min]] og [[max]] °C"
+        },
+        "hint": {
+          "en": "Checks if the temperature is within the specified range",
+          "sv": "Kontrollerar om temperaturen är inom det angivna intervallet",
+          "no": "Sjekker om temperaturen er innenfor det angitte området",
+          "da": "Kontrollerer om temperaturen er inden for det angivne interval"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "dropdown",
+            "name": "type",
+            "title": {
+              "en": "Temperature type",
+              "sv": "Temperaturtyp",
+              "no": "Temperaturtype",
+              "da": "Temperaturtype"
+            },
+            "values": [
+              {
+                "id": "indoor",
+                "title": {
+                  "en": "Indoor",
+                  "sv": "Inomhus",
+                  "no": "Innendørs",
+                  "da": "Indendørs"
+                }
+              },
+              {
+                "id": "outdoor",
+                "title": {
+                  "en": "Outdoor",
+                  "sv": "Utomhus",
+                  "no": "Utendørs",
+                  "da": "Udendørs"
+                }
+              }
+            ]
+          },
+          {
+            "type": "number",
+            "name": "min",
+            "title": {
+              "en": "Minimum",
+              "sv": "Minimum",
+              "no": "Minimum",
+              "da": "Minimum"
+            },
+            "min": -50,
+            "max": 50,
+            "step": 0.5
+          },
+          {
+            "type": "number",
+            "name": "max",
+            "title": {
+              "en": "Maximum",
+              "sv": "Maximum",
+              "no": "Maksimum",
+              "da": "Maksimum"
+            },
+            "min": -50,
+            "max": 50,
+            "step": 0.5
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "title": {
+          "en": "Set device temperature",
+          "sv": "Ställ in enhetstemperatur",
+          "no": "Still inn enhetstemperatur",
+          "da": "Indstil enhedstemperatur"
+        },
+        "titleFormatted": {
+          "en": "Set temperature to [[target_temperature]] °C",
+          "sv": "Ställ in temperatur till [[target_temperature]] °C",
+          "no": "Still inn temperatur til [[target_temperature]] °C",
+          "da": "Indstil temperatur til [[target_temperature]] °C"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump|s-series"
+          },
+          {
+            "type": "number",
+            "name": "target_temperature",
+            "title": {
+              "en": "Temperature",
+              "sv": "Temperatur",
+              "no": "Temperatur",
+              "da": "Temperatur"
+            },
+            "min": 5,
+            "max": 30,
+            "step": 0.5
+          }
+        ],
+        "id": "set-temperature"
       }
     ]
   },

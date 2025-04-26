@@ -1,0 +1,75 @@
+{
+  "id": "outdoor-temperature-condition",
+  "title": {
+    "en": "Outdoor temperature !{{is|isn't}}",
+    "sv": "Utomhustemperatur !{{är|är inte}}",
+    "no": "Utendørstemperatur !{{er|er ikke}}",
+    "da": "Udendørstemperatur !{{er|er ikke}}"
+  },
+  "titleFormatted": {
+    "en": "Outdoor temperature !{{is|isn't}} [[comparison]] [[temperature]] °C",
+    "sv": "Utomhustemperatur !{{är|är inte}} [[comparison]] [[temperature]] °C",
+    "no": "Utendørstemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C",
+    "da": "Udendørstemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C"
+  },
+  "hint": {
+    "en": "Checks if the current outdoor temperature matches the condition",
+    "sv": "Kontrollerar om den aktuella utomhustemperaturen matchar villkoret",
+    "no": "Sjekker om nåværende utendørstemperatur matcher betingelsen",
+    "da": "Kontrollerer om den aktuelle udendørstemperatur matcher betingelsen"
+  },
+  "args": [
+    {
+      "type": "dropdown",
+      "name": "comparison",
+      "title": {
+        "en": "Comparison",
+        "sv": "Jämförelse",
+        "no": "Sammenligning",
+        "da": "Sammenligning"
+      },
+      "values": [
+        {
+          "id": "greater",
+          "title": {
+            "en": "greater than",
+            "sv": "större än",
+            "no": "større enn",
+            "da": "større end"
+          }
+        },
+        {
+          "id": "equals",
+          "title": {
+            "en": "equal to",
+            "sv": "lika med",
+            "no": "lik",
+            "da": "lig med"
+          }
+        },
+        {
+          "id": "less",
+          "title": {
+            "en": "less than",
+            "sv": "mindre än",
+            "no": "mindre enn",
+            "da": "mindre end"
+          }
+        }
+      ]
+    },
+    {
+      "type": "number",
+      "name": "temperature",
+      "title": {
+        "en": "Temperature",
+        "sv": "Temperatur",
+        "no": "Temperatur",
+        "da": "Temperatur"
+      },
+      "min": -50,
+      "max": 50,
+      "step": 0.5
+    }
+  ]
+}

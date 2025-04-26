@@ -285,6 +285,46 @@ ${"#".repeat(deviceInfoHeader.length)}
     }
 
     /**
+     * Sets the target temperature
+     * @param {number} temperature - Target temperature in Celsius
+     * @returns {Promise<void>}
+     */
+    async setTargetTemperature(temperature) {
+        try {
+            this.log(`Setting target temperature to ${temperature}°C`);
+
+            // First check if we have the capability
+            if (!this.hasCapability('target_temperature.room')) {
+                throw new Error('Device does not support target temperature control');
+            }
+
+            // First update the capability value
+            await this.setCapabilityValue('target_temperature.room', temperature);
+
+            // For S-Series, we need to update through the zone system
+            const zones = await this.oAuth2Client.getSmartHomeZones(this.deviceId);
+
+            // Find zones that are not command-only (can be controlled)
+            const controllableZones = zones.filter(zone => !zone.commandOnly);
+
+            if (controllableZones.length === 0) {
+                throw new Error('No controllable zones found');
+            }
+
+            // Set all controllable zones to the same temperature
+            for (const zone of controllableZones) {
+                this.log(`Setting zone ${zone.zoneId} (${zone.name}) to ${temperature}°C`);
+                await this.oAuth2Client.setZoneTemperature(this.deviceId, zone.zoneId, temperature);
+            }
+
+            this.log(`Successfully set target temperature to ${temperature}°C`);
+        } catch (error) {
+            this.error(`Failed to set target temperature: ${error.message}`);
+            throw error;
+        }
+    }
+
+    /**
      * Refreshes zone data and updates related capabilities
      */
     async refreshZoneData() {

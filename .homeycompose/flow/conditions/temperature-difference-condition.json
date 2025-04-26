@@ -1,0 +1,80 @@
+{
+  "id": "temperature-difference-condition",
+  "title": {
+    "en": "Temperature difference !{{is|isn't}}",
+    "sv": "Temperaturskillnad !{{är|är inte}}",
+    "no": "Temperaturforskjell !{{er|er ikke}}",
+    "da": "Temperaturforskel !{{er|er ikke}}"
+  },
+  "titleFormatted": {
+    "en": "Difference between indoor and outdoor temperature !{{is|isn't}} [[comparison]] [[temperature]] °C",
+    "sv": "Skillnad mellan inomhus- och utomhustemperatur !{{är|är inte}} [[comparison]] [[temperature]] °C",
+    "no": "Forskjell mellom innendørs- og utendørstemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C",
+    "da": "Forskel mellem indendørs- og udendørstemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C"
+  },
+  "hint": {
+    "en": "Checks if the difference between indoor and outdoor temperature matches the condition",
+    "sv": "Kontrollerar om skillnaden mellan inomhus- och utomhustemperatur matchar villkoret",
+    "no": "Sjekker om forskjellen mellom innendørs- og utendørstemperatur matcher betingelsen",
+    "da": "Kontrollerer om forskellen mellem indendørs- og udendørstemperatur matcher betingelsen"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=heatpump|s-series"
+    },
+    {
+      "type": "dropdown",
+      "name": "comparison",
+      "title": {
+        "en": "Comparison",
+        "sv": "Jämförelse",
+        "no": "Sammenligning",
+        "da": "Sammenligning"
+      },
+      "values": [
+        {
+          "id": "greater",
+          "title": {
+            "en": "greater than",
+            "sv": "större än",
+            "no": "større enn",
+            "da": "større end"
+          }
+        },
+        {
+          "id": "equals",
+          "title": {
+            "en": "equal to",
+            "sv": "lika med",
+            "no": "lik",
+            "da": "lig med"
+          }
+        },
+        {
+          "id": "less",
+          "title": {
+            "en": "less than",
+            "sv": "mindre än",
+            "no": "mindre enn",
+            "da": "mindre end"
+          }
+        }
+      ]
+    },
+    {
+      "type": "number",
+      "name": "temperature",
+      "title": {
+        "en": "Temperature difference",
+        "sv": "Temperaturskillnad",
+        "no": "Temperaturforskjell",
+        "da": "Temperaturforskel"
+      },
+      "min": 0,
+      "max": 50,
+      "step": 0.5
+    }
+  ]
+}

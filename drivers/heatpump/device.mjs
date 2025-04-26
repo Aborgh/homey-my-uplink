@@ -38,7 +38,6 @@ class FSeriesDevice extends OAuth2Device {
         FSeriesParameterIds.CALCULATED_SUPPLY_LINE,
         FSeriesParameterIds.TIME_HEAT_ADDITION,
         FSeriesParameterIds.COMPRESSOR_STATUS,
-        FSeriesParameterIds.OPERATION_MODE,
         // Removed for now since it doesn't return the correct value
         // ParameterIds.ELECTRIC_ADDITION_STATUS
     ];
@@ -51,8 +50,6 @@ class FSeriesDevice extends OAuth2Device {
         'state_button.temp_lux': FSeriesParameterIds.TEMPORARY_LUX,
         'state_button.ventilation_boost': FSeriesParameterIds.INCREASED_VENTILATION,
         'target_temperature.room': FSeriesParameterIds.SET_POINT_TEMP_1,
-        'heater_operation_mode': FSeriesParameterIds.OPERATION_MODE
-
     };
 
     /**
@@ -118,6 +115,37 @@ ${"#".repeat(deviceInfoHeader.length)}
                 this.error(`Error during polling: ${error.message}`);
             }
         }, 1000 * 60 * this.pollInterval);
+    }
+
+    /**
+     * Sets the target temperature
+     * @param {number} temperature - Target temperature in Celsius
+     * @returns {Promise<void>}
+     */
+    async setTargetTemperature(temperature) {
+        try {
+            this.log(`Setting target temperature to ${temperature}°C`);
+
+            // First, check if we have the capability
+            if (!this.hasCapability('target_temperature.room')) {
+                throw new Error('Device does not support target temperature control');
+            }
+
+            // First update the capability value
+            await this.setCapabilityValue('target_temperature.room', temperature);
+
+            // Then send it to the actual device using the parameter ID for room temperature setpoint
+            const payload = {
+                [FSeriesParameterIds.SET_POINT_TEMP_1]: Number(temperature)
+            };
+
+            await this.oAuth2Client.setParameterValues(this.deviceId, payload);
+
+            this.log(`Successfully set target temperature to ${temperature}°C`);
+        } catch (error) {
+            this.error(`Failed to set target temperature: ${error.message}`);
+            throw error;
+        }
     }
 
     /**

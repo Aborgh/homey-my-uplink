@@ -1,0 +1,84 @@
+{
+  "id": "temperature-in-range-condition",
+  "title": {
+    "en": "Temperature !{{is|isn't}} in range",
+    "sv": "Temperatur !{{är|är inte}} inom intervall",
+    "no": "Temperatur !{{er|er ikke}} innenfor område",
+    "da": "Temperatur !{{er|er ikke}} inden for interval"
+  },
+  "titleFormatted": {
+    "en": "[[type]] temperature !{{is|isn't}} between [[min]] and [[max]] °C",
+    "sv": "[[type]] temperatur !{{är|är inte}} mellan [[min]] och [[max]] °C",
+    "no": "[[type]] temperatur !{{er|er ikke}} mellom [[min]] og [[max]] °C",
+    "da": "[[type]] temperatur !{{er|er ikke}} mellem [[min]] og [[max]] °C"
+  },
+  "hint": {
+    "en": "Checks if the temperature is within the specified range",
+    "sv": "Kontrollerar om temperaturen är inom det angivna intervallet",
+    "no": "Sjekker om temperaturen er innenfor det angitte området",
+    "da": "Kontrollerer om temperaturen er inden for det angivne interval"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=heatpump|s-series"
+    },
+    {
+      "type": "dropdown",
+      "name": "type",
+      "title": {
+        "en": "Temperature type",
+        "sv": "Temperaturtyp",
+        "no": "Temperaturtype",
+        "da": "Temperaturtype"
+      },
+      "values": [
+        {
+          "id": "indoor",
+          "title": {
+            "en": "Indoor",
+            "sv": "Inomhus",
+            "no": "Innendørs",
+            "da": "Indendørs"
+          }
+        },
+        {
+          "id": "outdoor",
+          "title": {
+            "en": "Outdoor",
+            "sv": "Utomhus",
+            "no": "Utendørs",
+            "da": "Udendørs"
+          }
+        }
+      ]
+    },
+    {
+      "type": "number",
+      "name": "min",
+      "title": {
+        "en": "Minimum",
+        "sv": "Minimum",
+        "no": "Minimum",
+        "da": "Minimum"
+      },
+      "min": -50,
+      "max": 50,
+      "step": 0.5
+    },
+    {
+      "type": "number",
+      "name": "max",
+      "title": {
+        "en": "Maximum",
+        "sv": "Maximum",
+        "no": "Maksimum",
+        "da": "Maksimum"
+      },
+      "min": -50,
+      "max": 50,
+      "step": 0.5
+    }
+  ]
+}
