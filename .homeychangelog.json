@@ -79,5 +79,8 @@
   },
   "1.5.1": {
     "en": "Removed operational mode from advanced settings for now, due to compability issues"
+  },
+  "1.5.2": {
+    "en": "Bug fix for setting capabilityName"
   }
 }
