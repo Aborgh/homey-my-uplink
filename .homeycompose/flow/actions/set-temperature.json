@@ -1,0 +1,20 @@
+{
+  "title": {
+    "en": "Set Temperature"
+  },
+  "hint": {
+    "en": "Set tempereature"
+  },
+  "args": [
+    {
+      "type": "number",
+      "name": "target_temperature",
+      "placeholder": {
+        "en": "Target temperature"
+      },
+      "min": 0,
+      "max": 40,
+      "step": 1
+    }
+  ]
+}
