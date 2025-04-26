@@ -1,0 +1,80 @@
+{
+  "id": "heating-factor-system-condition",
+  "title": {
+    "en": "Heating factor system !{{is|isn't}}",
+    "sv": "Värmefaktor system !{{är|är inte}}",
+    "no": "Varmefaktor system !{{er|er ikke}}",
+    "da": "Varmefaktor system !{{er|er ikke}}"
+  },
+  "titleFormatted": {
+    "en": "Heating factor system !{{is|isn't}} [[comparison]] [[value]]",
+    "sv": "Värmefaktor system !{{är|är inte}} [[comparison]] [[value]]",
+    "no": "Varmefaktor system !{{er|er ikke}} [[comparison]] [[value]]",
+    "da": "Varmefaktor system !{{er|er ikke}} [[comparison]] [[value]]"
+  },
+  "hint": {
+    "en": "Checks if the heating factor system value matches the condition",
+    "sv": "Kontrollerar om värmefaktorsystemets värde matchar villkoret",
+    "no": "Sjekker om varmefaktorsystemets verdi matcher betingelsen",
+    "da": "Kontrollerer om varmefaktorsystemets værdi matcher betingelsen"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=heatpump"
+    },
+    {
+      "type": "dropdown",
+      "name": "comparison",
+      "title": {
+        "en": "Comparison",
+        "sv": "Jämförelse",
+        "no": "Sammenligning",
+        "da": "Sammenligning"
+      },
+      "values": [
+        {
+          "id": "greater",
+          "title": {
+            "en": "greater than",
+            "sv": "större än",
+            "no": "større enn",
+            "da": "større end"
+          }
+        },
+        {
+          "id": "equals",
+          "title": {
+            "en": "equal to",
+            "sv": "lika med",
+            "no": "lik",
+            "da": "lig med"
+          }
+        },
+        {
+          "id": "less",
+          "title": {
+            "en": "less than",
+            "sv": "mindre än",
+            "no": "mindre enn",
+            "da": "mindre end"
+          }
+        }
+      ]
+    },
+    {
+      "type": "number",
+      "name": "value",
+      "title": {
+        "en": "Value",
+        "sv": "Värde",
+        "no": "Verdi",
+        "da": "Værdi"
+      },
+      "min": 0,
+      "max": 6,
+      "step": 0.1
+    }
+  ]
+}

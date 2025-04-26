@@ -1,0 +1,41 @@
+{
+  "id": "set-heating-factor-system",
+  "title": {
+    "en": "Set heating factor system",
+    "sv": "Ställ in värmefaktor system",
+    "no": "Still inn varmefaktor system",
+    "da": "Indstil varmefaktor system"
+  },
+  "titleFormatted": {
+    "en": "Set heating factor system to [[value]]",
+    "sv": "Ställ in värmefaktor system till [[value]]",
+    "no": "Still inn varmefaktor system til [[value]]",
+    "da": "Indstil varmefaktor system til [[value]]"
+  },
+  "hint": {
+    "en": "Sets the heating factor system value on the heat pump",
+    "sv": "Ställer in värmefaktorsystemets värde på värmepumpen",
+    "no": "Stiller inn varmefaktorsystemets verdi på varmepumpen",
+    "da": "Indstiller varmefaktorsystemets værdi på varmepumpen"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=heatpump"
+    },
+    {
+      "type": "number",
+      "name": "value",
+      "title": {
+        "en": "Value",
+        "sv": "Värde",
+        "no": "Verdi",
+        "da": "Værdi"
+      },
+      "min": 0,
+      "max": 6,
+      "step": 0.1
+    }
+  ]
+}

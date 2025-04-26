@@ -1,0 +1,41 @@
+{
+  "id": "set-heating-curve",
+  "title": {
+    "en": "Set heating curve",
+    "sv": "Ställ in värmekurva",
+    "no": "Still inn varmekurve",
+    "da": "Indstil varmekurve"
+  },
+  "titleFormatted": {
+    "en": "Set heating curve to [[value]]",
+    "sv": "Ställ in värmekurva till [[value]]",
+    "no": "Still inn varmekurve til [[value]]",
+    "da": "Indstil varmekurve til [[value]]"
+  },
+  "hint": {
+    "en": "Sets the heating curve value on the heat pump",
+    "sv": "Ställer in värmekurvans värde på värmepumpen",
+    "no": "Stiller inn varmekurvens verdi på varmepumpen",
+    "da": "Indstiller varmekurvens værdi på varmepumpen"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=heatpump|s-series"
+    },
+    {
+      "type": "number",
+      "name": "value",
+      "title": {
+        "en": "Value",
+        "sv": "Värde",
+        "no": "Verdi",
+        "da": "Værdi"
+      },
+      "min": 0,
+      "max": 15,
+      "step": 1
+    }
+  ]
+}

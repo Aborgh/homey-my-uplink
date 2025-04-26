@@ -1,0 +1,22 @@
+{
+  "id": "ventilation-boost-condition",
+  "title": {
+    "en": "Ventilation boost !{{is|isn't}} active",
+    "sv": "Ventilationsökning !{{är|är inte}} aktiv",
+    "no": "Ventilasjonsøkning !{{er|er ikke}} aktiv",
+    "da": "Ventilationsforøgelse !{{er|er ikke}} aktiv"
+  },
+  "hint": {
+    "en": "Checks if ventilation boost mode is active",
+    "sv": "Kontrollerar om ventilationsökningsläge är aktivt",
+    "no": "Sjekker om ventilasjonsøkningsmodus er aktiv",
+    "da": "Kontrollerer om ventilationsforøgelsestilstand er aktiv"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=heatpump"
+    }
+  ]
+}

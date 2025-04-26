@@ -1,0 +1,22 @@
+{
+  "id": "temp-lux-condition",
+  "title": {
+    "en": "Temporary luxury !{{is|isn't}} active",
+    "sv": "Tillfällig lyx !{{är|är inte}} aktiv",
+    "no": "Midlertidig luksus !{{er|er ikke}} aktiv",
+    "da": "Midlertidig luksus !{{er|er ikke}} aktiv"
+  },
+  "hint": {
+    "en": "Checks if temporary luxury hot water mode is active",
+    "sv": "Kontrollerar om tillfälligt lyxläge för varmvatten är aktivt",
+    "no": "Sjekker om midlertidig luksusmodus for varmtvann er aktiv",
+    "da": "Kontrollerer om midlertidig luksusfunktion til varmt vand er aktiv"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=heatpump"
+    }
+  ]
+}

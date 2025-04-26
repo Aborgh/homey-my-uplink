@@ -1,0 +1,58 @@
+{
+  "id": "set-ventilation-boost",
+  "title": {
+    "en": "Set ventilation boost",
+    "sv": "Ställ in ventilationsökning",
+    "no": "Still inn ventilasjonsøkning",
+    "da": "Indstil ventilationsforøgelse"
+  },
+  "titleFormatted": {
+    "en": "Turn ventilation boost [[state]]",
+    "sv": "Sätt ventilationsökning [[state]]",
+    "no": "Sett ventilasjonsøkning [[state]]",
+    "da": "Sæt ventilationsforøgelse [[state]]"
+  },
+  "hint": {
+    "en": "Activates or deactivates ventilation boost mode",
+    "sv": "Aktiverar eller inaktiverar ventilationsökningsläge",
+    "no": "Aktiverer eller deaktiverer ventilasjonsøkningsmodus",
+    "da": "Aktiverer eller deaktiverer ventilationsforøgelsestilstand"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=heatpump"
+    },
+    {
+      "type": "dropdown",
+      "name": "state",
+      "title": {
+        "en": "State",
+        "sv": "Läge",
+        "no": "Status",
+        "da": "Tilstand"
+      },
+      "values": [
+        {
+          "id": "1",
+          "title": {
+            "en": "on",
+            "sv": "på",
+            "no": "på",
+            "da": "til"
+          }
+        },
+        {
+          "id": "0",
+          "title": {
+            "en": "off",
+            "sv": "av",
+            "no": "av",
+            "da": "fra"
+          }
+        }
+      ]
+    }
+  ]
+}

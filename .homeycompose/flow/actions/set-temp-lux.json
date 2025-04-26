@@ -1,0 +1,58 @@
+{
+  "id": "set-temp-lux",
+  "title": {
+    "en": "Set temporary luxury",
+    "sv": "Ställ in tillfällig lyx",
+    "no": "Still inn midlertidig luksus",
+    "da": "Indstil midlertidig luksus"
+  },
+  "titleFormatted": {
+    "en": "Turn temporary luxury [[state]]",
+    "sv": "Sätt tillfällig lyx [[state]]",
+    "no": "Sett midlertidig luksus [[state]]",
+    "da": "Sæt midlertidig luksus [[state]]"
+  },
+  "hint": {
+    "en": "Activates or deactivates temporary luxury hot water mode",
+    "sv": "Aktiverar eller inaktiverar tillfälligt lyxläge för varmvatten",
+    "no": "Aktiverer eller deaktiverer midlertidig luksusmodus for varmtvann",
+    "da": "Aktiverer eller deaktiverer midlertidig luksusfunktion til varmt vand"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=heatpump"
+    },
+    {
+      "type": "dropdown",
+      "name": "state",
+      "title": {
+        "en": "State",
+        "sv": "Läge",
+        "no": "Status",
+        "da": "Tilstand"
+      },
+      "values": [
+        {
+          "id": "1",
+          "title": {
+            "en": "on",
+            "sv": "på",
+            "no": "på",
+            "da": "til"
+          }
+        },
+        {
+          "id": "0",
+          "title": {
+            "en": "off",
+            "sv": "av",
+            "no": "av",
+            "da": "fra"
+          }
+        }
+      ]
+    }
+  ]
+}
