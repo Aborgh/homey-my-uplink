@@ -82,5 +82,8 @@
   },
   "1.5.2": {
     "en": "Bug fix for setting capabilityName"
+  },
+  "1.5.3": {
+    "en": "Added more condition-flows and action-flows"
   }
 }
