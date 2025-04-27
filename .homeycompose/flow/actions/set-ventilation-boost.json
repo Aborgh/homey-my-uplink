@@ -37,19 +37,19 @@
         {
           "id": "1",
           "title": {
-            "en": "on",
-            "sv": "på",
-            "no": "på",
-            "da": "til"
+            "en": "On",
+            "sv": "På",
+            "no": "På",
+            "da": "Til"
           }
         },
         {
           "id": "0",
           "title": {
-            "en": "off",
-            "sv": "av",
-            "no": "av",
-            "da": "fra"
+            "en": "Off",
+            "sv": "Av",
+            "no": "Av",
+            "da": "Fra"
           }
         }
       ]

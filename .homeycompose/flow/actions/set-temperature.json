@@ -18,8 +18,10 @@
       "filter": "driver_id=heatpump|s-series"
     },
     {
-      "type": "number",
+      "type": "range",
       "name": "target_temperature",
+      "labelDecimals": 1,
+      "label": "°C",
       "title": {
         "en": "Temperature",
         "sv": "Temperatur",

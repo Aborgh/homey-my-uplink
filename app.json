@@ -961,16 +961,16 @@
           "da": "Indstil varmefaktor system"
         },
         "titleFormatted": {
-          "en": "Set heating factor system to [[value]]",
-          "sv": "Ställ in värmefaktor system till [[value]]",
-          "no": "Still inn varmefaktor system til [[value]]",
-          "da": "Indstil varmefaktor system til [[value]]"
+          "en": "Set the room sensor value of the heat factor system to [[value]]",
+          "sv": "Ställ in värmefaktorsystemets rumsgivarvärde till [[value]]",
+          "no": "Still inn romfølerverdi for varmefaktorsystemet til [[value]]",
+          "da": "Indstil rumfølerværdien for varmefaktorsystemet til [[value]]"
         },
         "hint": {
-          "en": "Sets the heating factor system value on the heat pump",
-          "sv": "Ställer in värmefaktorsystemets värde på värmepumpen",
-          "no": "Stiller inn varmefaktorsystemets verdi på varmepumpen",
-          "da": "Indstiller varmefaktorsystemets værdi på varmepumpen"
+          "en": "Setting the room sensor value of the heat factor system on the heat pump",
+          "sv": "Ställer in värmefaktorsystemets rumsgivarvärde på värmepumpen",
+          "no": "Stiller inn romfølerverdi for varmefaktorsystemet på varmepumpen",
+          "da": "Indstiller rumfølerværdien for varmefaktorsystemet på varmepumpen"
         },
         "args": [
           {
@@ -979,8 +979,10 @@
             "filter": "driver_id=heatpump"
           },
           {
-            "type": "number",
+            "type": "range",
             "name": "value",
+            "label": " ",
+            "labelDecimals": 1,
             "title": {
               "en": "Value",
               "sv": "Värde",
@@ -1032,19 +1034,19 @@
               {
                 "id": "1",
                 "title": {
-                  "en": "on",
-                  "sv": "på",
-                  "no": "på",
-                  "da": "til"
+                  "en": "On",
+                  "sv": "På",
+                  "no": "På",
+                  "da": "Til"
                 }
               },
               {
                 "id": "0",
                 "title": {
-                  "en": "off",
-                  "sv": "av",
-                  "no": "av",
-                  "da": "fra"
+                  "en": "Off",
+                  "sv": "Av",
+                  "no": "Av",
+                  "da": "Fra"
                 }
               }
             ]
@@ -1071,8 +1073,10 @@
             "filter": "driver_id=heatpump|s-series"
           },
           {
-            "type": "number",
+            "type": "range",
             "name": "target_temperature",
+            "labelDecimals": 1,
+            "label": "°C",
             "title": {
               "en": "Temperature",
               "sv": "Temperatur",
@@ -1125,19 +1129,19 @@
               {
                 "id": "1",
                 "title": {
-                  "en": "on",
-                  "sv": "på",
-                  "no": "på",
-                  "da": "til"
+                  "en": "On",
+                  "sv": "På",
+                  "no": "På",
+                  "da": "Til"
                 }
               },
               {
                 "id": "0",
                 "title": {
-                  "en": "off",
-                  "sv": "av",
-                  "no": "av",
-                  "da": "fra"
+                  "en": "Off",
+                  "sv": "Av",
+                  "no": "Av",
+                  "da": "Fra"
                 }
               }
             ]
