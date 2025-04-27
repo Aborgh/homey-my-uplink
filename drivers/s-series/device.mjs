@@ -6,6 +6,7 @@ import {SettingsManager} from "../../lib/helpers/settings-manager.mjs";
 import {PowerCalculator} from "../../lib/helpers/power-calculator.mjs";
 import SSeriesParameterIds from "../../lib/models/s-series-parameter-enum.mjs";
 import sSeriesParameterMap from "../../lib/models/s-series-parameter-map.mjs";
+import RequestQueueHelper from "../../lib/helpers/request-queue.mjs";
 
 /**
  * Represents a Nibe S-Series Heat Pump device in Homey
@@ -67,7 +68,7 @@ ${"#".repeat(deviceInfoHeader.length)}
             // Initialize services
             this.settingsManager = new SettingsManager(this, this.oAuth2Client);
             this.powerCalculator = new PowerCalculator();
-
+            this.requestQueue = new RequestQueueHelper(this)
             // Fetch data first to ensure we have the right capabilities
             await this.fetchAndSetDataPoints(SSeriesDevice.MONITORED_PARAMETERS);
 
@@ -137,8 +138,7 @@ ${"#".repeat(deviceInfoHeader.length)}
             this.registerCapabilityListener(capability, async (value) => {
                 try {
                     this.log(`Setting capability ${capability} to ${value}`);
-                    const payload = {[parameterId]: Number(value)};
-                    await this.oAuth2Client.setParameterValues(this.deviceId, payload);
+                    await this.requestQueue.queueParameterUpdate(parameterId, Number(value));
                 } catch (error) {
                     this.error(`Error setting ${capability}: ${error.message}`);
                     // Re-fetch the current value to revert UI
@@ -147,7 +147,7 @@ ${"#".repeat(deviceInfoHeader.length)}
             });
         }
 
-        // Special handling for room temperature which uses zones
+        // Special handling for room temperature which uses zones - keep this as is
         this.registerCapabilityListener('target_temperature.room', async (value) => {
             try {
                 this.log(`Setting room temperature to ${value}`);
@@ -175,10 +175,19 @@ ${"#".repeat(deviceInfoHeader.length)}
 
             } catch (error) {
                 this.error(`Error setting room temperature: ${error.message}`);
-                // Revert UI to current setpoint
+                // Revert UI to the current setpoint
                 await this.refreshZoneData();
             }
         });
+    }
+
+    async setParameterValue(parameterId, value) {
+        try {
+            return await this.requestQueue.queueParameterUpdate(parameterId, value);
+        } catch (error) {
+            this.error(`Error setting parameter ${parameterId}: ${error.message}`);
+            throw error;
+        }
     }
 
     /**
@@ -293,7 +302,7 @@ ${"#".repeat(deviceInfoHeader.length)}
         try {
             this.log(`Setting target temperature to ${temperature}°C`);
 
-            // First check if we have the capability
+            // First, check if we have the capability
             if (!this.hasCapability('target_temperature.room')) {
                 throw new Error('Device does not support target temperature control');
             }
@@ -301,7 +310,7 @@ ${"#".repeat(deviceInfoHeader.length)}
             // First update the capability value
             await this.setCapabilityValue('target_temperature.room', temperature);
 
-            // For S-Series, we need to update through the zone system
+            // For S-Series, we need to update through the zone system - keep this as is
             const zones = await this.oAuth2Client.getSmartHomeZones(this.deviceId);
 
             // Find zones that are not command-only (can be controlled)
@@ -496,6 +505,9 @@ ${"#".repeat(deviceInfoHeader.length)}
         this.log(`Device ${this.deviceId} deleted, cleaning up`);
         if (this.pollTimer) {
             this.homey.clearInterval(this.pollTimer);
+        }
+        if (this.requestQueue) {
+            this.requestQueue.clearQueue();
         }
     }
 }

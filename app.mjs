@@ -22,7 +22,7 @@ class NibeHeatpumpApp extends OAuth2App {
 
         const setHeatingCurveAction = this.homey.flow.getActionCard('set-heating-curve');
         setHeatingCurveAction.registerRunListener(async (args, state) => {
-            const {device, value} = args;
+            const { device, value } = args;
 
             if (!device) {
                 throw new Error('Device not found');
@@ -30,16 +30,11 @@ class NibeHeatpumpApp extends OAuth2App {
 
             this.log(`Setting heating curve to ${value} on device ${device.getName()}`);
 
-            // Get the appropriate parameter ID depending on device type
+            // Get the appropriate parameter ID depending on the device type
             const paramId = device.constructor.name === 'SSeriesDevice'
-                ? SSeriesParameterIds.HEATING_CURVE
+                ? SSeriesParameterIds.HEATING_OFFSET
                 : FSeriesParameterIds.HEATING_CURVE;
-
-            // Create payload with the parameter ID and value
-            const payload = {[paramId]: Number(value)};
-
-            // Send to the heat pump
-            await device.oAuth2Client.setParameterValues(device.deviceId, payload);
+            await device.setParameterValue(paramId, Number(value));
             return true;
         });
 
@@ -54,11 +49,7 @@ class NibeHeatpumpApp extends OAuth2App {
 
             this.log(`Setting heating factor system to ${value} on device ${device.getName()}`);
 
-            // Create payload with the parameter ID and value
-            const payload = {[FSeriesParameterIds.HEATING_FACTOR_SYSTEM]: Number(value)};
-
-            // Send to heat pump
-            await device.oAuth2Client.setParameterValues(device.deviceId, payload);
+            await device.setParameterValue(FSeriesParameterIds.HEATING_FACTOR_SYSTEM, Number(value));
             return true;
         });
 
@@ -75,7 +66,6 @@ class NibeHeatpumpApp extends OAuth2App {
 
             this.log(`Setting temperature to ${targetTemperature} on device ${device.getName()}`);
 
-            // Call the device's method to set the temperature
             await device.setTargetTemperature(targetTemperature);
 
             return true;
@@ -91,7 +81,7 @@ class NibeHeatpumpApp extends OAuth2App {
 
             const value = tempLuxState === "1";
             this.log(`Setting temporary luxury to ${value ? 'on' : 'off'} on device ${device.getName()}`);
-
+            await device.setParameterValue(FSeriesParameterIds.TEMPORARY_LUX, Number(tempLuxState));
             await device.setCapabilityValue('state_button.temp_lux', value);
             return true;
         });
@@ -107,7 +97,7 @@ class NibeHeatpumpApp extends OAuth2App {
 
             const value = ventBoostState === "1";
             this.log(`Setting ventilation boost to ${value ? 'on' : 'off'} on device ${device.getName()}`);
-
+            await device.setParameterValue(FSeriesParameterIds.INCREASED_VENTILATION, Number(ventBoostState));
             await device.setCapabilityValue('state_button.ventilation_boost', value);
             return true;
         });
@@ -115,7 +105,7 @@ class NibeHeatpumpApp extends OAuth2App {
         // Set degree minutes action
         const setDegreeMinutesAction = this.homey.flow.getActionCard('set-degree-minutes');
         setDegreeMinutesAction.registerRunListener(async (args, state) => {
-            const {device, value} = args;
+            const { device, value } = args;
 
             if (!device) {
                 throw new Error('Device not found');
@@ -123,16 +113,11 @@ class NibeHeatpumpApp extends OAuth2App {
 
             this.log(`Setting degree minutes to ${value} on device ${device.getName()}`);
 
-            // Get the appropriate parameter ID depending on device type
             const paramId = device.constructor.name === 'SSeriesDevice'
                 ? SSeriesParameterIds.DEGREE_MINUTES
                 : FSeriesParameterIds.DEGREE_MINUTES;
 
-            // Create the payload with the parameter ID and value
-            const payload = {[paramId]: Number(value)};
-
-            // Send to heat pump
-            await device.oAuth2Client.setParameterValues(device.deviceId, payload);
+            await device.setParameterValue(paramId, Number(value));
             return true;
         });
 
@@ -147,16 +132,11 @@ class NibeHeatpumpApp extends OAuth2App {
 
             this.log(`Setting heating curve offset to ${value} on device ${device.getName()}`);
 
-            // Get the appropriate parameter ID depending on device type
             const paramId = device.constructor.name === 'SSeriesDevice'
                 ? SSeriesParameterIds.HEATING_OFFSET
                 : FSeriesParameterIds.OFFSET_CLIMATE_SYSTEM_1;
 
-            // Create payload with the parameter ID and value
-            const payload = {[paramId]: Number(value)};
-
-            // Send to the heat pump
-            await device.oAuth2Client.setParameterValues(device.deviceId, payload);
+            await device.setParameterValue(paramId, Number(value));
             return true;
         });
     }
@@ -263,13 +243,10 @@ class NibeHeatpumpApp extends OAuth2App {
                 throw new Error('Device not found');
             }
 
-            // Try to get the value from capability
             let currentValue = device.getCapabilityValue('measure_heating_factor_system');
 
-            // If not available from capability, we'll need to fetch it directly
             if (typeof currentValue !== 'number') {
                 try {
-                    // Fetch the parameter value
                     const parameterValues = await device.oAuth2Client.getDataPoints(
                         device.deviceId,
                         [FSeriesParameterIds.HEATING_FACTOR_SYSTEM]

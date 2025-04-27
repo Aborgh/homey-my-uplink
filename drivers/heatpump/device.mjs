@@ -5,6 +5,7 @@ import fSeriesParameterMap from "../../lib/models/f-series-parameter-map.mjs";
 import {SettingsManager} from "../../lib/helpers/settings-manager.mjs";
 import {PowerCalculator} from "../../lib/helpers/power-calculator.mjs";
 import FSeriesParameterIds from "../../lib/models/f-series-parameter-enum.mjs";
+import RequestQueueHelper from "../../lib/helpers/request-queue.mjs";
 
 /**
  * Represents a Nibe Heat Pump device in Homey
@@ -77,12 +78,12 @@ ${"#".repeat(deviceInfoHeader.length)}
             // Initialize services
             this.settingsManager = new SettingsManager(this, this.oAuth2Client);
             this.powerCalculator = new PowerCalculator();
-
+            this.requestQueue = new RequestQueueHelper(this);
             // Initial setup
             await this.fetchAndSetDataPoints(FSeriesDevice.MONITORED_PARAMETERS);
             await this.settingsManager.initializeSettings();
             await this.powerCalculator.updateDevicePower(this);
-
+            
             // Set up capability listeners
             await this.setupCapabilityListeners();
             // remove "status_electric_addition" for now since it doesn't work on api-level
@@ -128,6 +129,7 @@ ${"#".repeat(deviceInfoHeader.length)}
 
             // First, check if we have the capability
             if (!this.hasCapability('target_temperature.room')) {
+                console.error('Device does not support target temperature control');
                 throw new Error('Device does not support target temperature control');
             }
 
@@ -135,11 +137,7 @@ ${"#".repeat(deviceInfoHeader.length)}
             await this.setCapabilityValue('target_temperature.room', temperature);
 
             // Then send it to the actual device using the parameter ID for room temperature setpoint
-            const payload = {
-                [FSeriesParameterIds.SET_POINT_TEMP_1]: Number(temperature)
-            };
-
-            await this.oAuth2Client.setParameterValues(this.deviceId, payload);
+            await this.requestQueue.queueParameterUpdate(FSeriesParameterIds.SET_POINT_TEMP_1, Number(temperature));
 
             this.log(`Successfully set target temperature to ${temperature}°C`);
         } catch (error) {
@@ -156,14 +154,22 @@ ${"#".repeat(deviceInfoHeader.length)}
             this.registerCapabilityListener(capability, async (value) => {
                 try {
                     this.log(`Setting capability ${capability} to ${value}`);
-                    const payload = {[parameterId]: Number(value)};
-                    await this.oAuth2Client.setParameterValues(this.deviceId, payload);
+                    await this.requestQueue.queueParameterUpdate(parameterId, Number(value));
                 } catch (error) {
                     this.error(`Error setting ${capability}: ${error.message}`);
                     // Re-fetch the current value to revert UI
                     await this.fetchAndSetDataPoints([parameterId]);
                 }
             });
+        }
+    }
+
+    async setParameterValue(parameterId, value) {
+        try {
+            return await this.requestQueue.queueParameterUpdate(parameterId, value);
+        } catch (error) {
+            this.error(`Error setting parameter ${parameterId}: ${error.message}`);
+            throw error;
         }
     }
 
@@ -387,6 +393,9 @@ ${"#".repeat(deviceInfoHeader.length)}
         this.log(`Device ${this.deviceId} deleted, cleaning up`);
         if (this.pollTimer) {
             this.homey.clearInterval(this.pollTimer);
+        }
+        if (this.requestQueue) {
+            this.requestQueue.clearQueue();
         }
     }
 }
