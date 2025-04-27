@@ -85,5 +85,8 @@
   },
   "1.5.3": {
     "en": "Added more condition-flows and action-flows"
+  },
+  "1.5.4": {
+    "en": "Added request queue helper to bundle api-requests. This should help timeouts when dealing with flows"
   }
 }
