@@ -55,7 +55,6 @@ class NibeHeatpumpApp extends OAuth2App {
 
         // Set temperature action
         const setTemperatureAction = this.homey.flow.getActionCard('set-temperature');
-
         setTemperatureAction.registerRunListener(async (args, state) => {
             const {device} = args;
             const targetTemperature = args.target_temperature;
@@ -172,6 +171,7 @@ class NibeHeatpumpApp extends OAuth2App {
                     throw new Error(`Invalid comparison: ${comparison}`);
             }
         });
+        
         // Heating curve condition
         const heatingCurveCondition = this.homey.flow.getConditionCard('heating-curve-condition');
         heatingCurveCondition.registerRunListener(async (args, state) => {
