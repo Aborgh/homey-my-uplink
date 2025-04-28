@@ -88,5 +88,8 @@
   },
   "1.5.4": {
     "en": "Added request queue helper to bundle api-requests. This should help timeouts when dealing with flows"
+  },
+  "1.6.0": {
+    "en": "Added several flow cards and implemented a request-queue helper system that bundles multiple requests based on timing thresholds, reducing timeout errors that previously occurred when the heatpump responded too slowly to individual sequential requests."
   }
 }
