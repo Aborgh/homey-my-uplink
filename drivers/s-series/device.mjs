@@ -72,13 +72,15 @@ ${"#".repeat(deviceInfoHeader.length)}
             // Fetch data first to ensure we have the right capabilities
             await this.fetchAndSetDataPoints(SSeriesDevice.MONITORED_PARAMETERS);
 
-            // Check if we have current sensors and add measure_power if needed
+            // Check if we have current sensors or lifetime energy and add measure_power if needed
             const hasCurrentCapabilities =
                 this.hasCapability('measure_current.one') ||
                 this.hasCapability('measure_current.two') ||
                 this.hasCapability('measure_current.three');
+            
+            const hasLifetimeEnergy = this.hasCapability('meter_power.lifetime_energy_consumed');
 
-            if (hasCurrentCapabilities) {
+            if (hasCurrentCapabilities || hasLifetimeEnergy) {
                 if (!this.hasCapability('measure_power')) {
                     this.log('Adding measure_power capability');
                     await this.addCapability('measure_power');
@@ -86,7 +88,7 @@ ${"#".repeat(deviceInfoHeader.length)}
                 // Now update power value
                 await this.powerCalculator.updateDevicePower(this);
             } else {
-                this.log('No current sensors found, skipping power calculation');
+                this.log('No current sensors or lifetime energy found, skipping power calculation');
                 if (this.hasCapability('measure_power')) {
                     await this.removeCapability('measure_power');
                 }
@@ -251,14 +253,16 @@ ${"#".repeat(deviceInfoHeader.length)}
                 }
             }
 
-            // Check if current sensors exist to justify keeping measure_power
+            // Check if current sensors or lifetime energy exist to justify keeping measure_power
             const hasCurrent = returnedParameterIds.has(SSeriesParameterIds.CURRENT_1) ||
                 returnedParameterIds.has(SSeriesParameterIds.CURRENT_2) ||
                 returnedParameterIds.has(SSeriesParameterIds.CURRENT_3);
+            
+            const hasLifetimeEnergy = returnedParameterIds.has(SSeriesParameterIds.LIFETIME_ENERGY_CONSUMED);
 
-            // Only keep measure_power if we have current sensors
-            if (!hasCurrent && this.hasCapability('measure_power')) {
-                this.log('No current sensors found, removing measure_power capability');
+            // Keep measure_power if we have current sensors OR lifetime energy
+            if (!hasCurrent && !hasLifetimeEnergy && this.hasCapability('measure_power')) {
+                this.log('No current sensors or lifetime energy found, removing measure_power capability');
                 await this.removeCapability('measure_power');
             }
 
