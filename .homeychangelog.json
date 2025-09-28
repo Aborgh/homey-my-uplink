@@ -94,5 +94,8 @@
   },
   "1.6.1": {
     "en": "Added power delta calculation for s-series heatpumps"
+  },
+  "1.6.2": {
+    "en": "Bug fix for F730 devices as well as dependency updates"
   }
 }
