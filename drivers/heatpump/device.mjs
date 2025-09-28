@@ -41,6 +41,7 @@ class FSeriesDevice extends OAuth2Device {
         FSeriesParameterIds.COMPRESSOR_STATUS,
         // Removed for now since it doesn't return the correct value
         // ParameterIds.ELECTRIC_ADDITION_STATUS
+        FSeriesParameterIds.SET_POINT_TEMP_F730, // add F730 specific setpoint so we can detect it
     ];
 
     /**
@@ -50,7 +51,7 @@ class FSeriesDevice extends OAuth2Device {
     static CAPABILITY_PARAMETER_MAP = {
         'state_button.temp_lux': FSeriesParameterIds.TEMPORARY_LUX,
         'state_button.ventilation_boost': FSeriesParameterIds.INCREASED_VENTILATION,
-        'target_temperature.room': FSeriesParameterIds.SET_POINT_TEMP_1,
+        // removed 'target_temperature.room' for dynamic handling
     };
 
     /**
@@ -126,20 +127,44 @@ ${"#".repeat(deviceInfoHeader.length)}
     async setTargetTemperature(temperature) {
         try {
             this.log(`Setting target temperature to ${temperature}°C`);
-
-            // First, check if we have the capability
             if (!this.hasCapability('target_temperature.room')) {
-                console.error('Device does not support target temperature control');
                 throw new Error('Device does not support target temperature control');
             }
 
-            // First update the capability value
-            await this.setCapabilityValue('target_temperature.room', temperature);
+            // Determine active setpoint parameter
+            const activeParam = this.getActiveSetPointParameterId();
+            let primaryTried = false;
+            let lastError;
 
-            // Then send it to the actual device using the parameter ID for room temperature setpoint
-            await this.requestQueue.queueParameterUpdate(FSeriesParameterIds.SET_POINT_TEMP_1, Number(temperature));
+            const tryUpdate = async (parameterId) => {
+                if (parameterId == null) return;
+                primaryTried = true;
+                await this.requestQueue.queueParameterUpdate(parameterId, Number(temperature));
+                this.log(`Set target temperature via parameter ${parameterId}`);
+            };
 
-            this.log(`Successfully set target temperature to ${temperature}°C`);
+            try {
+                await tryUpdate(activeParam);
+            } catch (err) {
+                lastError = err;
+                // Fallback: try the other parameter
+                const alt = activeParam === FSeriesParameterIds.SET_POINT_TEMP_F730
+                    ? FSeriesParameterIds.SET_POINT_TEMP_1
+                    : FSeriesParameterIds.SET_POINT_TEMP_F730;
+                try {
+                    await tryUpdate(alt);
+                    // Switch internal mode if alternate succeeded
+                    this._useF730SetPoint = (alt === FSeriesParameterIds.SET_POINT_TEMP_F730);
+                    this.log(`Fallback succeeded using parameter ${alt}`);
+                } catch (altErr) {
+                    this.error(`Failed setting temperature on both parameters: primary ${activeParam} error: ${lastError?.message}, fallback ${altErr.message}`);
+                    throw altErr;
+                }
+            }
+
+            // Update capability after successful parameter write
+            await this.setCapabilityValue('target_temperature.room', Number(temperature));
+            this.log(`Successfully set target temperature to ${temperature}°C (active param: ${this.getActiveSetPointParameterId()})`);
         } catch (error) {
             this.error(`Failed to set target temperature: ${error.message}`);
             throw error;
@@ -150,6 +175,7 @@ ${"#".repeat(deviceInfoHeader.length)}
      * Sets up capability listeners for device control
      */
     async setupCapabilityListeners() {
+        // Register standard mapped capabilities
         for (const [capability, parameterId] of Object.entries(FSeriesDevice.CAPABILITY_PARAMETER_MAP)) {
             this.registerCapabilityListener(capability, async (value) => {
                 try {
@@ -162,6 +188,17 @@ ${"#".repeat(deviceInfoHeader.length)}
                 }
             });
         }
+        // Dynamic listener for room target temperature
+        if (this.hasCapability('target_temperature.room')) {
+            this.registerCapabilityListener('target_temperature.room', async (value) => {
+                await this.setTargetTemperature(value);
+            });
+        }
+    }
+
+    getActiveSetPointParameterId() {
+        if (this._useF730SetPoint) return FSeriesParameterIds.SET_POINT_TEMP_F730;
+        return FSeriesParameterIds.SET_POINT_TEMP_1;
     }
 
     async setParameterValue(parameterId, value) {
@@ -182,50 +219,98 @@ ${"#".repeat(deviceInfoHeader.length)}
         try {
             this.log(`Fetching data points for ${params.length} parameters`);
             const dataPoints = await this.oAuth2Client.getDataPoints(this.deviceId, params);
+            const seenParams = new Set();
+            const numericValues = {};
+            const heatingMediumSupplyId = FSeriesParameterIds.HEATING_MEDIUM_SUPPLY;
+            const supplyLineId = FSeriesParameterIds.SUPPLY_LINE;
+            const setPoint1Id = FSeriesParameterIds.SET_POINT_TEMP_1;
+            const setPointF730Id = FSeriesParameterIds.SET_POINT_TEMP_F730;
 
             for (const point of dataPoints) {
-                const param = fSeriesParameterMap[Number(point.parameterId)];
-                if (!param) {
-                    this.log(`Unknown parameter: ${point.parameterId}`);
-                    continue;
-                }
-
+                const paramId = Number(point.parameterId);
+                const param = fSeriesParameterMap[paramId];
+                if (!param) { this.log(`Unknown parameter: ${paramId}`); continue; }
+                seenParams.add(paramId);
                 try {
                     let value;
                     switch (param.type) {
-                        case 'boolean':
-                            value = Boolean(point.value);
-                            break;
-                        case 'number':
-                            value = Number(point.value);
-                            break;
-                        case 'string':
-                            value = String(point.value);
-                            break;
-                        case 'enum':
-                            value = this.processEnumValue(point, param);
-                            break;
-                        default:
-                            value = point.value;
+                        case 'boolean': value = Boolean(point.value); break;
+                        case 'number': value = Number(point.value); numericValues[paramId] = value; break;
+                        case 'string': value = String(point.value); break;
+                        case 'enum': value = this.processEnumValue(point, param); break;
+                        default: value = point.value;
                     }
+
+                    // Skip heating medium supply (handled separately) and both setpoint params (handled after loop)
+                    if (paramId === heatingMediumSupplyId || paramId === setPoint1Id || paramId === setPointF730Id) {
+                        continue;
+                    }
+
                     if (this.hasCapability(param.capabilityName)) {
                         await this.setCapabilityValue(param.capabilityName, value);
-                        this.log(`Updated ${param.capabilityName} to ${value}`);
                     } else {
-                        // Add capability if it doesn't exist
                         await this.addCapability(param.capabilityName);
                         await this.setCapabilityValue(param.capabilityName, value);
-                        this.log(`Added capability: ${param.capabilityName} with value ${value}`);
                     }
-                    await this.processFlowTriggers(param);
                 } catch (capError) {
-                    this.error(`Error setting capability ${param.capabilityName}: ${capError.message}`);
+                    this.error(`Error setting capability for param ${paramId}: ${capError.message}`);
                 }
+            }
+
+            // Decide active setpoint parameter
+            const hasF730SetPoint = seenParams.has(setPointF730Id) && this.isValidNumber(numericValues[setPointF730Id]);
+            const hasSetPoint1 = seenParams.has(setPoint1Id) && this.isValidNumber(numericValues[setPoint1Id]);
+            if (hasF730SetPoint) {
+                if (!this._useF730SetPoint) {
+                    this._useF730SetPoint = true;
+                    this.log('Detected F730-specific setpoint parameter; switching to SET_POINT_TEMP_F730 (47015).');
+                }
+            } else if (hasSetPoint1 && this._useF730SetPoint) {
+                // If F730 param disappears, fallback
+                this._useF730SetPoint = false;
+                this.log('F730 setpoint parameter missing; reverting to SET_POINT_TEMP_1 (47398).');
+            } else if (!hasF730SetPoint && !hasSetPoint1) {
+                this.log('No setpoint parameters reported in this poll cycle.');
+            }
+
+            // Update target_temperature.room capability value
+            const chosenValue = this._useF730SetPoint
+                ? (numericValues[setPointF730Id] ?? numericValues[setPoint1Id])
+                : (numericValues[setPoint1Id] ?? numericValues[setPointF730Id]);
+            if (this.isValidNumber(chosenValue)) {
+                if (!this.hasCapability('target_temperature.room')) {
+                    await this.addCapability('target_temperature.room');
+                }
+                await this.setCapabilityValue('target_temperature.room', chosenValue);
+            }
+
+            // --- existing fallback logic for supply line below remains intact, reuse existing variables if needed ---
+            const hasSupplyLine = seenParams.has(supplyLineId) && this.isValidNumber(numericValues[supplyLineId]);
+            const hasHeatingMedium = seenParams.has(heatingMediumSupplyId) && this.isValidNumber(numericValues[heatingMediumSupplyId]);
+            const supplyLineCapability = fSeriesParameterMap[supplyLineId]?.capabilityName;
+            const heatingMediumCapability = fSeriesParameterMap[heatingMediumSupplyId]?.capabilityName;
+            if (heatingMediumCapability && this.hasCapability(heatingMediumCapability)) {
+                try { await this.removeCapability(heatingMediumCapability); } catch (remErr) { this.error(`Failed removing ${heatingMediumCapability}: ${remErr.message}`); }
+            }
+            if (!hasSupplyLine && hasHeatingMedium) {
+                const fallbackValue = numericValues[heatingMediumSupplyId];
+                if (supplyLineCapability) {
+                    if (!this.hasCapability(supplyLineCapability)) { await this.addCapability(supplyLineCapability); }
+                    await this.setCapabilityValue(supplyLineCapability, fallbackValue);
+                    if (!this._supplyLineFallbackLogged) { this._supplyLineFallbackLogged = true; this.log(`Fallback applied: Using HEATING_MEDIUM_SUPPLY (${fallbackValue}) as SUPPLY_LINE (Framledning).`); }
+                }
+            } else if (hasSupplyLine && this._supplyLineFallbackLogged) {
+                this._supplyLineFallbackLogged = false; this.log('SUPPLY_LINE now reported directly; fallback no longer in effect.');
             }
         } catch (error) {
             this.error(`Error fetching data points: ${error.message}`);
             throw error;
         }
+    }
+
+    // Helper to validate numeric value (not NaN, finite)
+    isValidNumber(value) {
+        return typeof value === 'number' && !isNaN(value) && isFinite(value);
     }
 
     /**
@@ -401,3 +486,4 @@ ${"#".repeat(deviceInfoHeader.length)}
 }
 
 export default FSeriesDevice;
+
