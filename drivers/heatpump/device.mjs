@@ -41,7 +41,7 @@ class FSeriesDevice extends OAuth2Device {
         FSeriesParameterIds.COMPRESSOR_STATUS,
         // Removed for now since it doesn't return the correct value
         // ParameterIds.ELECTRIC_ADDITION_STATUS
-        FSeriesParameterIds.SET_POINT_TEMP_F730, // add F730 specific setpoint so we can detect it
+        FSeriesParameterIds.SET_POINT_TEMP_F730,
     ];
 
     /**
@@ -51,7 +51,6 @@ class FSeriesDevice extends OAuth2Device {
     static CAPABILITY_PARAMETER_MAP = {
         'state_button.temp_lux': FSeriesParameterIds.TEMPORARY_LUX,
         'state_button.ventilation_boost': FSeriesParameterIds.INCREASED_VENTILATION,
-        // removed 'target_temperature.room' for dynamic handling
     };
 
     /**
@@ -84,7 +83,7 @@ ${"#".repeat(deviceInfoHeader.length)}
             await this.fetchAndSetDataPoints(FSeriesDevice.MONITORED_PARAMETERS);
             await this.settingsManager.initializeSettings();
             await this.powerCalculator.updateDevicePower(this);
-            
+
             // Set up capability listeners
             await this.setupCapabilityListeners();
             // remove "status_electric_addition" for now since it doesn't work on api-level
@@ -216,6 +215,11 @@ ${"#".repeat(deviceInfoHeader.length)}
      * @returns {Promise<void>}
      */
     async fetchAndSetDataPoints(params) {
+        /*
+            This has become sort of a mess due to the dual setpoint parameters and fallback logic.
+            Mainly because the F730 uses some edge-cases.
+            TODO: Refactor and clean up the logic here.
+         */
         try {
             this.log(`Fetching data points for ${params.length} parameters`);
             const dataPoints = await this.oAuth2Client.getDataPoints(this.deviceId, params);
@@ -229,16 +233,29 @@ ${"#".repeat(deviceInfoHeader.length)}
             for (const point of dataPoints) {
                 const paramId = Number(point.parameterId);
                 const param = fSeriesParameterMap[paramId];
-                if (!param) { this.log(`Unknown parameter: ${paramId}`); continue; }
+                if (!param) {
+                    this.log(`Unknown parameter: ${paramId}`);
+                    continue;
+                }
                 seenParams.add(paramId);
                 try {
                     let value;
                     switch (param.type) {
-                        case 'boolean': value = Boolean(point.value); break;
-                        case 'number': value = Number(point.value); numericValues[paramId] = value; break;
-                        case 'string': value = String(point.value); break;
-                        case 'enum': value = this.processEnumValue(point, param); break;
-                        default: value = point.value;
+                        case 'boolean':
+                            value = Boolean(point.value);
+                            break;
+                        case 'number':
+                            value = Number(point.value);
+                            numericValues[paramId] = value;
+                            break;
+                        case 'string':
+                            value = String(point.value);
+                            break;
+                        case 'enum':
+                            value = this.processEnumValue(point, param);
+                            break;
+                        default:
+                            value = point.value;
                     }
 
                     // Skip heating medium supply (handled separately) and both setpoint params (handled after loop)
@@ -284,23 +301,50 @@ ${"#".repeat(deviceInfoHeader.length)}
                 await this.setCapabilityValue('target_temperature.room', chosenValue);
             }
 
-            // --- existing fallback logic for supply line below remains intact, reuse existing variables if needed ---
-            const hasSupplyLine = seenParams.has(supplyLineId) && this.isValidNumber(numericValues[supplyLineId]);
-            const hasHeatingMedium = seenParams.has(heatingMediumSupplyId) && this.isValidNumber(numericValues[heatingMediumSupplyId]);
+            const hasSupplyLine = seenParams.has(supplyLineId) && this.isValidTemperature(numericValues[supplyLineId]);
+            const hasHeatingMedium = seenParams.has(heatingMediumSupplyId) && this.isValidTemperature(numericValues[heatingMediumSupplyId]);
             const supplyLineCapability = fSeriesParameterMap[supplyLineId]?.capabilityName;
             const heatingMediumCapability = fSeriesParameterMap[heatingMediumSupplyId]?.capabilityName;
+
+            // Always remove heating medium capability as it's only used as fallback
             if (heatingMediumCapability && this.hasCapability(heatingMediumCapability)) {
-                try { await this.removeCapability(heatingMediumCapability); } catch (remErr) { this.error(`Failed removing ${heatingMediumCapability}: ${remErr.message}`); }
+                try {
+                    await this.removeCapability(heatingMediumCapability);
+                } catch (remErr) {
+                    this.error(`Failed removing ${heatingMediumCapability}: ${remErr.message}`);
+                }
             }
-            if (!hasSupplyLine && hasHeatingMedium) {
+
+            // Use SUPPLY_LINE if valid, otherwise fallback to HEATING_MEDIUM_SUPPLY
+            if (hasSupplyLine) {
+                const supplyValue = numericValues[supplyLineId];
+                if (supplyLineCapability) {
+                    if (!this.hasCapability(supplyLineCapability)) {
+                        await this.addCapability(supplyLineCapability);
+                    }
+                    await this.setCapabilityValue(supplyLineCapability, supplyValue);
+                    if (this._supplyLineFallbackLogged) {
+                        this._supplyLineFallbackLogged = false;
+                        this.log('SUPPLY_LINE now reporting valid value; fallback no longer in effect.');
+                    }
+                }
+            } else if (hasHeatingMedium) {
+                // SUPPLY_LINE invalid or missing, use HEATING_MEDIUM_SUPPLY
                 const fallbackValue = numericValues[heatingMediumSupplyId];
                 if (supplyLineCapability) {
-                    if (!this.hasCapability(supplyLineCapability)) { await this.addCapability(supplyLineCapability); }
+                    if (!this.hasCapability(supplyLineCapability)) {
+                        await this.addCapability(supplyLineCapability);
+                    }
                     await this.setCapabilityValue(supplyLineCapability, fallbackValue);
-                    if (!this._supplyLineFallbackLogged) { this._supplyLineFallbackLogged = true; this.log(`Fallback applied: Using HEATING_MEDIUM_SUPPLY (${fallbackValue}) as SUPPLY_LINE (Framledning).`); }
+                    if (!this._supplyLineFallbackLogged) {
+                        this._supplyLineFallbackLogged = true;
+                        const supplyLineValue = numericValues[supplyLineId];
+                        const reason = seenParams.has(supplyLineId)
+                            ? `invalid value ${supplyLineValue}°C (out of range)`
+                            : 'not reported';
+                        this.log(`Fallback applied: SUPPLY_LINE ${reason}, using HEATING_MEDIUM_SUPPLY (${fallbackValue}°C) instead.`);
+                    }
                 }
-            } else if (hasSupplyLine && this._supplyLineFallbackLogged) {
-                this._supplyLineFallbackLogged = false; this.log('SUPPLY_LINE now reported directly; fallback no longer in effect.');
             }
         } catch (error) {
             this.error(`Error fetching data points: ${error.message}`);
@@ -311,6 +355,11 @@ ${"#".repeat(deviceInfoHeader.length)}
     // Helper to validate numeric value (not NaN, finite)
     isValidNumber(value) {
         return typeof value === 'number' && !isNaN(value) && isFinite(value);
+    }
+
+    // Helper to validate if temperature is within sensible range
+    isValidTemperature(value) {
+        return this.isValidNumber(value) && value >= -50 && value <= 100;
     }
 
     /**
