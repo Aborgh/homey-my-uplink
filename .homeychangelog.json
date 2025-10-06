@@ -97,5 +97,8 @@
   },
   "1.6.2": {
     "en": "Bug fix for F730 devices as well as dependency updates"
+  },
+  "1.6.3": {
+    "en": "Bug fix for Supply temp on f730"
   }
 }
