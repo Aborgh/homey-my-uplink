@@ -103,5 +103,8 @@
   },
   "1.6.4": {
     "en": "Updated dependencies"
+  },
+  "1.6.5": {
+    "en": "Change phase 1 and 3 on F-series"
   }
 }
