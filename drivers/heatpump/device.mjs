@@ -39,6 +39,8 @@ class FSeriesDevice extends OAuth2Device {
         FSeriesParameterIds.CALCULATED_SUPPLY_LINE,
         FSeriesParameterIds.TIME_HEAT_ADDITION,
         FSeriesParameterIds.COMPRESSOR_STATUS,
+        FSeriesParameterIds.AIR_VELOCITY_SENSOR,
+        FSeriesParameterIds.POWER_INTERNAL_ADDITIONAL_HEAT,
         // Removed for now since it doesn't return the correct value
         // ParameterIds.ELECTRIC_ADDITION_STATUS
         FSeriesParameterIds.SET_POINT_TEMP_F730,

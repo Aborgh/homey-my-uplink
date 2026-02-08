@@ -1,0 +1,19 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Power internal add. heat",
+    "sv": "Effekt intern tillsats",
+    "da": "Effekt intern tilsætning",
+    "no": "Effekt intern tilsetning"
+  },
+  "uiComponent": "sensor",
+  "getable": true,
+  "desc": {
+    "en": "Current power of internal additional heater",
+    "sv": "Aktuell effekt intern tillsats",
+    "da": "Aktuel effekt intern tilsætning",
+    "no": "Aktuell effekt intern tilsetning"
+  },
+  "units": "kW",
+  "icon": "/assets/measure_current.svg"
+}

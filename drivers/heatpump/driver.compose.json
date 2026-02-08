@@ -21,7 +21,9 @@
     "measure_temperature.extract_air",
     "measure_temperature.suction_gas",
     "measure_fan_speed.exhaust_air",
+    "measure_air_velocity",
     "measure_frequency.compressor",
+    "measure_power_internal_addition",
     "status_compressor",
     "measure_degree_minutes",
     "measure_current.one",
@@ -195,6 +197,14 @@
     },
     "measure_power": {
       "approximated": true
+    },
+    "measure_power_internal_addition": {
+      "title": {
+        "en": "Power internal add. heat",
+        "sv": "Effekt intern tillsats",
+        "da": "Effekt intern tilsætning",
+        "no": "Effekt intern tilsetning"
+      }
     }
   },
   "platforms": [

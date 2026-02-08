@@ -1,0 +1,20 @@
+{
+  "type": "number",
+  "title": {
+    "en": "Air velocity",
+    "sv": "Lufthastighet",
+    "da": "Lufthastighed",
+    "no": "Lufthastighet"
+  },
+  "uiComponent": "sensor",
+  "getable": true,
+  "insights": true,
+  "desc": {
+    "en": "Value, air velocity sensor",
+    "sv": "Värde, lufthastighetssensor",
+    "da": "Værdi, lufthastighedssensor",
+    "no": "Verdi, lufthastighetssensor"
+  },
+  "units": " ",
+  "icon": "/assets/wind.svg"
+}
