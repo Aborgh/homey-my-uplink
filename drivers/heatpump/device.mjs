@@ -40,7 +40,6 @@ class FSeriesDevice extends OAuth2Device {
         FSeriesParameterIds.TIME_HEAT_ADDITION,
         FSeriesParameterIds.COMPRESSOR_STATUS,
         FSeriesParameterIds.AIR_VELOCITY_SENSOR,
-        FSeriesParameterIds.POWER_INTERNAL_ADDITIONAL_HEAT,
         // Removed for now since it doesn't return the correct value
         // ParameterIds.ELECTRIC_ADDITION_STATUS
         FSeriesParameterIds.SET_POINT_TEMP_F730,
@@ -85,6 +84,7 @@ ${"#".repeat(deviceInfoHeader.length)}
             await this.fetchAndSetDataPoints(FSeriesDevice.MONITORED_PARAMETERS);
             await this.settingsManager.initializeSettings();
             await this.powerCalculator.updateDevicePower(this);
+            await this.powerCalculator.updateMeterPower(this);
 
             // Set up capability listeners
             await this.setupCapabilityListeners();
@@ -113,6 +113,7 @@ ${"#".repeat(deviceInfoHeader.length)}
             try {
                 await this.fetchAndSetDataPoints(FSeriesDevice.MONITORED_PARAMETERS);
                 await this.powerCalculator.updateDevicePower(this);
+                await this.powerCalculator.updateMeterPower(this);
                 await this.settingsManager.updateHeatpumpSettings();
             } catch (error) {
                 this.error(`Error during polling: ${error.message}`);
@@ -263,6 +264,11 @@ ${"#".repeat(deviceInfoHeader.length)}
                     // Skip heating medium supply (handled separately) and both setpoint params (handled after loop)
                     if (paramId === heatingMediumSupplyId || paramId === setPoint1Id || paramId === setPointF730Id) {
                         continue;
+                    }
+
+                    // Convert watts to kW for internal addition power capability
+                    if (param.capabilityName === "measure_power.internal_addition" && typeof value === 'number') {
+                        value = value * 1000;
                     }
 
                     if (this.hasCapability(param.capabilityName)) {

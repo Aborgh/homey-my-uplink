@@ -1176,7 +1176,7 @@
         "measure_fan_speed.exhaust_air",
         "measure_air_velocity",
         "measure_frequency.compressor",
-        "measure_power_internal_addition",
+        "measure_power.internal_addition",
         "status_compressor",
         "measure_degree_minutes",
         "measure_current.one",
@@ -1185,17 +1185,9 @@
         "state_button.temp_lux",
         "state_button.ventilation_boost",
         "measure_power",
-        "time.heat_addition"
+        "meter_power"
       ],
       "capabilitiesOptions": {
-        "time.heat_addition": {
-          "title": {
-            "en": "Time factor of heat addition",
-            "sv": "Tidfaktor tillsats",
-            "no": "Tidsfaktor for varmetilsetning",
-            "da": "Tidsfaktor for varmetilsætning"
-          }
-        },
         "measure_temperature.supply_line": {
           "title": {
             "en": "Supply line",
@@ -1351,7 +1343,16 @@
         "measure_power": {
           "approximated": true
         },
-        "measure_power_internal_addition": {
+        "meter_power": {
+          "approximated": true,
+          "title": {
+            "en": "Energy usage",
+            "sv": "Energiförbrukning",
+            "da": "Energiforbrug",
+            "no": "Energiforbruk"
+          }
+        },
+        "measure_power.internal_addition": {
           "title": {
             "en": "Power internal add. heat",
             "sv": "Effekt intern tillsats",
@@ -1822,20 +1823,6 @@
       "getable": true,
       "icon": "/assets/compressor.svg",
       "units": "char",
-      "type": "string"
-    },
-    "status_electric_addition": {
-      "title": {
-        "en": "Electric Addition Status",
-        "sv": "Eltillsatsstatus",
-        "no": "Eltilleggsstatus",
-        "da": "Eltilføjelsesstatus"
-      },
-      "uiComponent": "sensor",
-      "setable": false,
-      "getable": true,
-      "icon": "/assets/electric_meter.svg",
-      "units": "kW",
       "type": "string"
     },
     "time": {
