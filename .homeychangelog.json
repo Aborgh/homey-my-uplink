@@ -109,5 +109,8 @@
   },
   "1.7.1": {
     "en": "Added air velocity sensor (parameter 42782) - Now showing air velocity measurements for F-Series heat pumps. As well as added power internal additional heat (parameter 43084) - Track current power usage of the internal electric heater (starts at 0.5kW, increases 0.5kW per 100 degree minutes)"
+  },
+  "1.7.2": {
+    "en": "Added approximate energy tracking (meter_power kWh) for F-Series, calculated from 3-phase 400V current measurements. Note: this is approximate since F-series can't directly measure energy tracking"
   }
 }
