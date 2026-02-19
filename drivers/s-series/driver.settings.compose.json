@@ -60,5 +60,250 @@
     },
     "min": 5,
     "value": 5
+  },
+  {
+    "type": "group",
+    "label": {
+      "en": "Parameter ID Overrides",
+      "sv": "Parameteröverstyrningar",
+      "no": "Parameter-ID-overstyringer",
+      "da": "Parameter-ID-tilsidesættelser"
+    },
+    "children": [
+      {
+        "id": "param_outdoor_temp",
+        "type": "number",
+        "label": {
+          "en": "Outdoor temperature (BT1)",
+          "sv": "Utomhustemperatur (BT1)",
+          "no": "Utetemperatur (BT1)",
+          "da": "Udendørstemperatur (BT1)"
+        },
+        "hint": {
+          "en": "Default: 4. Set to 0 to use default.",
+          "sv": "Standard: 4. Sätt till 0 för standard.",
+          "no": "Standard: 4. Sett til 0 for standard.",
+          "da": "Standard: 4. Sæt til 0 for standard."
+        },
+        "value": 0,
+        "min": 0
+      },
+      {
+        "id": "param_avg_outdoor_temp",
+        "type": "number",
+        "label": {
+          "en": "Average outdoor temperature",
+          "sv": "Genomsnittlig utomhustemperatur",
+          "no": "Gjennomsnittlig utetemperatur",
+          "da": "Gennemsnitlig udendørstemperatur"
+        },
+        "hint": {
+          "en": "Default: 54. Set to 0 to use default.",
+          "sv": "Standard: 54. Sätt till 0 för standard.",
+          "no": "Standard: 54. Sett til 0 for standard.",
+          "da": "Standard: 54. Sæt til 0 for standard."
+        },
+        "value": 0,
+        "min": 0
+      },
+      {
+        "id": "param_supply_line",
+        "type": "number",
+        "label": {
+          "en": "Supply line temperature (BT2)",
+          "sv": "Framledningstemperatur (BT2)",
+          "no": "Turledningstemperatur (BT2)",
+          "da": "Fremløbstemperatur (BT2)"
+        },
+        "hint": {
+          "en": "Default: 8. Set to 0 to use default.",
+          "sv": "Standard: 8. Sätt till 0 för standard.",
+          "no": "Standard: 8. Sett til 0 for standard.",
+          "da": "Standard: 8. Sæt til 0 for standard."
+        },
+        "value": 0,
+        "min": 0
+      },
+      {
+        "id": "param_return_line",
+        "type": "number",
+        "label": {
+          "en": "Return line temperature (BT3)",
+          "sv": "Returledningstemperatur (BT3)",
+          "no": "Returledningstemperatur (BT3)",
+          "da": "Returledningstemperatur (BT3)"
+        },
+        "hint": {
+          "en": "Default: 10. Set to 0 to use default.",
+          "sv": "Standard: 10. Sätt till 0 för standard.",
+          "no": "Standard: 10. Sett til 0 for standard.",
+          "da": "Standard: 10. Sæt til 0 for standard."
+        },
+        "value": 0,
+        "min": 0
+      },
+      {
+        "id": "param_hot_water_top",
+        "type": "number",
+        "label": {
+          "en": "Hot water top (BT7)",
+          "sv": "Varmvatten topp (BT7)",
+          "no": "Varmtvann topp (BT7)",
+          "da": "Varmt vand top (BT7)"
+        },
+        "hint": {
+          "en": "Default: 11. Set to 0 to use default.",
+          "sv": "Standard: 11. Sätt till 0 för standard.",
+          "no": "Standard: 11. Sett til 0 for standard.",
+          "da": "Standard: 11. Sæt til 0 for standard."
+        },
+        "value": 0,
+        "min": 0
+      },
+      {
+        "id": "param_hot_water_charging",
+        "type": "number",
+        "label": {
+          "en": "Hot water charging (BT6)",
+          "sv": "Varmvatten laddning (BT6)",
+          "no": "Varmtvannslading (BT6)",
+          "da": "Varmtvandsopladning (BT6)"
+        },
+        "hint": {
+          "en": "Default: 12. Set to 0 to use default.",
+          "sv": "Standard: 12. Sätt till 0 för standard.",
+          "no": "Standard: 12. Sett til 0 for standard.",
+          "da": "Standard: 12. Sæt til 0 for standard."
+        },
+        "value": 0,
+        "min": 0
+      },
+      {
+        "id": "param_brine_in",
+        "type": "number",
+        "label": {
+          "en": "Brine in (BT10)",
+          "sv": "Köldbärare in (BT10)",
+          "no": "Brine inn (BT10)",
+          "da": "Brine ind (BT10)"
+        },
+        "hint": {
+          "en": "Default: 13. Set to 0 to use default.",
+          "sv": "Standard: 13. Sätt till 0 för standard.",
+          "no": "Standard: 13. Sett til 0 for standard.",
+          "da": "Standard: 13. Sæt til 0 for standard."
+        },
+        "value": 0,
+        "min": 0
+      },
+      {
+        "id": "param_brine_out",
+        "type": "number",
+        "label": {
+          "en": "Brine out (BT11)",
+          "sv": "Köldbärare ut (BT11)",
+          "no": "Brine ut (BT11)",
+          "da": "Brine ud (BT11)"
+        },
+        "hint": {
+          "en": "Default: 14. Set to 0 to use default.",
+          "sv": "Standard: 14. Sätt till 0 för standard.",
+          "no": "Standard: 14. Sett til 0 for standard.",
+          "da": "Standard: 14. Sæt til 0 for standard."
+        },
+        "value": 0,
+        "min": 0
+      },
+      {
+        "id": "param_discharge",
+        "type": "number",
+        "label": {
+          "en": "Discharge temperature (BT14)",
+          "sv": "Hetgastemperatur (BT14)",
+          "no": "Hetgasstemperatur (BT14)",
+          "da": "Hedgastemperatur (BT14)"
+        },
+        "hint": {
+          "en": "Default: 16. Set to 0 to use default.",
+          "sv": "Standard: 16. Sätt till 0 för standard.",
+          "no": "Standard: 16. Sett til 0 for standard.",
+          "da": "Standard: 16. Sæt til 0 for standard."
+        },
+        "value": 0,
+        "min": 0
+      },
+      {
+        "id": "param_suction_gas",
+        "type": "number",
+        "label": {
+          "en": "Suction gas temperature (BT17)",
+          "sv": "Suggastemperatur (BT17)",
+          "no": "Sugegasstemperatur (BT17)",
+          "da": "Sugegastemperatur (BT17)"
+        },
+        "hint": {
+          "en": "Default: 19. Set to 0 to use default.",
+          "sv": "Standard: 19. Sätt till 0 för standard.",
+          "no": "Standard: 19. Sett til 0 for standard.",
+          "da": "Standard: 19. Sæt til 0 for standard."
+        },
+        "value": 0,
+        "min": 0
+      },
+      {
+        "id": "param_room_temp",
+        "type": "number",
+        "label": {
+          "en": "Room temperature (BT50)",
+          "sv": "Rumstemperatur (BT50)",
+          "no": "Romtemperatur (BT50)",
+          "da": "Rumtemperatur (BT50)"
+        },
+        "hint": {
+          "en": "Default: 48351. Set to 0 to use default.",
+          "sv": "Standard: 48351. Sätt till 0 för standard.",
+          "no": "Standard: 48351. Sett til 0 for standard.",
+          "da": "Standard: 48351. Sæt til 0 for standard."
+        },
+        "value": 0,
+        "min": 0
+      },
+      {
+        "id": "param_degree_minutes",
+        "type": "number",
+        "label": {
+          "en": "Degree minutes",
+          "sv": "Gradminuter",
+          "no": "Gradminutter",
+          "da": "Gradminutter"
+        },
+        "hint": {
+          "en": "Default: 781. Set to 0 to use default.",
+          "sv": "Standard: 781. Sätt till 0 för standard.",
+          "no": "Standard: 781. Sett til 0 for standard.",
+          "da": "Standard: 781. Sæt til 0 for standard."
+        },
+        "value": 0,
+        "min": 0
+      },
+      {
+        "id": "param_compressor_freq",
+        "type": "number",
+        "label": {
+          "en": "Compressor frequency",
+          "sv": "Kompressorfrekvens",
+          "no": "Kompressorfrekvens",
+          "da": "Kompressorfrekvens"
+        },
+        "hint": {
+          "en": "Default: 5927. Set to 0 to use default.",
+          "sv": "Standard: 5927. Sätt till 0 för standard.",
+          "no": "Standard: 5927. Sett til 0 for standard.",
+          "da": "Standard: 5927. Sæt til 0 for standard."
+        },
+        "value": 0,
+        "min": 0
+      }
+    ]
   }
 ]

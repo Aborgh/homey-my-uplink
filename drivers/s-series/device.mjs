@@ -7,6 +7,7 @@ import {PowerCalculator} from "../../lib/helpers/power-calculator.mjs";
 import SSeriesParameterIds from "../../lib/models/s-series-parameter-enum.mjs";
 import sSeriesParameterMap from "../../lib/models/s-series-parameter-map.mjs";
 import RequestQueueHelper from "../../lib/helpers/request-queue.mjs";
+import {buildEffectiveParameters, sSeriesOverrideConfig} from "../../lib/helpers/parameter-override.mjs";
 
 /**
  * Represents a Nibe S-Series Heat Pump device in Homey
@@ -69,8 +70,12 @@ ${"#".repeat(deviceInfoHeader.length)}
             this.settingsManager = new SettingsManager(this, this.oAuth2Client);
             this.powerCalculator = new PowerCalculator();
             this.requestQueue = new RequestQueueHelper(this)
+
+            // Build effective parameter map (applies user overrides from settings)
+            this._buildEffectiveParameters();
+
             // Fetch data first to ensure we have the right capabilities
-            await this.fetchAndSetDataPoints(SSeriesDevice.MONITORED_PARAMETERS);
+            await this.fetchAndSetDataPoints(this._effectiveMonitored);
 
             // Check if we have current sensors or lifetime energy and add measure_power if needed
             const hasCurrentCapabilities =
@@ -118,7 +123,7 @@ ${"#".repeat(deviceInfoHeader.length)}
         this.pollTimer = this.homey.setInterval(async () => {
             this.log(`Fetching data for device ${this.deviceId}`);
             try {
-                await this.fetchAndSetDataPoints(SSeriesDevice.MONITORED_PARAMETERS);
+                await this.fetchAndSetDataPoints(this._effectiveMonitored);
                 await this.powerCalculator.updateDevicePower(this);
                 await this.settingsManager.updateHeatpumpSettings();
                 await this.refreshZoneData();
@@ -209,7 +214,7 @@ ${"#".repeat(deviceInfoHeader.length)}
 
             // Process returned data points
             for (const point of dataPoints) {
-                const param = sSeriesParameterMap[Number(point.parameterId)];
+                const param = this._effectiveMap[Number(point.parameterId)];
                 if (!param) {
                     this.log(`Unknown parameter: ${point.parameterId}`);
                     continue;
@@ -272,7 +277,7 @@ ${"#".repeat(deviceInfoHeader.length)}
             // Find capabilities that were expected but not updated
             const expectedCapabilities = new Set();
             for (const paramId of params) {
-                const param = sSeriesParameterMap[paramId];
+                const param = this._effectiveMap[paramId];
                 if (param && param.capabilityName) {
                     expectedCapabilities.add(param.capabilityName);
                 }
@@ -493,12 +498,40 @@ ${"#".repeat(deviceInfoHeader.length)}
                 await this.powerCalculator.updateDevicePower(this);
             }
 
+            // Handle parameter override changes
+            const paramOverridesChanged = changedKeys.some(key => key.startsWith('param_'));
+            if (paramOverridesChanged) {
+                this.log('Parameter overrides changed, rebuilding effective parameters');
+                this._buildEffectiveParameters(newSettings);
+                await this.fetchAndSetDataPoints(this._effectiveMonitored);
+            }
+
             // Handle heat pump settings
             await this.settingsManager.handleSettingsUpdate(oldSettings, newSettings, changedKeys);
 
         } catch (error) {
             this.error(`Error handling settings change: ${error.message}`);
             throw error;
+        }
+    }
+
+    /**
+     * Build effective parameter map and monitored list from defaults + user overrides
+     * @param {Object} [settings] - Settings object to use. Defaults to this.getSettings().
+     */
+    _buildEffectiveParameters(settings) {
+        settings = settings ?? this.getSettings();
+        const { effectiveMap, effectiveMonitored, paramIdOverrides, appliedOverrides } =
+            buildEffectiveParameters(sSeriesParameterMap, SSeriesDevice.MONITORED_PARAMETERS, sSeriesOverrideConfig, settings);
+
+        this._effectiveMap = effectiveMap;
+        this._effectiveMonitored = effectiveMonitored;
+        this._paramIdOverrides = paramIdOverrides;
+
+        if (appliedOverrides.length > 0) {
+            this.log('Applied parameter overrides:', JSON.stringify(appliedOverrides));
+        } else {
+            this.log('No parameter overrides active, using defaults');
         }
     }
 

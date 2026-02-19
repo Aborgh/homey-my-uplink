@@ -6,6 +6,7 @@ import {SettingsManager} from "../../lib/helpers/settings-manager.mjs";
 import {PowerCalculator} from "../../lib/helpers/power-calculator.mjs";
 import FSeriesParameterIds from "../../lib/models/f-series-parameter-enum.mjs";
 import RequestQueueHelper from "../../lib/helpers/request-queue.mjs";
+import {buildEffectiveParameters, fSeriesOverrideConfig} from "../../lib/helpers/parameter-override.mjs";
 
 /**
  * Represents a Nibe Heat Pump device in Homey
@@ -80,8 +81,12 @@ ${"#".repeat(deviceInfoHeader.length)}
             this.settingsManager = new SettingsManager(this, this.oAuth2Client);
             this.powerCalculator = new PowerCalculator();
             this.requestQueue = new RequestQueueHelper(this);
+
+            // Build effective parameter map (applies user overrides from settings)
+            this._buildEffectiveParameters();
+
             // Initial setup
-            await this.fetchAndSetDataPoints(FSeriesDevice.MONITORED_PARAMETERS);
+            await this.fetchAndSetDataPoints(this._effectiveMonitored);
             await this.settingsManager.initializeSettings();
             await this.powerCalculator.updateDevicePower(this);
             await this.powerCalculator.updateMeterPower(this);
@@ -111,7 +116,7 @@ ${"#".repeat(deviceInfoHeader.length)}
         this.pollTimer = this.homey.setInterval(async () => {
             this.log(`Fetching data for device ${this.deviceId}`);
             try {
-                await this.fetchAndSetDataPoints(FSeriesDevice.MONITORED_PARAMETERS);
+                await this.fetchAndSetDataPoints(this._effectiveMonitored);
                 await this.powerCalculator.updateDevicePower(this);
                 await this.powerCalculator.updateMeterPower(this);
                 await this.settingsManager.updateHeatpumpSettings();
@@ -228,14 +233,14 @@ ${"#".repeat(deviceInfoHeader.length)}
             const dataPoints = await this.oAuth2Client.getDataPoints(this.deviceId, params);
             const seenParams = new Set();
             const numericValues = {};
-            const heatingMediumSupplyId = FSeriesParameterIds.HEATING_MEDIUM_SUPPLY;
-            const supplyLineId = FSeriesParameterIds.SUPPLY_LINE;
+            const heatingMediumSupplyId = this._getEffectiveParamId(FSeriesParameterIds.HEATING_MEDIUM_SUPPLY);
+            const supplyLineId = this._getEffectiveParamId(FSeriesParameterIds.SUPPLY_LINE);
             const setPoint1Id = FSeriesParameterIds.SET_POINT_TEMP_1;
             const setPointF730Id = FSeriesParameterIds.SET_POINT_TEMP_F730;
 
             for (const point of dataPoints) {
                 const paramId = Number(point.parameterId);
-                const param = fSeriesParameterMap[paramId];
+                const param = this._effectiveMap[paramId];
                 if (!param) {
                     this.log(`Unknown parameter: ${paramId}`);
                     continue;
@@ -311,8 +316,8 @@ ${"#".repeat(deviceInfoHeader.length)}
 
             const hasSupplyLine = seenParams.has(supplyLineId) && this.isValidTemperature(numericValues[supplyLineId]);
             const hasHeatingMedium = seenParams.has(heatingMediumSupplyId) && this.isValidTemperature(numericValues[heatingMediumSupplyId]);
-            const supplyLineCapability = fSeriesParameterMap[supplyLineId]?.capabilityName;
-            const heatingMediumCapability = fSeriesParameterMap[heatingMediumSupplyId]?.capabilityName;
+            const supplyLineCapability = this._effectiveMap[supplyLineId]?.capabilityName;
+            const heatingMediumCapability = this._effectiveMap[heatingMediumSupplyId]?.capabilityName;
 
             // Always remove heating medium capability as it's only used as fallback
             if (heatingMediumCapability && this.hasCapability(heatingMediumCapability)) {
@@ -519,6 +524,14 @@ ${"#".repeat(deviceInfoHeader.length)}
                 await this.powerCalculator.updateDevicePower(this);
             }
 
+            // Handle parameter override changes
+            const paramOverridesChanged = changedKeys.some(key => key.startsWith('param_'));
+            if (paramOverridesChanged) {
+                this.log('Parameter overrides changed, rebuilding effective parameters');
+                this._buildEffectiveParameters(newSettings);
+                await this.fetchAndSetDataPoints(this._effectiveMonitored);
+            }
+
             // Handle heat pump settings
             await this.settingsManager.handleSettingsUpdate(oldSettings, newSettings, changedKeys);
 
@@ -526,6 +539,35 @@ ${"#".repeat(deviceInfoHeader.length)}
             this.error(`Error handling settings change: ${error.message}`);
             throw error;
         }
+    }
+
+    /**
+     * Build effective parameter map and monitored list from defaults + user overrides
+     * @param {Object} [settings] - Settings object to use. Defaults to this.getSettings().
+     */
+    _buildEffectiveParameters(settings) {
+        settings = settings ?? this.getSettings();
+        const { effectiveMap, effectiveMonitored, paramIdOverrides, appliedOverrides } =
+            buildEffectiveParameters(fSeriesParameterMap, FSeriesDevice.MONITORED_PARAMETERS, fSeriesOverrideConfig, settings);
+
+        this._effectiveMap = effectiveMap;
+        this._effectiveMonitored = effectiveMonitored;
+        this._paramIdOverrides = paramIdOverrides;
+
+        if (appliedOverrides.length > 0) {
+            this.log('Applied parameter overrides:', JSON.stringify(appliedOverrides));
+        } else {
+            this.log('No parameter overrides active, using defaults');
+        }
+    }
+
+    /**
+     * Resolve a default parameter ID to its effective (possibly overridden) ID
+     * @param {number} defaultParamId
+     * @returns {number}
+     */
+    _getEffectiveParamId(defaultParamId) {
+        return this._paramIdOverrides?.[defaultParamId] ?? defaultParamId;
     }
 
     /**
