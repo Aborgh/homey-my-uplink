@@ -3,13 +3,15 @@
     "en": "Set device temperature",
     "sv": "Ställ in enhetstemperatur",
     "no": "Still inn enhetstemperatur",
-    "da": "Indstil enhedstemperatur"
+    "da": "Indstil enhedstemperatur",
+    "nl": "Apparaattemperatuur instellen"
   },
   "titleFormatted": {
     "en": "Set temperature to [[target_temperature]] °C",
     "sv": "Ställ in temperatur till [[target_temperature]] °C",
     "no": "Still inn temperatur til [[target_temperature]] °C",
-    "da": "Indstil temperatur til [[target_temperature]] °C"
+    "da": "Indstil temperatur til [[target_temperature]] °C",
+    "nl": "Temperatuur instellen op [[target_temperature]] °C"
   },
   "args": [
     {
@@ -26,7 +28,8 @@
         "en": "Temperature",
         "sv": "Temperatur",
         "no": "Temperatur",
-        "da": "Temperatur"
+        "da": "Temperatur",
+        "nl": "Temperatuur"
       },
       "min": 5,
       "max": 30,

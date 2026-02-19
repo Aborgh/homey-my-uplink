@@ -3,7 +3,8 @@
     "en": "Compressor status",
     "sv": "Kompressorstatus",
     "no": "Kompressorstatus",
-    "da": "Kompressor status"
+    "da": "Kompressor status",
+    "nl": "Compressorstatus"
   },
   "uiComponent": "sensor",
   "setable": false,

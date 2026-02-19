@@ -4,7 +4,8 @@
     "en": "State button",
     "sv": "Statusknapp",
     "da": "Statusknap",
-    "no": "Statusknapp"
+    "no": "Statusknapp",
+    "nl": "Statusknop"
   },
   "getable": true,
   "setable": true,

@@ -4,7 +4,8 @@
     "en": "Air velocity",
     "sv": "Lufthastighet",
     "da": "Lufthastighed",
-    "no": "Lufthastighet"
+    "no": "Lufthastighet",
+    "nl": "Luchtsnelheid"
   },
   "uiComponent": "sensor",
   "getable": true,
@@ -13,7 +14,8 @@
     "en": "Value, air velocity sensor",
     "sv": "Värde, lufthastighetssensor",
     "da": "Værdi, lufthastighedssensor",
-    "no": "Verdi, lufthastighetssensor"
+    "no": "Verdi, lufthastighetssensor",
+    "nl": "Waarde, luchtsnelheidssensor"
   },
   "units": " ",
   "icon": "/assets/wind.svg"

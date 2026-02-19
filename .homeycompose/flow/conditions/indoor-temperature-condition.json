@@ -4,19 +4,22 @@
     "en": "Indoor temperature !{{is|isn't}}",
     "sv": "Inomhustemperatur !{{är|är inte}}",
     "no": "Innendørstemperatur !{{er|er ikke}}",
-    "da": "Indendørstemperatur !{{er|er ikke}}"
+    "da": "Indendørstemperatur !{{er|er ikke}}",
+    "nl": "Binnentemperatuur !{{is|is niet}}"
   },
   "titleFormatted": {
     "en": "Indoor temperature !{{is|isn't}} [[comparison]] [[temperature]] °C",
     "sv": "Inomhustemperatur !{{är|är inte}} [[comparison]] [[temperature]] °C",
     "no": "Innendørstemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C",
-    "da": "Indendørstemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C"
+    "da": "Indendørstemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C",
+    "nl": "Binnentemperatuur !{{is|is niet}} [[comparison]] [[temperature]] °C"
   },
   "hint": {
     "en": "Checks if the current indoor temperature matches the condition",
     "sv": "Kontrollerar om den aktuella inomhustemperaturen matchar villkoret",
     "no": "Sjekker om nåværende innendørstemperatur matcher betingelsen",
-    "da": "Kontrollerer om den aktuelle indendørstemperatur matcher betingelsen"
+    "da": "Kontrollerer om den aktuelle indendørstemperatur matcher betingelsen",
+    "nl": "Controleert of de huidige binnentemperatuur overeenkomt met de voorwaarde"
   },
   "args": [
     {
@@ -31,7 +34,8 @@
         "en": "Comparison",
         "sv": "Jämförelse",
         "no": "Sammenligning",
-        "da": "Sammenligning"
+        "da": "Sammenligning",
+        "nl": "Vergelijking"
       },
       "values": [
         {
@@ -40,7 +44,8 @@
             "en": "greater than",
             "sv": "större än",
             "no": "større enn",
-            "da": "større end"
+            "da": "større end",
+            "nl": "groter dan"
           }
         },
         {
@@ -49,7 +54,8 @@
             "en": "equal to",
             "sv": "lika med",
             "no": "lik",
-            "da": "lig med"
+            "da": "lig med",
+            "nl": "gelijk aan"
           }
         },
         {
@@ -58,7 +64,8 @@
             "en": "less than",
             "sv": "mindre än",
             "no": "mindre enn",
-            "da": "mindre end"
+            "da": "mindre end",
+            "nl": "kleiner dan"
           }
         }
       ]
@@ -70,7 +77,8 @@
         "en": "Temperature",
         "sv": "Temperatur",
         "no": "Temperatur",
-        "da": "Temperatur"
+        "da": "Temperatur",
+        "nl": "Temperatuur"
       },
       "min": 0,
       "max": 40,

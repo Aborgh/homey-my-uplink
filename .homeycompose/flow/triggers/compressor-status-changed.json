@@ -3,7 +3,8 @@
     "en": "Compressor status changed",
     "sv": "Kompressorstatus ändrad",
     "no": "Kompressorstatus endret",
-    "da": "Kompressorstatus ændret"
+    "da": "Kompressorstatus ændret",
+    "nl": "Compressorstatus gewijzigd"
   },
   "tokens": [
     {
@@ -13,13 +14,15 @@
         "en": "status",
         "sv": "status",
         "no": "status",
-        "da": "status"
+        "da": "status",
+        "nl": "status"
       },
       "example": {
         "en": "Hot water",
         "sv": "Varmvatten",
         "no": "Varmt vann",
-        "da": "Varmt vand"
+        "da": "Varmt vand",
+        "nl": "Warm water"
       }
     }
   ]

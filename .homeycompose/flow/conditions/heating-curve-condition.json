@@ -4,19 +4,22 @@
     "en": "Heating curve !{{is|isn't}}",
     "sv": "Värmekurva !{{är|är inte}}",
     "no": "Varmekurve !{{er|er ikke}}",
-    "da": "Varmekurve !{{er|er ikke}}"
+    "da": "Varmekurve !{{er|er ikke}}",
+    "nl": "Verwarmingscurve !{{is|is niet}}"
   },
   "titleFormatted": {
     "en": "Heating curve !{{is|isn't}} [[comparison]] [[value]]",
     "sv": "Värmekurva !{{är|är inte}} [[comparison]] [[value]]",
     "no": "Varmekurve !{{er|er ikke}} [[comparison]] [[value]]",
-    "da": "Varmekurve !{{er|er ikke}} [[comparison]] [[value]]"
+    "da": "Varmekurve !{{er|er ikke}} [[comparison]] [[value]]",
+    "nl": "Verwarmingscurve !{{is|is niet}} [[comparison]] [[value]]"
   },
   "hint": {
     "en": "Checks if the heating curve value matches the condition",
     "sv": "Kontrollerar om värmekurvans värde matchar villkoret",
     "no": "Sjekker om varmekurvens verdi matcher betingelsen",
-    "da": "Kontrollerer om varmekurvens værdi matcher betingelsen"
+    "da": "Kontrollerer om varmekurvens værdi matcher betingelsen",
+    "nl": "Controleert of de verwarmingscurvewaarde overeenkomt met de voorwaarde"
   },
   "args": [
     {
@@ -31,7 +34,8 @@
         "en": "Comparison",
         "sv": "Jämförelse",
         "no": "Sammenligning",
-        "da": "Sammenligning"
+        "da": "Sammenligning",
+        "nl": "Vergelijking"
       },
       "values": [
         {
@@ -40,7 +44,8 @@
             "en": "greater than",
             "sv": "större än",
             "no": "større enn",
-            "da": "større end"
+            "da": "større end",
+            "nl": "groter dan"
           }
         },
         {
@@ -49,7 +54,8 @@
             "en": "equal to",
             "sv": "lika med",
             "no": "lik",
-            "da": "lig med"
+            "da": "lig med",
+            "nl": "gelijk aan"
           }
         },
         {
@@ -58,7 +64,8 @@
             "en": "less than",
             "sv": "mindre än",
             "no": "mindre enn",
-            "da": "mindre end"
+            "da": "mindre end",
+            "nl": "kleiner dan"
           }
         }
       ]
@@ -70,7 +77,8 @@
         "en": "Value",
         "sv": "Värde",
         "no": "Verdi",
-        "da": "Værdi"
+        "da": "Værdi",
+        "nl": "Waarde"
       },
       "min": 0,
       "max": 15,

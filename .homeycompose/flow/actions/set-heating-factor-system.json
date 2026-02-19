@@ -4,19 +4,22 @@
     "en": "Set heating factor system",
     "sv": "Ställ in värmefaktor system",
     "no": "Still inn varmefaktor system",
-    "da": "Indstil varmefaktor system"
+    "da": "Indstil varmefaktor system",
+    "nl": "Verwarmingsfactor systeem instellen"
   },
   "titleFormatted": {
     "en": "Set the room sensor value of the heat factor system to [[value]]",
     "sv": "Ställ in värmefaktorsystemets rumsgivarvärde till [[value]]",
     "no": "Still inn romfølerverdi for varmefaktorsystemet til [[value]]",
-    "da": "Indstil rumfølerværdien for varmefaktorsystemet til [[value]]"
+    "da": "Indstil rumfølerværdien for varmefaktorsystemet til [[value]]",
+    "nl": "Stel de kamersensorwaarde van het verwarmingsfactorsysteem in op [[value]]"
   },
   "hint": {
     "en": "Setting the room sensor value of the heat factor system on the heat pump",
     "sv": "Ställer in värmefaktorsystemets rumsgivarvärde på värmepumpen",
     "no": "Stiller inn romfølerverdi for varmefaktorsystemet på varmepumpen",
-    "da": "Indstiller rumfølerværdien for varmefaktorsystemet på varmepumpen"
+    "da": "Indstiller rumfølerværdien for varmefaktorsystemet på varmepumpen",
+    "nl": "De kamersensorwaarde van het verwarmingsfactorsysteem op de warmtepomp instellen"
   },
   "args": [
     {
@@ -33,7 +36,8 @@
         "en": "Value",
         "sv": "Värde",
         "no": "Verdi",
-        "da": "Værdi"
+        "da": "Værdi",
+        "nl": "Waarde"
       },
       "min": 0,
       "max": 6,

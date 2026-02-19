@@ -10,13 +10,15 @@
     "en": "Nibe heatpumps",
     "sv": "Nibe värmepumpar",
     "da": "Nibe varmepumper",
-    "no": "Nibe varmepumper"
+    "no": "Nibe varmepumper",
+    "nl": "Nibe warmtepompen"
   },
   "description": {
     "en": "Control your heatpump with Homey",
     "sv": "Styr din värmepump med Homey",
     "da": "Styr din varmepumpe med Homey",
-    "no": "Styr varmepumpen din med Homey"
+    "no": "Styr varmepumpen din med Homey",
+    "nl": "Bedien je warmtepomp met Homey"
   },
   "category": [
     "appliances"
@@ -102,6 +104,22 @@
       "varmtvann",
       "myuplink",
       "inneklima",
+      "hvac"
+    ],
+    "nl": [
+      "nibe",
+      "warmtepomp",
+      "klimaat",
+      "verwarming",
+      "koeling",
+      "temperatuur",
+      "energie",
+      "smart home",
+      "thermostaat",
+      "ventilatie",
+      "warm water",
+      "myuplink",
+      "binnenklimaat",
       "hvac"
     ]
   },

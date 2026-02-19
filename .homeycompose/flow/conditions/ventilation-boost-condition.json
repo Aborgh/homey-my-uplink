@@ -4,13 +4,15 @@
     "en": "Ventilation boost !{{is|isn't}} active",
     "sv": "Ventilationsökning !{{är|är inte}} aktiv",
     "no": "Ventilasjonsøkning !{{er|er ikke}} aktiv",
-    "da": "Ventilationsforøgelse !{{er|er ikke}} aktiv"
+    "da": "Ventilationsforøgelse !{{er|er ikke}} aktiv",
+    "nl": "Ventilatieverhoging !{{is|is niet}} actief"
   },
   "hint": {
     "en": "Checks if ventilation boost mode is active",
     "sv": "Kontrollerar om ventilationsökningsläge är aktivt",
     "no": "Sjekker om ventilasjonsøkningsmodus er aktiv",
-    "da": "Kontrollerer om ventilationsforøgelsestilstand er aktiv"
+    "da": "Kontrollerer om ventilationsforøgelsestilstand er aktiv",
+    "nl": "Controleert of ventilatieverhoging actief is"
   },
   "args": [
     {

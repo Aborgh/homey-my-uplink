@@ -3,7 +3,8 @@
     "en": "Nibe F-Series Heatpump",
     "sv": "Nibe F-Series Heatpump",
     "da": "Nibe F-Series Heatpump",
-    "no": "Nibe F-Series Heatpump"
+    "no": "Nibe F-Series Heatpump",
+    "nl": "Nibe F-Serie Warmtepomp"
   },
   "class": "heatpump",
   "capabilities": [
@@ -40,7 +41,8 @@
         "en": "Supply line",
         "sv": "Framledning",
         "no": "Tilførselsledning",
-        "da": "Forsyningsledning"
+        "da": "Forsyningsledning",
+        "nl": "Aanvoerleiding"
       }
     },
     "measure_temperature.calculated_supply_line": {
@@ -48,7 +50,8 @@
         "en": "Calculated supply line",
         "sv": "Beräknad framledning",
         "no": "Beregnet tilførselsledning",
-        "da": "Beregnet forsyningsledning"
+        "da": "Beregnet forsyningsledning",
+        "nl": "Berekende aanvoerleiding"
       }
     },
     "state_button.temp_lux": {
@@ -56,7 +59,8 @@
         "en": "Temporary luxury",
         "sv": "Tillfällig lyx",
         "da": "Midlertidig luksus",
-        "no": "Midlertidig luksus"
+        "no": "Midlertidig luksus",
+        "nl": "Tijdelijk luxe"
       }
     },
     "state_button.ventilation_boost": {
@@ -64,7 +68,8 @@
         "en": "Ventilation boost",
         "sv": "Ventilationsökning",
         "da": "Ventilationsforøgelse",
-        "no": "Ventilasjonsøkning"
+        "no": "Ventilasjonsøkning",
+        "nl": "Ventilatieverhoging"
       }
     },
     "measure_temperature.suction_gas": {
@@ -72,7 +77,8 @@
         "en": "Suction gas",
         "sv": "Suggas",
         "da": "Sugergas",
-        "no": "Sugegass"
+        "no": "Sugegass",
+        "nl": "Zuiggas"
       }
     },
     "measure_temperature.return_line": {
@@ -80,7 +86,8 @@
         "en": "Return line",
         "sv": "Returledning",
         "da": "Returledning",
-        "no": "Returledning"
+        "no": "Returledning",
+        "nl": "Retourleiding"
       }
     },
     "measure_temperature.hot_water_top": {
@@ -88,7 +95,8 @@
         "en": "Hot water top",
         "sv": "Varmvatten top",
         "da": "Varmtvand top",
-        "no": "Varmtvann topp"
+        "no": "Varmtvann topp",
+        "nl": "Warm water boven"
       }
     },
     "measure_temperature.hot_water_charging": {
@@ -96,7 +104,8 @@
         "en": "Hot water charge",
         "sv": "Varmvatten laddning",
         "da": "Varmtvandsopladning",
-        "no": "Varmtvannslading"
+        "no": "Varmtvannslading",
+        "nl": "Warm water laden"
       }
     },
     "measure_temperature.heating_supply": {
@@ -104,7 +113,8 @@
         "en": "Heating medium supply",
         "sv": "Värmemediumtillförsel",
         "da": "Varmeforsyning",
-        "no": "Varmeforsyning"
+        "no": "Varmeforsyning",
+        "nl": "Verwarmingsmedium aanvoer"
       }
     },
     "measure_temperature.exhaust_air": {
@@ -112,7 +122,8 @@
         "en": "Exhaust air",
         "sv": "Frånluft",
         "da": "Fraluft",
-        "no": "Fraluft"
+        "no": "Fraluft",
+        "nl": "Afvoerlucht"
       }
     },
     "measure_temperature.extract_air": {
@@ -120,7 +131,8 @@
         "en": "Extract air",
         "sv": "Avluft",
         "da": "Udsugningsluft",
-        "no": "Utsugingsluft"
+        "no": "Utsugingsluft",
+        "nl": "Afzuiglucht"
       }
     },
     "measure_frequency.compressor": {
@@ -128,7 +140,8 @@
         "en": "Compressor frequency",
         "sv": "Kompressorfrekvens",
         "da": "Kompressorfrekvens",
-        "no": "Kompressorfrekvens"
+        "no": "Kompressorfrekvens",
+        "nl": "Compressorfrequentie"
       }
     },
     "measure_temperature.outdoor": {
@@ -136,7 +149,8 @@
         "en": "Outside",
         "sv": "Utomhus",
         "da": "Udendørs",
-        "no": "Utendørs"
+        "no": "Utendørs",
+        "nl": "Buiten"
       }
     },
     "target_temperature.room": {
@@ -144,7 +158,8 @@
         "en": "Target temperature",
         "sv": "Måltemperatur",
         "da": "Måltemperatur",
-        "no": "Måltemperatur"
+        "no": "Måltemperatur",
+        "nl": "Streeftemperatuur"
       }
     },
     "measure_temperature.room": {
@@ -152,7 +167,8 @@
         "en": "Room temperature",
         "sv": "Rumstemperatur",
         "da": "Rumtemperatur",
-        "no": "Romtemperatur"
+        "no": "Romtemperatur",
+        "nl": "Kamertemperatuur"
       }
     },
     "measure_temperature.condenser": {
@@ -160,7 +176,8 @@
         "en": "Condenser",
         "sv": "Kondensor",
         "da": "Kondensator",
-        "no": "Kondensator"
+        "no": "Kondensator",
+        "nl": "Condensor"
       }
     },
     "measure_current.one": {
@@ -168,7 +185,8 @@
         "en": "Current Phase 1",
         "sv": "Ström Fas 1",
         "da": "Strøm Fase 1",
-        "no": "Strøm Fase 1"
+        "no": "Strøm Fase 1",
+        "nl": "Stroom Fase 1"
       }
     },
     "measure_current.two": {
@@ -176,7 +194,8 @@
         "en": "Current Phase 2",
         "sv": "Ström Fas 2",
         "da": "Strøm Fase 2",
-        "no": "Strøm Fase 2"
+        "no": "Strøm Fase 2",
+        "nl": "Stroom Fase 2"
       }
     },
     "measure_current.three": {
@@ -184,7 +203,8 @@
         "en": "Current Phase 3",
         "sv": "Ström Fas 3",
         "da": "Strøm Fase 3",
-        "no": "Strøm Fase 3"
+        "no": "Strøm Fase 3",
+        "nl": "Stroom Fase 3"
       }
     },
     "measure_power": {
@@ -196,7 +216,8 @@
         "en": "Energy usage",
         "sv": "Energiförbrukning",
         "da": "Energiforbrug",
-        "no": "Energiforbruk"
+        "no": "Energiforbruk",
+        "nl": "Energieverbruik"
       }
     },
     "measure_power.internal_addition": {
@@ -204,7 +225,8 @@
         "en": "Power internal add. heat",
         "sv": "Effekt intern tillsats",
         "da": "Effekt intern tilsætning",
-        "no": "Effekt intern tilsetning"
+        "no": "Effekt intern tilsetning",
+        "nl": "Vermogen interne bijverwarming"
       }
     }
   },

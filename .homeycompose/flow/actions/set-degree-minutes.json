@@ -4,19 +4,22 @@
     "en": "Set degree minutes",
     "sv": "Ställ in gradminuter",
     "no": "Still inn gradminutter",
-    "da": "Indstil gradminutter"
+    "da": "Indstil gradminutter",
+    "nl": "Graadminuten instellen"
   },
   "titleFormatted": {
     "en": "Set degree minutes to [[value]] DM",
     "sv": "Ställ in gradminuter till [[value]] DM",
     "no": "Still inn gradminutter til [[value]] DM",
-    "da": "Indstil gradminutter til [[value]] DM"
+    "da": "Indstil gradminutter til [[value]] DM",
+    "nl": "Graadminuten instellen op [[value]] DM"
   },
   "hint": {
     "en": "Sets the degree minutes value on the heat pump",
     "sv": "Ställer in gradminutvärdet på värmepumpen",
     "no": "Stiller inn gradminuttverdien på varmepumpen",
-    "da": "Indstiller gradminutværdien på varmepumpen"
+    "da": "Indstiller gradminutværdien på varmepumpen",
+    "nl": "Stelt de graadminutenwaarde in op de warmtepomp"
   },
   "args": [
     {
@@ -31,7 +34,8 @@
         "en": "Value",
         "sv": "Värde",
         "no": "Verdi",
-        "da": "Værdi"
+        "da": "Værdi",
+        "nl": "Waarde"
       },
       "min": -3000,
       "max": 3000,

@@ -4,19 +4,22 @@
     "en": "Set ventilation boost",
     "sv": "Ställ in ventilationsökning",
     "no": "Still inn ventilasjonsøkning",
-    "da": "Indstil ventilationsforøgelse"
+    "da": "Indstil ventilationsforøgelse",
+    "nl": "Ventilatieverhoging instellen"
   },
   "titleFormatted": {
     "en": "Turn ventilation boost [[state]]",
     "sv": "Sätt ventilationsökning [[state]]",
     "no": "Sett ventilasjonsøkning [[state]]",
-    "da": "Sæt ventilationsforøgelse [[state]]"
+    "da": "Sæt ventilationsforøgelse [[state]]",
+    "nl": "Ventilatieverhoging [[state]] zetten"
   },
   "hint": {
     "en": "Activates or deactivates ventilation boost mode",
     "sv": "Aktiverar eller inaktiverar ventilationsökningsläge",
     "no": "Aktiverer eller deaktiverer ventilasjonsøkningsmodus",
-    "da": "Aktiverer eller deaktiverer ventilationsforøgelsestilstand"
+    "da": "Aktiverer eller deaktiverer ventilationsforøgelsestilstand",
+    "nl": "Activeert of deactiveert ventilatieverhoging"
   },
   "args": [
     {
@@ -31,7 +34,8 @@
         "en": "State",
         "sv": "Läge",
         "no": "Status",
-        "da": "Tilstand"
+        "da": "Tilstand",
+        "nl": "Status"
       },
       "values": [
         {
@@ -40,7 +44,8 @@
             "en": "On",
             "sv": "På",
             "no": "På",
-            "da": "Til"
+            "da": "Til",
+            "nl": "Aan"
           }
         },
         {
@@ -49,7 +54,8 @@
             "en": "Off",
             "sv": "Av",
             "no": "Av",
-            "da": "Fra"
+            "da": "Fra",
+            "nl": "Uit"
           }
         }
       ]

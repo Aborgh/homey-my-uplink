@@ -3,7 +3,8 @@
     "en": "Time factor of heat addition",
     "sv": "Tidfaktor tillsats",
     "no": "Tidsfaktor for varmetilsetning",
-    "da": "Tidsfaktor for varmetilsætning"
+    "da": "Tidsfaktor for varmetilsætning",
+    "nl": "Tijdfactor warmtetoevoeging"
   },
   "uiComponent": "sensor",
   "setable": false,

@@ -3,7 +3,8 @@
     "en": "Nibe S-Series Heatpump",
     "sv": "Nibe S-Series Heatpump",
     "da": "Nibe S-Series Heatpump",
-    "no": "Nibe S-Series Heatpump"
+    "no": "Nibe S-Series Heatpump",
+    "nl": "Nibe S-Serie Warmtepomp"
   },
   "class": "heatpump",
   "capabilities": [
@@ -32,7 +33,8 @@
         "en": "Average outdoor",
         "sv": "Genomsnittlig utomhus",
         "no": "Gjennomsnittlig utendørs",
-        "da": "Gennemsnitlig udendørs"
+        "da": "Gennemsnitlig udendørs",
+        "nl": "Gemiddeld buiten"
       }
     },
     "meter_power.lifetime_energy_consumed": {
@@ -40,7 +42,8 @@
         "en": "Total consumed energy",
         "sv": "Total förbrukad energi",
         "no": "Total forbrukt energi",
-        "da":  "Total forbrugt energi"
+        "da": "Total forbrugt energi",
+        "nl": "Totaal verbruikte energie"
       }
     },
     "measure_temperature.supply_line": {
@@ -48,7 +51,8 @@
         "en": "Supply line",
         "sv": "Framledning",
         "no": "Tilførselsledning",
-        "da": "Forsyningsledning"
+        "da": "Forsyningsledning",
+        "nl": "Aanvoerleiding"
       }
     },
     "state_button.hot_water_boost": {
@@ -56,7 +60,8 @@
         "en": "Hot water boost",
         "sv": "Varmvatten boost",
         "no": "Varmtvann boost",
-        "da": "Varmt vand boost"
+        "da": "Varmt vand boost",
+        "nl": "Warm water boost"
       }
     },
     "measure_temperature.suction_gas": {
@@ -64,7 +69,8 @@
         "en": "Suction gas",
         "sv": "Suggas",
         "da": "Sugergas",
-        "no": "Sugegass"
+        "no": "Sugegass",
+        "nl": "Zuiggas"
       }
     },
     "measure_temperature.return_line": {
@@ -72,7 +78,8 @@
         "en": "Return line",
         "sv": "Returledning",
         "da": "Returledning",
-        "no": "Returledning"
+        "no": "Returledning",
+        "nl": "Retourleiding"
       }
     },
     "measure_temperature.hot_water_top": {
@@ -80,7 +87,8 @@
         "en": "Hot water top",
         "sv": "Varmvatten top",
         "da": "Varmtvand top",
-        "no": "Varmtvann topp"
+        "no": "Varmtvann topp",
+        "nl": "Warm water boven"
       }
     },
     "measure_temperature.hot_water_charging": {
@@ -88,7 +96,8 @@
         "en": "Hot water charge",
         "sv": "Varmvatten laddning",
         "da": "Varmtvandsopladning",
-        "no": "Varmtvannslading"
+        "no": "Varmtvannslading",
+        "nl": "Warm water laden"
       }
     },
     "measure_frequency.compressor": {
@@ -96,7 +105,8 @@
         "en": "Compressor frequency",
         "sv": "Kompressorfrekvens",
         "da": "Kompressorfrekvens",
-        "no": "Kompressorfrekvens"
+        "no": "Kompressorfrekvens",
+        "nl": "Compressorfrequentie"
       }
     },
     "measure_temperature.outdoor": {
@@ -104,7 +114,8 @@
         "en": "Outside",
         "sv": "Utomhus",
         "da": "Udendørs",
-        "no": "Utendørs"
+        "no": "Utendørs",
+        "nl": "Buiten"
       }
     },
     "target_temperature.room": {
@@ -112,7 +123,8 @@
         "en": "Target temperature",
         "sv": "Måltemperatur",
         "da": "Måltemperatur",
-        "no": "Måltemperatur"
+        "no": "Måltemperatur",
+        "nl": "Streeftemperatuur"
       }
     },
     "measure_temperature.room": {
@@ -120,7 +132,8 @@
         "en": "Room temperature",
         "sv": "Rumstemperatur",
         "da": "Rumtemperatur",
-        "no": "Romtemperatur"
+        "no": "Romtemperatur",
+        "nl": "Kamertemperatuur"
       }
     },
     "measure_power": {

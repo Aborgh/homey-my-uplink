@@ -4,19 +4,22 @@
     "en": "Temperature difference !{{is|isn't}}",
     "sv": "Temperaturskillnad !{{är|är inte}}",
     "no": "Temperaturforskjell !{{er|er ikke}}",
-    "da": "Temperaturforskel !{{er|er ikke}}"
+    "da": "Temperaturforskel !{{er|er ikke}}",
+    "nl": "Temperatuurverschil !{{is|is niet}}"
   },
   "titleFormatted": {
     "en": "Difference between indoor and outdoor temperature !{{is|isn't}} [[comparison]] [[temperature]] °C",
     "sv": "Skillnad mellan inomhus- och utomhustemperatur !{{är|är inte}} [[comparison]] [[temperature]] °C",
     "no": "Forskjell mellom innendørs- og utendørstemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C",
-    "da": "Forskel mellem indendørs- og udendørstemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C"
+    "da": "Forskel mellem indendørs- og udendørstemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C",
+    "nl": "Verschil tussen binnen- en buitentemperatuur !{{is|is niet}} [[comparison]] [[temperature]] °C"
   },
   "hint": {
     "en": "Checks if the difference between indoor and outdoor temperature matches the condition",
     "sv": "Kontrollerar om skillnaden mellan inomhus- och utomhustemperatur matchar villkoret",
     "no": "Sjekker om forskjellen mellom innendørs- og utendørstemperatur matcher betingelsen",
-    "da": "Kontrollerer om forskellen mellem indendørs- og udendørstemperatur matcher betingelsen"
+    "da": "Kontrollerer om forskellen mellem indendørs- og udendørstemperatur matcher betingelsen",
+    "nl": "Controleert of het verschil tussen binnen- en buitentemperatuur overeenkomt met de voorwaarde"
   },
   "args": [
     {
@@ -31,7 +34,8 @@
         "en": "Comparison",
         "sv": "Jämförelse",
         "no": "Sammenligning",
-        "da": "Sammenligning"
+        "da": "Sammenligning",
+        "nl": "Vergelijking"
       },
       "values": [
         {
@@ -40,7 +44,8 @@
             "en": "greater than",
             "sv": "större än",
             "no": "større enn",
-            "da": "større end"
+            "da": "større end",
+            "nl": "groter dan"
           }
         },
         {
@@ -49,7 +54,8 @@
             "en": "equal to",
             "sv": "lika med",
             "no": "lik",
-            "da": "lig med"
+            "da": "lig med",
+            "nl": "gelijk aan"
           }
         },
         {
@@ -58,7 +64,8 @@
             "en": "less than",
             "sv": "mindre än",
             "no": "mindre enn",
-            "da": "mindre end"
+            "da": "mindre end",
+            "nl": "kleiner dan"
           }
         }
       ]
@@ -70,7 +77,8 @@
         "en": "Temperature difference",
         "sv": "Temperaturskillnad",
         "no": "Temperaturforskjell",
-        "da": "Temperaturforskel"
+        "da": "Temperaturforskel",
+        "nl": "Temperatuurverschil"
       },
       "min": 0,
       "max": 50,

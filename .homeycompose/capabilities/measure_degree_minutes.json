@@ -4,7 +4,8 @@
     "en": "Degree minutes",
     "sv": "Gradminuter",
     "da": "Gradminutter",
-    "no": "Gradminutter"
+    "no": "Gradminutter",
+    "nl": "Graadminuten"
   },
   "uiComponent": "sensor",
   "getable": true,
@@ -14,7 +15,8 @@
     "en": "Latest value of degree minutes",
     "sv": "Senaste avlästa värdet av gradminuter",
     "da": "Seneste aflæste værdi af gradminutter",
-    "no": "Siste avleste verdi av gradminutter"
+    "no": "Siste avleste verdi av gradminutter",
+    "nl": "Laatste waarde van graadminuten"
   },
   "insights": true
 }

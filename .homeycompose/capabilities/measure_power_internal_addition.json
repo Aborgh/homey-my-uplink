@@ -4,7 +4,8 @@
     "en": "Power internal add. heat",
     "sv": "Effekt intern tillsats",
     "da": "Effekt intern tilsætning",
-    "no": "Effekt intern tilsetning"
+    "no": "Effekt intern tilsetning",
+    "nl": "Vermogen interne bijverwarming"
   },
   "uiComponent": "sensor",
   "getable": true,
@@ -12,7 +13,8 @@
     "en": "Current power of internal additional heater",
     "sv": "Aktuell effekt intern tillsats",
     "da": "Aktuel effekt intern tilsætning",
-    "no": "Aktuell effekt intern tilsetning"
+    "no": "Aktuell effekt intern tilsetning",
+    "nl": "Huidig vermogen interne bijverwarming"
   },
   "units": "kW",
   "icon": "/assets/measure_current.svg"

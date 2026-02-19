@@ -6,7 +6,8 @@
       "en": "Firmware",
       "sv": "Programvara",
       "da": "Firmware",
-      "no": "Firmware"
+      "no": "Firmware",
+      "nl": "Firmware"
     },
     "value": ""
   },
@@ -17,7 +18,8 @@
       "en": "Serial number",
       "sv": "Serienummer",
       "da": "Serienummer",
-      "no": "Serienummer"
+      "no": "Serienummer",
+      "nl": "Serienummer"
     },
     "value": ""
   },
@@ -28,7 +30,8 @@
       "en": "Power factor",
       "sv": "Effektfaktor",
       "da": "Effektfaktor",
-      "no": "Effektfaktor"
+      "no": "Effektfaktor",
+      "nl": "Vermogensfactor"
     },
     "value": 0.95,
     "min": 0,
@@ -42,7 +45,8 @@
       "en": "Volt",
       "sv": "Volt",
       "da": "Volt",
-      "no": "Volt"
+      "no": "Volt",
+      "nl": "Volt"
     },
     "value": 400,
     "min": 230,
@@ -56,7 +60,8 @@
       "en": "Interval in minutes to fetch data",
       "sv": "Intervall i minuter för hämtning av data",
       "da": "Interval i minutter for hentning af data",
-      "no": "Intervall i minutter for henting av data"
+      "no": "Intervall i minutter for henting av data",
+      "nl": "Interval in minuten om data op te halen"
     },
     "min": 5,
     "value": 5
@@ -68,12 +73,13 @@
       "en": "Heating Curve",
       "sv": "Värmekurva",
       "no": "Varmekurve",
-      "da": "Varme Kurve"
+      "da": "Varme Kurve",
+      "nl": "Verwarmingscurve"
     },
-    "value": 5.0,
-    "min": 0.0,
-    "max": 15.0,
-    "step": 1.0
+    "value": 5,
+    "min": 0,
+    "max": 15,
+    "step": 1
   },
   {
     "id": "heating_offset_climate_system_1",
@@ -82,12 +88,13 @@
       "en": "Heating Offset",
       "sv": "Värmejustering",
       "no": "Varmejustering",
-      "da": "Varmejustering"
+      "da": "Varmejustering",
+      "nl": "Verwarmingscompensatie"
     },
-    "value": 0.0,
-    "min": -10.0,
-    "max": 10.0,
-    "step": 1.0
+    "value": 0,
+    "min": -10,
+    "max": 10,
+    "step": 1
   },
   {
     "type": "group",
@@ -95,7 +102,8 @@
       "en": "Parameter ID Overrides",
       "sv": "Parameteröverstyrningar",
       "no": "Parameter-ID-overstyringer",
-      "da": "Parameter-ID-tilsidesættelser"
+      "da": "Parameter-ID-tilsidesættelser",
+      "nl": "Parameter-ID-overschrijvingen"
     },
     "children": [
       {
@@ -105,13 +113,15 @@
           "en": "Outdoor temperature (BT1)",
           "sv": "Utomhustemperatur (BT1)",
           "no": "Utetemperatur (BT1)",
-          "da": "Udendørstemperatur (BT1)"
+          "da": "Udendørstemperatur (BT1)",
+          "nl": "Buitentemperatuur (BT1)"
         },
         "hint": {
           "en": "Default: 40004. Set to 0 to use default.",
           "sv": "Standard: 40004. Sätt till 0 för standard.",
           "no": "Standard: 40004. Sett til 0 for standard.",
-          "da": "Standard: 40004. Sæt til 0 for standard."
+          "da": "Standard: 40004. Sæt til 0 for standard.",
+          "nl": "Standaard: 40004. Stel in op 0 voor standaard."
         },
         "value": 0,
         "min": 0
@@ -123,13 +133,15 @@
           "en": "Heating medium supply (BT63)",
           "sv": "Värmebärare framledning (BT63)",
           "no": "Varmebærer turledning (BT63)",
-          "da": "Varmebærer fremløb (BT63)"
+          "da": "Varmebærer fremløb (BT63)",
+          "nl": "Verwarmingsmedium aanvoer (BT63)"
         },
         "hint": {
           "en": "Default: 40008. Set to 0 to use default.",
           "sv": "Standard: 40008. Sätt till 0 för standard.",
           "no": "Standard: 40008. Sett til 0 for standard.",
-          "da": "Standard: 40008. Sæt til 0 for standard."
+          "da": "Standard: 40008. Sæt til 0 for standard.",
+          "nl": "Standaard: 40008. Stel in op 0 voor standaard."
         },
         "value": 0,
         "min": 0
@@ -141,13 +153,15 @@
           "en": "Return line temperature (BT3)",
           "sv": "Returledningstemperatur (BT3)",
           "no": "Returledningstemperatur (BT3)",
-          "da": "Returledningstemperatur (BT3)"
+          "da": "Returledningstemperatur (BT3)",
+          "nl": "Retourleiding temperatuur (BT3)"
         },
         "hint": {
           "en": "Default: 40012. Set to 0 to use default.",
           "sv": "Standard: 40012. Sätt till 0 för standard.",
           "no": "Standard: 40012. Sett til 0 for standard.",
-          "da": "Standard: 40012. Sæt til 0 for standard."
+          "da": "Standard: 40012. Sæt til 0 for standard.",
+          "nl": "Standaard: 40012. Stel in op 0 voor standaard."
         },
         "value": 0,
         "min": 0
@@ -159,13 +173,15 @@
           "en": "Hot water top (BT7)",
           "sv": "Varmvatten topp (BT7)",
           "no": "Varmtvann topp (BT7)",
-          "da": "Varmt vand top (BT7)"
+          "da": "Varmt vand top (BT7)",
+          "nl": "Warm water boven (BT7)"
         },
         "hint": {
           "en": "Default: 40013. Set to 0 to use default.",
           "sv": "Standard: 40013. Sätt till 0 för standard.",
           "no": "Standard: 40013. Sett til 0 for standard.",
-          "da": "Standard: 40013. Sæt til 0 for standard."
+          "da": "Standard: 40013. Sæt til 0 for standard.",
+          "nl": "Standaard: 40013. Stel in op 0 voor standaard."
         },
         "value": 0,
         "min": 0
@@ -177,13 +193,15 @@
           "en": "Hot water charging (BT6)",
           "sv": "Varmvatten laddning (BT6)",
           "no": "Varmtvannslading (BT6)",
-          "da": "Varmtvandsopladning (BT6)"
+          "da": "Varmtvandsopladning (BT6)",
+          "nl": "Warm water laden (BT6)"
         },
         "hint": {
           "en": "Default: 40014. Set to 0 to use default.",
           "sv": "Standard: 40014. Sätt till 0 för standard.",
           "no": "Standard: 40014. Sett til 0 for standard.",
-          "da": "Standard: 40014. Sæt til 0 for standard."
+          "da": "Standard: 40014. Sæt til 0 for standard.",
+          "nl": "Standaard: 40014. Stel in op 0 voor standaard."
         },
         "value": 0,
         "min": 0
@@ -195,13 +213,15 @@
           "en": "Condenser temperature (BT12)",
           "sv": "Kondensortemperatur (BT12)",
           "no": "Kondensatortemperatur (BT12)",
-          "da": "Kondensatortemperatur (BT12)"
+          "da": "Kondensatortemperatur (BT12)",
+          "nl": "Condensortemperatuur (BT12)"
         },
         "hint": {
           "en": "Default: 40017. Set to 0 to use default.",
           "sv": "Standard: 40017. Sätt till 0 för standard.",
           "no": "Standard: 40017. Sett til 0 for standard.",
-          "da": "Standard: 40017. Sæt til 0 for standard."
+          "da": "Standard: 40017. Sæt til 0 for standard.",
+          "nl": "Standaard: 40017. Stel in op 0 voor standaard."
         },
         "value": 0,
         "min": 0
@@ -213,13 +233,15 @@
           "en": "Suction gas temperature (BT17)",
           "sv": "Suggastemperatur (BT17)",
           "no": "Sugegasstemperatur (BT17)",
-          "da": "Sugegastemperatur (BT17)"
+          "da": "Sugegastemperatur (BT17)",
+          "nl": "Zuiggastemperatuur (BT17)"
         },
         "hint": {
           "en": "Default: 40022. Set to 0 to use default.",
           "sv": "Standard: 40022. Sätt till 0 för standard.",
           "no": "Standard: 40022. Sett til 0 for standard.",
-          "da": "Standard: 40022. Sæt til 0 for standard."
+          "da": "Standard: 40022. Sæt til 0 for standard.",
+          "nl": "Standaard: 40022. Stel in op 0 voor standaard."
         },
         "value": 0,
         "min": 0
@@ -231,13 +253,15 @@
           "en": "Exhaust air temperature (BT20)",
           "sv": "Avluftstemperatur (BT20)",
           "no": "Avtrekkstemperatur (BT20)",
-          "da": "Udsugningstemperatur (BT20)"
+          "da": "Udsugningstemperatur (BT20)",
+          "nl": "Afvoerluchttemperatuur (BT20)"
         },
         "hint": {
           "en": "Default: 40025. Set to 0 to use default.",
           "sv": "Standard: 40025. Sätt till 0 för standard.",
           "no": "Standard: 40025. Sett til 0 for standard.",
-          "da": "Standard: 40025. Sæt til 0 for standard."
+          "da": "Standard: 40025. Sæt til 0 for standard.",
+          "nl": "Standaard: 40025. Stel in op 0 voor standaard."
         },
         "value": 0,
         "min": 0
@@ -249,13 +273,15 @@
           "en": "Room temperature (BT50)",
           "sv": "Rumstemperatur (BT50)",
           "no": "Romtemperatur (BT50)",
-          "da": "Rumtemperatur (BT50)"
+          "da": "Rumtemperatur (BT50)",
+          "nl": "Kamertemperatuur (BT50)"
         },
         "hint": {
           "en": "Default: 40033. Set to 0 to use default.",
           "sv": "Standard: 40033. Sätt till 0 för standard.",
           "no": "Standard: 40033. Sett til 0 for standard.",
-          "da": "Standard: 40033. Sæt til 0 for standard."
+          "da": "Standard: 40033. Sæt til 0 for standard.",
+          "nl": "Standaard: 40033. Stel in op 0 voor standaard."
         },
         "value": 0,
         "min": 0
@@ -267,13 +293,15 @@
           "en": "Supply line temperature",
           "sv": "Framledningstemperatur",
           "no": "Turledningstemperatur",
-          "da": "Fremløbstemperatur"
+          "da": "Fremløbstemperatur",
+          "nl": "Aanvoerleidingtemperatuur"
         },
         "hint": {
           "en": "Default: 40047. Set to 0 to use default.",
           "sv": "Standard: 40047. Sätt till 0 för standard.",
           "no": "Standard: 40047. Sett til 0 for standard.",
-          "da": "Standard: 40047. Sæt til 0 for standard."
+          "da": "Standard: 40047. Sæt til 0 for standard.",
+          "nl": "Standaard: 40047. Stel in op 0 voor standaard."
         },
         "value": 0,
         "min": 0
@@ -285,13 +313,15 @@
           "en": "Degree minutes",
           "sv": "Gradminuter",
           "no": "Gradminutter",
-          "da": "Gradminutter"
+          "da": "Gradminutter",
+          "nl": "Graadminuten"
         },
         "hint": {
           "en": "Default: 40940. Set to 0 to use default.",
           "sv": "Standard: 40940. Sätt till 0 för standard.",
           "no": "Standard: 40940. Sett til 0 for standard.",
-          "da": "Standard: 40940. Sæt til 0 for standard."
+          "da": "Standard: 40940. Sæt til 0 for standard.",
+          "nl": "Standaard: 40940. Stel in op 0 voor standaard."
         },
         "value": 0,
         "min": 0
@@ -303,13 +333,15 @@
           "en": "Compressor frequency",
           "sv": "Kompressorfrekvens",
           "no": "Kompressorfrekvens",
-          "da": "Kompressorfrekvens"
+          "da": "Kompressorfrekvens",
+          "nl": "Compressorfrequentie"
         },
         "hint": {
           "en": "Default: 41778. Set to 0 to use default.",
           "sv": "Standard: 41778. Sätt till 0 för standard.",
           "no": "Standard: 41778. Sett til 0 for standard.",
-          "da": "Standard: 41778. Sæt til 0 for standard."
+          "da": "Standard: 41778. Sæt til 0 for standard.",
+          "nl": "Standaard: 41778. Stel in op 0 voor standaard."
         },
         "value": 0,
         "min": 0

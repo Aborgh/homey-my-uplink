@@ -4,19 +4,22 @@
     "en": "Set temporary luxury",
     "sv": "Ställ in tillfällig lyx",
     "no": "Still inn midlertidig luksus",
-    "da": "Indstil midlertidig luksus"
+    "da": "Indstil midlertidig luksus",
+    "nl": "Tijdelijk luxe instellen"
   },
   "titleFormatted": {
     "en": "Turn temporary luxury [[state]]",
     "sv": "Sätt tillfällig lyx [[state]]",
     "no": "Sett midlertidig luksus [[state]]",
-    "da": "Sæt midlertidig luksus [[state]]"
+    "da": "Sæt midlertidig luksus [[state]]",
+    "nl": "Tijdelijk luxe [[state]] zetten"
   },
   "hint": {
     "en": "Activates or deactivates temporary luxury hot water mode",
     "sv": "Aktiverar eller inaktiverar tillfälligt lyxläge för varmvatten",
     "no": "Aktiverer eller deaktiverer midlertidig luksusmodus for varmtvann",
-    "da": "Aktiverer eller deaktiverer midlertidig luksusfunktion til varmt vand"
+    "da": "Aktiverer eller deaktiverer midlertidig luksusfunktion til varmt vand",
+    "nl": "Activeert of deactiveert tijdelijk luxe warm water modus"
   },
   "args": [
     {
@@ -31,7 +34,8 @@
         "en": "State",
         "sv": "Läge",
         "no": "Status",
-        "da": "Tilstand"
+        "da": "Tilstand",
+        "nl": "Status"
       },
       "values": [
         {
@@ -40,7 +44,8 @@
             "en": "On",
             "sv": "På",
             "no": "På",
-            "da": "Til"
+            "da": "Til",
+            "nl": "Aan"
           }
         },
         {
@@ -49,7 +54,8 @@
             "en": "Off",
             "sv": "Av",
             "no": "Av",
-            "da": "Fra"
+            "da": "Fra",
+            "nl": "Uit"
           }
         }
       ]

@@ -4,19 +4,22 @@
     "en": "Temperature !{{is|isn't}} in range",
     "sv": "Temperatur !{{är|är inte}} inom intervall",
     "no": "Temperatur !{{er|er ikke}} innenfor område",
-    "da": "Temperatur !{{er|er ikke}} inden for interval"
+    "da": "Temperatur !{{er|er ikke}} inden for interval",
+    "nl": "Temperatuur !{{is|is niet}} binnen bereik"
   },
   "titleFormatted": {
     "en": "[[type]] temperature !{{is|isn't}} between [[min]] and [[max]] °C",
     "sv": "[[type]] temperatur !{{är|är inte}} mellan [[min]] och [[max]] °C",
     "no": "[[type]] temperatur !{{er|er ikke}} mellom [[min]] og [[max]] °C",
-    "da": "[[type]] temperatur !{{er|er ikke}} mellem [[min]] og [[max]] °C"
+    "da": "[[type]] temperatur !{{er|er ikke}} mellem [[min]] og [[max]] °C",
+    "nl": "[[type]] temperatuur !{{is|is niet}} tussen [[min]] en [[max]] °C"
   },
   "hint": {
     "en": "Checks if the temperature is within the specified range",
     "sv": "Kontrollerar om temperaturen är inom det angivna intervallet",
     "no": "Sjekker om temperaturen er innenfor det angitte området",
-    "da": "Kontrollerer om temperaturen er inden for det angivne interval"
+    "da": "Kontrollerer om temperaturen er inden for det angivne interval",
+    "nl": "Controleert of de temperatuur binnen het opgegeven bereik ligt"
   },
   "args": [
     {
@@ -31,7 +34,8 @@
         "en": "Temperature type",
         "sv": "Temperaturtyp",
         "no": "Temperaturtype",
-        "da": "Temperaturtype"
+        "da": "Temperaturtype",
+        "nl": "Temperatuurtype"
       },
       "values": [
         {
@@ -40,7 +44,8 @@
             "en": "Indoor",
             "sv": "Inomhus",
             "no": "Innendørs",
-            "da": "Indendørs"
+            "da": "Indendørs",
+            "nl": "Binnen"
           }
         },
         {
@@ -49,7 +54,8 @@
             "en": "Outdoor",
             "sv": "Utomhus",
             "no": "Utendørs",
-            "da": "Udendørs"
+            "da": "Udendørs",
+            "nl": "Buiten"
           }
         }
       ]
@@ -61,7 +67,8 @@
         "en": "Minimum",
         "sv": "Minimum",
         "no": "Minimum",
-        "da": "Minimum"
+        "da": "Minimum",
+        "nl": "Minimum"
       },
       "min": -50,
       "max": 50,
@@ -74,7 +81,8 @@
         "en": "Maximum",
         "sv": "Maximum",
         "no": "Maksimum",
-        "da": "Maksimum"
+        "da": "Maksimum",
+        "nl": "Maximum"
       },
       "min": -50,
       "max": 50,

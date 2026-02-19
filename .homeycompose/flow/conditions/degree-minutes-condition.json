@@ -4,19 +4,22 @@
     "en": "Degree minutes !{{is|isn't}}",
     "sv": "Gradminuter !{{är|är inte}}",
     "no": "Gradminutter !{{er|er ikke}}",
-    "da": "Gradminutter !{{er|er ikke}}"
+    "da": "Gradminutter !{{er|er ikke}}",
+    "nl": "Graadminuten !{{is|is niet}}"
   },
   "titleFormatted": {
     "en": "Degree minutes !{{is|isn't}} [[comparison]] [[value]] DM",
     "sv": "Gradminuter !{{är|är inte}} [[comparison]] [[value]] DM",
     "no": "Gradminutter !{{er|er ikke}} [[comparison]] [[value]] DM",
-    "da": "Gradminutter !{{er|er ikke}} [[comparison]] [[value]] DM"
+    "da": "Gradminutter !{{er|er ikke}} [[comparison]] [[value]] DM",
+    "nl": "Graadminuten !{{is|is niet}} [[comparison]] [[value]] DM"
   },
   "hint": {
     "en": "Checks if the degree minutes value matches the condition",
     "sv": "Kontrollerar om gradminutvärdet matchar villkoret",
     "no": "Sjekker om gradminuttverdien matcher betingelsen",
-    "da": "Kontrollerer om gradminutværdien matcher betingelsen"
+    "da": "Kontrollerer om gradminutværdien matcher betingelsen",
+    "nl": "Controleert of de graadminutenwaarde overeenkomt met de voorwaarde"
   },
   "args": [
     {
@@ -31,7 +34,8 @@
         "en": "Comparison",
         "sv": "Jämförelse",
         "no": "Sammenligning",
-        "da": "Sammenligning"
+        "da": "Sammenligning",
+        "nl": "Vergelijking"
       },
       "values": [
         {
@@ -40,7 +44,8 @@
             "en": "greater than",
             "sv": "större än",
             "no": "større enn",
-            "da": "større end"
+            "da": "større end",
+            "nl": "groter dan"
           }
         },
         {
@@ -49,7 +54,8 @@
             "en": "equal to",
             "sv": "lika med",
             "no": "lik",
-            "da": "lig med"
+            "da": "lig med",
+            "nl": "gelijk aan"
           }
         },
         {
@@ -58,7 +64,8 @@
             "en": "less than",
             "sv": "mindre än",
             "no": "mindre enn",
-            "da": "mindre end"
+            "da": "mindre end",
+            "nl": "kleiner dan"
           }
         }
       ]
@@ -70,7 +77,8 @@
         "en": "Value",
         "sv": "Värde",
         "no": "Verdi",
-        "da": "Værdi"
+        "da": "Værdi",
+        "nl": "Waarde"
       },
       "min": -3000,
       "max": 3000,

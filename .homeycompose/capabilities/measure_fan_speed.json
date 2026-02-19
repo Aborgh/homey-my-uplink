@@ -4,7 +4,8 @@
     "en": "Fan speed",
     "sv": "Fläkthastiget",
     "da": "Blæserhastighed",
-    "no": "Viftehastighet"
+    "no": "Viftehastighet",
+    "nl": "Ventilatorsnelheid"
   },
   "uiComponent": "sensor",
   "getable": true,
@@ -12,7 +13,8 @@
     "en": "Current fan speed",
     "sv": "Nuvarande fläkthastiget",
     "da": "Nuværende blæserhastighed",
-    "no": "Nåværende viftehastighet"
+    "no": "Nåværende viftehastighet",
+    "nl": "Huidige ventilatorsnelheid"
   },
   "units": "%",
   "icon": "/assets/fan_speed.svg"

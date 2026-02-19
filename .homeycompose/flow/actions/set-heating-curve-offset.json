@@ -4,19 +4,22 @@
     "en": "Set heating curve offset",
     "sv": "Ställ in värmekurvans förskjutning",
     "no": "Still inn varmekurvens forskyvning",
-    "da": "Indstil varmekurveforskydning"
+    "da": "Indstil varmekurveforskydning",
+    "nl": "Verwarmingscurve compensatie instellen"
   },
   "titleFormatted": {
     "en": "Set heating curve offset to [[value]]",
     "sv": "Ställ in värmekurvans förskjutning till [[value]]",
     "no": "Still inn varmekurvens forskyvning til [[value]]",
-    "da": "Indstil varmekurveforskydning til [[value]]"
+    "da": "Indstil varmekurveforskydning til [[value]]",
+    "nl": "Verwarmingscurve compensatie instellen op [[value]]"
   },
   "hint": {
     "en": "Sets the heating curve offset value on the heat pump",
     "sv": "Ställer in värmekurvans förskjutningsvärde på värmepumpen",
     "no": "Stiller inn varmekurvens forskyvningsverdi på varmepumpen",
-    "da": "Indstiller varmekurvens forskydningsværdi på varmepumpen"
+    "da": "Indstiller varmekurvens forskydningsværdi på varmepumpen",
+    "nl": "Stelt de verwarmingscurve compensatiewaarde in op de warmtepomp"
   },
   "args": [
     {
@@ -31,7 +34,8 @@
         "en": "Value",
         "sv": "Värde",
         "no": "Verdi",
-        "da": "Værdi"
+        "da": "Værdi",
+        "nl": "Waarde"
       },
       "min": -10,
       "max": 10,

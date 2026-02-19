@@ -11,13 +11,15 @@
     "en": "Nibe heatpumps",
     "sv": "Nibe värmepumpar",
     "da": "Nibe varmepumper",
-    "no": "Nibe varmepumper"
+    "no": "Nibe varmepumper",
+    "nl": "Nibe warmtepompen"
   },
   "description": {
     "en": "Control your heatpump with Homey",
     "sv": "Styr din värmepump med Homey",
     "da": "Styr din varmepumpe med Homey",
-    "no": "Styr varmepumpen din med Homey"
+    "no": "Styr varmepumpen din med Homey",
+    "nl": "Bedien je warmtepomp met Homey"
   },
   "category": [
     "appliances"
@@ -104,6 +106,22 @@
       "myuplink",
       "inneklima",
       "hvac"
+    ],
+    "nl": [
+      "nibe",
+      "warmtepomp",
+      "klimaat",
+      "verwarming",
+      "koeling",
+      "temperatuur",
+      "energie",
+      "smart home",
+      "thermostaat",
+      "ventilatie",
+      "warm water",
+      "myuplink",
+      "binnenklimaat",
+      "hvac"
     ]
   },
   "brandColor": "#A81525",
@@ -115,7 +133,8 @@
           "en": "Compressor status changed",
           "sv": "Kompressorstatus ändrad",
           "no": "Kompressorstatus endret",
-          "da": "Kompressorstatus ændret"
+          "da": "Kompressorstatus ændret",
+          "nl": "Compressorstatus gewijzigd"
         },
         "tokens": [
           {
@@ -125,13 +144,15 @@
               "en": "status",
               "sv": "status",
               "no": "status",
-              "da": "status"
+              "da": "status",
+              "nl": "status"
             },
             "example": {
               "en": "Hot water",
               "sv": "Varmvatten",
               "no": "Varmt vann",
-              "da": "Varmt vand"
+              "da": "Varmt vand",
+              "nl": "Warm water"
             }
           }
         ],
@@ -145,19 +166,22 @@
           "en": "Degree minutes !{{is|isn't}}",
           "sv": "Gradminuter !{{är|är inte}}",
           "no": "Gradminutter !{{er|er ikke}}",
-          "da": "Gradminutter !{{er|er ikke}}"
+          "da": "Gradminutter !{{er|er ikke}}",
+          "nl": "Graadminuten !{{is|is niet}}"
         },
         "titleFormatted": {
           "en": "Degree minutes !{{is|isn't}} [[comparison]] [[value]] DM",
           "sv": "Gradminuter !{{är|är inte}} [[comparison]] [[value]] DM",
           "no": "Gradminutter !{{er|er ikke}} [[comparison]] [[value]] DM",
-          "da": "Gradminutter !{{er|er ikke}} [[comparison]] [[value]] DM"
+          "da": "Gradminutter !{{er|er ikke}} [[comparison]] [[value]] DM",
+          "nl": "Graadminuten !{{is|is niet}} [[comparison]] [[value]] DM"
         },
         "hint": {
           "en": "Checks if the degree minutes value matches the condition",
           "sv": "Kontrollerar om gradminutvärdet matchar villkoret",
           "no": "Sjekker om gradminuttverdien matcher betingelsen",
-          "da": "Kontrollerer om gradminutværdien matcher betingelsen"
+          "da": "Kontrollerer om gradminutværdien matcher betingelsen",
+          "nl": "Controleert of de graadminutenwaarde overeenkomt met de voorwaarde"
         },
         "args": [
           {
@@ -172,7 +196,8 @@
               "en": "Comparison",
               "sv": "Jämförelse",
               "no": "Sammenligning",
-              "da": "Sammenligning"
+              "da": "Sammenligning",
+              "nl": "Vergelijking"
             },
             "values": [
               {
@@ -181,7 +206,8 @@
                   "en": "greater than",
                   "sv": "större än",
                   "no": "større enn",
-                  "da": "større end"
+                  "da": "større end",
+                  "nl": "groter dan"
                 }
               },
               {
@@ -190,7 +216,8 @@
                   "en": "equal to",
                   "sv": "lika med",
                   "no": "lik",
-                  "da": "lig med"
+                  "da": "lig med",
+                  "nl": "gelijk aan"
                 }
               },
               {
@@ -199,7 +226,8 @@
                   "en": "less than",
                   "sv": "mindre än",
                   "no": "mindre enn",
-                  "da": "mindre end"
+                  "da": "mindre end",
+                  "nl": "kleiner dan"
                 }
               }
             ]
@@ -211,7 +239,8 @@
               "en": "Value",
               "sv": "Värde",
               "no": "Verdi",
-              "da": "Værdi"
+              "da": "Værdi",
+              "nl": "Waarde"
             },
             "min": -3000,
             "max": 3000,
@@ -225,19 +254,22 @@
           "en": "Heating curve !{{is|isn't}}",
           "sv": "Värmekurva !{{är|är inte}}",
           "no": "Varmekurve !{{er|er ikke}}",
-          "da": "Varmekurve !{{er|er ikke}}"
+          "da": "Varmekurve !{{er|er ikke}}",
+          "nl": "Verwarmingscurve !{{is|is niet}}"
         },
         "titleFormatted": {
           "en": "Heating curve !{{is|isn't}} [[comparison]] [[value]]",
           "sv": "Värmekurva !{{är|är inte}} [[comparison]] [[value]]",
           "no": "Varmekurve !{{er|er ikke}} [[comparison]] [[value]]",
-          "da": "Varmekurve !{{er|er ikke}} [[comparison]] [[value]]"
+          "da": "Varmekurve !{{er|er ikke}} [[comparison]] [[value]]",
+          "nl": "Verwarmingscurve !{{is|is niet}} [[comparison]] [[value]]"
         },
         "hint": {
           "en": "Checks if the heating curve value matches the condition",
           "sv": "Kontrollerar om värmekurvans värde matchar villkoret",
           "no": "Sjekker om varmekurvens verdi matcher betingelsen",
-          "da": "Kontrollerer om varmekurvens værdi matcher betingelsen"
+          "da": "Kontrollerer om varmekurvens værdi matcher betingelsen",
+          "nl": "Controleert of de verwarmingscurvewaarde overeenkomt met de voorwaarde"
         },
         "args": [
           {
@@ -252,7 +284,8 @@
               "en": "Comparison",
               "sv": "Jämförelse",
               "no": "Sammenligning",
-              "da": "Sammenligning"
+              "da": "Sammenligning",
+              "nl": "Vergelijking"
             },
             "values": [
               {
@@ -261,7 +294,8 @@
                   "en": "greater than",
                   "sv": "större än",
                   "no": "større enn",
-                  "da": "større end"
+                  "da": "større end",
+                  "nl": "groter dan"
                 }
               },
               {
@@ -270,7 +304,8 @@
                   "en": "equal to",
                   "sv": "lika med",
                   "no": "lik",
-                  "da": "lig med"
+                  "da": "lig med",
+                  "nl": "gelijk aan"
                 }
               },
               {
@@ -279,7 +314,8 @@
                   "en": "less than",
                   "sv": "mindre än",
                   "no": "mindre enn",
-                  "da": "mindre end"
+                  "da": "mindre end",
+                  "nl": "kleiner dan"
                 }
               }
             ]
@@ -291,7 +327,8 @@
               "en": "Value",
               "sv": "Värde",
               "no": "Verdi",
-              "da": "Værdi"
+              "da": "Værdi",
+              "nl": "Waarde"
             },
             "min": 0,
             "max": 15,
@@ -305,19 +342,22 @@
           "en": "Heating curve offset !{{is|isn't}}",
           "sv": "Värmekurvans förskjutning !{{är|är inte}}",
           "no": "Varmekurvens forskyvning !{{er|er ikke}}",
-          "da": "Varmekurveforskydning !{{er|er ikke}}"
+          "da": "Varmekurveforskydning !{{er|er ikke}}",
+          "nl": "Verwarmingscurve compensatie !{{is|is niet}}"
         },
         "titleFormatted": {
           "en": "Heating curve offset !{{is|isn't}} [[comparison]] [[value]]",
           "sv": "Värmekurvans förskjutning !{{är|är inte}} [[comparison]] [[value]]",
           "no": "Varmekurvens forskyvning !{{er|er ikke}} [[comparison]] [[value]]",
-          "da": "Varmekurveforskydning !{{er|er ikke}} [[comparison]] [[value]]"
+          "da": "Varmekurveforskydning !{{er|er ikke}} [[comparison]] [[value]]",
+          "nl": "Verwarmingscurve compensatie !{{is|is niet}} [[comparison]] [[value]]"
         },
         "hint": {
           "en": "Checks if the heating curve offset value matches the condition",
           "sv": "Kontrollerar om värmekurvans förskjutningsvärde matchar villkoret",
           "no": "Sjekker om varmekurvens forskyvningsverdi matcher betingelsen",
-          "da": "Kontrollerer om varmekurvens forskydningsværdi matcher betingelsen"
+          "da": "Kontrollerer om varmekurvens forskydningsværdi matcher betingelsen",
+          "nl": "Controleert of de verwarmingscurve compensatiewaarde overeenkomt met de voorwaarde"
         },
         "args": [
           {
@@ -332,7 +372,8 @@
               "en": "Comparison",
               "sv": "Jämförelse",
               "no": "Sammenligning",
-              "da": "Sammenligning"
+              "da": "Sammenligning",
+              "nl": "Vergelijking"
             },
             "values": [
               {
@@ -341,7 +382,8 @@
                   "en": "greater than",
                   "sv": "större än",
                   "no": "større enn",
-                  "da": "større end"
+                  "da": "større end",
+                  "nl": "groter dan"
                 }
               },
               {
@@ -350,7 +392,8 @@
                   "en": "equal to",
                   "sv": "lika med",
                   "no": "lik",
-                  "da": "lig med"
+                  "da": "lig med",
+                  "nl": "gelijk aan"
                 }
               },
               {
@@ -359,7 +402,8 @@
                   "en": "less than",
                   "sv": "mindre än",
                   "no": "mindre enn",
-                  "da": "mindre end"
+                  "da": "mindre end",
+                  "nl": "kleiner dan"
                 }
               }
             ]
@@ -371,7 +415,8 @@
               "en": "Value",
               "sv": "Värde",
               "no": "Verdi",
-              "da": "Værdi"
+              "da": "Værdi",
+              "nl": "Waarde"
             },
             "min": -10,
             "max": 10,
@@ -385,19 +430,22 @@
           "en": "Heating factor system !{{is|isn't}}",
           "sv": "Värmefaktor system !{{är|är inte}}",
           "no": "Varmefaktor system !{{er|er ikke}}",
-          "da": "Varmefaktor system !{{er|er ikke}}"
+          "da": "Varmefaktor system !{{er|er ikke}}",
+          "nl": "Verwarmingsfactor systeem !{{is|is niet}}"
         },
         "titleFormatted": {
           "en": "Heating factor system !{{is|isn't}} [[comparison]] [[value]]",
           "sv": "Värmefaktor system !{{är|är inte}} [[comparison]] [[value]]",
           "no": "Varmefaktor system !{{er|er ikke}} [[comparison]] [[value]]",
-          "da": "Varmefaktor system !{{er|er ikke}} [[comparison]] [[value]]"
+          "da": "Varmefaktor system !{{er|er ikke}} [[comparison]] [[value]]",
+          "nl": "Verwarmingsfactor systeem !{{is|is niet}} [[comparison]] [[value]]"
         },
         "hint": {
           "en": "Checks if the heating factor system value matches the condition",
           "sv": "Kontrollerar om värmefaktorsystemets värde matchar villkoret",
           "no": "Sjekker om varmefaktorsystemets verdi matcher betingelsen",
-          "da": "Kontrollerer om varmefaktorsystemets værdi matcher betingelsen"
+          "da": "Kontrollerer om varmefaktorsystemets værdi matcher betingelsen",
+          "nl": "Controleert of de verwarmingsfactor systeemwaarde overeenkomt met de voorwaarde"
         },
         "args": [
           {
@@ -412,7 +460,8 @@
               "en": "Comparison",
               "sv": "Jämförelse",
               "no": "Sammenligning",
-              "da": "Sammenligning"
+              "da": "Sammenligning",
+              "nl": "Vergelijking"
             },
             "values": [
               {
@@ -421,7 +470,8 @@
                   "en": "greater than",
                   "sv": "större än",
                   "no": "større enn",
-                  "da": "større end"
+                  "da": "større end",
+                  "nl": "groter dan"
                 }
               },
               {
@@ -430,7 +480,8 @@
                   "en": "equal to",
                   "sv": "lika med",
                   "no": "lik",
-                  "da": "lig med"
+                  "da": "lig med",
+                  "nl": "gelijk aan"
                 }
               },
               {
@@ -439,7 +490,8 @@
                   "en": "less than",
                   "sv": "mindre än",
                   "no": "mindre enn",
-                  "da": "mindre end"
+                  "da": "mindre end",
+                  "nl": "kleiner dan"
                 }
               }
             ]
@@ -451,7 +503,8 @@
               "en": "Value",
               "sv": "Värde",
               "no": "Verdi",
-              "da": "Værdi"
+              "da": "Værdi",
+              "nl": "Waarde"
             },
             "min": 0,
             "max": 6,
@@ -465,19 +518,22 @@
           "en": "Indoor temperature !{{is|isn't}}",
           "sv": "Inomhustemperatur !{{är|är inte}}",
           "no": "Innendørstemperatur !{{er|er ikke}}",
-          "da": "Indendørstemperatur !{{er|er ikke}}"
+          "da": "Indendørstemperatur !{{er|er ikke}}",
+          "nl": "Binnentemperatuur !{{is|is niet}}"
         },
         "titleFormatted": {
           "en": "Indoor temperature !{{is|isn't}} [[comparison]] [[temperature]] °C",
           "sv": "Inomhustemperatur !{{är|är inte}} [[comparison]] [[temperature]] °C",
           "no": "Innendørstemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C",
-          "da": "Indendørstemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C"
+          "da": "Indendørstemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C",
+          "nl": "Binnentemperatuur !{{is|is niet}} [[comparison]] [[temperature]] °C"
         },
         "hint": {
           "en": "Checks if the current indoor temperature matches the condition",
           "sv": "Kontrollerar om den aktuella inomhustemperaturen matchar villkoret",
           "no": "Sjekker om nåværende innendørstemperatur matcher betingelsen",
-          "da": "Kontrollerer om den aktuelle indendørstemperatur matcher betingelsen"
+          "da": "Kontrollerer om den aktuelle indendørstemperatur matcher betingelsen",
+          "nl": "Controleert of de huidige binnentemperatuur overeenkomt met de voorwaarde"
         },
         "args": [
           {
@@ -492,7 +548,8 @@
               "en": "Comparison",
               "sv": "Jämförelse",
               "no": "Sammenligning",
-              "da": "Sammenligning"
+              "da": "Sammenligning",
+              "nl": "Vergelijking"
             },
             "values": [
               {
@@ -501,7 +558,8 @@
                   "en": "greater than",
                   "sv": "större än",
                   "no": "større enn",
-                  "da": "større end"
+                  "da": "større end",
+                  "nl": "groter dan"
                 }
               },
               {
@@ -510,7 +568,8 @@
                   "en": "equal to",
                   "sv": "lika med",
                   "no": "lik",
-                  "da": "lig med"
+                  "da": "lig med",
+                  "nl": "gelijk aan"
                 }
               },
               {
@@ -519,7 +578,8 @@
                   "en": "less than",
                   "sv": "mindre än",
                   "no": "mindre enn",
-                  "da": "mindre end"
+                  "da": "mindre end",
+                  "nl": "kleiner dan"
                 }
               }
             ]
@@ -531,7 +591,8 @@
               "en": "Temperature",
               "sv": "Temperatur",
               "no": "Temperatur",
-              "da": "Temperatur"
+              "da": "Temperatur",
+              "nl": "Temperatuur"
             },
             "min": 0,
             "max": 40,
@@ -545,19 +606,22 @@
           "en": "Outside temperature !{{is|isn't}}",
           "sv": "Utomhustemperatur !{{är|är inte}}",
           "no": "Utetemperatur !{{er|er ikke}}",
-          "da": "Udetemperatur !{{er|er ikke}}"
+          "da": "Udetemperatur !{{er|er ikke}}",
+          "nl": "Buitentemperatuur !{{is|is niet}}"
         },
         "titleFormatted": {
           "en": "Outside temperature !{{is|isn't}} [[comparison]] [[temperature]] °C",
           "sv": "Utomhustemperatur !{{är|är inte}} [[comparison]] [[temperature]] °C",
           "no": "Utetemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C",
-          "da": "Udetemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C"
+          "da": "Udetemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C",
+          "nl": "Buitentemperatuur !{{is|is niet}} [[comparison]] [[temperature]] °C"
         },
         "hint": {
           "en": "Checks if the current outside temperature matches the condition",
           "sv": "Kontrollerar om den aktuella utomhustemperaturen matchar villkoret",
           "no": "Sjekker om den nåværende utetemperaturen matcher betingelsen",
-          "da": "Kontrollerer om den nuværende udetemperatur matcher betingelsen"
+          "da": "Kontrollerer om den nuværende udetemperatur matcher betingelsen",
+          "nl": "Controleert of de huidige buitentemperatuur overeenkomt met de voorwaarde"
         },
         "args": [
           {
@@ -572,7 +636,8 @@
               "en": "Comparison",
               "sv": "Jämförelse",
               "no": "Sammenligning",
-              "da": "Sammenligning"
+              "da": "Sammenligning",
+              "nl": "Vergelijking"
             },
             "values": [
               {
@@ -581,7 +646,8 @@
                   "en": "greater than",
                   "sv": "större än",
                   "no": "større enn",
-                  "da": "større end"
+                  "da": "større end",
+                  "nl": "groter dan"
                 }
               },
               {
@@ -590,7 +656,8 @@
                   "en": "equal to",
                   "sv": "lika med",
                   "no": "lik",
-                  "da": "lig med"
+                  "da": "lig med",
+                  "nl": "gelijk aan"
                 }
               },
               {
@@ -599,7 +666,8 @@
                   "en": "less than",
                   "sv": "mindre än",
                   "no": "mindre enn",
-                  "da": "mindre end"
+                  "da": "mindre end",
+                  "nl": "kleiner dan"
                 }
               }
             ]
@@ -611,7 +679,8 @@
               "en": "Temperature",
               "sv": "Temperatur",
               "no": "Temperatur",
-              "da": "Temperatur"
+              "da": "Temperatur",
+              "nl": "Temperatuur"
             },
             "min": -50,
             "max": 50,
@@ -625,13 +694,15 @@
           "en": "Temporary luxury !{{is|isn't}} active",
           "sv": "Tillfällig lyx !{{är|är inte}} aktiv",
           "no": "Midlertidig luksus !{{er|er ikke}} aktiv",
-          "da": "Midlertidig luksus !{{er|er ikke}} aktiv"
+          "da": "Midlertidig luksus !{{er|er ikke}} aktiv",
+          "nl": "Tijdelijk luxe !{{is|is niet}} actief"
         },
         "hint": {
           "en": "Checks if temporary luxury hot water mode is active",
           "sv": "Kontrollerar om tillfälligt lyxläge för varmvatten är aktivt",
           "no": "Sjekker om midlertidig luksusmodus for varmtvann er aktiv",
-          "da": "Kontrollerer om midlertidig luksusfunktion til varmt vand er aktiv"
+          "da": "Kontrollerer om midlertidig luksusfunktion til varmt vand er aktiv",
+          "nl": "Controleert of tijdelijk luxe warm water modus actief is"
         },
         "args": [
           {
@@ -647,19 +718,22 @@
           "en": "Temperature difference !{{is|isn't}}",
           "sv": "Temperaturskillnad !{{är|är inte}}",
           "no": "Temperaturforskjell !{{er|er ikke}}",
-          "da": "Temperaturforskel !{{er|er ikke}}"
+          "da": "Temperaturforskel !{{er|er ikke}}",
+          "nl": "Temperatuurverschil !{{is|is niet}}"
         },
         "titleFormatted": {
           "en": "Difference between indoor and outdoor temperature !{{is|isn't}} [[comparison]] [[temperature]] °C",
           "sv": "Skillnad mellan inomhus- och utomhustemperatur !{{är|är inte}} [[comparison]] [[temperature]] °C",
           "no": "Forskjell mellom innendørs- og utendørstemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C",
-          "da": "Forskel mellem indendørs- og udendørstemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C"
+          "da": "Forskel mellem indendørs- og udendørstemperatur !{{er|er ikke}} [[comparison]] [[temperature]] °C",
+          "nl": "Verschil tussen binnen- en buitentemperatuur !{{is|is niet}} [[comparison]] [[temperature]] °C"
         },
         "hint": {
           "en": "Checks if the difference between indoor and outdoor temperature matches the condition",
           "sv": "Kontrollerar om skillnaden mellan inomhus- och utomhustemperatur matchar villkoret",
           "no": "Sjekker om forskjellen mellom innendørs- og utendørstemperatur matcher betingelsen",
-          "da": "Kontrollerer om forskellen mellem indendørs- og udendørstemperatur matcher betingelsen"
+          "da": "Kontrollerer om forskellen mellem indendørs- og udendørstemperatur matcher betingelsen",
+          "nl": "Controleert of het verschil tussen binnen- en buitentemperatuur overeenkomt met de voorwaarde"
         },
         "args": [
           {
@@ -674,7 +748,8 @@
               "en": "Comparison",
               "sv": "Jämförelse",
               "no": "Sammenligning",
-              "da": "Sammenligning"
+              "da": "Sammenligning",
+              "nl": "Vergelijking"
             },
             "values": [
               {
@@ -683,7 +758,8 @@
                   "en": "greater than",
                   "sv": "större än",
                   "no": "større enn",
-                  "da": "større end"
+                  "da": "større end",
+                  "nl": "groter dan"
                 }
               },
               {
@@ -692,7 +768,8 @@
                   "en": "equal to",
                   "sv": "lika med",
                   "no": "lik",
-                  "da": "lig med"
+                  "da": "lig med",
+                  "nl": "gelijk aan"
                 }
               },
               {
@@ -701,7 +778,8 @@
                   "en": "less than",
                   "sv": "mindre än",
                   "no": "mindre enn",
-                  "da": "mindre end"
+                  "da": "mindre end",
+                  "nl": "kleiner dan"
                 }
               }
             ]
@@ -713,7 +791,8 @@
               "en": "Temperature difference",
               "sv": "Temperaturskillnad",
               "no": "Temperaturforskjell",
-              "da": "Temperaturforskel"
+              "da": "Temperaturforskel",
+              "nl": "Temperatuurverschil"
             },
             "min": 0,
             "max": 50,
@@ -727,19 +806,22 @@
           "en": "Temperature !{{is|isn't}} in range",
           "sv": "Temperatur !{{är|är inte}} inom intervall",
           "no": "Temperatur !{{er|er ikke}} innenfor område",
-          "da": "Temperatur !{{er|er ikke}} inden for interval"
+          "da": "Temperatur !{{er|er ikke}} inden for interval",
+          "nl": "Temperatuur !{{is|is niet}} binnen bereik"
         },
         "titleFormatted": {
           "en": "[[type]] temperature !{{is|isn't}} between [[min]] and [[max]] °C",
           "sv": "[[type]] temperatur !{{är|är inte}} mellan [[min]] och [[max]] °C",
           "no": "[[type]] temperatur !{{er|er ikke}} mellom [[min]] og [[max]] °C",
-          "da": "[[type]] temperatur !{{er|er ikke}} mellem [[min]] og [[max]] °C"
+          "da": "[[type]] temperatur !{{er|er ikke}} mellem [[min]] og [[max]] °C",
+          "nl": "[[type]] temperatuur !{{is|is niet}} tussen [[min]] en [[max]] °C"
         },
         "hint": {
           "en": "Checks if the temperature is within the specified range",
           "sv": "Kontrollerar om temperaturen är inom det angivna intervallet",
           "no": "Sjekker om temperaturen er innenfor det angitte området",
-          "da": "Kontrollerer om temperaturen er inden for det angivne interval"
+          "da": "Kontrollerer om temperaturen er inden for det angivne interval",
+          "nl": "Controleert of de temperatuur binnen het opgegeven bereik ligt"
         },
         "args": [
           {
@@ -754,7 +836,8 @@
               "en": "Temperature type",
               "sv": "Temperaturtyp",
               "no": "Temperaturtype",
-              "da": "Temperaturtype"
+              "da": "Temperaturtype",
+              "nl": "Temperatuurtype"
             },
             "values": [
               {
@@ -763,7 +846,8 @@
                   "en": "Indoor",
                   "sv": "Inomhus",
                   "no": "Innendørs",
-                  "da": "Indendørs"
+                  "da": "Indendørs",
+                  "nl": "Binnen"
                 }
               },
               {
@@ -772,7 +856,8 @@
                   "en": "Outdoor",
                   "sv": "Utomhus",
                   "no": "Utendørs",
-                  "da": "Udendørs"
+                  "da": "Udendørs",
+                  "nl": "Buiten"
                 }
               }
             ]
@@ -784,7 +869,8 @@
               "en": "Minimum",
               "sv": "Minimum",
               "no": "Minimum",
-              "da": "Minimum"
+              "da": "Minimum",
+              "nl": "Minimum"
             },
             "min": -50,
             "max": 50,
@@ -797,7 +883,8 @@
               "en": "Maximum",
               "sv": "Maximum",
               "no": "Maksimum",
-              "da": "Maksimum"
+              "da": "Maksimum",
+              "nl": "Maximum"
             },
             "min": -50,
             "max": 50,
@@ -811,13 +898,15 @@
           "en": "Ventilation boost !{{is|isn't}} active",
           "sv": "Ventilationsökning !{{är|är inte}} aktiv",
           "no": "Ventilasjonsøkning !{{er|er ikke}} aktiv",
-          "da": "Ventilationsforøgelse !{{er|er ikke}} aktiv"
+          "da": "Ventilationsforøgelse !{{er|er ikke}} aktiv",
+          "nl": "Ventilatieverhoging !{{is|is niet}} actief"
         },
         "hint": {
           "en": "Checks if ventilation boost mode is active",
           "sv": "Kontrollerar om ventilationsökningsläge är aktivt",
           "no": "Sjekker om ventilasjonsøkningsmodus er aktiv",
-          "da": "Kontrollerer om ventilationsforøgelsestilstand er aktiv"
+          "da": "Kontrollerer om ventilationsforøgelsestilstand er aktiv",
+          "nl": "Controleert of ventilatieverhoging actief is"
         },
         "args": [
           {
@@ -835,19 +924,22 @@
           "en": "Set degree minutes",
           "sv": "Ställ in gradminuter",
           "no": "Still inn gradminutter",
-          "da": "Indstil gradminutter"
+          "da": "Indstil gradminutter",
+          "nl": "Graadminuten instellen"
         },
         "titleFormatted": {
           "en": "Set degree minutes to [[value]] DM",
           "sv": "Ställ in gradminuter till [[value]] DM",
           "no": "Still inn gradminutter til [[value]] DM",
-          "da": "Indstil gradminutter til [[value]] DM"
+          "da": "Indstil gradminutter til [[value]] DM",
+          "nl": "Graadminuten instellen op [[value]] DM"
         },
         "hint": {
           "en": "Sets the degree minutes value on the heat pump",
           "sv": "Ställer in gradminutvärdet på värmepumpen",
           "no": "Stiller inn gradminuttverdien på varmepumpen",
-          "da": "Indstiller gradminutværdien på varmepumpen"
+          "da": "Indstiller gradminutværdien på varmepumpen",
+          "nl": "Stelt de graadminutenwaarde in op de warmtepomp"
         },
         "args": [
           {
@@ -862,7 +954,8 @@
               "en": "Value",
               "sv": "Värde",
               "no": "Verdi",
-              "da": "Værdi"
+              "da": "Værdi",
+              "nl": "Waarde"
             },
             "min": -3000,
             "max": 3000,
@@ -876,19 +969,22 @@
           "en": "Set heating curve",
           "sv": "Ställ in värmekurva",
           "no": "Still inn varmekurve",
-          "da": "Indstil varmekurve"
+          "da": "Indstil varmekurve",
+          "nl": "Verwarmingscurve instellen"
         },
         "titleFormatted": {
           "en": "Set heating curve to [[value]]",
           "sv": "Ställ in värmekurva till [[value]]",
           "no": "Still inn varmekurve til [[value]]",
-          "da": "Indstil varmekurve til [[value]]"
+          "da": "Indstil varmekurve til [[value]]",
+          "nl": "Verwarmingscurve instellen op [[value]]"
         },
         "hint": {
           "en": "Sets the heating curve value on the heat pump",
           "sv": "Ställer in värmekurvans värde på värmepumpen",
           "no": "Stiller inn varmekurvens verdi på varmepumpen",
-          "da": "Indstiller varmekurvens værdi på varmepumpen"
+          "da": "Indstiller varmekurvens værdi på varmepumpen",
+          "nl": "Stelt de verwarmingscurvewaarde in op de warmtepomp"
         },
         "args": [
           {
@@ -903,7 +999,8 @@
               "en": "Value",
               "sv": "Värde",
               "no": "Verdi",
-              "da": "Værdi"
+              "da": "Værdi",
+              "nl": "Waarde"
             },
             "min": 0,
             "max": 15,
@@ -917,19 +1014,22 @@
           "en": "Set heating curve offset",
           "sv": "Ställ in värmekurvans förskjutning",
           "no": "Still inn varmekurvens forskyvning",
-          "da": "Indstil varmekurveforskydning"
+          "da": "Indstil varmekurveforskydning",
+          "nl": "Verwarmingscurve compensatie instellen"
         },
         "titleFormatted": {
           "en": "Set heating curve offset to [[value]]",
           "sv": "Ställ in värmekurvans förskjutning till [[value]]",
           "no": "Still inn varmekurvens forskyvning til [[value]]",
-          "da": "Indstil varmekurveforskydning til [[value]]"
+          "da": "Indstil varmekurveforskydning til [[value]]",
+          "nl": "Verwarmingscurve compensatie instellen op [[value]]"
         },
         "hint": {
           "en": "Sets the heating curve offset value on the heat pump",
           "sv": "Ställer in värmekurvans förskjutningsvärde på värmepumpen",
           "no": "Stiller inn varmekurvens forskyvningsverdi på varmepumpen",
-          "da": "Indstiller varmekurvens forskydningsværdi på varmepumpen"
+          "da": "Indstiller varmekurvens forskydningsværdi på varmepumpen",
+          "nl": "Stelt de verwarmingscurve compensatiewaarde in op de warmtepomp"
         },
         "args": [
           {
@@ -944,7 +1044,8 @@
               "en": "Value",
               "sv": "Värde",
               "no": "Verdi",
-              "da": "Værdi"
+              "da": "Værdi",
+              "nl": "Waarde"
             },
             "min": -10,
             "max": 10,
@@ -958,19 +1059,22 @@
           "en": "Set heating factor system",
           "sv": "Ställ in värmefaktor system",
           "no": "Still inn varmefaktor system",
-          "da": "Indstil varmefaktor system"
+          "da": "Indstil varmefaktor system",
+          "nl": "Verwarmingsfactor systeem instellen"
         },
         "titleFormatted": {
           "en": "Set the room sensor value of the heat factor system to [[value]]",
           "sv": "Ställ in värmefaktorsystemets rumsgivarvärde till [[value]]",
           "no": "Still inn romfølerverdi for varmefaktorsystemet til [[value]]",
-          "da": "Indstil rumfølerværdien for varmefaktorsystemet til [[value]]"
+          "da": "Indstil rumfølerværdien for varmefaktorsystemet til [[value]]",
+          "nl": "Stel de kamersensorwaarde van het verwarmingsfactorsysteem in op [[value]]"
         },
         "hint": {
           "en": "Setting the room sensor value of the heat factor system on the heat pump",
           "sv": "Ställer in värmefaktorsystemets rumsgivarvärde på värmepumpen",
           "no": "Stiller inn romfølerverdi for varmefaktorsystemet på varmepumpen",
-          "da": "Indstiller rumfølerværdien for varmefaktorsystemet på varmepumpen"
+          "da": "Indstiller rumfølerværdien for varmefaktorsystemet på varmepumpen",
+          "nl": "De kamersensorwaarde van het verwarmingsfactorsysteem op de warmtepomp instellen"
         },
         "args": [
           {
@@ -987,7 +1091,8 @@
               "en": "Value",
               "sv": "Värde",
               "no": "Verdi",
-              "da": "Værdi"
+              "da": "Værdi",
+              "nl": "Waarde"
             },
             "min": 0,
             "max": 6,
@@ -1001,19 +1106,22 @@
           "en": "Set temporary luxury",
           "sv": "Ställ in tillfällig lyx",
           "no": "Still inn midlertidig luksus",
-          "da": "Indstil midlertidig luksus"
+          "da": "Indstil midlertidig luksus",
+          "nl": "Tijdelijk luxe instellen"
         },
         "titleFormatted": {
           "en": "Turn temporary luxury [[state]]",
           "sv": "Sätt tillfällig lyx [[state]]",
           "no": "Sett midlertidig luksus [[state]]",
-          "da": "Sæt midlertidig luksus [[state]]"
+          "da": "Sæt midlertidig luksus [[state]]",
+          "nl": "Tijdelijk luxe [[state]] zetten"
         },
         "hint": {
           "en": "Activates or deactivates temporary luxury hot water mode",
           "sv": "Aktiverar eller inaktiverar tillfälligt lyxläge för varmvatten",
           "no": "Aktiverer eller deaktiverer midlertidig luksusmodus for varmtvann",
-          "da": "Aktiverer eller deaktiverer midlertidig luksusfunktion til varmt vand"
+          "da": "Aktiverer eller deaktiverer midlertidig luksusfunktion til varmt vand",
+          "nl": "Activeert of deactiveert tijdelijk luxe warm water modus"
         },
         "args": [
           {
@@ -1028,7 +1136,8 @@
               "en": "State",
               "sv": "Läge",
               "no": "Status",
-              "da": "Tilstand"
+              "da": "Tilstand",
+              "nl": "Status"
             },
             "values": [
               {
@@ -1037,7 +1146,8 @@
                   "en": "On",
                   "sv": "På",
                   "no": "På",
-                  "da": "Til"
+                  "da": "Til",
+                  "nl": "Aan"
                 }
               },
               {
@@ -1046,7 +1156,8 @@
                   "en": "Off",
                   "sv": "Av",
                   "no": "Av",
-                  "da": "Fra"
+                  "da": "Fra",
+                  "nl": "Uit"
                 }
               }
             ]
@@ -1058,13 +1169,15 @@
           "en": "Set device temperature",
           "sv": "Ställ in enhetstemperatur",
           "no": "Still inn enhetstemperatur",
-          "da": "Indstil enhedstemperatur"
+          "da": "Indstil enhedstemperatur",
+          "nl": "Apparaattemperatuur instellen"
         },
         "titleFormatted": {
           "en": "Set temperature to [[target_temperature]] °C",
           "sv": "Ställ in temperatur till [[target_temperature]] °C",
           "no": "Still inn temperatur til [[target_temperature]] °C",
-          "da": "Indstil temperatur til [[target_temperature]] °C"
+          "da": "Indstil temperatur til [[target_temperature]] °C",
+          "nl": "Temperatuur instellen op [[target_temperature]] °C"
         },
         "args": [
           {
@@ -1081,7 +1194,8 @@
               "en": "Temperature",
               "sv": "Temperatur",
               "no": "Temperatur",
-              "da": "Temperatur"
+              "da": "Temperatur",
+              "nl": "Temperatuur"
             },
             "min": 5,
             "max": 30,
@@ -1096,19 +1210,22 @@
           "en": "Set ventilation boost",
           "sv": "Ställ in ventilationsökning",
           "no": "Still inn ventilasjonsøkning",
-          "da": "Indstil ventilationsforøgelse"
+          "da": "Indstil ventilationsforøgelse",
+          "nl": "Ventilatieverhoging instellen"
         },
         "titleFormatted": {
           "en": "Turn ventilation boost [[state]]",
           "sv": "Sätt ventilationsökning [[state]]",
           "no": "Sett ventilasjonsøkning [[state]]",
-          "da": "Sæt ventilationsforøgelse [[state]]"
+          "da": "Sæt ventilationsforøgelse [[state]]",
+          "nl": "Ventilatieverhoging [[state]] zetten"
         },
         "hint": {
           "en": "Activates or deactivates ventilation boost mode",
           "sv": "Aktiverar eller inaktiverar ventilationsökningsläge",
           "no": "Aktiverer eller deaktiverer ventilasjonsøkningsmodus",
-          "da": "Aktiverer eller deaktiverer ventilationsforøgelsestilstand"
+          "da": "Aktiverer eller deaktiverer ventilationsforøgelsestilstand",
+          "nl": "Activeert of deactiveert ventilatieverhoging"
         },
         "args": [
           {
@@ -1123,7 +1240,8 @@
               "en": "State",
               "sv": "Läge",
               "no": "Status",
-              "da": "Tilstand"
+              "da": "Tilstand",
+              "nl": "Status"
             },
             "values": [
               {
@@ -1132,7 +1250,8 @@
                   "en": "On",
                   "sv": "På",
                   "no": "På",
-                  "da": "Til"
+                  "da": "Til",
+                  "nl": "Aan"
                 }
               },
               {
@@ -1141,7 +1260,8 @@
                   "en": "Off",
                   "sv": "Av",
                   "no": "Av",
-                  "da": "Fra"
+                  "da": "Fra",
+                  "nl": "Uit"
                 }
               }
             ]
@@ -1156,7 +1276,8 @@
         "en": "Nibe F-Series Heatpump",
         "sv": "Nibe F-Series Heatpump",
         "da": "Nibe F-Series Heatpump",
-        "no": "Nibe F-Series Heatpump"
+        "no": "Nibe F-Series Heatpump",
+        "nl": "Nibe F-Serie Warmtepomp"
       },
       "class": "heatpump",
       "capabilities": [
@@ -1193,7 +1314,8 @@
             "en": "Supply line",
             "sv": "Framledning",
             "no": "Tilførselsledning",
-            "da": "Forsyningsledning"
+            "da": "Forsyningsledning",
+            "nl": "Aanvoerleiding"
           }
         },
         "measure_temperature.calculated_supply_line": {
@@ -1201,7 +1323,8 @@
             "en": "Calculated supply line",
             "sv": "Beräknad framledning",
             "no": "Beregnet tilførselsledning",
-            "da": "Beregnet forsyningsledning"
+            "da": "Beregnet forsyningsledning",
+            "nl": "Berekende aanvoerleiding"
           }
         },
         "state_button.temp_lux": {
@@ -1209,7 +1332,8 @@
             "en": "Temporary luxury",
             "sv": "Tillfällig lyx",
             "da": "Midlertidig luksus",
-            "no": "Midlertidig luksus"
+            "no": "Midlertidig luksus",
+            "nl": "Tijdelijk luxe"
           }
         },
         "state_button.ventilation_boost": {
@@ -1217,7 +1341,8 @@
             "en": "Ventilation boost",
             "sv": "Ventilationsökning",
             "da": "Ventilationsforøgelse",
-            "no": "Ventilasjonsøkning"
+            "no": "Ventilasjonsøkning",
+            "nl": "Ventilatieverhoging"
           }
         },
         "measure_temperature.suction_gas": {
@@ -1225,7 +1350,8 @@
             "en": "Suction gas",
             "sv": "Suggas",
             "da": "Sugergas",
-            "no": "Sugegass"
+            "no": "Sugegass",
+            "nl": "Zuiggas"
           }
         },
         "measure_temperature.return_line": {
@@ -1233,7 +1359,8 @@
             "en": "Return line",
             "sv": "Returledning",
             "da": "Returledning",
-            "no": "Returledning"
+            "no": "Returledning",
+            "nl": "Retourleiding"
           }
         },
         "measure_temperature.hot_water_top": {
@@ -1241,7 +1368,8 @@
             "en": "Hot water top",
             "sv": "Varmvatten top",
             "da": "Varmtvand top",
-            "no": "Varmtvann topp"
+            "no": "Varmtvann topp",
+            "nl": "Warm water boven"
           }
         },
         "measure_temperature.hot_water_charging": {
@@ -1249,7 +1377,8 @@
             "en": "Hot water charge",
             "sv": "Varmvatten laddning",
             "da": "Varmtvandsopladning",
-            "no": "Varmtvannslading"
+            "no": "Varmtvannslading",
+            "nl": "Warm water laden"
           }
         },
         "measure_temperature.heating_supply": {
@@ -1257,7 +1386,8 @@
             "en": "Heating medium supply",
             "sv": "Värmemediumtillförsel",
             "da": "Varmeforsyning",
-            "no": "Varmeforsyning"
+            "no": "Varmeforsyning",
+            "nl": "Verwarmingsmedium aanvoer"
           }
         },
         "measure_temperature.exhaust_air": {
@@ -1265,7 +1395,8 @@
             "en": "Exhaust air",
             "sv": "Frånluft",
             "da": "Fraluft",
-            "no": "Fraluft"
+            "no": "Fraluft",
+            "nl": "Afvoerlucht"
           }
         },
         "measure_temperature.extract_air": {
@@ -1273,7 +1404,8 @@
             "en": "Extract air",
             "sv": "Avluft",
             "da": "Udsugningsluft",
-            "no": "Utsugingsluft"
+            "no": "Utsugingsluft",
+            "nl": "Afzuiglucht"
           }
         },
         "measure_frequency.compressor": {
@@ -1281,7 +1413,8 @@
             "en": "Compressor frequency",
             "sv": "Kompressorfrekvens",
             "da": "Kompressorfrekvens",
-            "no": "Kompressorfrekvens"
+            "no": "Kompressorfrekvens",
+            "nl": "Compressorfrequentie"
           }
         },
         "measure_temperature.outdoor": {
@@ -1289,7 +1422,8 @@
             "en": "Outside",
             "sv": "Utomhus",
             "da": "Udendørs",
-            "no": "Utendørs"
+            "no": "Utendørs",
+            "nl": "Buiten"
           }
         },
         "target_temperature.room": {
@@ -1297,7 +1431,8 @@
             "en": "Target temperature",
             "sv": "Måltemperatur",
             "da": "Måltemperatur",
-            "no": "Måltemperatur"
+            "no": "Måltemperatur",
+            "nl": "Streeftemperatuur"
           }
         },
         "measure_temperature.room": {
@@ -1305,7 +1440,8 @@
             "en": "Room temperature",
             "sv": "Rumstemperatur",
             "da": "Rumtemperatur",
-            "no": "Romtemperatur"
+            "no": "Romtemperatur",
+            "nl": "Kamertemperatuur"
           }
         },
         "measure_temperature.condenser": {
@@ -1313,7 +1449,8 @@
             "en": "Condenser",
             "sv": "Kondensor",
             "da": "Kondensator",
-            "no": "Kondensator"
+            "no": "Kondensator",
+            "nl": "Condensor"
           }
         },
         "measure_current.one": {
@@ -1321,7 +1458,8 @@
             "en": "Current Phase 1",
             "sv": "Ström Fas 1",
             "da": "Strøm Fase 1",
-            "no": "Strøm Fase 1"
+            "no": "Strøm Fase 1",
+            "nl": "Stroom Fase 1"
           }
         },
         "measure_current.two": {
@@ -1329,7 +1467,8 @@
             "en": "Current Phase 2",
             "sv": "Ström Fas 2",
             "da": "Strøm Fase 2",
-            "no": "Strøm Fase 2"
+            "no": "Strøm Fase 2",
+            "nl": "Stroom Fase 2"
           }
         },
         "measure_current.three": {
@@ -1337,7 +1476,8 @@
             "en": "Current Phase 3",
             "sv": "Ström Fas 3",
             "da": "Strøm Fase 3",
-            "no": "Strøm Fase 3"
+            "no": "Strøm Fase 3",
+            "nl": "Stroom Fase 3"
           }
         },
         "measure_power": {
@@ -1349,7 +1489,8 @@
             "en": "Energy usage",
             "sv": "Energiförbrukning",
             "da": "Energiforbrug",
-            "no": "Energiforbruk"
+            "no": "Energiforbruk",
+            "nl": "Energieverbruik"
           }
         },
         "measure_power.internal_addition": {
@@ -1357,7 +1498,8 @@
             "en": "Power internal add. heat",
             "sv": "Effekt intern tillsats",
             "da": "Effekt intern tilsætning",
-            "no": "Effekt intern tilsetning"
+            "no": "Effekt intern tilsetning",
+            "nl": "Vermogen interne bijverwarming"
           }
         }
       },
@@ -1404,7 +1546,8 @@
             "en": "Firmware",
             "sv": "Programvara",
             "da": "Firmware",
-            "no": "Firmware"
+            "no": "Firmware",
+            "nl": "Firmware"
           },
           "value": ""
         },
@@ -1415,7 +1558,8 @@
             "en": "Serial number",
             "sv": "Serienummer",
             "da": "Serienummer",
-            "no": "Serienummer"
+            "no": "Serienummer",
+            "nl": "Serienummer"
           },
           "value": ""
         },
@@ -1426,7 +1570,8 @@
             "en": "Power factor",
             "sv": "Effektfaktor",
             "da": "Effektfaktor",
-            "no": "Effektfaktor"
+            "no": "Effektfaktor",
+            "nl": "Vermogensfactor"
           },
           "value": 0.95,
           "min": 0,
@@ -1440,7 +1585,8 @@
             "en": "Volt",
             "sv": "Volt",
             "da": "Volt",
-            "no": "Volt"
+            "no": "Volt",
+            "nl": "Volt"
           },
           "value": 400,
           "min": 230,
@@ -1454,7 +1600,8 @@
             "en": "Interval in minutes to fetch data",
             "sv": "Intervall i minuter för hämtning av data",
             "da": "Interval i minutter for hentning af data",
-            "no": "Intervall i minutter for henting av data"
+            "no": "Intervall i minutter for henting av data",
+            "nl": "Interval in minuten om data op te halen"
           },
           "min": 5,
           "value": 5
@@ -1466,7 +1613,8 @@
             "en": "Heating Curve",
             "sv": "Värmekurva",
             "no": "Varmekurve",
-            "da": "Varme Kurve"
+            "da": "Varme Kurve",
+            "nl": "Verwarmingscurve"
           },
           "value": 5,
           "min": 0,
@@ -1480,7 +1628,8 @@
             "en": "Heating Offset",
             "sv": "Värmejustering",
             "no": "Varmejustering",
-            "da": "Varmejustering"
+            "da": "Varmejustering",
+            "nl": "Verwarmingscompensatie"
           },
           "value": 0,
           "min": -10,
@@ -1493,7 +1642,8 @@
             "en": "Parameter ID Overrides",
             "sv": "Parameteröverstyrningar",
             "no": "Parameter-ID-overstyringer",
-            "da": "Parameter-ID-tilsidesættelser"
+            "da": "Parameter-ID-tilsidesættelser",
+            "nl": "Parameter-ID-overschrijvingen"
           },
           "children": [
             {
@@ -1503,13 +1653,15 @@
                 "en": "Outdoor temperature (BT1)",
                 "sv": "Utomhustemperatur (BT1)",
                 "no": "Utetemperatur (BT1)",
-                "da": "Udendørstemperatur (BT1)"
+                "da": "Udendørstemperatur (BT1)",
+                "nl": "Buitentemperatuur (BT1)"
               },
               "hint": {
                 "en": "Default: 40004. Set to 0 to use default.",
                 "sv": "Standard: 40004. Sätt till 0 för standard.",
                 "no": "Standard: 40004. Sett til 0 for standard.",
-                "da": "Standard: 40004. Sæt til 0 for standard."
+                "da": "Standard: 40004. Sæt til 0 for standard.",
+                "nl": "Standaard: 40004. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -1521,13 +1673,15 @@
                 "en": "Heating medium supply (BT63)",
                 "sv": "Värmebärare framledning (BT63)",
                 "no": "Varmebærer turledning (BT63)",
-                "da": "Varmebærer fremløb (BT63)"
+                "da": "Varmebærer fremløb (BT63)",
+                "nl": "Verwarmingsmedium aanvoer (BT63)"
               },
               "hint": {
                 "en": "Default: 40008. Set to 0 to use default.",
                 "sv": "Standard: 40008. Sätt till 0 för standard.",
                 "no": "Standard: 40008. Sett til 0 for standard.",
-                "da": "Standard: 40008. Sæt til 0 for standard."
+                "da": "Standard: 40008. Sæt til 0 for standard.",
+                "nl": "Standaard: 40008. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -1539,13 +1693,15 @@
                 "en": "Return line temperature (BT3)",
                 "sv": "Returledningstemperatur (BT3)",
                 "no": "Returledningstemperatur (BT3)",
-                "da": "Returledningstemperatur (BT3)"
+                "da": "Returledningstemperatur (BT3)",
+                "nl": "Retourleiding temperatuur (BT3)"
               },
               "hint": {
                 "en": "Default: 40012. Set to 0 to use default.",
                 "sv": "Standard: 40012. Sätt till 0 för standard.",
                 "no": "Standard: 40012. Sett til 0 for standard.",
-                "da": "Standard: 40012. Sæt til 0 for standard."
+                "da": "Standard: 40012. Sæt til 0 for standard.",
+                "nl": "Standaard: 40012. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -1557,13 +1713,15 @@
                 "en": "Hot water top (BT7)",
                 "sv": "Varmvatten topp (BT7)",
                 "no": "Varmtvann topp (BT7)",
-                "da": "Varmt vand top (BT7)"
+                "da": "Varmt vand top (BT7)",
+                "nl": "Warm water boven (BT7)"
               },
               "hint": {
                 "en": "Default: 40013. Set to 0 to use default.",
                 "sv": "Standard: 40013. Sätt till 0 för standard.",
                 "no": "Standard: 40013. Sett til 0 for standard.",
-                "da": "Standard: 40013. Sæt til 0 for standard."
+                "da": "Standard: 40013. Sæt til 0 for standard.",
+                "nl": "Standaard: 40013. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -1575,13 +1733,15 @@
                 "en": "Hot water charging (BT6)",
                 "sv": "Varmvatten laddning (BT6)",
                 "no": "Varmtvannslading (BT6)",
-                "da": "Varmtvandsopladning (BT6)"
+                "da": "Varmtvandsopladning (BT6)",
+                "nl": "Warm water laden (BT6)"
               },
               "hint": {
                 "en": "Default: 40014. Set to 0 to use default.",
                 "sv": "Standard: 40014. Sätt till 0 för standard.",
                 "no": "Standard: 40014. Sett til 0 for standard.",
-                "da": "Standard: 40014. Sæt til 0 for standard."
+                "da": "Standard: 40014. Sæt til 0 for standard.",
+                "nl": "Standaard: 40014. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -1593,13 +1753,15 @@
                 "en": "Condenser temperature (BT12)",
                 "sv": "Kondensortemperatur (BT12)",
                 "no": "Kondensatortemperatur (BT12)",
-                "da": "Kondensatortemperatur (BT12)"
+                "da": "Kondensatortemperatur (BT12)",
+                "nl": "Condensortemperatuur (BT12)"
               },
               "hint": {
                 "en": "Default: 40017. Set to 0 to use default.",
                 "sv": "Standard: 40017. Sätt till 0 för standard.",
                 "no": "Standard: 40017. Sett til 0 for standard.",
-                "da": "Standard: 40017. Sæt til 0 for standard."
+                "da": "Standard: 40017. Sæt til 0 for standard.",
+                "nl": "Standaard: 40017. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -1611,13 +1773,15 @@
                 "en": "Suction gas temperature (BT17)",
                 "sv": "Suggastemperatur (BT17)",
                 "no": "Sugegasstemperatur (BT17)",
-                "da": "Sugegastemperatur (BT17)"
+                "da": "Sugegastemperatur (BT17)",
+                "nl": "Zuiggastemperatuur (BT17)"
               },
               "hint": {
                 "en": "Default: 40022. Set to 0 to use default.",
                 "sv": "Standard: 40022. Sätt till 0 för standard.",
                 "no": "Standard: 40022. Sett til 0 for standard.",
-                "da": "Standard: 40022. Sæt til 0 for standard."
+                "da": "Standard: 40022. Sæt til 0 for standard.",
+                "nl": "Standaard: 40022. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -1629,13 +1793,15 @@
                 "en": "Exhaust air temperature (BT20)",
                 "sv": "Avluftstemperatur (BT20)",
                 "no": "Avtrekkstemperatur (BT20)",
-                "da": "Udsugningstemperatur (BT20)"
+                "da": "Udsugningstemperatur (BT20)",
+                "nl": "Afvoerluchttemperatuur (BT20)"
               },
               "hint": {
                 "en": "Default: 40025. Set to 0 to use default.",
                 "sv": "Standard: 40025. Sätt till 0 för standard.",
                 "no": "Standard: 40025. Sett til 0 for standard.",
-                "da": "Standard: 40025. Sæt til 0 for standard."
+                "da": "Standard: 40025. Sæt til 0 for standard.",
+                "nl": "Standaard: 40025. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -1647,13 +1813,15 @@
                 "en": "Room temperature (BT50)",
                 "sv": "Rumstemperatur (BT50)",
                 "no": "Romtemperatur (BT50)",
-                "da": "Rumtemperatur (BT50)"
+                "da": "Rumtemperatur (BT50)",
+                "nl": "Kamertemperatuur (BT50)"
               },
               "hint": {
                 "en": "Default: 40033. Set to 0 to use default.",
                 "sv": "Standard: 40033. Sätt till 0 för standard.",
                 "no": "Standard: 40033. Sett til 0 for standard.",
-                "da": "Standard: 40033. Sæt til 0 for standard."
+                "da": "Standard: 40033. Sæt til 0 for standard.",
+                "nl": "Standaard: 40033. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -1665,13 +1833,15 @@
                 "en": "Supply line temperature",
                 "sv": "Framledningstemperatur",
                 "no": "Turledningstemperatur",
-                "da": "Fremløbstemperatur"
+                "da": "Fremløbstemperatur",
+                "nl": "Aanvoerleidingtemperatuur"
               },
               "hint": {
                 "en": "Default: 40047. Set to 0 to use default.",
                 "sv": "Standard: 40047. Sätt till 0 för standard.",
                 "no": "Standard: 40047. Sett til 0 for standard.",
-                "da": "Standard: 40047. Sæt til 0 for standard."
+                "da": "Standard: 40047. Sæt til 0 for standard.",
+                "nl": "Standaard: 40047. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -1683,13 +1853,15 @@
                 "en": "Degree minutes",
                 "sv": "Gradminuter",
                 "no": "Gradminutter",
-                "da": "Gradminutter"
+                "da": "Gradminutter",
+                "nl": "Graadminuten"
               },
               "hint": {
                 "en": "Default: 40940. Set to 0 to use default.",
                 "sv": "Standard: 40940. Sätt till 0 för standard.",
                 "no": "Standard: 40940. Sett til 0 for standard.",
-                "da": "Standard: 40940. Sæt til 0 for standard."
+                "da": "Standard: 40940. Sæt til 0 for standard.",
+                "nl": "Standaard: 40940. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -1701,13 +1873,15 @@
                 "en": "Compressor frequency",
                 "sv": "Kompressorfrekvens",
                 "no": "Kompressorfrekvens",
-                "da": "Kompressorfrekvens"
+                "da": "Kompressorfrekvens",
+                "nl": "Compressorfrequentie"
               },
               "hint": {
                 "en": "Default: 41778. Set to 0 to use default.",
                 "sv": "Standard: 41778. Sätt till 0 för standard.",
                 "no": "Standard: 41778. Sett til 0 for standard.",
-                "da": "Standard: 41778. Sæt til 0 for standard."
+                "da": "Standard: 41778. Sæt til 0 for standard.",
+                "nl": "Standaard: 41778. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -1721,7 +1895,8 @@
         "en": "Nibe S-Series Heatpump",
         "sv": "Nibe S-Series Heatpump",
         "da": "Nibe S-Series Heatpump",
-        "no": "Nibe S-Series Heatpump"
+        "no": "Nibe S-Series Heatpump",
+        "nl": "Nibe S-Serie Warmtepomp"
       },
       "class": "heatpump",
       "capabilities": [
@@ -1750,7 +1925,8 @@
             "en": "Average outdoor",
             "sv": "Genomsnittlig utomhus",
             "no": "Gjennomsnittlig utendørs",
-            "da": "Gennemsnitlig udendørs"
+            "da": "Gennemsnitlig udendørs",
+            "nl": "Gemiddeld buiten"
           }
         },
         "meter_power.lifetime_energy_consumed": {
@@ -1758,7 +1934,8 @@
             "en": "Total consumed energy",
             "sv": "Total förbrukad energi",
             "no": "Total forbrukt energi",
-            "da": "Total forbrugt energi"
+            "da": "Total forbrugt energi",
+            "nl": "Totaal verbruikte energie"
           }
         },
         "measure_temperature.supply_line": {
@@ -1766,7 +1943,8 @@
             "en": "Supply line",
             "sv": "Framledning",
             "no": "Tilførselsledning",
-            "da": "Forsyningsledning"
+            "da": "Forsyningsledning",
+            "nl": "Aanvoerleiding"
           }
         },
         "state_button.hot_water_boost": {
@@ -1774,7 +1952,8 @@
             "en": "Hot water boost",
             "sv": "Varmvatten boost",
             "no": "Varmtvann boost",
-            "da": "Varmt vand boost"
+            "da": "Varmt vand boost",
+            "nl": "Warm water boost"
           }
         },
         "measure_temperature.suction_gas": {
@@ -1782,7 +1961,8 @@
             "en": "Suction gas",
             "sv": "Suggas",
             "da": "Sugergas",
-            "no": "Sugegass"
+            "no": "Sugegass",
+            "nl": "Zuiggas"
           }
         },
         "measure_temperature.return_line": {
@@ -1790,7 +1970,8 @@
             "en": "Return line",
             "sv": "Returledning",
             "da": "Returledning",
-            "no": "Returledning"
+            "no": "Returledning",
+            "nl": "Retourleiding"
           }
         },
         "measure_temperature.hot_water_top": {
@@ -1798,7 +1979,8 @@
             "en": "Hot water top",
             "sv": "Varmvatten top",
             "da": "Varmtvand top",
-            "no": "Varmtvann topp"
+            "no": "Varmtvann topp",
+            "nl": "Warm water boven"
           }
         },
         "measure_temperature.hot_water_charging": {
@@ -1806,7 +1988,8 @@
             "en": "Hot water charge",
             "sv": "Varmvatten laddning",
             "da": "Varmtvandsopladning",
-            "no": "Varmtvannslading"
+            "no": "Varmtvannslading",
+            "nl": "Warm water laden"
           }
         },
         "measure_frequency.compressor": {
@@ -1814,7 +1997,8 @@
             "en": "Compressor frequency",
             "sv": "Kompressorfrekvens",
             "da": "Kompressorfrekvens",
-            "no": "Kompressorfrekvens"
+            "no": "Kompressorfrekvens",
+            "nl": "Compressorfrequentie"
           }
         },
         "measure_temperature.outdoor": {
@@ -1822,7 +2006,8 @@
             "en": "Outside",
             "sv": "Utomhus",
             "da": "Udendørs",
-            "no": "Utendørs"
+            "no": "Utendørs",
+            "nl": "Buiten"
           }
         },
         "target_temperature.room": {
@@ -1830,7 +2015,8 @@
             "en": "Target temperature",
             "sv": "Måltemperatur",
             "da": "Måltemperatur",
-            "no": "Måltemperatur"
+            "no": "Måltemperatur",
+            "nl": "Streeftemperatuur"
           }
         },
         "measure_temperature.room": {
@@ -1838,7 +2024,8 @@
             "en": "Room temperature",
             "sv": "Rumstemperatur",
             "da": "Rumtemperatur",
-            "no": "Romtemperatur"
+            "no": "Romtemperatur",
+            "nl": "Kamertemperatuur"
           }
         },
         "measure_power": {
@@ -1888,7 +2075,8 @@
             "en": "Firmware",
             "sv": "Programvara",
             "da": "Firmware",
-            "no": "Firmware"
+            "no": "Firmware",
+            "nl": "Firmware"
           },
           "value": ""
         },
@@ -1899,7 +2087,8 @@
             "en": "Serial number",
             "sv": "Serienummer",
             "da": "Serienummer",
-            "no": "Serienummer"
+            "no": "Serienummer",
+            "nl": "Serienummer"
           },
           "value": ""
         },
@@ -1910,7 +2099,8 @@
             "en": "Power factor",
             "sv": "Effektfaktor",
             "da": "Effektfaktor",
-            "no": "Effektfaktor"
+            "no": "Effektfaktor",
+            "nl": "Vermogensfactor"
           },
           "value": 0.95,
           "min": 0,
@@ -1924,7 +2114,8 @@
             "en": "Volt",
             "sv": "Volt",
             "da": "Volt",
-            "no": "Volt"
+            "no": "Volt",
+            "nl": "Volt"
           },
           "value": 400,
           "min": 230,
@@ -1938,7 +2129,8 @@
             "en": "Interval in minutes to fetch data",
             "sv": "Intervall i minuter för hämtning av data",
             "da": "Interval i minutter for hentning af data",
-            "no": "Intervall i minutter for henting av data"
+            "no": "Intervall i minutter for henting av data",
+            "nl": "Interval in minuten om data op te halen"
           },
           "min": 5,
           "value": 5
@@ -1949,7 +2141,8 @@
             "en": "Parameter ID Overrides",
             "sv": "Parameteröverstyrningar",
             "no": "Parameter-ID-overstyringer",
-            "da": "Parameter-ID-tilsidesættelser"
+            "da": "Parameter-ID-tilsidesættelser",
+            "nl": "Parameter-ID-overschrijvingen"
           },
           "children": [
             {
@@ -1959,13 +2152,15 @@
                 "en": "Outdoor temperature (BT1)",
                 "sv": "Utomhustemperatur (BT1)",
                 "no": "Utetemperatur (BT1)",
-                "da": "Udendørstemperatur (BT1)"
+                "da": "Udendørstemperatur (BT1)",
+                "nl": "Buitentemperatuur (BT1)"
               },
               "hint": {
                 "en": "Default: 4. Set to 0 to use default.",
                 "sv": "Standard: 4. Sätt till 0 för standard.",
                 "no": "Standard: 4. Sett til 0 for standard.",
-                "da": "Standard: 4. Sæt til 0 for standard."
+                "da": "Standard: 4. Sæt til 0 for standard.",
+                "nl": "Standaard: 4. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -1977,13 +2172,15 @@
                 "en": "Average outdoor temperature",
                 "sv": "Genomsnittlig utomhustemperatur",
                 "no": "Gjennomsnittlig utetemperatur",
-                "da": "Gennemsnitlig udendørstemperatur"
+                "da": "Gennemsnitlig udendørstemperatur",
+                "nl": "Gemiddelde buitentemperatuur"
               },
               "hint": {
                 "en": "Default: 54. Set to 0 to use default.",
                 "sv": "Standard: 54. Sätt till 0 för standard.",
                 "no": "Standard: 54. Sett til 0 for standard.",
-                "da": "Standard: 54. Sæt til 0 for standard."
+                "da": "Standard: 54. Sæt til 0 for standard.",
+                "nl": "Standaard: 54. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -1995,13 +2192,15 @@
                 "en": "Supply line temperature (BT2)",
                 "sv": "Framledningstemperatur (BT2)",
                 "no": "Turledningstemperatur (BT2)",
-                "da": "Fremløbstemperatur (BT2)"
+                "da": "Fremløbstemperatur (BT2)",
+                "nl": "Aanvoerleidingtemperatuur (BT2)"
               },
               "hint": {
                 "en": "Default: 8. Set to 0 to use default.",
                 "sv": "Standard: 8. Sätt till 0 för standard.",
                 "no": "Standard: 8. Sett til 0 for standard.",
-                "da": "Standard: 8. Sæt til 0 for standard."
+                "da": "Standard: 8. Sæt til 0 for standard.",
+                "nl": "Standaard: 8. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -2013,13 +2212,15 @@
                 "en": "Return line temperature (BT3)",
                 "sv": "Returledningstemperatur (BT3)",
                 "no": "Returledningstemperatur (BT3)",
-                "da": "Returledningstemperatur (BT3)"
+                "da": "Returledningstemperatur (BT3)",
+                "nl": "Retourleiding temperatuur (BT3)"
               },
               "hint": {
                 "en": "Default: 10. Set to 0 to use default.",
                 "sv": "Standard: 10. Sätt till 0 för standard.",
                 "no": "Standard: 10. Sett til 0 for standard.",
-                "da": "Standard: 10. Sæt til 0 for standard."
+                "da": "Standard: 10. Sæt til 0 for standard.",
+                "nl": "Standaard: 10. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -2031,13 +2232,15 @@
                 "en": "Hot water top (BT7)",
                 "sv": "Varmvatten topp (BT7)",
                 "no": "Varmtvann topp (BT7)",
-                "da": "Varmt vand top (BT7)"
+                "da": "Varmt vand top (BT7)",
+                "nl": "Warm water boven (BT7)"
               },
               "hint": {
                 "en": "Default: 11. Set to 0 to use default.",
                 "sv": "Standard: 11. Sätt till 0 för standard.",
                 "no": "Standard: 11. Sett til 0 for standard.",
-                "da": "Standard: 11. Sæt til 0 for standard."
+                "da": "Standard: 11. Sæt til 0 for standard.",
+                "nl": "Standaard: 11. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -2049,13 +2252,15 @@
                 "en": "Hot water charging (BT6)",
                 "sv": "Varmvatten laddning (BT6)",
                 "no": "Varmtvannslading (BT6)",
-                "da": "Varmtvandsopladning (BT6)"
+                "da": "Varmtvandsopladning (BT6)",
+                "nl": "Warm water laden (BT6)"
               },
               "hint": {
                 "en": "Default: 12. Set to 0 to use default.",
                 "sv": "Standard: 12. Sätt till 0 för standard.",
                 "no": "Standard: 12. Sett til 0 for standard.",
-                "da": "Standard: 12. Sæt til 0 for standard."
+                "da": "Standard: 12. Sæt til 0 for standard.",
+                "nl": "Standaard: 12. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -2067,13 +2272,15 @@
                 "en": "Brine in (BT10)",
                 "sv": "Köldbärare in (BT10)",
                 "no": "Brine inn (BT10)",
-                "da": "Brine ind (BT10)"
+                "da": "Brine ind (BT10)",
+                "nl": "Pekel in (BT10)"
               },
               "hint": {
                 "en": "Default: 13. Set to 0 to use default.",
                 "sv": "Standard: 13. Sätt till 0 för standard.",
                 "no": "Standard: 13. Sett til 0 for standard.",
-                "da": "Standard: 13. Sæt til 0 for standard."
+                "da": "Standard: 13. Sæt til 0 for standard.",
+                "nl": "Standaard: 13. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -2085,13 +2292,15 @@
                 "en": "Brine out (BT11)",
                 "sv": "Köldbärare ut (BT11)",
                 "no": "Brine ut (BT11)",
-                "da": "Brine ud (BT11)"
+                "da": "Brine ud (BT11)",
+                "nl": "Pekel uit (BT11)"
               },
               "hint": {
                 "en": "Default: 14. Set to 0 to use default.",
                 "sv": "Standard: 14. Sätt till 0 för standard.",
                 "no": "Standard: 14. Sett til 0 for standard.",
-                "da": "Standard: 14. Sæt til 0 for standard."
+                "da": "Standard: 14. Sæt til 0 for standard.",
+                "nl": "Standaard: 14. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -2103,13 +2312,15 @@
                 "en": "Discharge temperature (BT14)",
                 "sv": "Hetgastemperatur (BT14)",
                 "no": "Hetgasstemperatur (BT14)",
-                "da": "Hedgastemperatur (BT14)"
+                "da": "Hedgastemperatur (BT14)",
+                "nl": "Persgastemperatuur (BT14)"
               },
               "hint": {
                 "en": "Default: 16. Set to 0 to use default.",
                 "sv": "Standard: 16. Sätt till 0 för standard.",
                 "no": "Standard: 16. Sett til 0 for standard.",
-                "da": "Standard: 16. Sæt til 0 for standard."
+                "da": "Standard: 16. Sæt til 0 for standard.",
+                "nl": "Standaard: 16. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -2121,13 +2332,15 @@
                 "en": "Suction gas temperature (BT17)",
                 "sv": "Suggastemperatur (BT17)",
                 "no": "Sugegasstemperatur (BT17)",
-                "da": "Sugegastemperatur (BT17)"
+                "da": "Sugegastemperatur (BT17)",
+                "nl": "Zuiggastemperatuur (BT17)"
               },
               "hint": {
                 "en": "Default: 19. Set to 0 to use default.",
                 "sv": "Standard: 19. Sätt till 0 för standard.",
                 "no": "Standard: 19. Sett til 0 for standard.",
-                "da": "Standard: 19. Sæt til 0 for standard."
+                "da": "Standard: 19. Sæt til 0 for standard.",
+                "nl": "Standaard: 19. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -2139,13 +2352,15 @@
                 "en": "Room temperature (BT50)",
                 "sv": "Rumstemperatur (BT50)",
                 "no": "Romtemperatur (BT50)",
-                "da": "Rumtemperatur (BT50)"
+                "da": "Rumtemperatur (BT50)",
+                "nl": "Kamertemperatuur (BT50)"
               },
               "hint": {
                 "en": "Default: 48351. Set to 0 to use default.",
                 "sv": "Standard: 48351. Sätt till 0 för standard.",
                 "no": "Standard: 48351. Sett til 0 for standard.",
-                "da": "Standard: 48351. Sæt til 0 for standard."
+                "da": "Standard: 48351. Sæt til 0 for standard.",
+                "nl": "Standaard: 48351. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -2157,13 +2372,15 @@
                 "en": "Degree minutes",
                 "sv": "Gradminuter",
                 "no": "Gradminutter",
-                "da": "Gradminutter"
+                "da": "Gradminutter",
+                "nl": "Graadminuten"
               },
               "hint": {
                 "en": "Default: 781. Set to 0 to use default.",
                 "sv": "Standard: 781. Sätt till 0 för standard.",
                 "no": "Standard: 781. Sett til 0 for standard.",
-                "da": "Standard: 781. Sæt til 0 for standard."
+                "da": "Standard: 781. Sæt til 0 for standard.",
+                "nl": "Standaard: 781. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -2175,13 +2392,15 @@
                 "en": "Compressor frequency",
                 "sv": "Kompressorfrekvens",
                 "no": "Kompressorfrekvens",
-                "da": "Kompressorfrekvens"
+                "da": "Kompressorfrekvens",
+                "nl": "Compressorfrequentie"
               },
               "hint": {
                 "en": "Default: 5927. Set to 0 to use default.",
                 "sv": "Standard: 5927. Sätt till 0 för standard.",
                 "no": "Standard: 5927. Sett til 0 for standard.",
-                "da": "Standard: 5927. Sæt til 0 for standard."
+                "da": "Standard: 5927. Sæt til 0 for standard.",
+                "nl": "Standaard: 5927. Stel in op 0 voor standaard."
               },
               "value": 0,
               "min": 0
@@ -2198,7 +2417,8 @@
         "en": "Air velocity",
         "sv": "Lufthastighet",
         "da": "Lufthastighed",
-        "no": "Lufthastighet"
+        "no": "Lufthastighet",
+        "nl": "Luchtsnelheid"
       },
       "uiComponent": "sensor",
       "getable": true,
@@ -2207,7 +2427,8 @@
         "en": "Value, air velocity sensor",
         "sv": "Värde, lufthastighetssensor",
         "da": "Værdi, lufthastighedssensor",
-        "no": "Verdi, lufthastighetssensor"
+        "no": "Verdi, lufthastighetssensor",
+        "nl": "Waarde, luchtsnelheidssensor"
       },
       "units": " ",
       "icon": "/assets/wind.svg"
@@ -2218,7 +2439,8 @@
         "en": "Degree minutes",
         "sv": "Gradminuter",
         "da": "Gradminutter",
-        "no": "Gradminutter"
+        "no": "Gradminutter",
+        "nl": "Graadminuten"
       },
       "uiComponent": "sensor",
       "getable": true,
@@ -2228,7 +2450,8 @@
         "en": "Latest value of degree minutes",
         "sv": "Senaste avlästa värdet av gradminuter",
         "da": "Seneste aflæste værdi af gradminutter",
-        "no": "Siste avleste verdi av gradminutter"
+        "no": "Siste avleste verdi av gradminutter",
+        "nl": "Laatste waarde van graadminuten"
       },
       "insights": true
     },
@@ -2238,7 +2461,8 @@
         "en": "Fan speed",
         "sv": "Fläkthastiget",
         "da": "Blæserhastighed",
-        "no": "Viftehastighet"
+        "no": "Viftehastighet",
+        "nl": "Ventilatorsnelheid"
       },
       "uiComponent": "sensor",
       "getable": true,
@@ -2246,7 +2470,8 @@
         "en": "Current fan speed",
         "sv": "Nuvarande fläkthastiget",
         "da": "Nuværende blæserhastighed",
-        "no": "Nåværende viftehastighet"
+        "no": "Nåværende viftehastighet",
+        "nl": "Huidige ventilatorsnelheid"
       },
       "units": "%",
       "icon": "/assets/fan_speed.svg"
@@ -2257,7 +2482,8 @@
         "en": "Power internal add. heat",
         "sv": "Effekt intern tillsats",
         "da": "Effekt intern tilsætning",
-        "no": "Effekt intern tilsetning"
+        "no": "Effekt intern tilsetning",
+        "nl": "Vermogen interne bijverwarming"
       },
       "uiComponent": "sensor",
       "getable": true,
@@ -2265,7 +2491,8 @@
         "en": "Current power of internal additional heater",
         "sv": "Aktuell effekt intern tillsats",
         "da": "Aktuel effekt intern tilsætning",
-        "no": "Aktuell effekt intern tilsetning"
+        "no": "Aktuell effekt intern tilsetning",
+        "nl": "Huidig vermogen interne bijverwarming"
       },
       "units": "kW",
       "icon": "/assets/measure_current.svg"
@@ -2276,7 +2503,8 @@
         "en": "State button",
         "sv": "Statusknapp",
         "da": "Statusknap",
-        "no": "Statusknapp"
+        "no": "Statusknapp",
+        "nl": "Statusknop"
       },
       "getable": true,
       "setable": true,
@@ -2288,7 +2516,8 @@
         "en": "Compressor status",
         "sv": "Kompressorstatus",
         "no": "Kompressorstatus",
-        "da": "Kompressor status"
+        "da": "Kompressor status",
+        "nl": "Compressorstatus"
       },
       "uiComponent": "sensor",
       "setable": false,
@@ -2302,7 +2531,8 @@
         "en": "Time factor of heat addition",
         "sv": "Tidfaktor tillsats",
         "no": "Tidsfaktor for varmetilsetning",
-        "da": "Tidsfaktor for varmetilsætning"
+        "da": "Tidsfaktor for varmetilsætning",
+        "nl": "Tijdfactor warmtetoevoeging"
       },
       "uiComponent": "sensor",
       "setable": false,
