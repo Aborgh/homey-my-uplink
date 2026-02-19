@@ -112,5 +112,8 @@
   },
   "1.7.2": {
     "en": "Added approximate energy tracking (meter_power kWh) for F-Series, calculated from 3-phase 400V current measurements. Note: this is approximate since F-series can't directly measure energy tracking"
+  },
+  "1.8.0": {
+    "en": "add parameter ID overrides for heat pump drivers"
   }
 }
