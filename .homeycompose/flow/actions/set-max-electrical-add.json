@@ -1,0 +1,42 @@
+{
+  "id": "set-max-electrical-add",
+  "title": {
+    "en": "Set max electrical addition",
+    "sv": "Ställ in max eltillsats",
+    "da": "Indstil maks. elektrisk tilsætning",
+    "no": "Still inn maks elektrisk tilsetning",
+    "nl": "Max. elektrische aanvulling instellen"
+  },
+  "titleFormatted": {
+    "en": "Set max electrical addition to [[power]]",
+    "sv": "Ställ in max eltillsats till [[power]]",
+    "da": "Indstil maks. elektrisk tilsætning til [[power]]",
+    "no": "Still inn maks elektrisk tilsetning til [[power]]",
+    "nl": "Max. elektrische aanvulling instellen op [[power]]"
+  },
+  "hint": {
+    "en": "Sets the maximum electrical addition power. Options are fetched from your pump.",
+    "sv": "Ställer in den maximala eltillsatseffekten. Alternativ hämtas från din pump.",
+    "da": "Indstiller den maksimale elektriske tilsætningseffekt. Indstillinger hentes fra din pumpe.",
+    "no": "Setter maksimal elektrisk tilsetningseffekt. Alternativer hentes fra pumpen.",
+    "nl": "Stelt het maximale elektrische aanvullingsvermogen in. Opties worden opgehaald van je pomp."
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=heatpump"
+    },
+    {
+      "type": "autocomplete",
+      "name": "power",
+      "title": {
+        "en": "Power",
+        "sv": "Effekt",
+        "da": "Effekt",
+        "no": "Effekt",
+        "nl": "Vermogen"
+      }
+    }
+  ]
+}

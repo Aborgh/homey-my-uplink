@@ -33,9 +33,7 @@
     "state_button.temp_lux",
     "state_button.ventilation_boost",
     "measure_power",
-    "meter_power",
-    "hot_water_demand",
-    "set_max_electrical_add"
+    "meter_power"
   ],
   "capabilitiesOptions": {
     "measure_temperature.supply_line": {

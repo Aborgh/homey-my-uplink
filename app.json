@@ -1101,6 +1101,48 @@
         ]
       },
       {
+        "id": "set-max-electrical-add",
+        "title": {
+          "en": "Set max electrical addition",
+          "sv": "Ställ in max eltillsats",
+          "da": "Indstil maks. elektrisk tilsætning",
+          "no": "Still inn maks elektrisk tilsetning",
+          "nl": "Max. elektrische aanvulling instellen"
+        },
+        "titleFormatted": {
+          "en": "Set max electrical addition to [[power]]",
+          "sv": "Ställ in max eltillsats till [[power]]",
+          "da": "Indstil maks. elektrisk tilsætning til [[power]]",
+          "no": "Still inn maks elektrisk tilsetning til [[power]]",
+          "nl": "Max. elektrische aanvulling instellen op [[power]]"
+        },
+        "hint": {
+          "en": "Sets the maximum electrical addition power. Options are fetched from your pump.",
+          "sv": "Ställer in den maximala eltillsatseffekten. Alternativ hämtas från din pump.",
+          "da": "Indstiller den maksimale elektriske tilsætningseffekt. Indstillinger hentes fra din pumpe.",
+          "no": "Setter maksimal elektrisk tilsetningseffekt. Alternativer hentes fra pumpen.",
+          "nl": "Stelt het maximale elektrische aanvullingsvermogen in. Opties worden opgehaald van je pomp."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=heatpump"
+          },
+          {
+            "type": "autocomplete",
+            "name": "power",
+            "title": {
+              "en": "Power",
+              "sv": "Effekt",
+              "da": "Effekt",
+              "no": "Effekt",
+              "nl": "Vermogen"
+            }
+          }
+        ]
+      },
+      {
         "id": "set-temp-lux",
         "title": {
           "en": "Set temporary luxury",
@@ -1306,9 +1348,7 @@
         "state_button.temp_lux",
         "state_button.ventilation_boost",
         "measure_power",
-        "meter_power",
-        "hot_water_demand",
-        "set_max_electrical_add"
+        "meter_power"
       ],
       "capabilitiesOptions": {
         "measure_temperature.supply_line": {
@@ -2413,20 +2453,6 @@
     }
   ],
   "capabilities": {
-    "hot_water_demand": {
-      "title": {
-        "en": "Hot water demand",
-        "sv": "Varmvattenbehov",
-        "da": "Varmtvandsbehov",
-        "no": "Varmtvannsbehov",
-        "nl": "Warmwatervraag"
-      },
-      "uiComponent": "picker",
-      "setable": true,
-      "getable": true,
-      "type": "enum",
-      "values": []
-    },
     "measure_air_velocity": {
       "type": "number",
       "title": {
@@ -2512,20 +2538,6 @@
       },
       "units": "kW",
       "icon": "/assets/measure_current.svg"
-    },
-    "set_max_electrical_add": {
-      "title": {
-        "en": "Max electrical addition",
-        "sv": "Max eltillsats",
-        "da": "Maks. elektrisk tilsætning",
-        "no": "Maks elektrisk tilsetning",
-        "nl": "Max. elektrische aanvulling"
-      },
-      "uiComponent": "picker",
-      "setable": true,
-      "getable": true,
-      "type": "enum",
-      "values": []
     },
     "state_button": {
       "type": "boolean",

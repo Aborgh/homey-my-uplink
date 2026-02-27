@@ -138,6 +138,24 @@ class NibeHeatpumpApp extends OAuth2App {
             await device.setParameterValue(paramId, Number(value));
             return true;
         });
+
+        // Set max electrical addition action
+        const setMaxElectricalAddAction = this.homey.flow.getActionCard('set-max-electrical-add');
+        setMaxElectricalAddAction.registerArgumentAutocompleteListener('power', async (query, args) => {
+            const options = args.device.getActionEnumOptions(FSeriesParameterIds.SET_MAX_ELECTRICAL_ADD);
+            return options.filter(o => o.name.toLowerCase().includes(query.toLowerCase()));
+        });
+        setMaxElectricalAddAction.registerRunListener(async (args, state) => {
+            const { device, power } = args;
+
+            if (!device) {
+                throw new Error('Device not found');
+            }
+
+            this.log(`Setting max electrical addition to ${power.id} on device ${device.getName()}`);
+            await device.setParameterValue(FSeriesParameterIds.SET_MAX_ELECTRICAL_ADD, Number(power.id));
+            return true;
+        });
     }
 
     registerFlowConditions() {
