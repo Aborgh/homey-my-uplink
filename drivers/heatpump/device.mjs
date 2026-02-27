@@ -44,6 +44,8 @@ class FSeriesDevice extends OAuth2Device {
         // Removed for now since it doesn't return the correct value
         // ParameterIds.ELECTRIC_ADDITION_STATUS
         FSeriesParameterIds.SET_POINT_TEMP_F730,
+        FSeriesParameterIds.HOT_WATER_DEMAND,
+        FSeriesParameterIds.SET_MAX_ELECTRICAL_ADD,
     ];
 
     /**
@@ -201,6 +203,36 @@ ${"#".repeat(deviceInfoHeader.length)}
                 await this.setTargetTemperature(value);
             });
         }
+        // Listener for hot water demand (value is the raw numeric string id)
+        if (this.hasCapability('hot_water_demand')) {
+            this.registerCapabilityListener('hot_water_demand', async (value) => {
+                try {
+                    this.log(`Setting hot water demand to ${value}`);
+                    await this.requestQueue.queueParameterUpdate(
+                        FSeriesParameterIds.HOT_WATER_DEMAND,
+                        Number(value)
+                    );
+                } catch (error) {
+                    this.error(`Error setting hot water demand: ${error.message}`);
+                    await this.fetchAndSetDataPoints([FSeriesParameterIds.HOT_WATER_DEMAND]);
+                }
+            });
+        }
+        // Listener for max electrical addition (value is the raw numeric string id)
+        if (this.hasCapability('set_max_electrical_add')) {
+            this.registerCapabilityListener('set_max_electrical_add', async (value) => {
+                try {
+                    this.log(`Setting max electrical addition to ${value}`);
+                    await this.requestQueue.queueParameterUpdate(
+                        FSeriesParameterIds.SET_MAX_ELECTRICAL_ADD,
+                        Number(value)
+                    );
+                } catch (error) {
+                    this.error(`Error setting max electrical addition: ${error.message}`);
+                    await this.fetchAndSetDataPoints([FSeriesParameterIds.SET_MAX_ELECTRICAL_ADD]);
+                }
+            });
+        }
     }
 
     getActiveSetPointParameterId() {
@@ -260,7 +292,18 @@ ${"#".repeat(deviceInfoHeader.length)}
                             value = String(point.value);
                             break;
                         case 'enum':
-                            value = this.processEnumValue(point, param);
+                            if (param.dynamic && Array.isArray(point.enumValues) && point.enumValues.length > 0) {
+                                // Dynamically populate the capability's picker options from the pump's enum list
+                                const dynamicValues = point.enumValues.map(e => ({
+                                    id: String(e.value),
+                                    title: { en: e.text }
+                                }));
+                                await this.setCapabilityOptions(param.capabilityName, { values: dynamicValues });
+                                // Use the raw numeric string as the capability value (matches the option id)
+                                value = String(Math.round(point.value));
+                            } else {
+                                value = this.processEnumValue(point, param);
+                            }
                             break;
                         default:
                             value = point.value;

@@ -1,0 +1,14 @@
+{
+  "title": {
+    "en": "Max electrical addition",
+    "sv": "Max eltillsats",
+    "da": "Maks. elektrisk tilsætning",
+    "no": "Maks elektrisk tilsetning",
+    "nl": "Max. elektrische aanvulling"
+  },
+  "uiComponent": "picker",
+  "setable": true,
+  "getable": true,
+  "type": "enum",
+  "values": []
+}

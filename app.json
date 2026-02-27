@@ -1306,7 +1306,9 @@
         "state_button.temp_lux",
         "state_button.ventilation_boost",
         "measure_power",
-        "meter_power"
+        "meter_power",
+        "hot_water_demand",
+        "set_max_electrical_add"
       ],
       "capabilitiesOptions": {
         "measure_temperature.supply_line": {
@@ -2411,6 +2413,20 @@
     }
   ],
   "capabilities": {
+    "hot_water_demand": {
+      "title": {
+        "en": "Hot water demand",
+        "sv": "Varmvattenbehov",
+        "da": "Varmtvandsbehov",
+        "no": "Varmtvannsbehov",
+        "nl": "Warmwatervraag"
+      },
+      "uiComponent": "picker",
+      "setable": true,
+      "getable": true,
+      "type": "enum",
+      "values": []
+    },
     "measure_air_velocity": {
       "type": "number",
       "title": {
@@ -2496,6 +2512,20 @@
       },
       "units": "kW",
       "icon": "/assets/measure_current.svg"
+    },
+    "set_max_electrical_add": {
+      "title": {
+        "en": "Max electrical addition",
+        "sv": "Max eltillsats",
+        "da": "Maks. elektrisk tilsætning",
+        "no": "Maks elektrisk tilsetning",
+        "nl": "Max. elektrische aanvulling"
+      },
+      "uiComponent": "picker",
+      "setable": true,
+      "getable": true,
+      "type": "enum",
+      "values": []
     },
     "state_button": {
       "type": "boolean",
