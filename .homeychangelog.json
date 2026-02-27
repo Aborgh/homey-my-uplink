@@ -118,5 +118,8 @@
   },
   "1.8.1": {
     "en": "add parameter ID overrides for heat pump drivers and dutch translations"
+  },
+  "1.9.0": {
+    "en": "feat: add hot water demand and max electrical addition capabilities"
   }
 }
