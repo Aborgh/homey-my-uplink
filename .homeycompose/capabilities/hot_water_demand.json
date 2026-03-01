@@ -1,0 +1,14 @@
+{
+  "title": {
+    "en": "Hot water demand",
+    "sv": "Varmvattenbehov",
+    "da": "Varmtvandsbehov",
+    "no": "Varmtvannsbehov",
+    "nl": "Warmwatervraag"
+  },
+  "uiComponent": null,
+  "setable": false,
+  "getable": false,
+  "type": "enum",
+  "values": []
+}

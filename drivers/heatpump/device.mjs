@@ -94,9 +94,21 @@ ${"#".repeat(deviceInfoHeader.length)}
 
             // Set up capability listeners
             await this.setupCapabilityListeners();
-            // remove "status_electric_addition" for now since it doesn't work on api-level
-            if (this.hasCapability("status_electric_addition")) {
-                await this.removeCapability("status_electric_addition");
+            // Remove deprecated capabilities from existing devices
+            const deprecatedCapabilities = [
+                'status_electric_addition',
+                'hot_water_demand',
+                'set_max_electrical_add',
+            ];
+            for (const cap of deprecatedCapabilities) {
+                if (this.hasCapability(cap)) {
+                    try {
+                        this.log(`Removing deprecated capability: ${cap}`);
+                        await this.removeCapability(cap);
+                    } catch (err) {
+                        this.error(`Failed to remove capability ${cap}: ${err.message}`);
+                    }
+                }
             }
             // Start polling
             this.startPolling();
