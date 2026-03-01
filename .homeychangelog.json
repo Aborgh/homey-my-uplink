@@ -124,5 +124,8 @@
   },
   "1.9.1": {
     "en": "feat: remove hot water demand capability and add set max electrical addition action"
+  },
+  "1.9.2": {
+    "en": "Re-added capabilites to safely remove them"
   }
 }
