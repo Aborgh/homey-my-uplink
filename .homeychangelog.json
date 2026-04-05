@@ -127,5 +127,8 @@
   },
   "1.9.2": {
     "en": "Re-added capabilites to safely remove them"
+  },
+  "1.9.3": {
+    "en": "Better power monitoring for some S-Series pumps"
   }
 }
