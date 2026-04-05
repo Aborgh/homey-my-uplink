@@ -35,7 +35,9 @@ class SSeriesDevice extends OAuth2Device {
         SSeriesParameterIds.CURRENT_2,
         SSeriesParameterIds.CURRENT_3,
         SSeriesParameterIds.LIFETIME_ENERGY_CONSUMED,
-        SSeriesParameterIds.AVERAGE_OUTDOOR_TEMP
+        SSeriesParameterIds.AVERAGE_OUTDOOR_TEMP,
+        SSeriesParameterIds.SYSTEM_POWER_CONSUMPTION,
+        SSeriesParameterIds.QUICK_WATER_HEATING
     ];
 
     /**
@@ -44,6 +46,7 @@ class SSeriesDevice extends OAuth2Device {
      */
     static CAPABILITY_PARAMETER_MAP = {
         'state_button.hot_water_boost': SSeriesParameterIds.HOT_WATER_BOOST,
+        'state_button.quick_water_heating': SSeriesParameterIds.QUICK_WATER_HEATING,
         // 'state_button.ventilation_boost': SSeriesParameterIds.VENTILATION_BOOST,
         'target_temperature.room': SSeriesParameterIds.ROOM_TEMP_SETPOINT
     };
@@ -71,21 +74,44 @@ ${"#".repeat(deviceInfoHeader.length)}
             this.powerCalculator = new PowerCalculator();
             this.requestQueue = new RequestQueueHelper(this)
 
+            // Capabilities that should only be used internally, not shown in UI
+            this._internalCapabilities = new Set([
+                'meter_power.lifetime_energy_consumed',
+                'measure_power.system'
+            ]);
+
             // Build effective parameter map (applies user overrides from settings)
             this._buildEffectiveParameters();
+
+            // Migrate: remove deprecated capabilities from UI for existing devices
+            for (const cap of this._internalCapabilities) {
+                if (this.hasCapability(cap)) {
+                    this.log(`Removing deprecated visible capability: ${cap}`);
+                    await this.removeCapability(cap);
+                }
+            }
 
             // Fetch data first to ensure we have the right capabilities
             await this.fetchAndSetDataPoints(this._effectiveMonitored);
 
-            // Check if we have current sensors or lifetime energy and add measure_power if needed
+            // Migrate: remove deprecated capabilities that are now internal-only
+            for (const cap of ['meter_power.lifetime_energy_consumed', 'measure_power.system']) {
+                if (this.hasCapability(cap)) {
+                    this.log(`Removing deprecated visible capability: ${cap}`);
+                    await this.removeCapability(cap);
+                }
+            }
+
+            // Check if we have any power source and add measure_power if needed
             const hasCurrentCapabilities =
                 this.hasCapability('measure_current.one') ||
                 this.hasCapability('measure_current.two') ||
                 this.hasCapability('measure_current.three');
             
-            const hasLifetimeEnergy = this.hasCapability('meter_power.lifetime_energy_consumed');
+            const hasSystemPower = this._internalValues?.get('measure_power.system') != null;
+            const hasLifetimeEnergy = this._internalValues?.get('meter_power.lifetime_energy_consumed') != null;
 
-            if (hasCurrentCapabilities || hasLifetimeEnergy) {
+            if (hasCurrentCapabilities || hasLifetimeEnergy || hasSystemPower) {
                 if (!this.hasCapability('measure_power')) {
                     this.log('Adding measure_power capability');
                     await this.addCapability('measure_power');
@@ -93,10 +119,19 @@ ${"#".repeat(deviceInfoHeader.length)}
                 // Now update power value
                 await this.powerCalculator.updateDevicePower(this);
             } else {
-                this.log('No current sensors or lifetime energy found, skipping power calculation');
+                this.log('No current sensors, system power, or lifetime energy found, skipping power calculation');
                 if (this.hasCapability('measure_power')) {
                     await this.removeCapability('measure_power');
                 }
+            }
+
+            // Use system-reported lifetime energy as meter_power for Homey energy tracking
+            if (hasLifetimeEnergy) {
+                if (!this.hasCapability('meter_power')) {
+                    this.log('Adding meter_power capability');
+                    await this.addCapability('meter_power');
+                }
+                await this.updateMeterPowerFromSystem();
             }
 
             await this.settingsManager.initializeSettings();
@@ -108,6 +143,24 @@ ${"#".repeat(deviceInfoHeader.length)}
             this.startPolling();
         } catch (error) {
             this.error('Error during device initialization:', error.message, error.stack);
+        }
+    }
+
+    /**
+     * Sets meter_power directly from the system-reported lifetime energy consumption
+     */
+    async updateMeterPowerFromSystem() {
+        try {
+            if (!this.hasCapability('meter_power')) {
+                return;
+            }
+            const lifetimeEnergy = this._internalValues?.get('meter_power.lifetime_energy_consumed');
+            if (lifetimeEnergy != null) {
+                await this.setCapabilityValue('meter_power', lifetimeEnergy);
+                this.log(`meter_power set from system: ${lifetimeEnergy} kWh`);
+            }
+        } catch (error) {
+            this.error('Error updating meter_power from system:', error);
         }
     }
 
@@ -125,6 +178,7 @@ ${"#".repeat(deviceInfoHeader.length)}
             try {
                 await this.fetchAndSetDataPoints(this._effectiveMonitored);
                 await this.powerCalculator.updateDevicePower(this);
+                await this.updateMeterPowerFromSystem();
                 await this.settingsManager.updateHeatpumpSettings();
                 await this.refreshZoneData();
             } catch (error) {
@@ -242,6 +296,11 @@ ${"#".repeat(deviceInfoHeader.length)}
                     if (this.hasCapability(param.capabilityName)) {
                         await this.setCapabilityValue(param.capabilityName, value);
                         this.log(`Updated ${param.capabilityName} to ${value}`);
+                    } else if (this._internalCapabilities?.has(param.capabilityName)) {
+                        // Store internally without adding as visible capability
+                        if (!this._internalValues) this._internalValues = new Map();
+                        this._internalValues.set(param.capabilityName, value);
+                        this.log(`Stored internal value ${param.capabilityName}: ${value}`);
                     } else {
                         // Add capability if it doesn't exist
                         await this.addCapability(param.capabilityName);
@@ -258,16 +317,17 @@ ${"#".repeat(deviceInfoHeader.length)}
                 }
             }
 
-            // Check if current sensors or lifetime energy exist to justify keeping measure_power
+            // Check if current sensors, system power, or lifetime energy exist to justify keeping measure_power
             const hasCurrent = returnedParameterIds.has(SSeriesParameterIds.CURRENT_1) ||
                 returnedParameterIds.has(SSeriesParameterIds.CURRENT_2) ||
                 returnedParameterIds.has(SSeriesParameterIds.CURRENT_3);
             
             const hasLifetimeEnergy = returnedParameterIds.has(SSeriesParameterIds.LIFETIME_ENERGY_CONSUMED);
+            const hasSystemPower = returnedParameterIds.has(SSeriesParameterIds.SYSTEM_POWER_CONSUMPTION);
 
-            // Keep measure_power if we have current sensors OR lifetime energy
-            if (!hasCurrent && !hasLifetimeEnergy && this.hasCapability('measure_power')) {
-                this.log('No current sensors or lifetime energy found, removing measure_power capability');
+            // Keep measure_power if we have current sensors, system power OR lifetime energy
+            if (!hasCurrent && !hasSystemPower && !hasLifetimeEnergy && this.hasCapability('measure_power')) {
+                this.log('No current sensors, system power, or lifetime energy found, removing measure_power capability');
                 await this.removeCapability('measure_power');
             }
 
@@ -436,7 +496,7 @@ ${"#".repeat(deviceInfoHeader.length)}
      * @returns {string} The processed enum value
      */
     processEnumValue(point, param) {
-        // Standard enum handling for parameters
+        // Standard enum handling for display-only parameters
         return this.processStandardEnum(point);
     }
 

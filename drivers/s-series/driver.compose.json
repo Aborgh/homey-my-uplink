@@ -24,8 +24,9 @@
     "status_compressor",
     "measure_degree_minutes",
     "state_button.hot_water_boost",
+    "state_button.quick_water_heating",
     "measure_power",
-    "meter_power.lifetime_energy_consumed"
+    "meter_power"
   ],
   "capabilitiesOptions": {
     "measure_temperature.average_outdoor": {
@@ -37,15 +38,7 @@
         "nl": "Gemiddeld buiten"
       }
     },
-    "meter_power.lifetime_energy_consumed": {
-      "title": {
-        "en": "Total consumed energy",
-        "sv": "Total förbrukad energi",
-        "no": "Total forbrukt energi",
-        "da": "Total forbrugt energi",
-        "nl": "Totaal verbruikte energie"
-      }
-    },
+
     "measure_temperature.supply_line": {
       "title": {
         "en": "Supply line",
@@ -62,6 +55,15 @@
         "no": "Varmtvann boost",
         "da": "Varmt vand boost",
         "nl": "Warm water boost"
+      }
+    },
+    "state_button.quick_water_heating": {
+      "title": {
+        "en": "Quick water heating",
+        "sv": "Snabb varmvattenberedning",
+        "no": "Hurtig varmtvannsberedning",
+        "da": "Hurtig vandopvarmning",
+        "nl": "Snel water verwarmen"
       }
     },
     "measure_temperature.suction_gas": {
@@ -135,9 +137,6 @@
         "no": "Romtemperatur",
         "nl": "Kamertemperatuur"
       }
-    },
-    "measure_power": {
-      "approximated": true
     }
   },
   "platforms": [

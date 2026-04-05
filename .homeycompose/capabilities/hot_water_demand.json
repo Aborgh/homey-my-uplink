@@ -6,9 +6,40 @@
     "no": "Varmtvannsbehov",
     "nl": "Warmwatervraag"
   },
-  "uiComponent": null,
-  "setable": false,
-  "getable": false,
+  "uiComponent": "picker",
+  "setable": true,
+  "getable": true,
   "type": "enum",
-  "values": []
+  "values": [
+    {
+      "id": "0",
+      "title": {
+        "en": "Small",
+        "sv": "Liten",
+        "da": "Lille",
+        "no": "Liten",
+        "nl": "Klein"
+      }
+    },
+    {
+      "id": "1",
+      "title": {
+        "en": "Medium",
+        "sv": "Medium",
+        "da": "Medium",
+        "no": "Medium",
+        "nl": "Gemiddeld"
+      }
+    },
+    {
+      "id": "2",
+      "title": {
+        "en": "Large",
+        "sv": "Stor",
+        "da": "Stor",
+        "no": "Stor",
+        "nl": "Groot"
+      }
+    }
+  ]
 }
