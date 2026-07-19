@@ -136,7 +136,6 @@ class F1155Device extends OAuth2Device {
         await this.measurePumpSpeedBrine(data);
         await this.measureDegreeMinutes(data);
         await this.targetTemperatureRoom(data);
-        await this.stateButtonTempLux(data);
         await this.meterPower(data);
         await this.measureTemperatureExhaustAir(data);
         await this.measureTemperatureExtractAir(data);
@@ -315,12 +314,6 @@ class F1155Device extends OAuth2Device {
         await this.setCapabilityValue('target_temperature.room', value);
     }
 
-    async stateButtonTempLux(data) {
-        const point = data[String(this.params.TEMPORARY_LUX)];
-        if (!point) return;
-        await this.setCapabilityValue('state_button.temp_lux', Boolean(point.value));
-    }
-
     async meterPower(data) {
         const point = data[String(this.params.EXT_ENERGY_METER)];
         if (!point) return;
@@ -382,13 +375,6 @@ class F1155Device extends OAuth2Device {
             );
         });
 
-        this.registerCapabilityListener('state_button.temp_lux', async (value) => {
-            this.log(`Setting temporary lux to ${value}`);
-            await this.requestQueue.queueParameterUpdate(
-                this.params.TEMPORARY_LUX,
-                value ? 1 : 0
-            );
-        });
     }
 
     async onSettings({ newSettings, changedKeys }) {

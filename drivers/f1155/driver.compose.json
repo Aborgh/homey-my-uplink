@@ -29,8 +29,7 @@
     "measure_degree_minutes",
     "measure_compressor_starts",
     "meter_power",
-    "status_compressor",
-    "state_button.temp_lux"
+    "status_compressor"
   ],
   "capabilitiesOptions": {
     "target_temperature.room": {
@@ -198,15 +197,6 @@
         "nl": "Stroom Fase 3 (BE3)"
       }
     },
-    "state_button.temp_lux": {
-      "title": {
-        "en": "Temporary luxury",
-        "sv": "Tillfällig lyx",
-        "da": "Midlertidig luksus",
-        "no": "Midlertidig luksus",
-        "nl": "Tijdelijk luxe"
-      }
-    }
   },
   "images": {
     "small": "/drivers/f1155/assets/images/small.png",
